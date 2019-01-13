@@ -110,6 +110,7 @@ else
     Plug 'https://github.com/vim-scripts/Conque-GDB'
     " Plug 'https://github.com/kien/ctrlp.vim'
     Plug 'https://github.com/junegunn/fzf.git'
+    Plug 'https://github.com/pbogut/fzf-mru.vim.git'
     Plug 'https://github.com/gregsexton/gitv'
     Plug 'https://github.com/vim-scripts/grep.vim'
     Plug 'https://github.com/scrooloose/nerdcommenter'
