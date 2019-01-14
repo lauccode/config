@@ -13,37 +13,37 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "Diverses options
 """"""""""""""""""""""""""""""""""""""""""""""""""
-"set nocompatible                                  " désactivation de la compatibilité avec vi
+"set nocompatible                                  " dÃ©sactivation de la compatibilitÃ© avec vi
 "set background=dark                               " fond sombre
 "colorscheme desert                                " couleur
 "syntax enable                                     " activation de la coloration syntaxique
-"set number                                        " numérotation des lignes
-"set autoindent                                    " indentation automatique avancée
+"set number                                        " numÃ©rotation des lignes
+"set autoindent                                    " indentation automatique avancÃ©e
 "set smartindent                                   " indentation plus intelligente
 "set laststatus=2                                  " ajoute une barre de status
-"set backspace=indent,eol,start                    " autorisation du retour arrière
+"set backspace=indent,eol,start                    " autorisation du retour arriÃ¨re
 "set history=50                                    " historique de 50 commandes
 "set ruler                                         " affiche la position courante au sein du fichier
 "set showcmd                                       " affiche la commande en cours
 "set shiftwidth=4                                  " nombre de tabulation pour l'indentation
 "set tabstop=8                                    " nombre d'espace pour une tabulation
-"set showmatch                                     " vérification présence ([ ou { à la frappe de )] ou }
-"filetype plugin indent on                         " détection automatique du type de fichier
-"autocmd FileType text setlocal textwidth=72       " les fichiers de type .txt sont limites à 72 caractères par ligne
+"set showmatch                                     " vÃ©rification prÃ©sence ([ ou { Ã  la frappe de )] ou }
+"filetype plugin indent on                         " dÃ©tection automatique du type de fichier
+"autocmd FileType text setlocal textwidth=72       " les fichiers de type .txt sont limites Ã  72 caractÃ¨res par ligne
 "set fileformats=unix,mac,dos                      " gestion des retours chariot en fonction du type de fichier
-"set viewdir=/home/ngressier/.vim/saveview/        " répertoire pour sauvegarder les vues, utiles pour les replis manuels
+"set viewdir=/home/ngressier/.vim/saveview/        " rÃ©pertoire pour sauvegarder les vues, utiles pour les replis manuels
 "set cursorline                                    " afficher la ligne courante
 "hi CursorLine guibg=#4d4d4d                       " couleur de fond pour la ligne courante
-"set foldcolumn=2                                  " repère visuel pour les folds
-"let Tlist_Ctags_Cmd = '/usr/bin/ctags'           " implémentation de ctags, nécessaire pour le plugin 'taglist'
+"set foldcolumn=2                                  " repÃ¨re visuel pour les folds
+"let Tlist_Ctags_Cmd = '/usr/bin/ctags'           " implÃ©mentation de ctags, nÃ©cessaire pour le plugin 'taglist'
 "set guioptions-=T                                 " supprime la barre d'outils
-"set incsearch                                     " recherche incrémentale
-"set hlsearch                                      " surligne les résultats de la recherche
+"set incsearch                                     " recherche incrÃ©mentale
+"set hlsearch                                      " surligne les rÃ©sultats de la recherche
 "set ignorecase                                    " ne pas prendre en compte la casse lors des recherches
-"set guifont=Courier\ New\ 10                      " police de caractère
-"set nolist                                       " on n'affiche pas les caractères non imprimables
-"set listchars=eol:¶,tab:..,trail:~               " paramétrage des caractères non imprimables au cas où l'on souhaiterait les afficher
-"set nowrap                                       "annule le retour à la ligne automatique
+"set guifont=Courier\ New\ 10                      " police de caractÃ¨re
+"set nolist                                       " on n'affiche pas les caractÃ¨res non imprimables
+"set listchars=eol:Â¶,tab:..,trail:~               " paramÃ©trage des caractÃ¨res non imprimables au cas oÃ¹ l'on souhaiterait les afficher
+"set nowrap                                       "annule le retour Ã  la ligne automatique
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
@@ -320,7 +320,7 @@ if has("autocmd")
     augroup vimrcEx
         au!
 
-        " Pour LA BARRE À 80 CARATERES
+        " Pour LA BARRE Ã€ 80 CARATERES
         " Line length shall be limited to 100, a maximum of 140 is allowed.
         " only for linux
         if filereadable($HOME.'/vimfiles/bundle/nerdtree/plugin/NERD_tree.vim')
@@ -358,9 +358,9 @@ endif
 " Enabled / Disabled placeholder chars
 let sbv_display_placeholder=1
 " Charactere placeholder for tabulation [2 char]
-let sbv_tab_placeholder='»·'
+let sbv_tab_placeholder='Â»Â·'
 " Charactere placeholder for space [1 char]
-let sbv_space_placeholder='·'
+let sbv_space_placeholder='Â·'
 " To be removed to be worked with monokai colorscheme
 " if !empty(sbv_display_placeholder)
 " if has("patch-7.4.710")
@@ -386,7 +386,7 @@ endif
 " let g:linuxsty_patterns = [ "/usr/src/", "/linux" ] " permet d'autoriser Linux Coding Style sur un repertoire OR
 " nnoremap <silent> <leader>a :LinuxCodingStyle<cr> " disable on demand
 
-" LA BARRE À 80 CARATERES
+" LA BARRE Ã€ 80 CARATERES
 " Line length shall be limited to 100, a maximum of 140 is allowed.
 " only for linux
 if filereadable($HOME.'/vimfiles/bundle/nerdtree/plugin/NERD_tree.vim')
@@ -599,9 +599,9 @@ endfunc
 " NERD COMMENTER
 " Set a language to use its alternate delimiters by default
 "let g:NERDAltDelims_c = 1
-"Pas avoir les [> <] quand on commente une zone avec déjà des comments:w
-" let g:NERDLPlace: "/*"
-" let g:NERDRPlace: "*/"
+"Pas avoir les [> <] quand on commente une zone avec dÃ©jÃ  des comments:w
+let g:NERDLPlace= "/*"
+let g:NERDRPlace= "*/"
 " let g:NERDUsePlaceHolders = 0
 " let g:NERDDefaultNesting = 1
 
@@ -635,7 +635,7 @@ let g:ConqueTerm_StartMessages = 0 " display warning messages if conqueTerm is c
 
 
 " -- Recherche (vim pour les humains)
-set ignorecase " Ignore la casse lors d’une recherche
+set ignorecase " Ignore la casse lors dÂ’une recherche
 set smartcase " Si une recherche contient une majuscule,
 " re-active la sensibilite a la casse
 set incsearch " Surligne les resultats de recherche pendant la
@@ -663,7 +663,7 @@ let g:CCTreeKeyTraceReverseTree = '<'
 let g:CCTreeKeyDepthPlus = '<C-\>='
 let g:CCTreeKeyDepthMinus = '<C-\>-'
 
-" pas de retour à la ligne automatique
+" pas de retour Ã  la ligne automatique
 :set nowrap
 
 " For GVIM remove bar !!!!
@@ -734,7 +734,7 @@ set guioptions=i
 " imap <C-K> <c-o>:pyf /home/lolo/Desktop/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/share/clang/clang-format.py<cr>
 "let g:formattepath = ['/home/lolo/Desktop/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-16.04/share/clang/']
 
-" Astyle ( pas utilisé à la place de vim-autoformat) 
+" Astyle ( pas utilisÃ© Ã  la place de vim-autoformat) 
 " noremap <F3> :!astyle -A8 -s8 %<CR> nnoremap <leader>fs :!astyle -A8 -s8 %<cr>
 
 " EASY MOTION (only one leader to press)
@@ -810,7 +810,7 @@ let g:ctrlp_user_command = 'find %s -type f'       " MacOSX/Linux
 " c.vim
 " ATTENTION remplacement du raccourci F9 par F10 dans le plugin c.vim dans le
 " repertoire ftplugin et pas plugin
-" car F9 est utilisé par NERDTree :)
+" car F9 est utilisÃ© par NERDTree :)
 
 " Add git log command (Fred. P)
 
@@ -833,7 +833,7 @@ let g:Gitv_WrapLines = 0
 let g:Gitv_TruncateCommitSubjects = 1
 
 " To have a Terminal in Gvim (using plugin ConqueTerm)
-" in ConqueTerm F8 and F11 has been replaced by symbol ¤ to don't interfer !!!!
+" in ConqueTerm F8 and F11 has been replaced by symbol Â¤ to don't interfer !!!!
 " :ConqueTerm bash
 " :ConqueTerm Powershell.exe
 " :ConqueTermSplit
@@ -855,7 +855,7 @@ let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
 " Other solution
 " syn match markdownError "\w\@<=\w\@="
 
-" Gestion des fenêtres
+" Gestion des fenÃªtres
 "CTRL+w 10- retreci 10 car haut
 "CTRL+w 15> augm 10 car largeur
 ":nnoremap <F12> <C-w>4+
@@ -875,16 +875,16 @@ let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
 "exe "imenu  <silent>  ".s:MenuRun.'.cmd\.\ line\ &arg\.<Tab>\\ra\ \ \<S-F10\>    <C-C>:call C_Arguments()<CR>'
 
 
-" in ConqueTerm F8 and F11 has been replaced by symbol ¤ to don't interfer !!!!
+" in ConqueTerm F8 and F11 has been replaced by symbol Â¤ to don't interfer !!!!
 " Use this key to toggle terminal key mappings. {{{
 " Only mapped inside of Conque buffers.
 if !exists('g:ConqueTerm_ToggleKey')
-    let g:ConqueTerm_ToggleKey = '<¤>'
+    let g:ConqueTerm_ToggleKey = '<Â¤>'
 endif " }}}
 " Use this key to execute the current file in a split window. {{{
 " THIS IS A GLOBAL KEY MAPPING
 if !exists('g:ConqueTerm_ExecFileKey')
-    let g:ConqueTerm_ExecFileKey = '<¤>'
+    let g:ConqueTerm_ExecFileKey = '<Â¤>'
 endif " }}}
 
 " to define for windows !!!
@@ -1326,30 +1326,30 @@ endif
 " :nohls	Annuler recherche en surbrillance
 " :diffthis	Marque un buffer pour vimdiff
 " :diffoff	Retire le marquage
-" do		Récupére les changements de l'autre fenêtre (:diffget)
-" dp		Envoyer les changements de la fenêtre courante vers l'autre (:diffput)
+" do		RÃ©cupÃ©re les changements de l'autre fenÃªtre (:diffget)
+" dp		Envoyer les changements de la fenÃªtre courante vers l'autre (:diffput)
 " ]c		Prochain changement
-" [c		Précédent changement
-" ctrl+w ctrl+w bascule de fenêtre 
+" [c		PrÃ©cÃ©dent changement
+" ctrl+w ctrl+w bascule de fenÃªtre 
 "
 " BUFFERS
-" :bp :bn	Buffer précédent suivant
+" :bp :bn	Buffer prÃ©cÃ©dent suivant
 " :ls		List buffers
 " :b1		Buffer 1
 " :bd8		delete buffer 8
 " :%bd		delete all buffers
-" :1,3bd	delete de 1 à 3
+" :1,3bd	delete de 1 Ã  3
 ":
 " TABULATIONS
 " :TabNew	Nouvelle tabulation
 " :gt :gT	Avance recule d'une tabulation
 "
 " :e		Recharge le fichier
-" :enew		Créé un fichier vide pas encore enregistré
+" :enew		CrÃ©Ã© un fichier vide pas encore enregistrÃ©
 " :saveas essai.txt	enregistre le nouveau fichier
 " :set autoread	Ca recharge tout seul
 "
-" :set nowrap	Pas de retour à la ligne:w
+" :set nowrap	Pas de retour Ã  la ligne:w
 "
 " Balises
 " :ma		marqueur a
@@ -1359,7 +1359,7 @@ endif
 " ctrl+g	path du fichier
 "
 " :help folding	les replis !
-" :zf		créé repli
+" :zf		crÃ©Ã© repli
 " :zo zc zd	ouvre ferme supprime
 " :zR zM	ouvre/ferme TOUT
 " :zm zr	augmente/diminue niveau
@@ -1381,10 +1381,10 @@ endif
 " REMPLACER (Regex)
 " :%s/char1/char2/gc		c pour avoir demande de confirmation
 " :1,10s/char1/char2/gc		c pour avoir demande de confirmation
-" %		sur la totalité du doc
+" %		sur la totalitÃ© du doc
 " s		Appliquer sur la chaine
 " $		represente la fin de la ligne
-" ^		represente la début de la ligne
+" ^		represente la dÃ©but de la ligne
 " https://ensiwiki.ensimag.fr/index.php?title=Expressions_r%C3%A9guli%C3%A8res
 " ^M		Retour chariot DOS
 " \r		Retour chariot UNIX
@@ -1585,10 +1585,10 @@ nnoremap <M-p> :LL print <C-R>=expand('<cword>')<CR>
 " sudo pip2 install --upgrade neovim
 
 " " echo "5 - PYTHON3 + CLANG TBT"
-" # sudo yum install python34-setuptools # déja installé normalement
+" # sudo yum install python34-setuptools # dÃ©ja installÃ© normalement
 " sudo easy_install-3.4 pip
 " sudo pip3 install neovim
-" # sudo yum install clang-4.0 lldb-4.0  # déja installé normalement
+" # sudo yum install clang-4.0 lldb-4.0  # dÃ©ja installÃ© normalement
 
 " # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " # install clang or not if exists
@@ -1620,7 +1620,7 @@ highlight Normal guibg=black
 
 " INSTALLER RTAGS
 " #https://github.com/Andersbakken/rtags
-" # A faire au début ?
+" # A faire au dÃ©but ?
 " git clone --recursive https://github.com/Andersbakken/rtags.git
 " cd rtags
 " cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 .
@@ -1634,7 +1634,7 @@ highlight Normal guibg=black
 " cd ..
 " sudo make install
 
-" # Lancer le serveur de RTAGS (dans un terminal dédié)
+" # Lancer le serveur de RTAGS (dans un terminal dÃ©diÃ©)
 " ~/rtags/bin/rdm &
 
 " # Pour faire le .json & lancer l'indexation dans le repertoire du projet
