@@ -1404,6 +1404,11 @@ endif
 " Remove empty line
 ":g/^$/d
 
+" Add foo at the end of the selected word (<*> to have it in buffer)
+" <n> select the next word
+" <&> replace
+" :s//&foo
+
 " will show you a history of your commands.
 " :history 
 " In normal mode, q: will open your history in a new buffer.
