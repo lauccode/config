@@ -348,7 +348,7 @@ endif " has("autocmd")
 " Indentation type [tab || space]
 let sbv_indentation_type="tab"
 " Indentation length
-let sbv_indentation_length=8
+let sbv_indentation_length=4
 execute "set tabstop=". sbv_indentation_length
 execute "set shiftwidth=". sbv_indentation_length
 execute "set softtabstop=". sbv_indentation_length
