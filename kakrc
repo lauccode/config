@@ -87,6 +87,8 @@ colorscheme gruvbox
 add-highlighter global/ show-matching
 add-highlighter global/ dynregex '%reg{/}' 0:+u
 hook global WinCreate ^[^*]+$ %{ add-highlighter window/ number-lines -hlcursor }
+set global tabstop 4                                                        
+set global indentwidth 4
 
 # Highlight the word under the cursor
 declare-option -hidden regex curword
