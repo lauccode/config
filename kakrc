@@ -89,6 +89,9 @@ add-highlighter global/ dynregex '%reg{/}' 0:+u
 hook global WinCreate ^[^*]+$ %{ add-highlighter window/ number-lines -hlcursor }
 set global tabstop 4                                                        
 set global indentwidth 4
+hook global WinSetOption filetype=c %{
+  set window formatcmd 'clang-format'
+}
 
 # Highlight the word under the cursor
 declare-option -hidden regex curword
