@@ -92,6 +92,7 @@ set global indentwidth 4
 hook global WinSetOption filetype=c %{
   set window formatcmd 'clang-format'
 }
+map global normal = :format<ret> -docstring 'format buffer'
 
 # Highlight the word under the cursor
 declare-option -hidden regex curword
