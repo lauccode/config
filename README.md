@@ -12,14 +12,14 @@ a-n pour revenir en arriere
 a-space pour ne pas selectionner 
 
 Vertical block selection
-<s-c> and <a+s-C> are the way to go for a similar to block selection functionality
+[s-c] and [a+s-C] are the way to go for a similar to block selection functionality
 	
 Open ranger on specifif open file  
-:ranger <c-r>%
-	
+:ranger [c-r]%
+
 Replace multi-selection with yank selection  
-After all multi-selection done  
-<s-r>
+After all multi-selection done
+[s-r]
 
 ## fzf
 
