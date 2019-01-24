@@ -2,14 +2,14 @@
 ## kakoune
 kakrc in /.config/kak
 
-selection multiple
-* pour mettre le mot dans le buffer
-/ pour rechercher le mot (le mot precedent est copié en auto)
+Multiple selection  
+[*] put the word in kakoune buffer  
+[/] to search the word (this one of previous line) 
 enter
-a-n pour reprendre le premier 
-s-n pour selectionner les suivants (seulement n pour skipper)
-a-n pour revenir en arriere
-a-space pour ne pas selectionner 
+[a-n] to select before  
+[s-n] to select after (only n to skip)  
+[a-n] pour revenir en arriere  
+[a-space] pour ne pas selectionner 
 
 Vertical block selection
 [s-c] and [a+s-C] are the way to go for a similar to block selection functionality
@@ -65,6 +65,10 @@ List command-mode shortcuts: ctrl-b ?
     tmux attach -t <your_session_name>
 
 Enable scroll mode: ctrl-b [
+
+## clang-format
+Put .clang-format in HOME
+Select text with kakoune [X] and [|] and select clang-format
 
 ## cygwin
 ### terminator
