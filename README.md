@@ -67,8 +67,8 @@ List command-mode shortcuts: ctrl-b ?
 Enable scroll mode: ctrl-b [
 
 ## clang-format
-Put .clang-format in HOME
-Select text with kakoune [X] and [|] and select clang-format
+Put .clang-format in HOME  
+Select text with kakoune [X] and [|] and select clang-format  
 
 ## cygwin
 ### terminator
