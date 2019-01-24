@@ -119,3 +119,10 @@ define-command ide %{
     new rename-client docs
     set-option global docsclient docs
 }
+# Change cursor color in insert mode:
+hook global ModeChange insert:.* %{
+    set-face global PrimaryCursor      rgb:ffffff,rgb:000000+F
+}
+hook global ModeChange .*:insert %{
+    set-face global PrimaryCursor      rgb:ffffff,rgb:008800+F
+}
