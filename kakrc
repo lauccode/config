@@ -91,7 +91,7 @@ hook global WinCreate ^[^*]+$ %{ add-highlighter window/ number-lines -hlcursor 
 set global tabstop 4 
 set global indentwidth 4
 hook global WinSetOption filetype=c %{
-  set window formatcmd 'clang-format -style=~/.clang-format'
+  set window formatcmd 'clang-format'
 }
 # map global normal = :format<ret> -docstring 'format buffer'
 
