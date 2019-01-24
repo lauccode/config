@@ -5,7 +5,7 @@
 #  ───────────────
 source ~/.config/kak/plugins/plug.kak/rc/plug.kak
 plug "andreyorst/fzf.kak"
-# plug "dryvenn/kakoune-cscope"
+plug "dryvenn/kakoune-cscope"
 plug Delapouite/kakoune-buffers
 ############################################# SHORTKEYS ###########################
 # To paste
@@ -85,12 +85,13 @@ set-option global clang_options -std=c++1y
 set-option global ui_options ncurses_status_on_top=true
 colorscheme gruvbox
 add-highlighter global/ show-matching
+add-highlighter global/ show-whitespaces
 add-highlighter global/ dynregex '%reg{/}' 0:+u
 hook global WinCreate ^[^*]+$ %{ add-highlighter window/ number-lines -hlcursor }
-set global tabstop 4                                                        
+set global tabstop 4 
 set global indentwidth 4
 hook global WinSetOption filetype=c %{
-  set window formatcmd 'clang-format'
+  set window formatcmd 'clang-format -style=~/.clang-format'
 }
 map global normal = :format<ret> -docstring 'format buffer'
 
