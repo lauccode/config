@@ -126,3 +126,5 @@ hook global ModeChange insert:.* %{
 hook global ModeChange .*:insert %{
     set-face global PrimaryCursor      rgb:ffffff,rgb:008800+F
 }
+# default black background
+# set-face global Default black
