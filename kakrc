@@ -128,3 +128,6 @@ hook global ModeChange .*:insert %{
 }
 # default black background
 # set-face global Default black
+
+# automatic correction (TBT)
+# :lint => clang-enable-diagnostics
