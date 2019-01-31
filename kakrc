@@ -91,8 +91,9 @@ add-highlighter global/ dynregex '%reg{/}' 0:+u
 hook global WinCreate ^[^*]+$ %{ add-highlighter window/ number-lines -hlcursor }
 set global tabstop 4 
 set global indentwidth 4
-hook global WinSetOption filetype=c %{
+hook global WinSetOption filetype=c|cpp %{
   set window formatcmd 'clang-format'
+#  clang-enable-autocomplete; clang-enable-diagnostics
 }
 # map global normal = :format<ret> -docstring 'format buffer'
 
@@ -133,3 +134,4 @@ hook global ModeChange .*:insert %{
 # :lint => clang-enable-diagnostics ?
 # https://github.com/mawww/kakoune/wiki
 # check lint and clang external tools
+# clang only for cpp
