@@ -130,4 +130,6 @@ hook global ModeChange .*:insert %{
 # set-face global Default black
 
 # automatic correction (TBT)
-# :lint => clang-enable-diagnostics
+# :lint => clang-enable-diagnostics ?
+# https://github.com/mawww/kakoune/wiki
+# check lint and clang external tools
