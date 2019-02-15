@@ -7,6 +7,7 @@ source ~/.config/kak/plugins/plug.kak/rc/plug.kak
 plug "andreyorst/fzf.kak"
 plug "dryvenn/kakoune-cscope"
 plug Delapouite/kakoune-buffers
+plug "andreyorst/tagbar.kak"
 ############################################# SHORTKEYS ###########################
 # To paste
 # ! xsel --output --clipboard <ret>
