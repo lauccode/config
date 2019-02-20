@@ -1,0 +1,26 @@
+{
+    "window.zoomLevel": -1,
+    "cmake-tools-helper.cmake_download_path": "~/.vscode/extensions/maddouri.cmake-tools-helper-0.1.1/cmake_download",
+    "workbench.startupEditor": "newUntitledFile",
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "git.ignoreLegacyWarning": true,
+    "gitlens.advanced.messages": {
+        "suppressCommitHasNoPreviousCommitWarning": false,
+        "suppressCommitNotFoundWarning": false,
+        "suppressFileNotUnderSourceControlWarning": false,
+        "suppressGitVersionWarning": true,
+        "suppressLineUncommittedWarning": false,
+        "suppressNoRepositoryWarning": false,
+        "suppressResultsExplorerNotice": false,
+        "suppressUpdateNotice": false,
+        "suppressWelcomeNotice": true
+    },
+    "editor.minimap.showSlider": "always",
+    "editor.fontSize": 17,
+    "workbench.colorTheme": "Blakai Theme",
+    "editor.fontFamily": "DejaVu Sans Mono', 'monospace', monospace, 'DejaVu Sans Fallback'",
+    "gitlens.blame.format": "${author|18} ${ago|14-} ${message|20}",
+    "vim.disableExtension": false
+    "files.useExperimentalFileWatcher": true
+}
