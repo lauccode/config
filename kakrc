@@ -9,7 +9,14 @@ plug "dryvenn/kakoune-cscope"
 plug Delapouite/kakoune-buffers
 plug "andreyorst/tagbar.kak"
 plug "andreyorst/smarttab.kak"
-plug "andreyorst/powerline.kak"
+plug "andreyorst/powerline.kak" %{
+    hook -once global WinCreate .* %{
+        powerline-theme gruvbox
+        powerline-separator triangle
+        powerline-format git bufname filetype mode_info line_column position
+        powerline-toggle line_column off
+    }
+}
 ############################################# SHORTKEYS ###########################
 # To paste
 # ! xsel --output --clipboard <ret>
