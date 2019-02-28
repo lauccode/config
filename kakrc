@@ -9,6 +9,7 @@ plug "dryvenn/kakoune-cscope"
 plug Delapouite/kakoune-buffers
 plug "andreyorst/tagbar.kak"
 plug "andreyorst/smarttab.kak"
+plug "andreyorst/powerline.kak"
 ############################################# SHORTKEYS ###########################
 # To paste
 # ! xsel --output --clipboard <ret>
