@@ -54,8 +54,6 @@ map global user = :tmux-new-vertical<ret>' -docstring 'Split vertical'
 # Remove delete or change selection in yank buffer 
 map global normal c \"_c
 map global normal d \"_d
-# Add at least the known <c-v>
-map global normal <c-v> 'p'
 # Various mappings
 # ────────────────
 # map global normal '#' :comment-line<ret>
