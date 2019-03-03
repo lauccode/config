@@ -12,8 +12,8 @@ plug "andreyorst/smarttab.kak"
 plug "andreyorst/powerline.kak" %{
     hook -once global WinCreate .* %{
         powerline-theme gruvbox
-        powerline-separator triangle
-        powerline-format git bufname filetype mode_info line_column position
+        powerline-separator triangle-inverted
+        powerline-format git bufname filetype client line_column position
         powerline-toggle line_column off
     }
 }
