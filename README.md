@@ -2,18 +2,26 @@
 ## kakoune
 kakrc in /.config/kak
 
+Vertical block selection
+[s-c] and [a+s-C] are the way to go for a similar to block selection functionality
+
 Multiple selection  
 [*] put the word in kakoune buffer  
 [/] to search the word (this one of previous line) 
 enter
 [a-n] to select before  
 [s-n] to select after (only n to skip)  
-[a-n] pour revenir en arriere  
+[a-n] to select before  
 [a-space] pour ne pas selectionner 
 
-Vertical block selection
-[s-c] and [a+s-C] are the way to go for a similar to block selection functionality
-	
+Parameters swapping  
+Select paramaters ([a-i] or [s-w] ...)  
+Split slection on charatere "," [S,RET]   
+swap [a-)]  
+
+[a-k] Keep matching (in multiple selection)
+[a-p] paste several line
+
 Open ranger on specifif open file  
 :ranger [c-r]%
 
