@@ -13,8 +13,8 @@ plug "andreyorst/powerline.kak" %{
     hook -once global WinCreate .* %{
         powerline-theme gruvbox
         powerline-separator triangle-inverted
-        powerline-format git bufname filetype client session position
-        powerline-toggle line_column off
+        powerline-format git bufname filetype client session line_column position
+        # powerline-toggle line_column off
     }
 }
 ############################################# SHORTKEYS ###########################
