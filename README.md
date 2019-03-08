@@ -87,10 +87,10 @@ Launch with
 	DISPLAY=:0 terminator &
 
 ## tar
-compress 	tar zcvf <name>.tar.gz <dossier/> 
-uncompress 	tar zxvf <name>.tar.gz
-compress 	tar cvf <name>.tar <dossier/> 
-uncompress 	tar xvf <name>.tar
-compress 	tar cfv backup <path/file1> <path/file2>
-uncompress 	tar xf backup
+compress 	tar zcvf <name>.tar.gz <dossier/>   
+uncompress 	tar zxvf <name>.tar.gz  
+compress 	tar cvf <name>.tar <dossier/>  
+uncompress 	tar xvf <name>.tar  
+compress 	tar cfv backup <path/file1> <path/file2>  
+uncompress 	tar xf backup  
 list of file	tar tvf backup
