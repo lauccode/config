@@ -34,7 +34,8 @@ map global normal <f3> '|clang-format<ret>'
 alias global g grep # Pour le grep, recuperer le mot copier avec <c-r>"
 hook global WinDisplay .* info-buffers
 map global user b ':enter-buffers-mode<ret>'              -docstring 'buffers…'
-map global user B ':enter-user-mode -lock buffers<ret>'   -docstring 'buffers (lock)…'
+# map global user B ':enter-user-mode -lock buffers<ret>'   -docstring 'buffers (lock)…'
+map global user B ':pick-buffers<ret>'   -docstring 'pick-buffers'
 alias global bd delete-buffer
 alias global bf buffer-first
 alias global bl buffer-last
