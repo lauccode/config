@@ -40,6 +40,8 @@ alias global bf buffer-first
 alias global bl buffer-last
 alias global bo buffer-only
 alias global bo! buffer-only-force
+map global normal <f7> ':bn<ret>'
+map global normal <f6> ':bp<ret>'
 # show-whitespaces
 # :addhl buffer/ show-whitespaces
 # :rmhl buffer/show-whitespaces
