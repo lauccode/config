@@ -4,6 +4,8 @@ kakrc in /.config/kak
 
 ### Vertical block selection
 [s-c] and [a+s-C] are the way to go for a similar to block selection functionality
+#### All the file
+% , [a-s]
 
 ### Multiple selection  
 [*] put the word in kakoune buffer  
