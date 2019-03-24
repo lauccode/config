@@ -57,6 +57,15 @@ map global user = :tmux-new-vertical<ret>' -docstring 'Split vertical'
 # Remove delete or change selection in yank buffer 
 map global normal c \"_c
 map global normal d \"_d
+# search case insensitive
+# map -docstring 'case insensitive search' global user '/' /(?i)
+# map -docstring 'case insensitive backward search' global user '<a-/>' <a-/>(?i)
+# map -docstring 'case insensitive extend search' global user '?' ?(?i)
+# map -docstring 'case insensitive backward extend-search' global user '<a-?>' <a-?>(?i)
+map -docstring 'case insensitive search' global normal / '/(?i)'
+map -docstring 'case insensitive backward search' global normal <a-/> '<a-/>(?i)'
+map -docstring 'case insensitive extend search' global normal ? '?(?i)'
+map -docstring 'case insensitive backward extend-search' global normal <a-?> '<a-?>(?i)'
 # Various mappings
 # ────────────────
 # map global normal '#' :comment-line<ret>
