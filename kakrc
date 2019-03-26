@@ -28,6 +28,7 @@ set-option current comment_block_begin '/*'
 set-option current comment_block_end '*/'
 map global user a :comment-block<ret>' -docstring 'To comment the block'
 map global user g ':cscope ' -docstring 'Find tag with cscope'  # Pour cscope il faut surligner le mot à chercher
+map global user ) '<a-i>)<S>,<ret><a-)>' -docstring 'Swap Arguments'
 map global normal <f2> ':e ~/.config/kak/kakrc<ret>'
 map global normal <f9> ':ranger<ret>'
 map global normal <f3> '|clang-format<ret>'
