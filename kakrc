@@ -17,32 +17,29 @@ plug "andreyorst/powerline.kak" %{
         # powerline-toggle line_column off
     }
 }
-# plug "ul/kak-lsp" do %{
-#         cargo build --release --locked
-#             cargo install --force --path .
-# } config %{
+plug "ul/kak-lsp" do %{
+        cargo build --release --locked
+        cargo install --force --path .
+} config %{
 # andreyorst default config
-        # define-command lsp-restart %{ lsp-stop; lsp-start }
-        #     set-option global lsp_completion_trigger "execute-keys 'h<a-h><a-k>\S[^\h\n,=;*(){}\[\]]\z<ret>'"
-        #         set-option global lsp_diagnostic_line_error_sign "!"
-        #             set-option global lsp_diagnostic_line_warning_sign "?"
-        #                 hook global WinSetOption filetype=(c|cpp|rust) %{
-        #                             map window user "l" ": enter-user-mode lsp<ret>" -docstring "LSP mode"
-        #                                     lsp-enable-window
-        #                                             lsp-auto-hover-enable
-        #                                                     lsp-auto-hover-insert-mode-disable
-        #                                                             set-option window lsp_hover_anchor true
-        #                                                                     set-face window DiagnosticError default+u
-        #                                                                             set-face window DiagnosticWarning default+u
-        #                 }
-        #                     hook global WinSetOption filetype=rust %{
-        #                                 set-option window lsp_server_configuration rust.clippy_preference="on"
-        #                     }
-        #                         hook global KakEnd .* lsp-exit
-# ul cquery default config
-# eval %sh{kak-lsp --kakoune -s $kak_session}
-# lsp-enable
-# }
+        define-command lsp-restart %{ lsp-stop; lsp-start }
+        set-option global lsp_completion_trigger "execute-keys 'h<a-h><a-k>\S[^\h\n,=;*(){}\[\]]\z<ret>'"
+        set-option global lsp_diagnostic_line_error_sign "!"
+        set-option global lsp_diagnostic_line_warning_sign "?"
+        hook global WinSetOption filetype=(c|cpp|rust) %{
+              map window user "l" ": enter-user-mode lsp<ret>" -docstring "LSP mode"
+              lsp-enable-window
+              lsp-auto-hover-enable
+              lsp-auto-hover-insert-mode-disable
+              set-option window lsp_hover_anchor true
+              set-face window DiagnosticError default+u
+              set-face window DiagnosticWarning default+u
+      }
+      hook global WinSetOption filetype=rust %{
+              set-option window lsp_server_configuration rust.clippy_preference="on"
+      }
+      hook global KakEnd .* lsp-exit
+}
 ############################################# SHORTKEYS ###########################
 # To paste
 # ! xsel --output --clipboard <ret>
