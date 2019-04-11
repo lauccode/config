@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# you need to have ranger fzf tmux plug.kak xsel
+
 # cp ~/.config/fish/config.fish	~/.config/fish/config`date +_%H_%M_%d_%m_20%y`.fish
 cp ~/.config/kak/kakrc		~/.config/kak/kakrc`date +_%H_%M_%d_%m_20%y`
 cp ~/.tmux.conf			~/`date +_%H_%M_%d_%m_20%y`.tmux.conf
