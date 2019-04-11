@@ -71,7 +71,7 @@ map global normal <f6> ':bp<ret>'
 # :addhl buffer/ show-whitespaces
 # :rmhl buffer/show-whitespaces
 # <c-d> to select for multi-cursors
-map global normal '<c-d>' ': select-or-add-cursor<ret>' -docstring "add cursor on current word, and jump to the next match"
+map global normal '<c-n>' ': select-or-add-cursor<ret>' -docstring "add cursor on current word, and jump to the next match"
 map global insert <tab> '<a-;><gt>'
 map global insert <s-tab> '<a-;><lt>'
 map global user / :tmux-new-horizontal<ret>' -docstring 'Split horizontal'
