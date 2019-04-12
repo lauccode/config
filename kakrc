@@ -67,6 +67,8 @@ alias global bf buffer-first
 alias global bl buffer-last
 alias global bo buffer-only
 alias global bo! buffer-only-force
+map global user w ':w<ret>'   -docstring 'Write buffers'
+map global user q ':q<ret>'   -docstring 'Quit Kakoune'
 map global normal <f7> ':bn<ret>'
 map global normal <f6> ':bp<ret>'
 # show-whitespaces
