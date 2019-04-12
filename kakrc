@@ -40,6 +40,8 @@ plug "ul/kak-lsp" do %{
       }
       hook global KakEnd .* lsp-exit
 }
+# addhl global/ column '%val{cursor_column}' default,magenta
+addhl global/ line '%val{cursor_line}' default,magenta
 ############################################# SHORTKEYS ###########################
 # To paste
 # ! xsel --output --clipboard <ret>
