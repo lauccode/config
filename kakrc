@@ -79,6 +79,10 @@ map global user q ':q<ret>'   -docstring 'Quit Kakoune'
 alias global 'q' 'tagbar-quit'
 alias global 'wq' 'tagbar-write-quit'
 map global normal <f8> ':tagbar-toggle<ret>'
+# To see what filetypes are supported use `ctags --list-kinds | awk '/^\w+/'
+hook global WinSetOption filetype=(cpp|rust) %{
+    tagbar-enable
+}
 map global normal <f7> ':bn<ret>'
 map global normal <f6> ':bp<ret>'
 # show-whitespaces
