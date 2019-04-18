@@ -7,7 +7,14 @@ source ~/.config/kak/plugins/plug.kak/rc/plug.kak
 plug "andreyorst/fzf.kak"
 plug "dryvenn/kakoune-cscope"
 plug Delapouite/kakoune-buffers
-plug "andreyorst/tagbar.kak"
+plug "andreyorst/tagbar.kak" config %{
+    # if you have wrap highlighter enamled in you configuration
+    # files it's better to turn it off for tagbar, using this hook:
+    hook global WinSetOption filetype=tagbar %{
+        remove-highlighter window/wrap
+        # you can also disable rendering whitespaces here, and
+    }
+}
 plug "andreyorst/smarttab.kak"
 plug "andreyorst/powerline.kak" %{
     hook -once global WinCreate .* %{
