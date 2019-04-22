@@ -3,6 +3,10 @@
 # https://stackoverflow.com/questions/2762994/how-to-define-an-alias-in-fish-shell
 #  PLUGIN
 #  ───────────────
+map global normal <space> , -docstring 'leader'
+map global normal <backspace> <space> -docstring 'remove all sels except main'
+map global normal <a-backspace> <a-space> -docstring 'remove main sel'
+
 source ~/.config/kak/plugins/plug.kak/rc/plug.kak
 plug "andreyorst/fzf.kak"
 plug "dryvenn/kakoune-cscope"
