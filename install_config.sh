@@ -16,4 +16,4 @@ cp .spacemacs 			~/.spacemacs
 cp vsc/keybindings.json 	~/.config/Code/User/keybindings.json
 cp vsc/settings.json 		~/.config/Code/User/settings.json
 
-cp ~/config/kak-lsp.toml ~/.config/kak-lsp/
+# cp ~/config/kak-lsp.toml ~/.config/kak-lsp/
