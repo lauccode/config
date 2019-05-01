@@ -55,7 +55,7 @@ command = "pyls"
 
 [language.c_cpp]
 filetypes = ["c", "cpp"]
-roots = [".cquery", "compile_commands.json"]
+roots = ["compile_flags.txt", "compile_commands.json"]
 command = "clangd"
 # args = ["--log-file=/tmp/cq.log", "--init={\"cacheDirectory\": \"/home/deadpool/.cache/cquery\"}"]
 # [language.c_cpp]
