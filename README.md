@@ -14,7 +14,7 @@ enter
 [a-n] to select before  
 [s-n] to select after (only n to skip)  
 [a-n] to select before  
-[a-space] pour ne pas selectionner 
+[a-space] pour ne pas selectionner  
 [backspace] remove multiselection
 
 ### Parameters swapping  
