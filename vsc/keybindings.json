@@ -3,5 +3,13 @@
     {
         "key": "alt+v",
         "command": "toggleVim"
+    },
+    {
+        "key": "ctrl+alt+v",
+        "command": "multiclip.list"
+    },
+    {
+        "key": "ctrl+shift+a",
+        "command": "textmarker.toggleHighlight"
     }
 ]
