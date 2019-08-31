@@ -125,6 +125,7 @@ else
     Plug 'https://github.com/tpope/vim-fugitive'
     Plug 'https://github.com/w0ng/vim-hybrid'
     Plug 'https://github.com/terryma/vim-multiple-cursors'
+    " other multi : https://github.com/mg979/vim-visual-multi
     Plug 'https://github.com/chriskempson/vim-tomorrow-theme'
     Plug 'https://github.com/nathanaelkane/vim-indent-guides'
     Plug 'https://github.com/nanotech/jellybeans.vim'
