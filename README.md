@@ -1,4 +1,6 @@
 # config
+## VSC
+rtags needs "rc -C" to clear project to be able to load database second time.
 ## kakoune
 kakrc in /.config/kak
 
