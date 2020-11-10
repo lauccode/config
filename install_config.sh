@@ -23,3 +23,5 @@ git clone https://github.com/robertmeta/plug.kak.git ~/.config/kak/plugins/plug.
 echo "in kakoune :plug-install"
 
 sudo apt-get install fzf
+sudo apt-get install ranger
+sudo apt-get install xsel
