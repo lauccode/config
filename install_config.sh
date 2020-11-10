@@ -25,3 +25,4 @@ echo "in kakoune :plug-install"
 sudo apt-get install fzf
 sudo apt-get install ranger
 sudo apt-get install xsel
+sudo apt-get install tmux
