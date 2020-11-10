@@ -21,3 +21,5 @@ cp ~/config/kak-lsp.toml ~/.config/kak-lsp/
 mkdir -p ~/.config/kak/plugins/
 git clone https://github.com/robertmeta/plug.kak.git ~/.config/kak/plugins/plug.kak
 echo "in kakoune :plug-install"
+
+sudo apt-get install fzf
