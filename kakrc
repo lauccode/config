@@ -279,3 +279,13 @@ def toggle-ranger %{
         "for-each-line edit /tmp/ranger-files-%val{client_pid}"
 }
 map global user r ': toggle-ranger<ret>' -docstring 'select files in ranger'
+
+plug "andreyorst/kaktree" config %{
+    hook global WinSetOption filetype=kaktree %{
+        remove-highlighter buffer/numbers
+        remove-highlighter buffer/matching
+        remove-highlighter buffer/wrap
+        remove-highlighter buffer/show-whitespaces
+    }
+    kaktree-enable
+}
