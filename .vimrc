@@ -61,7 +61,7 @@ if filereadable($HOME.'/vimfiles/bundle/nerdtree/plugin/NERD_tree.vim')
     " MY PLUGINS
     Plug 'https://github.com/hari-rangarajan/CCTree.git'
     Plug 'https://github.com/kien/ctrlp.vim'
-    Plug 'https://github.com/scrooloose/nerdcommenter'
+	Plug 'https://github.com/scrooloose/nerdcommenter'
     Plug 'https://github.com/scrooloose/nerdtree'
     Plug 'https://github.com/mfukar/robotframework-vim'
     " Plug 'https://github.com/scrooloose/syntastic'
@@ -184,6 +184,8 @@ else
         " But Easy Tag do the job as well
         " Plug 'https://github.com/jeaye/color_coded.git'
     endif
+
+	Plug 'autozimu/LanguageClient-neovim', {'branch': 'next','do': 'bash install.sh',}
 
     " If you share a config file between vim versions, you may use the following to check 
     " if you are in Oni or not. This will allow you to enable or disable features in Oni specifically.
@@ -1678,3 +1680,26 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 if has('nvim')
     call denite#custom#source('file_rec', 'matchers', ['matcher_substring'])
 endif
+
+" CLANGD
+let g:LanguageClient_serverCommands = {
+  \ 'cpp': ['clangd'],
+  \ }
+
+function SetLSPShortcuts()
+  nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
+  nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
+  nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
+  nnoremap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
+  nnoremap <leader>lx :call LanguageClient#textDocument_references()<CR>
+  nnoremap <leader>la :call LanguageClient_workspace_applyEdit()<CR>
+  nnoremap <leader>lc :call LanguageClient#textDocument_completion()<CR>
+  nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
+  nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
+  nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
+endfunction()
+
+augroup LSP
+  autocmd!
+  autocmd FileType cpp,c call SetLSPShortcuts()
+augroup END
