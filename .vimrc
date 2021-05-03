@@ -107,7 +107,7 @@ else
     " The best is to use cscope or Denite-gtags ...
     Plug 'https://github.com/chazy/cscope_maps'
     Plug 'https://github.com/hari-rangarajan/CCTree.git'
-    Plug 'https://github.com/vim-scripts/Conque-GDB'
+    " Plug 'https://github.com/vim-scripts/Conque-GDB'
     " Plug 'https://github.com/kien/ctrlp.vim'
     Plug 'https://github.com/junegunn/fzf.git'
     Plug 'https://github.com/pbogut/fzf-mru.vim.git'
@@ -156,7 +156,7 @@ else
     " FULLY NEEDED FOR VIM SNIPPETS AND SNIPMATE
     Plug 'https://github.com/marcweber/vim-addon-mw-utils'
     Plug 'https://github.com/tomtom/tlib_vim'
-    Plug 'https://github.com/garbas/vim-snipmate'
+    " Plug 'https://github.com/garbas/vim-snipmate'
     Plug 'https://github.com/honza/vim-snippets'
     " For easy tag
     " Plug 'https://github.com/xolox/vim-easytags.git'
