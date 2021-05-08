@@ -12,6 +12,12 @@ plug.kak on dev branch if kakoune build with github !
 % , [a-s]
 
 ### Multiple selection  
+simple 
+[s+l] to select word to be search
+[s-n] to select next word
+[p] to paste yanked word
+[d] to delete previous
+
 [*] put the word in kakoune buffer  
 [/] to search the word (this one of previous line) 
 enter
