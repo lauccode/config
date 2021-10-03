@@ -18,7 +18,7 @@ simple
 [p] to paste yanked word
 [d] to delete previous
 
-[*] put the word in kakoune buffer  
+[*] put the word in kakoune buffer(Search current selections (smart) in dance vscode plugin)  
 [/] to search the word (this one of previous line) 
 enter
 [a-n] to select before  
