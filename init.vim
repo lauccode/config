@@ -93,6 +93,8 @@ nnoremap <leader>fl <cmd>Telescope git_files<cr>
 
 :nnoremap <Leader>pp :lua require'telescope.builtin'.planets{}
 
+" set guifont=FiraCode\ NF:h16
+
 lua << EOF
 local nvim_lsp = require('lspconfig')
 
