@@ -82,7 +82,7 @@ augroup highlight_yank
   autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()
 augroup END
 
-:let mapleader = ";"
+let mapleader = ";"
 
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
@@ -91,9 +91,12 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fl <cmd>Telescope git_files<cr>
 
-:nnoremap <Leader>pp :lua require'telescope.builtin'.planets{}
+nnoremap <Leader>pp :lua require'telescope.builtin'.planets{}
 
 " set guifont=FiraCode\ NF:h16
+
+nnoremap <leader>r :source $MYVIMRC<CR>
+imap ;; <Esc>
 
 lua << EOF
 local nvim_lsp = require('lspconfig')
