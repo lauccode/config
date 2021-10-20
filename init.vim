@@ -41,6 +41,8 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'folke/which-key.nvim'
   Plug 'marko-cerovac/material.nvim'
 
+  Plug 'kien/ctrlp.vim'
+
 call plug#end()
 
 set mouse=a
@@ -58,8 +60,8 @@ endif
 let g:edge_style = 'aura'
 let g:edge_enable_italic = 1
 let g:edge_disable_italic_comment = 1
-" colorscheme edge
 
+" colorscheme edge
 colorscheme material
 "darker/lighter/oceanic/palenight/deep ocean
 let g:material_style = 'darker'
@@ -82,7 +84,7 @@ augroup highlight_yank
   autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()
 augroup END
 
-let mapleader = ";"
+:let mapleader = ";"
 
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
@@ -93,16 +95,45 @@ nnoremap <leader>fl <cmd>Telescope git_files<cr>
 
 nnoremap <Leader>pp :lua require'telescope.builtin'.planets{}
 
-" set guifont=FiraCode\ NF:h16
+
+" if filereadable($HOME.'/vimfiles/bundle/nerdtree/plugin/NERD_tree.vim')
+    noremap <F2> :edit ~/.config/nvim/init.vim<CR> 
+" else
+"    noremap <F2> :edit ~/.vimrc<CR> 
+" endif
 
 nnoremap <leader>r :source $MYVIMRC<CR>
+
 imap ;; <Esc>
+
+
+
+
+" CTRLP settings
+" results:  can affect the result to find several time the same name of file 
+:let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:40,results:200'
+"scan for dot file and dir
+:let g:ctrlp_show_hidden = 1
+"Set this to 1 to set searching by filename (as opposed to full path) as the default: >
+"Can be toggled on/off by pressing <c-d> inside the prompt.
+:let g:ctrlp_by_filename = 1
+:let g:ctrlp_mruf_relative = 1
+"To be sure to have rescan files
+" :nnoremap <c-p> :CtrlPClearCache<bar>CtrlP<cr>
+" To try to have default open directory with vim
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+" You need to <C-f> by selecting mru files to find all ... TBC
+" let g:ctrlp_cmd = 'CtrlPMRU'
+let g:ctrlp_user_command = 'find %s -type f'       " MacOSX/Linux
+" let g:ctrlp_user_command = 'find %s -name f'       " MacOSX/Linux
+
 
 lua << EOF
 local nvim_lsp = require('lspconfig')
 
 require'lspconfig'.clangd.setup{
-cmd = {'clangd', "--background-index"};
+cmd = {'/SCM/NFS/expanded/vxWorks7-Vendor/21.03_1/7/compilers/llvm-11.0.1.1/LINUX64/bin/clangd', "--background-index"};
 }
 
 
@@ -147,7 +178,7 @@ end
 local servers = { 'clangd' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
-    cmd = {'clangd', "--background-index"};
+    cmd = {'/SCM/NFS/expanded/vxWorks7-Vendor/21.03_1/7/compilers/llvm-11.0.1.1/LINUX64/bin/clangd', "--background-index"};
     on_attach = on_attach,
     flags = {
       debounce_text_changes = 150,
@@ -167,6 +198,10 @@ require("which-key").setup {
   -- your configuration comes here
   -- or leave it empty to use the default settings
   -- refer to the configuration section below
+}
+
+require('telescope').setup{ 
+defaults = { file_ignore_patterns = {"node_modules"} } 
 }
 
 vim.lsp.set_log_level("debug")
