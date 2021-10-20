@@ -43,6 +43,10 @@ call plug#begin('~/.config/nvim/plugged')
 
   Plug 'kien/ctrlp.vim'
 
+  Plug 'https://github.com/vim-scripts/grep.vim'
+  Plug 'kevinhwang91/rnvimr'
+  Plug 'https://github.com/scrooloose/nerdtree'
+  Plug 'https://github.com/scrooloose/nerdcommenter'
 call plug#end()
 
 set mouse=a
@@ -95,7 +99,6 @@ nnoremap <leader>fl <cmd>Telescope git_files<cr>
 
 nnoremap <Leader>pp :lua require'telescope.builtin'.planets{}
 
-
 " if filereadable($HOME.'/vimfiles/bundle/nerdtree/plugin/NERD_tree.vim')
     noremap <F2> :edit ~/.config/nvim/init.vim<CR> 
 " else
@@ -106,7 +109,24 @@ nnoremap <leader>r :source $MYVIMRC<CR>
 
 imap ;; <Esc>
 
+nnoremap <silent> <leader>g :Rgrep
 
+tnoremap <silent> <M-i> <C-\><C-n>:RnvimrResize<CR>
+nnoremap <silent> <M-o> :RnvimrToggle<CR>
+tnoremap <silent> <M-o> <C-\><C-n>:RnvimrToggle<CR>
+
+nnoremap <silent> <F9> :NERDTreeToggle<CR>
+
+" Map Rnvimr action
+let g:rnvimr_action = {
+            \ '<C-t>': 'NvimEdit tabedit',
+            \ '<C-x>': 'NvimEdit split',
+            \ '<C-v>': 'NvimEdit vsplit',
+            \ 'gw': 'JumpNvimCwd',
+            \ 'yw': 'EmitRangerCwd'
+            \ }
+
+" set guifont=FiraCode\ NF:h17
 
 
 " CTRLP settings
@@ -127,6 +147,30 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 " let g:ctrlp_cmd = 'CtrlPMRU'
 let g:ctrlp_user_command = 'find %s -type f'       " MacOSX/Linux
 " let g:ctrlp_user_command = 'find %s -name f'       " MacOSX/Linux
+
+
+let Grep_Default_Filelist = '*.cpp *.h'
+
+
+
+" NERD COMMENTER
+" Set a language to use its alternate delimiters by default
+"let g:NERDAltDelims_c = 1
+"Pas avoir les [> <] quand on commente une zone avec déjà des comments:w
+let g:NERDLPlace= "/*"
+let g:NERDRPlace= "*/"
+" let g:NERDUsePlaceHolders = 0
+" let g:NERDDefaultNesting = 1
+" filtre NERDTree
+"i:let NERDTreeIgnore += ['\(\.txt\)\@<!$[[file]]']
+"let NERDTreeIgnore=['\.json$','\.inc$','\.ac$','\.md$','\.sh$','.txt$', '\.msi$','\.ini$','\.tmp$','\.ini$','\.am$']
+"
+" To don't have the bug of NERDTree because of the CLOUD !!!!!
+let g:NERDTreeDirArrows=0
+" To avoid bug of NERDTREE that doesn't open Directory with new HD to work (so new cygwin ...)
+set encoding=utf-8
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
 
 
 lua << EOF
