@@ -273,7 +273,7 @@ lua << EOF
 local nvim_lsp = require('lspconfig')
 
 require'lspconfig'.clangd.setup{
-cmd = {'/SCM/NFS/expanded/vxWorks7-Vendor/21.03_1/7/compilers/llvm-11.0.1.1/LINUX64/bin/clangd', "--background-index"};
+cmd = {'clangd', "--background-index"};
 }
 
 
