@@ -89,6 +89,18 @@ augroup highlight_yank
 augroup END
 
 :let mapleader = ";"
+" without plugin
+nnoremap <silent> <leader>g :Rgrep
+"nnoremap <leader>g :grep -R <cword> . --include=*.{cpp,h}
+nnoremap <leader>l :copen<CR>
+set path+=**
+if filereadable($HOME.'/.config/nvim/plugged/ctrlp.vim')
+        let g:ctrlp_map = '<c-p>'
+        let g:ctrlp_cmd = 'CtrlP'
+else
+        nnoremap <c-p> :find 
+endif
+
 
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
@@ -108,8 +120,6 @@ nnoremap <Leader>pp :lua require'telescope.builtin'.planets{}
 nnoremap <leader>r :source $MYVIMRC<CR>
 
 imap ;; <Esc>
-
-nnoremap <silent> <leader>g :Rgrep
 
 tnoremap <silent> <M-i> <C-\><C-n>:RnvimrResize<CR>
 nnoremap <silent> <M-o> :RnvimrToggle<CR>
