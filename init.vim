@@ -318,7 +318,7 @@ end
 local servers = { 'clangd' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
-    cmd = {'/SCM/NFS/expanded/vxWorks7-Vendor/21.03_1/7/compilers/llvm-11.0.1.1/LINUX64/bin/clangd', "--background-index"};
+    cmd = {'clangd', "--background-index"};
     on_attach = on_attach,
     flags = {
       debounce_text_changes = 150,
