@@ -100,6 +100,10 @@ if filereadable($HOME.'/.config/nvim/plugged/ctrlp.vim')
 else
         nnoremap <c-p> :find 
 endif
+" Multi-cursor without plugin with copy buffer 'a'
+" <C-c> to copy
+" <C-n> to change first occurence (only 'n' to pass)
+nnoremap <C-n> *<S-n>cgn<C-r>a<ESC>n
 
 
 " Find files using Telescope command-line sugar.
@@ -195,6 +199,8 @@ if has("gui_running") || has("nvim")
 
     " CTRL-C and CTRL-Insert are Copy
     vnoremap <C-C> "+y
+    " to have it in copy buffer 'a' for multicursor in .vimrc
+    vnoremap <C-C> "ay
     " vnoremap <C-Insert> "+y
 
     " CTRL-V and SHIFT-Insert are Paste
