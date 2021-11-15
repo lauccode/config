@@ -90,9 +90,12 @@ augroup END
 
 :let mapleader = ";"
 " without plugin
+" to find words
 nnoremap <silent> <leader>g :Rgrep
 "nnoremap <leader>g :grep -R <cword> . --include=*.{cpp,h}
+" to see the quick list after grep or find ...
 nnoremap <leader>l :copen<CR>
+" to find files
 set path+=**
 if filereadable($HOME.'/.config/nvim/plugged/ctrlp.vim')
         let g:ctrlp_map = '<c-p>'
