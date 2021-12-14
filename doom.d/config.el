@@ -53,6 +53,8 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+(setq find-name-arg "-iname")
+
 (use-package lsp-mode
   ;; :hook ((prog-mode . lsp-deferred))
   ;; :commands (lsp lsp-deferred)
