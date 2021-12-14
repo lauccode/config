@@ -61,6 +61,8 @@
 ;; they are implemented.
 
 (setq find-name-arg "-iname")
+(global-set-key (kbd "M-p") 'find-name-dired)
+(global-set-key (kbd "M-*") 'rgrep)
 
 (use-package lsp-mode
   ;; :hook ((prog-mode . lsp-deferred))
