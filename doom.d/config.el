@@ -64,6 +64,13 @@
 (global-set-key (kbd "M-p") 'find-name-dired)
 (global-set-key (kbd "M-*") 'rgrep)
 
+;; (setq inhibit-eol-conversion t)
+
+;; can solve issue with TRAMP / LSP !! 
+;; (require 'tramp)
+;; (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
+;; (add-to-list 'tramp-remote-path "/path/of/clangd/") 
+
 (use-package lsp-mode
   ;; :hook ((prog-mode . lsp-deferred))
   ;; :commands (lsp lsp-deferred)
