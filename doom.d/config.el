@@ -79,5 +79,6 @@
 (lsp-register-client
     (make-lsp-client :new-connection (lsp-tramp-connection "clangd")
                      :major-modes '(c-mode c++-mode)
+                     :priority 1
                      :remote? t
                      :server-id 'clangd-remote))))
