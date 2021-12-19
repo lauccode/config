@@ -33,6 +33,7 @@
 ;; (setq doom-theme 'doom-henna)
 ;; (setq doom-theme 'tsdh-dark)
 (setq doom-theme 'doom-1337)
+;; (load-theme 'alect-light t)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
