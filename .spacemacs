@@ -52,21 +52,23 @@ values."
      ;;        shell-default-position 'bottom)
      ;; spell-checking
      ;; syntax-checking
-     version-control
+     ;; version-control
      c-c++
      ;; for RTAGS ativate
      ;; (c-c++ :variables c-c++-enable-rtags-support t)
      ;; (c-c++ :variables c-c++-enable-clang-format-on-save t)
      ;; (c-c++ :variables c-c++-default-mode-for-headers 'c++-mode)
-     (c-c++ :variables c-c++-default-mode-for-headers 'c++-mode)
-     (c-c++ :variables c-c++-enable-clang-support t)
-     (c-c++ :variables c-c++-backend 'rtags)
-     cscope
-     gtags
+     ;; (c-c++ :variables c-c++-default-mode-for-headers 'c++-mode)
+     ;; (c-c++ :variables c-c++-enable-clang-support t)
+     ;; (c-c++ :variables c-c++-backend 'rtags)
+     lsp
+     (c-c++ :variables c-c++-backend 'lsp-clangd)
+     ;; cscope
+     ;; gtags
      themes-megapack
      imenu-list
-     tmux
-     fzf
+     ;; tmux
+     ;; fzf
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
