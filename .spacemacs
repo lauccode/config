@@ -362,6 +362,29 @@ you should place your code here."
   ;; try to have helm-projectile-find-file following symbolic link
   ;; (setq projectile-generic-command "find -L . -type f -print0")
   (setq-default dotspacemacs-configuration-layers '(fzf))
+  
+  (setq find-name-arg "-iname")
+  (global-set-key (kbd "M-p") 'find-name-dired)
+  (global-set-key (kbd "M-*") 'rgrep) 
+
+
+  ;; can solve issue with TRAMP / LSP !! 
+  ;; (require 'tramp)
+  (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
+  ;; (add-to-list 'tramp-remote-path "/bin/clangd") 
+
+  (use-package lsp-mode
+    ;; :hook ((prog-mode . lsp-deferred))
+    ;; :commands (lsp lsp-deferred)
+    :config
+    (progn
+      (lsp-register-client
+       (make-lsp-client :new-connection (lsp-tramp-connection "clangd")
+                        :major-modes '(c-mode c++-mode)
+                        :priority 7
+                        :remote? t
+                        :server-id 'clangd-remote))))
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
