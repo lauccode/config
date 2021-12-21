@@ -52,3 +52,4 @@
 ;;(package! geiser)
 ;;(package! geiser-guile)
 ;;(package! alect-themes)
+(package! lsp-treemacs)
