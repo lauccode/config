@@ -83,6 +83,9 @@
   (progn
 (lsp-register-client
     (make-lsp-client :new-connection (lsp-tramp-connection "clangd")
+    ;; without tramp
+    ;; (make-lsp-client :new-connection (lsp-stdio-connection "/path/to/clangd")
+
                      :major-modes '(c-mode c++-mode)
                      :priority 1
                      :remote? t
