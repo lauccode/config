@@ -90,3 +90,7 @@
                      :priority 1
                      :remote? t
                      :server-id 'clangd-remote))))
+
+(menu-bar-mode 1)
+(tool-bar-mode 1)
+
