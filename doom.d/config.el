@@ -98,3 +98,5 @@
 (tool-bar-mode 1)
 
 (setq evil-escape-key-sequence "jj")
+
+(set-default 'truncate-lines nil)
