@@ -100,3 +100,5 @@
 (setq evil-escape-key-sequence "jj")
 
 (set-default 'truncate-lines nil)
+
+(setq global-whitespace-mode t)
