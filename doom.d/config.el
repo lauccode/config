@@ -102,3 +102,8 @@
 (set-default 'truncate-lines nil)
 
 (setq global-whitespace-mode t)
+
+(if (eq initial-window-system 'x)                 ; if started by emacs command or desktop file
+    (toggle-frame-maximized)
+  (toggle-frame-fullscreen))
+
