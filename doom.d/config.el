@@ -107,3 +107,4 @@
     (toggle-frame-maximized)
   (toggle-frame-fullscreen))
 
+(setq confirm-kill-emacs nil)
