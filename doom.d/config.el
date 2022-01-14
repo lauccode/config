@@ -25,6 +25,13 @@
 (add-to-list 'default-frame-alist '(font . "JetBrains Mono-10"))
 (add-to-list 'default-frame-alist '(line-spacing . 0.2))
 
+;; (add-to-list 'default-frame-alist '(font . "Monoid 9"))  ;; OK
+;; (add-to-list 'default-frame-alist '(line-spacing . 0.2))  ;; OK
+;; (setq doom-font (font-spec :family "Monoid" :size 12 :weight 'regular))  ;; OK
+;; (setq doom-font (font-spec :family "Monoid" :size 12 :weight 'bold))  ;; OK
+      ;; doom-variable-pitch-font (font-spec :family "sans" :size 13))
+
+
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
