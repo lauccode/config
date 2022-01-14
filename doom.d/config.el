@@ -122,3 +122,9 @@
     (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
     (setq scroll-step 1) ;; keyboard scroll one line at a time
 
+;; (setq fancy-splash-image "~/.doom.d/black-hole.png")
+;; (setq fancy-splash-image "~/.doom.d/cute-doom.png")
+;; (setq fancy-splash-image "~/.doom.d/doom-light.svg")
+;; (setq fancy-splash-image "~/.doom.d/doom-color.jpg")
+
+
