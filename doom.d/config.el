@@ -128,4 +128,5 @@
 ;; (setq fancy-splash-image "~/.doom.d/doom-color.jpg")
 
 (after! lsp-ui
-  (setq lsp-ui-doc-enable t))
+  (setq lsp-ui-doc-enable t)
+  (setq lsp-ui-doc-show-with-mouse t))
