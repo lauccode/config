@@ -127,4 +127,5 @@
 ;; (setq fancy-splash-image "~/.doom.d/doom-light.svg")
 ;; (setq fancy-splash-image "~/.doom.d/doom-color.jpg")
 
-
+(after! lsp-ui
+  (setq lsp-ui-doc-enable t))
