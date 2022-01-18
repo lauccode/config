@@ -110,9 +110,11 @@
 
 (setq global-whitespace-mode t)
 
-(if (eq initial-window-system 'x)                 ; if started by emacs command or desktop file
-    (toggle-frame-maximized)
-  (toggle-frame-fullscreen))
+;; (if (eq initial-window-system 'x)                 ; if started by emacs command or desktop file
+;;     (toggle-frame-maximized)
+;;   (toggle-frame-fullscreen))
+;; Maximize first frame
+(set-frame-parameter nil 'fullscreen 'maximized)
 
 (setq confirm-kill-emacs nil)
 
