@@ -86,20 +86,28 @@
 ;; (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
 ;; (add-to-list 'tramp-remote-path "/path/of/clangd/") 
 
-(use-package lsp-mode
-  ;; :hook ((prog-mode . lsp-deferred))
-  ;; :commands (lsp lsp-deferred)
-  :config
-  (progn
-(lsp-register-client
-    (make-lsp-client :new-connection (lsp-tramp-connection "clangd")
-    ;; without tramp
-    ;; (make-lsp-client :new-connection (lsp-stdio-connection "/path/to/clangd")
+;; (use-package lsp-mode
+;;   ;; :hook ((prog-mode . lsp-deferred))
+;;   ;; :commands (lsp lsp-deferred)
+;;   :config
+;;  (progn
+;; (lsp-register-client
+;;     (make-lsp-client :new-connection (lsp-tramp-connection "clangd")
+;;     ;; without tramp
+;;     ;; (make-lsp-client :new-connection (lsp-stdio-connection "/path/to/clangd")
+;; 
+;;                      :major-modes '(c-mode c++-mode)
+;;                      :priority 1
+;;                      :remote? t
+;;                      :server-id 'clangd-remote))))
 
-                     :major-modes '(c-mode c++-mode)
-                     :priority 1
-                     :remote? t
-                     :server-id 'clangd-remote))))
+(setq lsp-clients-clangd-args '("-j=3"
+                                "--background-index"
+                                "--clang-tidy"
+                                "--completion-style=detailed"
+                                "--header-insertion=never"
+                                "--header-insertion-decorators=0"))
+(after! lsp-clangd (set-lsp-priority! 'clangd 2))
 
 (menu-bar-mode 1)
 (tool-bar-mode 1)
