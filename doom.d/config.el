@@ -140,3 +140,17 @@
 (after! lsp-ui
   (setq lsp-ui-doc-enable t)
   (setq lsp-ui-doc-show-with-mouse t))
+
+(cmake-ide-setup)
+(use-package cmake-mode
+  :ensure t
+  :mode
+  ("CMakeLists\\.txt\\'" "\\.cmake\\'")
+  )
+(use-package cmake-font-lock
+  :ensure t
+  :after (cmake-mode)
+  :hook (cmake-mode . cmake-font-lock-activate)
+  )
+;; with cmake-ide
+(setq ccls-sem-highlight-method 'font-lock)
