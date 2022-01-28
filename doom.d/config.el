@@ -108,6 +108,12 @@
                                 "--header-insertion=never"
                                 "--header-insertion-decorators=0"))
 (after! lsp-clangd (set-lsp-priority! 'clangd 2))
+;; option en plus
+(after! lsp-ui
+  (setq lsp-ui-doc-enable t)
+  (setq lsp-ui-doc-show-with-mouse t))
+;; Si besoin
+(setq lsp-clients-clangd-args '("--log=verbose" "--query-driver=/usr/bin/c++" "--header-insertion=iwyu" "--background-index"))
 
 (menu-bar-mode 1)
 (tool-bar-mode 1)
@@ -136,10 +142,6 @@
 ;; (setq fancy-splash-image "~/.doom.d/cute-doom.png")
 ;; (setq fancy-splash-image "~/.doom.d/doom-light.svg")
 ;; (setq fancy-splash-image "~/.doom.d/doom-color.jpg")
-
-(after! lsp-ui
-  (setq lsp-ui-doc-enable t)
-  (setq lsp-ui-doc-show-with-mouse t))
 
 (cmake-ide-setup)
 (use-package cmake-mode
