@@ -101,6 +101,12 @@
 ;;                      :remote? t
 ;;                      :server-id 'clangd-remote))))
 
+;; .clangd
+;; ---
+;; CompileFlags:
+;;     Add: [-isystem /usr/lib/llvm-13/lib/clang/13.0.1/include]
+
+
 (setq lsp-clients-clangd-args '("-j=3"
                                 "--background-index"
                                 "--clang-tidy"
