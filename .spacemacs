@@ -384,8 +384,11 @@ you should place your code here."
                         :priority 7
                         :remote? t
                         :server-id 'clangd-remote))))
-
   )
+  
+  ; if needed by clangd
+  ; (setq lsp-clients-clangd-args '("--log=verbose" "--query-driver=/usr/bin/c++" "--header-insertion=iwyu" "--background-index"))
+
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
