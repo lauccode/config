@@ -107,12 +107,12 @@
 ;;     Add: [-isystem /usr/lib/llvm-13/lib/clang/13.0.1/include]
 
 
-(setq lsp-clients-clangd-args '("-j=3"
-                                "--background-index"
-                                "--clang-tidy"
-                                "--completion-style=detailed"
-                                "--header-insertion=never"
-                                "--header-insertion-decorators=0"))
+;; (setq lsp-clients-clangd-args '("-j=3"
+;;                                 "--background-index"
+;;                                 "--clang-tidy"
+;;                                 "--completion-style=detailed"
+;;                                 "--header-insertion=never"
+;;                                 "--header-insertion-decorators=0"))
 (after! lsp-clangd (set-lsp-priority! 'clangd 2))
 ;; option en plus
 (after! lsp-ui
@@ -149,16 +149,16 @@
 ;; (setq fancy-splash-image "~/.doom.d/doom-light.svg")
 ;; (setq fancy-splash-image "~/.doom.d/doom-color.jpg")
 
-(cmake-ide-setup)
-(use-package cmake-mode
-  :ensure t
-  :mode
-  ("CMakeLists\\.txt\\'" "\\.cmake\\'")
-  )
-(use-package cmake-font-lock
-  :ensure t
-  :after (cmake-mode)
-  :hook (cmake-mode . cmake-font-lock-activate)
-  )
-;; with cmake-ide
-(setq ccls-sem-highlight-method 'font-lock)
+;; (cmake-ide-setup)
+;; (use-package cmake-mode
+;;   :ensure t
+;;   :mode
+;;   ("CMakeLists\\.txt\\'" "\\.cmake\\'")
+;;   )
+;; (use-package cmake-font-lock
+;;   :ensure t
+;;   :after (cmake-mode)
+;;   :hook (cmake-mode . cmake-font-lock-activate)
+;;   )
+;; ;; with cmake-ide
+;; (setq ccls-sem-highlight-method 'font-lock)
