@@ -162,3 +162,8 @@
 ;;   )
 ;; ;; with cmake-ide
 ;; (setq ccls-sem-highlight-method 'font-lock)
+
+;; to debug with DAP-MODE
+(setq dap-auto-configure-mode t)
+(require 'dap-cpptools)
+
