@@ -167,3 +167,15 @@
 (setq dap-auto-configure-mode t)
 (require 'dap-cpptools)
 
+;; To have config ready when launching dap-debug (also OK with launch.json) 
+(with-eval-after-load 'dap-mode
+(dap-register-debug-template
+  "U2 Test Linux"
+  (list :type "cppdbg"
+        :request "launch"
+        :name "cpptools::U2TestsLinux"
+        :MIMode "gdb"
+        :program "${workspaceFolder}/path/to/bin"
+        :cwd "${workspaceFolder}")))
+
+
