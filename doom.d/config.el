@@ -179,35 +179,36 @@
         :cwd "${workspaceFolder}")))
 
 (map! :map dap-mode-map
- 280       :leader
- 281       :prefix ("d" . "dap")
- 282       ;; basics
- 283       :desc "dap next"          "n" #'dap-next
- 284       :desc "dap step in"       "i" #'dap-step-in
- 285       :desc "dap step out"      "o" #'dap-step-out
- 286       :desc "dap continue"      "c" #'dap-continue
- 287       :desc "dap hydra"         "h" #'dap-hydra
- 288       :desc "dap debug restart" "r" #'dap-debug-restart
- 289       :desc "dap debug"         "s" #'dap-debug
- 290
- 291       ;; debug
- 292       :prefix ("dd" . "Debug")
- 293       :desc "dap debug recent"  "r" #'dap-debug-recent
- 294       :desc "dap debug last"    "l" #'dap-debug-last
- 295
- 296       ;; eval
- 297       :prefix ("de" . "Eval")
- 298       :desc "eval"                "e" #'dap-eval
- 299       :desc "eval region"         "r" #'dap-eval-region
- 300       :desc "eval thing at point" "s" #'dap-eval-thing-at-point
- 301       :desc "add expression"      "a" #'dap-ui-expressions-add
- 302       :desc "remove expression"   "d" #'dap-ui-expressions-remove
- 303
- 304       :prefix ("db" . "Breakpoint")
- 305       :desc "dap breakpoint toggle"      "b" #'dap-breakpoint-toggle
- 306       :desc "dap breakpoint condition"   "c" #'dap-breakpoint-condition
- 307       :desc "dap breakpoint hit count"   "h" #'dap-breakpoint-hit-condition
- 308       :desc "dap breakpoint log message" "l" #'dap-breakpoint-log-message)
+      :leader
+      :prefix ("d" . "dap")
+      ;; basics
+      :desc "dap next"          "n" #'dap-next
+      :desc "dap step in"       "i" #'dap-step-in
+      :desc "dap step out"      "o" #'dap-step-out
+      :desc "dap continue"      "c" #'dap-continue
+      :desc "dap hydra"         "h" #'dap-hydra
+      :desc "dap debug restart" "r" #'dap-debug-restart
+      :desc "dap debug"         "s" #'dap-debug
+
+      ;; debug
+      :prefix ("dd" . "Debug")
+      :desc "dap debug recent"  "r" #'dap-debug-recent
+      :desc "dap debug last"    "l" #'dap-debug-last
+
+      ;; eval
+      :prefix ("de" . "Eval")
+      :desc "eval"                "e" #'dap-eval
+      :desc "eval region"         "r" #'dap-eval-region
+      :desc "eval thing at point" "s" #'dap-eval-thing-at-point
+      :desc "add expression"      "a" #'dap-ui-expressions-add
+      :desc "remove expression"   "d" #'dap-ui-expressions-remove
+
+      :prefix ("db" . "Breakpoint")
+      :desc "dap breakpoint toggle"      "b" #'dap-breakpoint-toggle
+      :desc "dap breakpoint condition"   "c" #'dap-breakpoint-condition
+      :desc "dap breakpoint hit count"   "h" #'dap-breakpoint-hit-condition
+      :desc "dap breakpoint log message" "l" #'dap-breakpoint-log-message)
+
 
 ;; xterm mouse support
 ;; (require 'mouse)
