@@ -208,3 +208,7 @@
  306       :desc "dap breakpoint condition"   "c" #'dap-breakpoint-condition
  307       :desc "dap breakpoint hit count"   "h" #'dap-breakpoint-hit-condition
  308       :desc "dap breakpoint log message" "l" #'dap-breakpoint-log-message)
+
+;; xterm mouse support
+;; (require 'mouse)
+;; (xterm-mouse-mode t)
