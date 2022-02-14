@@ -213,3 +213,4 @@
 ;; xterm mouse support
 ;; (require 'mouse)
 ;; (xterm-mouse-mode t)
+;; (global-set-key (kbd "M-m") 'xterm-mouse-mode)
