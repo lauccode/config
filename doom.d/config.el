@@ -163,6 +163,14 @@
 ;; ;; with cmake-ide
 ;; (setq ccls-sem-highlight-method 'font-lock)
 
+;; To specify what M-x make uses for compilation, you specify the compile-command variable.
+;; (setq compile-command "make -c /path/to/makefile")
+;; For your GDB stuff, the variable is gud-gdb-command-name, so
+;; (setq gud-gdb-command-name "gdb --anotate=3 -cd /path/to/exec")
+
+;; gdb /docker:container_name:/path/to/bin -ex "set substitute-path /path/to/local/repo /path/to/docker/repo" -ex "handle SIGPIPE nostop" -f
+;; gdb /docker:container_name:/path/to/bin -ex "set substitute-path /path/to/local/repo /path/to/docker/repo" -ex "handle SIGPIPE nostop"
+
 ;; to debug with DAP-MODE
 (setq dap-auto-configure-mode t)
 (require 'dap-cpptools)
