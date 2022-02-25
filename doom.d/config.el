@@ -222,3 +222,7 @@
 ;; (require 'mouse)
 ;; (xterm-mouse-mode t)
 (global-set-key (kbd "M-m") 'xterm-mouse-mode)
+
+ (add-to-list 'auto-mode-alist '("\\.bbappend\\'" . bitbake-mode))
+ (add-to-list 'auto-mode-alist '("\\.bb\\'" . bitbake-mode))
+
