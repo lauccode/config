@@ -223,6 +223,15 @@
 ;; (xterm-mouse-mode t)
 (global-set-key (kbd "M-m") 'xterm-mouse-mode)
 
- (add-to-list 'auto-mode-alist '("\\.bbappend\\'" . bitbake-mode))
- (add-to-list 'auto-mode-alist '("\\.bb\\'" . bitbake-mode))
+;;(require 'bitbake)
+;; (add-to-list 'auto-mode-alist '("\\.bbappend\\'" . bitbake-mode))
+;; (add-to-list 'auto-mode-alist '("\\.bb\\'" . bitbake-mode))
+;; (add-to-list 'auto-mode-alist '("\\.inc$" . bitebake-mode))
+;; (add-to-list 'auto-mode-alist '("\\.bbclass$" . bitebake-mode))
+;; (add-to-list 'auto-mode-alist '("\\.conf$" . bitebake-mode))
+;; (setq auto-mode-alist (cons '("\\.bb$" . bitbake-mode) auto-mode-alist))
+;; (setq auto-mode-alist (cons '("\\.inc$" . bitbake-mode) auto-mode-alist))
+;; (setq auto-mode-alist (cons '("\\.bbappend$" . bitbake-mode) auto-mode-alist))
+;; (setq auto-mode-alist (cons '("\\.bbclass$" . bitbake-mode) auto-mode-alist))
+;; (setq auto-mode-alist (cons '("\\.conf$" . bitbake-mode) auto-mode-alist))
 
