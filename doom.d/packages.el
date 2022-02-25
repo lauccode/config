@@ -53,4 +53,4 @@
 ;;(package! geiser-guile)
 ;;(package! alect-themes)
 ;;(package! lsp-treemacs)
-;;(package! cmake-ide)
+;;(package! bitebake)
