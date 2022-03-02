@@ -79,6 +79,9 @@
 (global-set-key (kbd "M-p") 'find-name-dired)
 (global-set-key (kbd "M-*") 'rgrep)
 
+;; to have horizontal bar on cursor
+(global-hl-line-mode t)
+
 ;; (setq inhibit-eol-conversion t)
 
 ;; can solve issue with TRAMP / LSP !! 
