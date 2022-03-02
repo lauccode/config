@@ -241,3 +241,19 @@
 ;; (setq auto-mode-alist (cons '("\\.bbclass$" . bitbake-mode) auto-mode-alist))
 ;; (setq auto-mode-alist (cons '("\\.conf$" . bitbake-mode) auto-mode-alist))
 
+;; Merge conflict with magit :
+;; S,g,g 	: open git status
+;; e 	      : on unmerge file (so, with conflicts), to open ediff
+;; 
+;; In ediff windows, cursors is on the botton ! on “Type ? for help”
+;; You need to change windows upper to modify in “C” windows.
+;; And after come back in the windows “Type ? for help” to use ediff shortcuts.
+;; 
+;; In ediff :
+;; a	: add A windows modifications in C windows
+;; b	: add B windows modifications in C windows
+;; +	: add A and B windows modifications in C windows
+;; wc : save buffer
+;; i	: infos
+
+
