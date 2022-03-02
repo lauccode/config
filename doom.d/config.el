@@ -80,7 +80,7 @@
 (global-set-key (kbd "M-*") 'rgrep)
 
 ;; to have horizontal bar on cursor
-;; (global-hl-line-mode t)
+;; (setq global-hl-line-mode t)
 
 ;; (setq inhibit-eol-conversion t)
 
