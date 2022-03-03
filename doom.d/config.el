@@ -226,6 +226,15 @@
       :desc "dap breakpoint hit count"   "h" #'dap-breakpoint-hit-condition
       :desc "dap breakpoint log message" "l" #'dap-breakpoint-log-message)
 
+;; For realgud 
+;;   (global-set-key (kbd "<f5>") 'gud-cont)
+;;   (global-set-key (kbd "<f10>") 'gud-next)
+;;   (global-set-key (kbd "<f11>") 'gud-step)
+;;   (global-set-key (kbd "<f9>") 'gud-break)
+;;   (global-set-key (kbd "<S-f9>") 'gud-remove)
+;;   (global-set-key (kbd "<f12>") 'gud-print)
+;;   (global-set-key (kbd "<S-f12>") 'gud-watch)
+
 
 ;; xterm mouse support
 ;; (require 'mouse)
