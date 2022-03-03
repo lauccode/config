@@ -257,3 +257,20 @@
 ;; i	: infos
 
 
+;; The default is to not sort files:
+;; (setq projectile-sort-order 'default)
+;; To sort files by recently opened:
+(setq projectile-sort-order 'recentf)
+;; To sort files by recently active buffers and then recently opened files:
+;; (setq projectile-sort-order 'recently-active)
+;; To sort files by modification time (mtime):
+;; (setq projectile-sort-order 'modification-time)
+;; To sort files by access time (atime):
+;; (setq projectile-sort-order 'access-time)
+;; To force the use of native indexing in all operating systems:
+(setq projectile-indexing-method 'native)
+;; To force the use of hybrid indexing in all operating systems:
+;; (setq projectile-indexing-method 'hybrid)
+;; To force the use of alien indexing in all operating systems: (native)
+;; (setq projectile-indexing-method 'alien)
+
