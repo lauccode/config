@@ -174,6 +174,9 @@
 ;; For your GDB stuff, the variable is gud-gdb-command-name, so
 ;; (setq gud-gdb-command-name "gdb --anotate=3 -cd /path/to/exec")
 
+;; build main SPC,c,c :
+;; g++ -g -o main main.cpp
+
 ;; gdb /docker:container_name:/path/to/bin -ex "set substitute-path /path/to/local/repo /path/to/docker/repo" -ex "handle SIGPIPE nostop" -f
 ;; gdb /docker:container_name:/path/to/bin -ex "set substitute-path /path/to/local/repo /path/to/docker/repo" -ex "handle SIGPIPE nostop"
 
