@@ -267,6 +267,7 @@
 ;; (setq projectile-sort-order 'modification-time)
 ;; To sort files by access time (atime):
 ;; (setq projectile-sort-order 'access-time)
+
 ;; To force the use of native indexing in all operating systems:
 (setq projectile-indexing-method 'native)
 ;; To force the use of hybrid indexing in all operating systems:
