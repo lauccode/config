@@ -82,6 +82,11 @@
 (global-set-key (kbd "M-p") 'find-name-dired)
 (global-set-key (kbd "M-*") 'rgrep)
 
+;; (with-eval-after-load 'evil-maps
+;;    (define-key evil-normal-state-map (kbd "f") 'evilem-motion-find-char)
+;;    (define-key evil-normal-state-map (kbd "F") 'evilem-motion-find-char-backward))
+
+
 ;; to have horizontal bar on cursor
 ;; (setq global-hl-line-mode t)
 
