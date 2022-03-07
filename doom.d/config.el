@@ -89,6 +89,7 @@
 
 ;; to have horizontal bar on cursor
 ;; (setq global-hl-line-mode t)
+;; (set-face-attribute hl-line-face nil :underline t)
 
 ;; (setq inhibit-eol-conversion t)
 
