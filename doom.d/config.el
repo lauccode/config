@@ -91,6 +91,11 @@
 ;; (setq global-hl-line-mode t)
 ;; (set-face-attribute hl-line-face nil :underline t)
 
+;; disable hl line in visual mode
+;; (add-hook 'evil-visual-state-entry-hook (lambda() (hl-line-mode -1)))
+;; (add-hook 'evil-visual-state-exit-hook (lambda() (hl-line-mode +1)))
+
+
 ;; (setq inhibit-eol-conversion t)
 
 ;; can solve issue with TRAMP / LSP !! 
