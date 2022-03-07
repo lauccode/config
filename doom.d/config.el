@@ -95,6 +95,12 @@
 ;; (add-hook 'evil-visual-state-entry-hook (lambda() (hl-line-mode -1)))
 ;; (add-hook 'evil-visual-state-exit-hook (lambda() (hl-line-mode +1)))
 
+;; to have dracula theme ok with highlighting the line on cursor position with vertico
+;; (use-package vertico
+;;   :custom-face
+;;   (vertico-current ((t (:background "#3a3f5a"))))
+;;   :init
+;;   (vertico-mode))
 
 ;; (setq inhibit-eol-conversion t)
 
