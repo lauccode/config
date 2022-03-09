@@ -212,6 +212,11 @@
         :program "${workspaceFolder}/path/to/bin"
         :cwd "${workspaceFolder}")))
 
+;; "args": ["-q"],
+;; "stopAtEntry": false,
+;; "environment": [],
+;; "externalConsole": false,
+
 (map! :map dap-mode-map
       :leader
       :prefix ("d" . "dap")
