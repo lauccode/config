@@ -48,12 +48,13 @@
 (setq doom-theme 'doom-1337)
 ;; (load-theme 'alect-light t)
 
+;; (when (eq window-system 'nil)
 ;;(custom-theme-set-faces! 'doom-dracula
   ;; 232/239
 ;; '(default :background "color-233")
 ;; '(default :background "black" :weight bold)
 ;; for selection
-;; (region :background "color-201" :weight bold))
+;; (region :background "color-201" :weight bold)))
 
 
 ;; If you use `org' and don't want your org files in the default location below,
