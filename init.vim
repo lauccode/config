@@ -44,7 +44,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'kien/ctrlp.vim'
 
   Plug 'https://github.com/vim-scripts/grep.vim'
-  Plug 'kevinhwang91/rnvimr'
+  Plug 'kevinhwang91/rnvimr'  " for ranger
   Plug 'https://github.com/scrooloose/nerdtree'
   Plug 'https://github.com/scrooloose/nerdcommenter'
 call plug#end()
