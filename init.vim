@@ -129,11 +129,10 @@ nnoremap <leader>r :source $MYVIMRC<CR>
 
 imap ;; <Esc>
 
+" ranger
 tnoremap <silent> <M-i> <C-\><C-n>:RnvimrResize<CR>
 nnoremap <silent> <M-o> :RnvimrToggle<CR>
 tnoremap <silent> <M-o> <C-\><C-n>:RnvimrToggle<CR>
-
-nnoremap <silent> <F9> :NERDTreeToggle<CR>
 
 " Map Rnvimr action
 let g:rnvimr_action = {
@@ -144,8 +143,9 @@ let g:rnvimr_action = {
             \ 'yw': 'EmitRangerCwd'
             \ }
 
-" set guifont=FiraCode\ NF:h17
+nnoremap <silent> <F9> :NERDTreeToggle<CR>
 
+" set guifont=FiraCode\ NF:h17
 
 " CTRLP settings
 " results:  can affect the result to find several time the same name of file 
