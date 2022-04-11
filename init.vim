@@ -163,6 +163,10 @@ nnoremap <silent> <F9> :NERDTreeToggle<CR>
   :nnoremap <A-k> <C-w>k
   :nnoremap <A-l> <C-w>l
 
+" Move between buffers
+nnoremap <C-J> :bprev<CR>
+nnoremap <C-K> :bnext<CR>
+
 " set guifont=FiraCode\ NF:h17
 
 " CTRLP settings
