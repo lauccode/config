@@ -319,13 +319,14 @@ endif
 
 " END NORMAL COPY AND PASTE SETTINGS 
 
+lua << EOF
+
 -- FOR LITEE (call-tree) (TBT)
 -- configure the litee.nvim library 
 -- require('litee.lib').setup({})
 -- configure litee-calltree.nvim
 -- require('litee.calltree').setup({})
 
-lua << EOF
 local nvim_lsp = require('lspconfig')
 
 require'lspconfig'.clangd.setup{
