@@ -323,70 +323,76 @@ lua << EOF
 
 -- FOR LITEE (call-tree) (TBT)
 -- configure the litee.nvim library 
--- require('litee.lib').setup({})
+require('litee.lib').setup({})
 -- configure litee-calltree.nvim
--- require('litee.calltree').setup({})
+require('litee.calltree').setup({})
+
 
 local nvim_lsp = require('lspconfig')
 
+
 require'lspconfig'.clangd.setup{
-cmd = {'clangd', "--background-index"};
+-- cmd = {'/SCM/NFS/expanded/vxWorks7-Vendor/21.03_1/7/compilers/llvm-11.0.1.1/LINUX64/bin/clangd', "--background-index", "--query-driver=/usr/bin/c++", "--header-insertion=iwyu"};
+-- cmd = {'/usr/bin/clangd', "--background-index", "--query-driver=/usr/bin/c++", "--header-insertion=iwyu"};
+-- cmd = {'/snap/bin/clangd', "--background-index"};
 }
 
+-- Mappings.
+-- See `:help vim.diagnostic.*` for documentation on any of the below functions
+local opts = { noremap=true, silent=true }
+vim.api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
-  local on_attach = function(client, bufnr)
-   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
- 
-   -- Enable completion triggered by <c-x><c-o>
-   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
- 
-   -- Mappings.
-   local opts = { noremap=true, silent=true }
+local on_attach = function(client, bufnr)
+  -- Enable completion triggered by <c-x><c-o>
+  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
  
    -- See `:help vim.lsp.*` for documentation on any of the below functions
-   -- buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-   -- buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-   -- buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-   -- buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-   -- buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+   -- vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+   -- vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+   -- vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+   -- vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+   -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
 
-   buf_set_keymap('n', '<Space>D', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-   buf_set_keymap('n', '<Space>d', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-   buf_set_keymap('n', '<Space>K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-   buf_set_keymap('n', '<Space>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-   buf_set_keymap('n', '<Space>k', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Space>D', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Space>d', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Space>K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Space>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Space>k', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
 
-   buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-   buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-   buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-   buf_set_keymap('n', '<space>t', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-   buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-   buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-   buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-   buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-   buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-   buf_set_keymap('n', '<space>i', '<cmd>lua vim.lsp.buf.incomingCalls()<CR>', opts)
-   buf_set_keymap('n', '<space>o', '<cmd>lua vim.lsp.buf.outgoingCalls()<CR>', opts)
+   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>t', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+   -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>i', '<cmd>lua vim.lsp.buf.incomingCalls()<CR>', opts)
+   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>o', '<cmd>lua vim.lsp.buf.outgoingCalls()<CR>', opts)
 
-   -- buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-   -- buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-   -- buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+   -- vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+   -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+   -- vim.api.nvim_buf_set_keymap(bufnr, 'n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
 
-   buf_set_keymap('n', '<Space>gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-   buf_set_keymap('n', '<Space>[', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-   buf_set_keymap('n', '<Space>]', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Space>r', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Space>[', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Space>]', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
    -- <C-o> go backwards
    -- <C-i> go forwards
+
 end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 local servers = { 'clangd' }
 for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
+    require('lspconfig')[lsp].setup {
     cmd = {'clangd', "--background-index"};
     on_attach = on_attach,
     flags = {
