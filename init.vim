@@ -167,6 +167,12 @@ nnoremap <silent> <F9> :NERDTreeToggle<CR>
 nnoremap <C-J> :bprev<CR>
 nnoremap <C-K> :bnext<CR>
 
+" yank (y) command to the clipboard buffer.
+" set clipboard+=unnamedplus
+" and close the init.vim. Then you have to install:
+" xsel if you have installed Neovim in your local machine.
+" lemonade if you have installed Neovim in a remote host (ssh).
+
 " set guifont=FiraCode\ NF:h17
 
 " CTRLP settings
