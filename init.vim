@@ -47,6 +47,9 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'kevinhwang91/rnvimr'  " for ranger
   Plug 'https://github.com/scrooloose/nerdtree'
   Plug 'https://github.com/scrooloose/nerdcommenter'
+  
+  Plug 'ldelossa/litee.nvim'
+  Plug 'ldelossa/litee-calltree.nvim'
 call plug#end()
 
 set mouse=a
@@ -316,6 +319,11 @@ endif
 
 " END NORMAL COPY AND PASTE SETTINGS 
 
+-- FOR LITEE (call-tree) (TBT)
+-- configure the litee.nvim library 
+-- require('litee.lib').setup({})
+-- configure litee-calltree.nvim
+-- require('litee.calltree').setup({})
 
 lua << EOF
 local nvim_lsp = require('lspconfig')
