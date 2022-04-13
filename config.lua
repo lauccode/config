@@ -51,6 +51,11 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 --   l = { "<cmd>Trouble loclist<cr>", "LocationList" },
 --   w = { "<cmd>Trouble lsp_workspace_diagnostics<cr>", "Diagnostics" },
 -- }
+lvim.builtin.which_key.mappings["l"] = {
+  name = "+LSP",
+  g = { "<cmd>LSP lua vim.lsp.buf.incoming_calls()<CR>", "incoming calls" },
+  o = { "<cmd>LSP lua vim.lsp.buf.outgoing_calls()<CR>", "outgoing_calls" },
+}
 
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
