@@ -420,4 +420,7 @@ defaults = { file_ignore_patterns = {"node_modules"} }
 }
 
 vim.lsp.set_log_level("debug")
+
+-- vimscript command !!!
+vim.cmd 'packadd termdebug'
 EOF
