@@ -91,6 +91,14 @@
 (global-set-key (kbd "M-p") 'find-name-dired)
 (global-set-key (kbd "M-*") 'rgrep)
 
+;; Shortcuts for GDB
+(global-set-key (kbd "<f7>") 'gud-break)
+(global-set-key (kbd "<f8>") 'gud-remove)
+(global-set-key (kbd "<f5>") 'gud-cont)
+(global-set-key (kbd "<f6>") 'gud-run)
+(global-set-key (kbd "<f10>") 'gud-next)
+(global-set-key (kbd "<f9>") 'gud-step)
+
 ;; (with-eval-after-load 'evil-maps
 ;;    (define-key evil-normal-state-map (kbd "f") 'evilem-motion-find-char)
 ;;    (define-key evil-normal-state-map (kbd "F") 'evilem-motion-find-char-backward))
