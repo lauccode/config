@@ -429,5 +429,6 @@ vim.cmd 'noremap <F10> :Over<cr>'
 vim.cmd 'noremap <F11> :Step<cr>'
 vim.cmd 'noremap <F5> :Continue<cr>'
 vim.cmd 'noremap <F6> :Run<cr>'
+-- <S-k> :Evaluate
 
 EOF
