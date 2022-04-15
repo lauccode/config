@@ -68,8 +68,8 @@ let g:edge_style = 'aura'
 let g:edge_enable_italic = 1
 let g:edge_disable_italic_comment = 1
 
-" colorscheme edge
-colorscheme material
+colorscheme edge
+" colorscheme material
 "darker/lighter/oceanic/palenight/deep ocean
 let g:material_style = 'darker'
 
