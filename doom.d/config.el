@@ -90,6 +90,8 @@
 (setq find-name-arg "-iname")
 (global-set-key (kbd "M-p") 'find-name-dired)
 (global-set-key (kbd "M-*") 'rgrep)
+;; Switch entre cpp et h
+(global-set-key (kbd "M-o") 'lsp-clangd-find-other-file) 
 
 ;; Shortcuts for GDB
 (global-set-key (kbd "<f7>") 'gud-break)
