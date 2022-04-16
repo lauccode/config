@@ -10,7 +10,7 @@ an executable
 
 -- general
 lvim.log.level = "warn"
-lvim.format_on_save = true
+lvim.format_on_save = false
 lvim.colorscheme = "onedarker"
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
@@ -51,10 +51,11 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 --   l = { "<cmd>Trouble loclist<cr>", "LocationList" },
 --   w = { "<cmd>Trouble lsp_workspace_diagnostics<cr>", "Diagnostics" },
 -- }
-lvim.builtin.which_key.mappings["l"] = {
-  name = "+LSP",
-  g = { "<cmd>LSP lua vim.lsp.buf.incoming_calls()<CR>", "incoming calls" },
-  o = { "<cmd>LSP lua vim.lsp.buf.outgoing_calls()<CR>", "outgoing_calls" },
+
+lvim.builtin.which_key.mappings["i"] = {
+  name = "+call",
+  i = { "<cmd>lua vim.lsp.buf.incoming_calls()<CR>", "incoming calls" },
+  o = { "<cmd>lua vim.lsp.buf.outgoing_calls()<CR>", "outgoing_calls" },
 }
 
 -- TODO: User Config for predefined plugins
