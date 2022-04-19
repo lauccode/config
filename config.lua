@@ -154,6 +154,7 @@ lvim.plugins = {
 {
     'ldelossa/litee.nvim',
     'ldelossa/litee-calltree.nvim',
+    'sakhnik/nvim-gdb',
     -- FOR LITEE (call-tree) (TBT)
     -- configure the litee.nvim library
     -- config = function()
