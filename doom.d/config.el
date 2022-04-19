@@ -104,7 +104,7 @@
 ;; realgud:
 ;; (define-key map "b" 'realgud:cmd-break)
 ;; (define-key map "D" 'realgud:cmd-delete)
-;; (define-key map "X" 'realgud:cmd-clear)
+;; (define-key map "X" 'realgud:cmd-clear)     à faire pour retirer breakpoint !
 ;; (define-key map "-" 'realgud:cmd-disable)
 ;; (define-key map "+" 'realgud:cmd-enable)
 ;; (define-key map "T" 'realgud:cmd-backtrace)
