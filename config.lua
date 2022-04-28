@@ -58,6 +58,7 @@ lvim.builtin.which_key.mappings["i"] = {
   name = "+call",
   i = { "<cmd>lua vim.lsp.buf.incoming_calls()<CR>", "incoming calls" },
   o = { "<cmd>lua vim.lsp.buf.outgoing_calls()<CR>", "outgoing_calls" },
+  O = { "<cmd>LTPopOutCalltree<CR>", "open call-tree" },
 }
 
 -- vimscript command !!!
