@@ -186,13 +186,16 @@ lvim.plugins = {
     -- FOR LITEE (call-tree) (TBT)
     -- configure the litee.nvim library
     -- config = function()
-      require('litee.lib').setup({}),
+    -- require('litee.lib').setup({}),
       -- configure litee-calltree.nvim
-      require('litee.calltree').setup({})
+    -- require('litee.calltree').setup({})
     -- end,
   },
 
 }
+
+require('litee.lib').setup({}),
+require('litee.calltree').setup({})
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- lvim.autocommands.custom_groups = {
