@@ -66,6 +66,7 @@ vim.cmd 'noremap <F10> :Over<cr>'
 vim.cmd 'noremap <F12> :Step<cr>'
 vim.cmd 'noremap <F5> :Continue<cr>'
 vim.cmd 'noremap <F6> :Run<cr>'
+vim.cmd 'noremap <F4> :Evaluate<cr>'
 
 -- To map <Esc> to exit terminal-mode:
 vim.cmd 'tnoremap <Esc> <C-\\><C-n>'
