@@ -73,6 +73,14 @@ vim.cmd 'noremap <F4> :Evaluate<cr>'
 
 vim.cmd 'let g:termdebug_wild = 1'  -- =163 for inversed layout
 
+-- autocmd colorscheme * :hi debugPC term=reverse ctermbg=darkblue guibg=red
+vim.api.nvim_command([[
+    augroup ChangeBackgroudColour
+        autocmd colorscheme * :hi debugPC guibg=green
+    augroup END
+]])
+
+
 -- To map <Esc> to exit terminal-mode:
 vim.cmd 'tnoremap <Esc> <C-\\><C-n>'
 -- To simulate |i_CTRL-R| in terminal-mode:
