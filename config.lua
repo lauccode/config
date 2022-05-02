@@ -183,24 +183,17 @@ lvim.plugins = {
   --       "folke/trouble.nvim",
   --       cmd = "TroubleToggle",
   --     },
-
-{
-    'ldelossa/litee.nvim',
-    'ldelossa/litee-calltree.nvim',
-    'sakhnik/nvim-gdb',
+  {"ldelossa/litee.nvim",
+    require('litee.lib').setup({})},
+  {"ldelossa/litee-calltree.nvim",
+    require('litee.calltree').setup({})},
+  {"sakhnik/nvim-gdb"},
     -- FOR LITEE (call-tree) (TBT)
     -- configure the litee.nvim library
     -- config = function()
-    -- require('litee.lib').setup({}),
       -- configure litee-calltree.nvim
-    -- require('litee.calltree').setup({})
     -- end,
-  },
-
 }
-
-require('litee.lib').setup({}),
-require('litee.calltree').setup({})
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- lvim.autocommands.custom_groups = {
