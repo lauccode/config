@@ -71,6 +71,8 @@ vim.cmd 'noremap <F5> :Continue<cr>'
 vim.cmd 'noremap <F6> :Run<cr>'
 vim.cmd 'noremap <F4> :Evaluate<cr>'
 
+vim.cmd 'let g:termdebug_wild = 1'  -- =163 for inversed layout
+
 -- To map <Esc> to exit terminal-mode:
 -- vim.cmd 'tnoremap <Esc> <C-\\><C-n>'
 -- To simulate |i_CTRL-R| in terminal-mode:
