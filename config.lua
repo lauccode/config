@@ -71,7 +71,7 @@ vim.cmd 'noremap <F5> :Continue<cr>'
 vim.cmd 'noremap <F6> :Run<cr>'
 vim.cmd 'noremap <F4> :Evaluate<cr>'
 
-vim.cmd 'let g:termdebug_wild = 1'  -- =163 for inversed layout
+vim.cmd 'let g:termdebug_wide = 1'  -- =163 for inversed layout
 
 -- autocmd colorscheme * :hi debugPC term=reverse ctermbg=darkblue guibg=red
 vim.api.nvim_command([[
