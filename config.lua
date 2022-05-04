@@ -60,6 +60,7 @@ lvim.builtin.which_key.mappings["i"] = {
   o = { "<cmd>lua vim.lsp.buf.outgoing_calls()<CR>", "outgoing_calls" },
   O = { "<cmd>LTPopOutCalltree<CR>", "open call-tree" },
 }
+lvim.builtin.which_key.mappings["*"] = { "<cmd>Telescope grep_string<cr>", "grep string under cursor" }
 
 -- vimscript command !!!
 vim.cmd 'packadd termdebug'
