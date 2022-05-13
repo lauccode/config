@@ -93,10 +93,10 @@
 ;; Switch entre cpp et h
 (global-set-key (kbd "M-o") 'lsp-clangd-find-other-file) 
 
-  (define-key evil-motion-state-map (kbd "M-h") #'evil-window-left)
-  (define-key evil-motion-state-map (kbd "M-j") #'evil-window-down)
-  (define-key evil-motion-state-map (kbd "M-k") #'evil-window-up)
-  (define-key evil-motion-state-map (kbd "M-l") #'evil-window-right)
+  (define-key evil-motion-state-map (kbd "C-h") #'evil-window-left)
+  (define-key evil-motion-state-map (kbd "C-j") #'evil-window-down)
+  (define-key evil-motion-state-map (kbd "C-k") #'evil-window-up)
+  (define-key evil-motion-state-map (kbd "C-l") #'evil-window-right)
 
 ;; Shortcuts for GDB
 (global-set-key (kbd "<f7>") 'gud-break)
