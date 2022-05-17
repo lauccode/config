@@ -200,13 +200,6 @@ lvim.plugins = {
   {"ldelossa/litee-calltree.nvim",
     require('litee.calltree').setup({})},
   {"sakhnik/nvim-gdb"},
-  {
-  "nvim-telescope/telescope-project.nvim",
-  event = "BufWinEnter",
-  setup = function()
-    vim.cmd [[packadd telescope.nvim]]
-  end,
-  },
     -- FOR LITEE (call-tree) (TBT)
     -- configure the litee.nvim library
     -- config = function()
