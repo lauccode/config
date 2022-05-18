@@ -208,6 +208,17 @@ lvim.plugins = {
     vim.cmd [[packadd telescope.nvim]]
   end,
   },
+  {"ellisonleao/gruvbox.nvim"},
+  {"luisiacc/gruvbox-baby"},
+  {"sainnhe/gruvbox-material"},
+  {"folke/tokyonight.nvim"},
+  {"EdenEast/nightfox.nvim"},
+  {"savq/melange"},
+  {"sainnhe/sonokai"},
+  {"sainnhe/everforest"},
+  {"Mofiqul/dracula.nvim"},
+  {"tamelion/neovim-molokai"}
+
     -- FOR LITEE (call-tree) (TBT)
     -- configure the litee.nvim library
     -- config = function()
