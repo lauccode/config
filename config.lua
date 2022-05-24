@@ -130,7 +130,12 @@ lvim.builtin.treesitter.ensure_installed = {
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 
-lvim.builtin.telescope.defaults.path_display = {"absolute", "smart"}
+-- lvim.builtin.telescope.defaults.path_display = {"absolute", "smart"}
+lvim.builtin.telescope.defaults={
+	find_command = { "fd", "-t=f", "-a" },
+	path_display = { "absolute" },
+  wrap_results = true
+}
 
 -- generic LSP settings
 
