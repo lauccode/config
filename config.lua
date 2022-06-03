@@ -223,7 +223,8 @@ lvim.plugins = {
   {"sainnhe/sonokai"},
   {"sainnhe/everforest"},
   {"Mofiqul/dracula.nvim"},
-  {"tamelion/neovim-molokai"}
+  {"tamelion/neovim-molokai"},
+  {"liuchengxu/vista.vim"} -- method list with ctags
 
     -- FOR LITEE (call-tree) (TBT)
     -- configure the litee.nvim library
