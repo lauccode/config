@@ -25,7 +25,7 @@ lvim.keys.normal_mode["<F2>"] = "<cmd>edit " .. get_config_dir() .. "/config.lua
 -- unmap a default keymapping
 -- lvim.keys.normal_mode["<C-Up>"] = false
 -- edit a default keymapping
--- lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
+lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
