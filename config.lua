@@ -229,13 +229,14 @@ lvim.plugins = {
   {"sainnhe/everforest"},
   {"Mofiqul/dracula.nvim"},
   {"tamelion/neovim-molokai"},
-  {"liuchengxu/vista.vim"} -- method list with ctags
+  {"liuchengxu/vista.vim"}, -- method list with ctags
 
     -- FOR LITEE (call-tree) (TBT)
     -- configure the litee.nvim library
     -- config = function()
       -- configure litee-calltree.nvim
     -- end,
+  {"mg979/vim-visual-multi"} -- multi cursor
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
