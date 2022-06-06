@@ -19,7 +19,7 @@ vim.opt.wrap = true
 lvim.leader = "space"
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
-lvim.keys.normal_mode["<C-k>"] = "dd<cr>"
+lvim.keys.normal_mode["<C-k>"] = "dd"
 -- unmap a default keymapping
 -- lvim.keys.normal_mode["<C-Up>"] = false
 -- edit a default keymapping
