@@ -18,6 +18,12 @@ vim.opt.wrap = true
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
 -- add your own keymapping
+-- lvim.keys.insert_mode = {
+-- lvim.keys.normal_mode = {
+-- lvim.keys.term_mode = {
+-- lvim.keys.visual_mode = {
+-- lvim.keys.visual_block_mode = {
+
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["<C-k>"] = "dd"
 lvim.keys.normal_mode["<C-c>"] = "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>"
