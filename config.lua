@@ -250,3 +250,5 @@ lvim.plugins = {
 -- lvim.autocommands.custom_groups = {
 --   { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
 -- }
+-- debug python (pudb)
+-- python -m pudb your_script.py
