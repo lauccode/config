@@ -217,10 +217,9 @@ lvim.plugins = {
   --       "folke/trouble.nvim",
   --       cmd = "TroubleToggle",
   --     },
-  {"ldelossa/litee.nvim",
-    require('litee.lib').setup({})},
-  {"ldelossa/litee-calltree.nvim",
-    require('litee.calltree').setup({})},
+  {"ldelossa/litee.nvim"},
+  {"ldelossa/litee-calltree.nvim"},
+	
   {"sakhnik/nvim-gdb"},
   {
   "nvim-telescope/telescope-project.nvim",
@@ -280,6 +279,9 @@ lvim.plugins = {
 -- lvim.autocommands.custom_groups = {
 --   { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
 -- }
+	
+  require("litee.lib").setup({})
+  require("litee.calltree").setup({})
 
 -- debug python (pudb)
 -- pip install pudb
