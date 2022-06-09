@@ -247,7 +247,27 @@ lvim.plugins = {
     -- config = function()
       -- configure litee-calltree.nvim
     -- end,
-  {"mg979/vim-visual-multi"} -- multi cursor
+  {"mg979/vim-visual-multi"}, -- multi cursor
+  {
+      "folke/persistence.nvim",
+      event = "BufReadPre", -- this will only start session saving when an actual file was opened
+      module = "persistence",
+      config = function()
+          require("persistence").setup {
+              dir = vim.fn.expand(vim.fn.stdpath "config" .. "/session/"),     ■ the function received at least 3 arguments, but got 1.
+              options = { "buffers", "curdir", "tabpages", "winsize" },
+          }
+      end,
+  },
+  {
+      "phaazon/hop.nvim",
+      event = "BufRead",
+      config = function()
+          require("hop").setup()
+          -- vim.api.nvim_set_keymap("n", "s", ":HopChar2<cr>", { silent = true })
+          vim.api.nvim_set_keymap("n", "S", ":HopWord<cr>", { silent = true })
+      end,
+  }
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
