@@ -38,6 +38,13 @@ lvim.keys.normal_mode["<F2>"] = "<cmd>edit " .. get_config_dir() .. "/config.lua
 -- edit a default keymapping
 lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
 
+vim.cmd 'nnoremap * :keepjumps normal! mi*`i<CR>'  -- no search forward with '*'
+lvim.keys.normal_mode["<S-w>"] = "viw\"0p"  -- paste word of buffer 0
+-- yiw  yank inside word
+-- * on word to change
+-- <S-w> to paste new word
+-- n to do it on next word
+
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
 -- local _, actions = pcall(require, "telescope.actions")
