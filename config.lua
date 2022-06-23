@@ -160,6 +160,10 @@ lvim.builtin.telescope.defaults={
   wrap_results = true
 }
 
+-- "z" to have fold menu
+vim.opt.foldmethod = "indent"  -- indent, syntax, marker, expr
+-- vim.opt.foldexpr = "}"
+
 -- generic LSP settings
 
 -- ---@usage disable automatic installation of servers
