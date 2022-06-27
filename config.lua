@@ -18,6 +18,8 @@ vim.opt.shiftwidth = 4 -- the number of spaces inserted for each indentation
 vim.opt.tabstop = 4 -- insert 2 spaces for a tab
 
 vim.opt.wrap = true
+vim.opt.linebreak = true
+-- gj,gk to move up dans down in the wrap line
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
