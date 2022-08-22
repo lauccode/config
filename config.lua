@@ -313,7 +313,8 @@ lvim.plugins = {
      },
      {"simrat39/symbols-outline.nvim"},  -- symbol list on the right !
      {"nvim-treesitter/nvim-treesitter"},
-     {"nvim-orgmode/orgmode"}
+     {"nvim-orgmode/orgmode"},
+     {"dhruvasagar/vim-table-mode"}  -- leader + t
 }
 	
   lvim.builtin.which_key.mappings["S"]= {
