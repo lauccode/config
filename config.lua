@@ -266,8 +266,6 @@ lvim.plugins = {
       module = "persistence",
       config = function()
           require("persistence").setup {
-              dir = vim.fn.expand(vim.fn.stdpath "config" .. "/session/"),     ■ the function received at least 3 arguments, but got 1.
-              options = { "buffers", "curdir", "tabpages", "winsize" },
           }
       end,
   },
