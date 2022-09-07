@@ -38,7 +38,7 @@ lvim.keys.normal_mode["<F2>"] = "<cmd>edit " .. get_config_dir() .. "/config.lua
 -- unmap a default keymapping
 -- lvim.keys.normal_mode["<C-Up>"] = false
 -- edit a default keymapping
-lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
+lvim.keys.normal_mode["<C-q>"] = ":bd<cr>"
 
 vim.cmd 'nnoremap * :keepjumps normal! mi*`i<CR>'  -- no search forward with '*'
 lvim.keys.normal_mode["<S-w>"] = "viw\"0p"  -- paste word of buffer 0
