@@ -134,12 +134,15 @@ lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 
-lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.show_icons.git = 0
+lvim.builtin.nvimtree.setup.view.side = "left"                                                                                                         
 lvim.builtin.nvimtree.setup.view.adaptive_size = true                                                                                                  
 lvim.builtin.nvimtree.setup.view.auto_resize= true                                                                                                     
 lvim.builtin.nvimtree.setup.view.resize_window= true                                                                                                   
-lvim.builtin.project.manual_mode = true
+lvim.builtin.nvimtree.setup.update_focused_file.update_cwd = false                                                                                     
+lvim.builtin.project.manual_mode = true  -- ok with nvimtree                                                                                           
+lvim.builtin.project.silent_chdir = false                                                                                      
+lvim.builtin.project.show_hidden = false
 
 -- lvim.builtin.lualine.style = "default"
 lvim.builtin.dap.active = true
