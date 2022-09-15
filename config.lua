@@ -88,6 +88,7 @@ lvim.builtin.which_key.mappings["i"] = {
   O = { "<cmd>LTPopOutCalltree<CR>", "open call-tree" },
 }
 lvim.builtin.which_key.mappings["*"] = { "<cmd>Telescope grep_string<cr>", "grep string under cursor" }
+lvim.builtin.which_key.mappings["F"] = { "<cmd>SymbolsOutline<cr>", "Function list on the right" }
 
 -- vimscript command !!!
 vim.cmd 'packadd termdebug'
