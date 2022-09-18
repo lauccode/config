@@ -90,6 +90,8 @@ lvim.builtin.which_key.mappings["i"] = {
 lvim.builtin.which_key.mappings["*"] = { "<cmd>Telescope grep_string<cr>", "grep string under cursor" }
 lvim.builtin.which_key.mappings["F"] = { "<cmd>SymbolsOutline<cr>", "Function list on the right" }
 
+vim.cmd 'packadd cfilter'  -- allow filter on quickfix list (:Cfilter cpp, colder to go back)
+
 -- vimscript command !!!
 vim.cmd 'packadd termdebug'
 vim.cmd 'noremap <F9> :Break<cr>'
