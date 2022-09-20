@@ -48,7 +48,7 @@ lvim.keys.normal_mode["<F2>"] = "<cmd>edit " .. get_config_dir() .. "/config.lua
 lvim.keys.normal_mode["<C-q>"] = ":bd<cr>"
 
 vim.cmd 'nnoremap * :keepjumps normal! mi*`i<CR>'  -- no search forward with '*'
-lvim.keys.normal_mode["<S-w>"] = "viw\"0p"  -- paste word of buffer 0
+lvim.keys.normal_mode["<S-w>"] = "viw\"0p"  -- paste word of buffer 0 on word you are on it.(* before and n after for other word)
 -- yiw  yank inside word
 -- * on word to change
 -- <S-w> to paste new word
