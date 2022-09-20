@@ -32,6 +32,9 @@ lvim.leader = "space"
 
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["<C-k>"] = "dd"
+
+vim.keys.normal_mode["jj"] = "<Esc>"
+
 -- lvim.keys.normal_mode["<C-c>"] = "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>"
 -- lvim.keys.visual_mode["<C-c>"] = "<ESC><CMD>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>"
 -- lvim.keys.normal_mode["<C-c>"] = "<cmd>lua require('Comment.api').toggle.linewise()<CR>"           
@@ -91,6 +94,9 @@ lvim.builtin.which_key.mappings["*"] = { "<cmd>Telescope grep_string<cr>", "grep
 lvim.builtin.which_key.mappings["F"] = { "<cmd>SymbolsOutline<cr>", "Function list on the right" }
 
 vim.cmd 'packadd cfilter'  -- allow filter on quickfix list (:Cfilter cpp, colder to go back)
+
+vim.cmd 'set list!'  -- show invisible character
+vim.cmd 'set lcs=tab:»_,trail:·'  -- set lcs=tab:»_,trail:·,eol:$
 
 -- vimscript command !!!
 vim.cmd 'packadd termdebug'
