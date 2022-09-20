@@ -97,6 +97,7 @@ vim.cmd 'packadd cfilter'  -- allow filter on quickfix list (:Cfilter cpp, colde
 
 vim.cmd 'set list!'  -- show invisible character
 vim.cmd 'set lcs=tab:»_,trail:·'  -- set lcs=tab:»_,trail:·,eol:$
+vim.cmd 'set relativenumber'
 
 -- vimscript command !!!
 vim.cmd 'packadd termdebug'
