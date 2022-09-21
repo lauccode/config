@@ -335,8 +335,8 @@ lvim.plugins = {
      {"simrat39/symbols-outline.nvim"},  -- symbol list on the right !
      {"nvim-treesitter/nvim-treesitter"},
      {"nvim-orgmode/orgmode"},
-     {"dhruvasagar/vim-table-mode"}  -- leader + t
-}
+     {"dhruvasagar/vim-table-mode"},  -- leader + t
+     {"windwp/nvim-spectre"},
 	
   lvim.builtin.which_key.mappings["S"]= {
     name = "Session",
@@ -348,7 +348,7 @@ lvim.plugins = {
 -- lvim.autocommands.custom_groups = {
 --   { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
 -- }
-	
+
   require("litee.lib").setup({})
   require("litee.calltree").setup({})
 
@@ -412,3 +412,11 @@ require('orgmode').setup({
   org_agenda_files = {'~/Dropbox/org/*', '~/my-orgs/**/*'},
   org_default_notes_file = '~/Dropbox/org/refile.org',
 })
+
+lvim.builtin.which_key.mappings["r"]= {                                                                                          
+      name = "Spectre",                                                                                                            
+      R = { "<cmd>lua require('spectre').open()<CR>", "run command :Spectre" },                                                    
+      w = { "<cmd>lua require('spectre').open_visual({select_word=true})<CR>", "search current word" },                            
+      c = { "<esc>:lua require('spectre').open_visual()<CR>", "search copy word" },                                                
+      f = { "viw:lua require('spectre').open_file_search()<cr>", "search in current file" },                                       
+}         
