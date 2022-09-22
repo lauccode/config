@@ -337,6 +337,8 @@ lvim.plugins = {
      {"nvim-orgmode/orgmode"},
      {"dhruvasagar/vim-table-mode"},  -- leader + t
      {"windwp/nvim-spectre"},
+     {"osyo-manga/vim-over"} -- substitute with better preview
+}
 	
   lvim.builtin.which_key.mappings["S"]= {
     name = "Session",
