@@ -338,7 +338,20 @@ lvim.plugins = {
      {"nvim-orgmode/orgmode"},
      {"dhruvasagar/vim-table-mode"},  -- leader + t, table auto for markdown and org
      {"windwp/nvim-spectre"}, -- find and replace all files
-     {"osyo-manga/vim-over"} -- substitute with better preview
+     {"osyo-manga/vim-over"}, -- substitute with better preview
+     { 'gen740/SmoothCursor.nvim',
+        config = function()
+            require('smoothcursor').setup(
+                {
+                    default = {
+                        fancy = {
+                            enable = false
+                        }
+                    }
+                }
+             )
+        end
+}
 }
 	
   lvim.builtin.which_key.mappings["S"]= {
