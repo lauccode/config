@@ -333,10 +333,10 @@ lvim.plugins = {
          end
      },
      {"simrat39/symbols-outline.nvim"},  -- symbol list on the right !
-     {"nvim-treesitter/nvim-treesitter"},
+     {"nvim-treesitter/nvim-treesitter"},  -- better syntaxic color
      {"nvim-orgmode/orgmode"},
-     {"dhruvasagar/vim-table-mode"},  -- leader + t
-     {"windwp/nvim-spectre"},
+     {"dhruvasagar/vim-table-mode"},  -- leader + t, table auto for markdown and org
+     {"windwp/nvim-spectre"}, -- find and replace all files
      {"osyo-manga/vim-over"} -- substitute with better preview
 }
 	
