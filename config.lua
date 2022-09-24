@@ -30,10 +30,7 @@ lvim.leader = "space"
 -- lvim.keys.visual_mode = {
 -- lvim.keys.visual_block_mode = {
 
-lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["<C-k>"] = "dd"
-
-vim.keys.normal_mode["jj"] = "<Esc>"
 
 -- lvim.keys.normal_mode["<C-c>"] = "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>"
 -- lvim.keys.visual_mode["<C-c>"] = "<ESC><CMD>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>"
