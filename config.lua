@@ -351,7 +351,8 @@ lvim.plugins = {
                 }
              )
         end
-      }
+      },
+      {"tpope/vim-surround"}
 }
 	
   lvim.builtin.which_key.mappings["S"]= {
