@@ -153,7 +153,7 @@ lvim.builtin.project.show_hidden = false
 
 -- lvim.builtin.lualine.style = "default"
 lvim.builtin.dap.active = true
-lvim.builtin.dapinstall.active = true
+-- lvim.builtin.dapinstall.active = true
 
 
 -- if you don't want all the parsers change this to a table of the ones you want
@@ -434,3 +434,37 @@ lvim.builtin.which_key.mappings["r"]= {
       c = { "<esc>:lua require('spectre').open_visual()<CR>", "search copy word" },                                                
       f = { "viw:lua require('spectre').open_file_search()<cr>", "search in current file" },                                       
 }         
+
+-- DAP for cpp as in vscode
+local dap = require('dap')
+dap.adapters.cppdbg = {
+  id = 'cppdbg',
+  type = 'executable',
+  command = '/home/coyote/extension/debugAdapters/bin/OpenDebugAD7',
+}
+
+dap = require('dap')
+dap.configurations.cpp = {
+  {
+    name = "Launch file",
+    type = "cppdbg",
+    request = "launch",
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+    cwd = '${workspaceFolder}',
+    stopAtEntry = true,
+  },
+  {
+    name = 'Attach to gdbserver :1234',
+    type = 'cppdbg',
+    request = 'launch',
+    MIMode = 'gdb',
+    miDebuggerServerAddress = 'localhost:1234',
+    miDebuggerPath = '/usr/bin/gdb',
+    cwd = '${workspaceFolder}',
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+  },
+}
