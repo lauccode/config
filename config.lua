@@ -349,7 +349,8 @@ lvim.plugins = {
              )
         end
       },
-      {"tpope/vim-surround"}
+      {"tpope/vim-surround"},
+      {"rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
 }
 	
   lvim.builtin.which_key.mappings["S"]= {
@@ -468,3 +469,5 @@ dap.configurations.cpp = {
     end,
   },
 }
+
+require("dapui").setup()
