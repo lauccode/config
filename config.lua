@@ -96,15 +96,15 @@ vim.cmd 'set lcs=tab:»_,trail:·'  -- set lcs=tab:»_,trail:·,eol:$
 vim.opt.relativenumber = true -- set relative numbered lines
 vim.cmd 'set inccommand=split' -- preview for substitute commande
 
--- vimscript command !!!
-vim.cmd 'packadd termdebug'
-vim.cmd 'noremap <F9> :Break<cr>'
-vim.cmd 'noremap <F8> :Clear<cr>'
-vim.cmd 'noremap <F10> :Over<cr>'
-vim.cmd 'noremap <F12> :Step<cr>'
-vim.cmd 'noremap <F5> :Continue<cr>'
-vim.cmd 'noremap <F6> :Run<cr>'
-vim.cmd 'noremap <F4> :Evaluate<cr>'
+-- to use if no dap active
+-- vim.cmd 'packadd termdebug'
+-- vim.cmd 'noremap <F9> :Break<cr>'
+-- vim.cmd 'noremap <F8> :Clear<cr>'
+-- vim.cmd 'noremap <F10> :Over<cr>'
+-- vim.cmd 'noremap <F12> :Step<cr>'
+-- vim.cmd 'noremap <F5> :Continue<cr>'
+-- vim.cmd 'noremap <F6> :Run<cr>'
+-- vim.cmd 'noremap <F4> :Evaluate<cr>'
 
 vim.cmd 'let g:termdebug_wide = 1'  -- =163 for inversed layout
 
