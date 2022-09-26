@@ -438,6 +438,7 @@ lvim.builtin.which_key.mappings["r"]= {
 
 -- DAP for cpp as in vscode
 local dap = require('dap')
+-- https://github.com/mfussenegger/nvim-dap/wiki/C-C---Rust-(gdb-via--vscode-cpptools)
 dap.adapters.cppdbg = {
   id = 'cppdbg',
   type = 'executable',
