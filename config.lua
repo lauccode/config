@@ -10,6 +10,14 @@ an executable
 
 -- With lazygit :
 -- git config --global core.editor lvim
+-- to put in ~/.config/lazygit/config.yml to open all files of a commit in lvim
+-- (by pressing 'o' on the status panel from within lg) :
+-- customCommands:
+--   - key: O
+--     context: commits
+--    description: open files in commit
+--    command: git diff -z --name-only {{.SelectedLocalCommit.ParentRefName}} {{.SelectedLocalCommit.Sha}} | xargs -0 lvim --
+--    subprocess: true
 
 -- general
 lvim.log.level = "warn"
