@@ -490,3 +490,4 @@ vim.keymap.set('n', '<F6>', function() require('dap').run_last() end)
 vim.keymap.set('n', '<F7>', function() require('dap').close() end) -- :DapTerminate                                                              
 vim.keymap.set('n', '<F8>', function() require('dapui').toggle() end)                                                            
 -- vim.keymap.set('n', '<space>di', function() require('dap').repl.open() end)
+vim.keymap.set({ 'v', 'n' }, '<M-k>', function() require('dapui').eval() end)
