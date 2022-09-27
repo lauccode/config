@@ -440,6 +440,7 @@ lvim.builtin.which_key.mappings["r"]= {
 local dap = require('dap')
 -- https://github.com/mfussenegger/nvim-dap/wiki/C-C---Rust-(gdb-via--vscode-cpptools)
 -- https://github.com/memsharded/hello
+-- cmake . -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=1
 dap.adapters.cppdbg = {
   id = 'cppdbg',
   type = 'executable',
