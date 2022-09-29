@@ -41,7 +41,7 @@ lvim.leader = "space"
 -- lvim.keys.visual_mode = {
 -- lvim.keys.visual_block_mode = {
 
-lvim.keys.normal_mode["<C-k>"] = "dd"
+-- lvim.keys.normal_mode["<C-k>"] = "dd"
 
 -- lvim.keys.normal_mode["<C-c>"] = "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>"
 -- lvim.keys.visual_mode["<C-c>"] = "<ESC><CMD>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>"
@@ -501,4 +501,4 @@ vim.keymap.set('n', '<F6>', function() require('dap').run_last() end)
 vim.keymap.set('n', '<F7>', function() require('dap').close() end) -- :DapTerminate                                                              
 vim.keymap.set('n', '<F8>', function() require('dapui').toggle() end)                                                            
 -- vim.keymap.set('n', '<space>di', function() require('dap').repl.open() end)
-vim.keymap.set({ 'v', 'n' }, '<M-k>', function() require('dapui').eval() end)
+vim.keymap.set({ 'v', 'n' }, '<C-k>', function() require('dapui').eval() end)
