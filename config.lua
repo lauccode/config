@@ -398,7 +398,7 @@ lvim.plugins = {
 -- }
 -- lvim.builtin.line.options.theme = {
 --   normal = {
---     c = { fg = colors.color9, bg = colors.color2 },
+--     c = { fg = colors.color4, bg = colors.color2 },
 --     a = { fg = colors.color2, bg = colors.color10, gui = "bold" },
 --     b = { fg = colors.color4, bg = colors.color5 },
 --   },
