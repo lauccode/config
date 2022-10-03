@@ -55,36 +55,37 @@ Alias in config.fish in ~/.config/fish/
 ### config
 .tmux.conf in HOME
 ### copy/paste
-To copy from outside of cygwin to kakoune : Put kakoune in insert mode and <S-Ins> to paste
-To copy from kakoune to outside : In kakoune, <C+b>[ , select what you need and do <C-Ins>
+To copy from outside of cygwin to kakoune : Put kakoune in insert mode and <S-Ins> to paste  
+To copy from kakoune to outside : In kakoune, <C+b>[ , select what you need and do <C-Ins>  
 ## shortcuts
-tmux new-session -s <your_session_name> 
-tmux ls 
-List command-mode shortcuts: ctrl-b ?
-    Start a tmux session:
-    tmux new-session -s <your_session_name>
-    To split vertically: 
-    ctrl-b %
-    To split horizontally: 
-    ctrl-b "
-    To navigate and select a pane: 
-    ctrl-b <arrow keys>
-    To toggle full-screen zoom in/out on the current pane:
-    ctrl-b z
-    To close the current pane:
-    ctrl-b x then confirm with y or n
+tmux new-session -s <your_session_name>  
+tmux ls  
+List command-mode shortcuts: ctrl-b ?  
+    Start a tmux session:  
+    >tmux new-session -s <your_session_name>  
+    To split vertically:  
+    >ctrl-b %  
+    To split horizontally:  
+    >ctrl-b "  
+    To navigate and select a pane:  
+    >ctrl-b <arrow keys>  
+    To toggle full-screen zoom in/out on the current pane:  
+    >ctrl-b z  
+    To close the current pane:  
+    >ctrl-b x then confirm with y or n  
 
-    Start with a named session:
-    tmux new-session -s <your_session_name>
-    Do your work in your tmux session
-    Detach from your session when you are done:
-    tmux detach
-    [Optional] View available attachable sessions:
-    tmux list-sessions or tmux ls
-    Reattach to your tmux session when you are ready to continue working:
-    tmux attach -t <your_session_name>
+    Start with a named session:  
+    >tmux new-session -s <your_session_name>  
+    Do your work in your tmux session  
+    Detach from your session when you are done:  
+    >tmux detach  
+    >[Optional] View available attachable sessions:  
+    >tmux list-sessions or tmux ls  
+    Reattach to your tmux session when you are ready to continue working:  
+    >tmux attach -t <your_session_name>  
 
-Enable scroll mode: ctrl-b [
+Enable scroll mode:  
+>ctrl-b [  
 
 ## clang-format
 Put .clang-format in HOME  
