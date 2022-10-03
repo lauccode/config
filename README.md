@@ -75,7 +75,6 @@ List command-mode shortcuts: ctrl-b ?
     `ctrl-b x then confirm with y or n`  
     Start with a named session:  
     `tmux new-session -s <your_session_name>`  
-	
     Do your work in your tmux session  
     Detach from your session when you are done:
     `tmux detach`  
