@@ -76,7 +76,7 @@ List command-mode shortcuts: ctrl-b ?
     Start with a named session:  
     `tmux new-session -s <your_session_name>`  
     Do your work in your tmux session  
-    Detach from your session when you are done:
+    Detach from your session when you are done:  
     `tmux detach`  
     [Optional] View available attachable sessions:  
     `tmux list-sessions or tmux ls`  
