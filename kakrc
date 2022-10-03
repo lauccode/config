@@ -113,10 +113,18 @@ map global normal <F6> ':bp<ret>'
 map global normal '<c-n>' ': select-or-add-cursor<ret>' -docstring "add cursor on current word, and jump to the next match"
 map global insert <tab> '<a-;><gt>'
 map global insert <s-tab> '<a-;><lt>'
-map global user / :tmux-new-horizontal<ret>' -docstring 'Split horizontal'
-map global user = :tmux-new-vertical<ret>' -docstring 'Split vertical'
-# map global user / ':tmux-terminal-horizontal kak -c %val{session}<ret>' -docstring 'Split horizontal'
-# map global user = ':tmux-terminal-vertical kak -c %val{session}<ret>' -docstring 'Split vertical'
+
+define-command -docstring "vsplit [/]: split tmux vertically" \
+vsplit -params .. -command-completion %{
+        tmux-terminal-horizontal kak -c %val{session} -e "%arg{@}"
+}
+define-command -docstring "split [=]: split tmux horizontally" \
+split -params .. -command-completion %{
+        tmux-terminal-vertical kak -c %val{session} -e "%arg{@}"
+}
+map global user = ':tmux-terminal-horizontal kak -c %val{session}<ret>' -docstring 'Split horizontal'
+map global user / ':tmux-terminal-vertical kak -c %val{session}<ret>' -docstring 'Split vertical'
+
 # Remove delete or change selection in yank buffer 
 map global normal c \"_c
 map global normal d \"_d
