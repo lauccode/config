@@ -62,7 +62,7 @@ tmux new-session -s <your_session_name>
 tmux ls  
 List command-mode shortcuts: ctrl-b ?  
     Start a tmux session:  
-    > tmux new-session -s <your_session_name>  
+    `tmux new-session -s <your_session_name>`  
     To split vertically:  
     > ctrl-b %  
     To split horizontally:  
