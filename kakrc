@@ -297,3 +297,6 @@ plug "andreyorst/kaktree" config %{
     }
     kaktree-enable
 }
+
+# Use ripgrep instead of grep
+set-option global grepcmd 'rg -Hn --no-heading'
