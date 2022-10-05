@@ -33,7 +33,7 @@ plug Delapouite/kakoune-buffers
 #     }
 # }
 plug "andreyorst/smarttab.kak"
-# plug "Crote/kakoune-ranger.git"
+plug "Crote/kakoune-ranger.git"
 # plug "andreyorst/powerline.kak" %{
 #     hook -once global WinCreate .* %{
 #         powerline-theme gruvbox
@@ -66,7 +66,6 @@ plug "ul/kak-lsp" do %{
       hook global KakEnd .* lsp-exit
 }
 #plug "ualexherbo2/connect.kak"
-#define-command ranger -params .. -file-completion %(connect ranger %arg(@))
 
 # addhl global/ column '%val{cursor_column}' default,magenta
 addhl global/ line '%val{cursor_line}' default,magenta
@@ -83,7 +82,7 @@ map global user a :comment-block<ret>' -docstring 'To comment the block'
 map global user g ':cscope ' -docstring 'Find tag with cscope'  # Pour cscope il faut surligner le mot à chercher
 map global user ) '<a-i>)<S>,<ret><a-)>' -docstring 'Swap Arguments'
 map global normal <F2> ':e ~/.config/kak/kakrc<ret>'
-# map global normal <F9> ':ranger-select<ret>'
+map·global·user·r·':ranger-select<ret>'·-docstring·'select·files·in·ranger'
 map global normal <F3> '|clang-format<ret>'
 alias global g grep # Pour le grep, recuperer le mot copier avec <c-r>"
 hook global WinDisplay .* info-buffers
@@ -234,7 +233,6 @@ hook global ModeChange .*:insert %{
 # check lint and clang external tools
 # clang only for cpp
 
-# TRY ranger
 def suspend-and-resume \
     -params 1..2 \
     -docstring 'suspend-and-resume <cli command> [<kak command after resume>]: backgrounds current kakoune client and runs specified cli command.  Upon exit of command the optional kak command is executed.' \
@@ -281,12 +279,6 @@ def for-each-line \
         printf "$1 $f\n"
     done < "$2"
 }}
-def toggle-ranger %{
-    suspend-and-resume \
-        "ranger --choosefiles=/tmp/ranger-files-%val{client_pid}" \
-        "for-each-line edit /tmp/ranger-files-%val{client_pid}"
-}
-map global user r ': toggle-ranger<ret>' -docstring 'select files in ranger'
 
 plug "andreyorst/kaktree" config %{
     hook global WinSetOption filetype=kaktree %{
