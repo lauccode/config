@@ -7,10 +7,22 @@ map global normal <space> , -docstring 'leader'
 map global normal <backspace> <space> -docstring 'remove all sels except main'
 map global normal <a-backspace> <a-space> -docstring 'remove main sel'
 
-source ~/.config/kak/plugins/plug.kak/rc/plug.kak
+# source ~/.config/kak/plugins/plug.kak/rc/plug.kak
+
+evaluate-commands %sh{
+        plugins="$kak_config/plugins"
+            mkdir -p "$plugins"
+                [ ! -e "$plugins/plug.kak" ] && \
+                        git clone -q https://github.com/andreyorst/plug.kak.git "$plugins/plug.kak"
+                            printf "%s\n" "source '$plugins/plug.kak/rc/plug.kak'"
+                            }
+                            plug "andreyorst/plug.kak" noload
+
+
 plug "andreyorst/fzf.kak"
 plug "dryvenn/kakoune-cscope"
 plug Delapouite/kakoune-buffers
+
 # plug "andreyorst/tagbar.kak" config %{
 #     # if you have wrap highlighter enamled in you configuration
 #     # files it's better to turn it off for tagbar, using this hook:
