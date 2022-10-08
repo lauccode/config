@@ -75,7 +75,7 @@ List command-mode shortcuts: ctrl-b ?
     To close the current pane:  
     `ctrl-b x` then confirm with y or n  
     Do your work in your tmux session  
-    Detach from your session when you are done:
+    Detach from your session when you are done:  
     `ctrl-b d`  
     `tmux detach`  
     [Optional] View available attachable sessions:  
