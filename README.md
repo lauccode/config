@@ -87,9 +87,9 @@ List command-mode shortcuts: ctrl-b ?
     Reattach to your tmux session when you are ready to continue working:  
     `tmux attach-session -t <your_session_name>`  
     `tmux attach -t <your_session_name>`  
-## windows
+### windows
 start a new session with the name mysession and window mywindow:  
-`tmux new -s mysession -n mywindow  
+`tmux new -s mysession -n mywindow`  
 Create window:  
 `Ctrl + b c`  
 Rename current window:  
