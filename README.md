@@ -63,6 +63,7 @@ tmux ls
 List command-mode shortcuts: ctrl-b ?  
     Start a tmux session:  
     `tmux new-session -s <your_session_name>`  
+    `tmux new -s <your_session_name>`  
     To split vertically:  
     `ctrl-b %`  
     To split horizontally:  
@@ -72,15 +73,16 @@ List command-mode shortcuts: ctrl-b ?
     To toggle full-screen zoom in/out on the current pane:  
     `ctrl-b z`  
     To close the current pane:  
-    `ctrl-b x then confirm with y or n`  
-    Start with a named session:  
-    `tmux new-session -s <your_session_name>`  
+    `ctrl-b x` then confirm with y or n  
     Do your work in your tmux session  
-    Detach from your session when you are done:  
+    Detach from your session when you are done:
+    `ctrl-b d`  
     `tmux detach`  
     [Optional] View available attachable sessions:  
-    `tmux list-sessions or tmux ls`  
+    `tmux list-sessions`  
+    `tmux ls`  
     Reattach to your tmux session when you are ready to continue working:  
+    `tmux attach-session -t <your_session_name>`  
     `tmux attach -t <your_session_name>`  
 
 Enable scroll mode:  
