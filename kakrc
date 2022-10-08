@@ -189,7 +189,14 @@ hook global NormalKey y|d|c %{ nop %sh{
 }}
 ###################################################################################
 # User preference
-set-option global makecmd 'make -j16'
+
+# set build preference here
+#set-option global makecmd 'make -j16'
+# with path
+#set-option global makecmd 'make -C hello'
+# create commands
+#define-command makehello %{set-option global makecmd 'make -j16 -C hello'}
+
 # set-option global grepcmd 'ag --column'
 # set-option global clang_options -std=c++1y
 set-option global ui_options ncurses_status_on_top=true
@@ -219,6 +226,7 @@ hook global NormalIdle .* %{
 }
 add-highlighter global/ dynregex '%opt{curword}' 0:CurWord
 
+# will open new windows with tmux 
 define-command ide %{
     rename-client main
     set-option global jumpclient main
