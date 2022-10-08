@@ -6,6 +6,9 @@ kakrc in /.config/kak
 
 plug.kak on dev branch if kakoune build with github !
 
+Connect to existing kakoune session :  
+`kak -c <session number>`  
+
 ### Vertical block selection
 [s-c] and [a+s-C] are the way to go for a similar to block selection functionality
 #### All the file
