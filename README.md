@@ -55,6 +55,7 @@ a-o	source=dest
 Alias in config.fish in ~/.config/fish/
 
 ## tmux
+https://github.com/AmitXShukla/AmitXShukla.github.io/blob/master/blogs/vim/tmux_cheatsheet.pdf
 ### config
 .tmux.conf in HOME
 ### copy/paste
