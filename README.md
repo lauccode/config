@@ -87,6 +87,11 @@ List command-mode shortcuts: ctrl-b ?
     Reattach to your tmux session when you are ready to continue working:  
     `tmux attach-session -t <your_session_name>`  
     `tmux attach -t <your_session_name>`  
+## resurrect
+save session:
+`ctrl-b ctrl+s`
+restore session:
+`ctrl-b ctrl+r`
 
 Enable scroll mode:  
 > ctrl-b [  
