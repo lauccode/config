@@ -87,11 +87,34 @@ List command-mode shortcuts: ctrl-b ?
     Reattach to your tmux session when you are ready to continue working:  
     `tmux attach-session -t <your_session_name>`  
     `tmux attach -t <your_session_name>`  
+## windows
+start a new session with the name mysession and window mywindow:  
+`tmux new -s mysession -n mywindow  
+Create window:  
+`Ctrl + b c`  
+Rename current window:  
+`Ctrl + b ,`  
+Close current window:
+`Ctrl + b &`  
+Previous window:  
+`Ctrl + b p`  
+Next window:  
+`Ctrl + b n`  
+Switch/select window by number:  
+`Ctrl + b 0 ... 9`  
+Toggle last active window:  
+`Ctrl + b l`  
+Reorder window, swap window number 2(src) and 1(dst):  
+`swap-window -s 2 -t 1`  
+Move current window to the left by one position:  
+`swap-window -t -1`  
+
+
 ## resurrect
-save session:
-`ctrl-b ctrl+s`
-restore session:
-`ctrl-b ctrl+r`
+save session:  
+`ctrl-b ctrl+s`  
+restore session:  
+`ctrl-b ctrl+r`  
 
 Enable scroll mode:  
 > ctrl-b [  
