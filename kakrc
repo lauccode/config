@@ -133,8 +133,8 @@ define-command -docstring "split [=]: split tmux horizontally" \
 split -params .. -command-completion %{
         tmux-terminal-vertical kak -c %val{session} -e "%arg{@}"
 }
-map global user / ':tmux-terminal-horizontal kak -c %val{session}<ret>' -docstring 'Split horizontal'
-map global user = ':tmux-terminal-vertical kak -c %val{session}<ret>' -docstring 'Split vertical'
+map global user / ':tmux-terminal-horizontal kak -c %val{session}<ret>' -docstring 'Split vertical'
+map global user = ':tmux-terminal-vertical kak -c %val{session}<ret>' -docstring 'Split horizontal'
 
 # Remove delete or change selection in yank buffer 
 map global normal c \"_c
