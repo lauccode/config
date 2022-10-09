@@ -361,7 +361,8 @@ lvim.plugins = {
         end
       },
       {"tpope/vim-surround"},
-      {"rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+      {"rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} },
+      { "tpope/vim-dispatch" }, -- :Make  (make asynchronoulsy !)
 }
 	
   lvim.builtin.which_key.mappings["S"]= {
