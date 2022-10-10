@@ -106,6 +106,7 @@ vim.cmd 'set list!'  -- show invisible character
 vim.cmd 'set lcs=tab:»_,trail:·'  -- set lcs=tab:»_,trail:·,eol:$
 vim.opt.relativenumber = true -- set relative numbered lines
 vim.cmd 'set inccommand=split' -- preview for substitute commande
+vim.cmd 'set cwh=30' -- high for the preview of incommand
 
 -- vim.cmd 'set makeprg=ninja'
 -- :Make -C <path> <target>
