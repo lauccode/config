@@ -107,6 +107,10 @@ vim.cmd 'set lcs=tab:»_,trail:·'  -- set lcs=tab:»_,trail:·,eol:$
 vim.opt.relativenumber = true -- set relative numbered lines
 vim.cmd 'set inccommand=split' -- preview for substitute commande
 
+-- vim.cmd 'set makeprg=ninja'
+-- :Make -C <path> <target>
+-- :Make clean -C <path>
+
 -- to use if no dap active
 -- vim.cmd 'packadd termdebug'
 -- vim.cmd 'noremap <F9> :Break<cr>'
