@@ -27,27 +27,31 @@ plug "andreyorst/fzf.kak"
 plug "dryvenn/kakoune-cscope"
 plug Delapouite/kakoune-buffers
 
-# plug "andreyorst/tagbar.kak" config %{
-#     # if you have wrap highlighter enamled in you configuration
-#     # files it's better to turn it off for tagbar, using this hook:
-#     hook global WinSetOption filetype=tagbar %{
-#         remove-highlighter window/wrap
-#         # you can also disable rendering whitespaces here, and
-#     }
-# }
-# plug "andreyorst/tagbar.kak" defer "tagbar" %{
-#     set-option global tagbar_sort false
-#     set-option global tagbar_size 40
-#     set-option global tagbar_display_anon false
-# } config %{
-#     # if you have wrap highlighter enamled in you configuration
-#     # files it's better to turn it off for tagbar, using this hook:
-#     # hook global WinSetOption filetype=tagbar %{
-#     #     remove-highlighter window/wrap
-#         # you can also disable rendering whitespaces here, line numbers, and
-#         # matching characters
-#     }
-# }
+
+# For this plugin to work, you need working ctags and readtags programs. 
+# Note that readtags isn't shipped with exuberant-ctags by default (you can use universal-ctags).
+plug "andreyorst/tagbar.kak" config %{
+    # if you have wrap highlighter enamled in you configuration
+    # files it's better to turn it off for tagbar, using this hook:
+    hook global WinSetOption filetype=tagbar %{
+        remove-highlighter window/wrap
+        # you can also disable rendering whitespaces here, and
+    }
+}
+plug "andreyorst/tagbar.kak" defer "tagbar" %{
+    set-option global tagbar_sort false
+    set-option global tagbar_size 40
+    set-option global tagbar_display_anon false
+} config %{
+    # if you have wrap highlighter enamled in you configuration
+    # files it's better to turn it off for tagbar, using this hook:
+    # hook global WinSetOption filetype=tagbar %{
+    #     remove-highlighter window/wrap
+        # you can also disable rendering whitespaces here, line numbers, and
+        # matching characters
+    }
+}
+
 plug "andreyorst/smarttab.kak"
 plug "Crote/kakoune-ranger.git"
 
@@ -111,12 +115,12 @@ alias global bo buffer-only
 alias global bo! buffer-only-force
 map global user w ':w<ret>'   -docstring 'Write buffers'
 map global user q ':q<ret>'   -docstring 'Quit Kakoune'
-# alias global 'q' 'tagbar-quit'
-# alias global 'wq' 'tagbar-write-quit'
 map global normal <F8> ':tagbar-toggle<ret>'
 # To see what filetypes are supported use `ctags --list-kinds | awk '/^\w+/'
 hook global WinSetOption filetype=(cpp|rust) %{
     tagbar-enable
+    alias global 'q' 'tagbar-quit'
+    alias global 'wq' 'tagbar-write-quit'
 }
 map global normal <F7> ':bn<ret>'
 map global normal <F6> ':bp<ret>'
