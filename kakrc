@@ -24,8 +24,18 @@ evaluate-commands %sh{
 
 
 plug "andreyorst/fzf.kak"
-plug "dryvenn/kakoune-cscope"
+# plug "dryvenn/kakoune-cscope"
 plug Delapouite/kakoune-buffers
+
+plug "andreyorst/kaktree" config %{
+    hook global WinSetOption filetype=kaktree %{
+        remove-highlighter buffer/numbers
+        remove-highlighter buffer/matching
+        remove-highlighter buffer/wrap
+        remove-highlighter buffer/show-whitespaces
+    }
+    kaktree-enable
+}
 
 
 # For this plugin to work, you need working ctags and readtags programs. 
@@ -124,6 +134,8 @@ hook global WinSetOption filetype=(cpp|rust) %{
 }
 map global normal <F7> ':bn<ret>'
 map global normal <F6> ':bp<ret>'
+map global normal <F9> ':kaktree-toggle<ret>'
+
 # show-whitespaces
 # :addhl buffer/ show-whitespaces
 # :rmhl buffer/show-whitespaces
@@ -306,16 +318,6 @@ def for-each-line \
         printf "$1 $f\n"
     done < "$2"
 }}
-
-plug "andreyorst/kaktree" config %{
-    hook global WinSetOption filetype=kaktree %{
-        remove-highlighter buffer/numbers
-        remove-highlighter buffer/matching
-        remove-highlighter buffer/wrap
-        remove-highlighter buffer/show-whitespaces
-    }
-    kaktree-enable
-}
 
 # Use ripgrep instead of grep
 set-option global grepcmd 'rg -Hn --no-heading'
