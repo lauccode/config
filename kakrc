@@ -50,14 +50,13 @@ plug Delapouite/kakoune-buffers
 # }
 plug "andreyorst/smarttab.kak"
 plug "Crote/kakoune-ranger.git"
-# plug "andreyorst/powerline.kak" %{
-#     hook -once global WinCreate .* %{
-#         powerline-theme gruvbox
-#         powerline-separator triangle-inverted
-#         powerline-format git bufname filetype client session line_column position
-#         # powerline-toggle line_column off
-#     }
-# }
+
+plug "andreyorst/powerline.kak" defer powerline_gruvbox %{
+    powerline-theme gruvbox
+} config %{
+    powerline-start
+}
+
 plug "ul/kak-lsp" do %{
         cargo build --release --locked
         cargo install --force --path .
