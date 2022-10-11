@@ -84,7 +84,7 @@ plug "ul/kak-lsp" do %{
         hook global WinSetOption filetype=(c|cpp|rust) %{
               map window user "l" ": enter-user-mode lsp<ret>" -docstring "LSP mode"
               lsp-enable-window
-              lsp-auto-hover-enable
+              # lsp-auto-hover-enable
               lsp-auto-hover-insert-mode-disable
               set-option window lsp_hover_anchor true
               set-face window DiagnosticError default+u
