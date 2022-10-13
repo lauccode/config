@@ -111,6 +111,10 @@ vim.cmd 'set cwh=30' -- high for the preview of incommand
 -- vim.cmd 'set makeprg=ninja'
 -- :Make -C <path> <target>
 -- :Make clean -C <path>
+vim.api.nvim_create_user_command('But', function()
+      -- implementation here
+    vim.cmd ':Make -C <path> <target>'
+    end, { nargs = '*' })
 
 -- to use if no dap active
 -- vim.cmd 'packadd termdebug'
