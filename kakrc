@@ -162,35 +162,10 @@ map global user = ':tmux-terminal-vertical kak -c %val{session}<ret>' -docstring
 map global normal c \"_c
 map global normal d \"_d
 # search case insensitive
-# map -docstring 'case insensitive search' global user '/' /(?i)
-# map -docstring 'case insensitive backward search' global user '<a-/>' <a-/>(?i)
-# map -docstring 'case insensitive extend search' global user '?' ?(?i)
-# map -docstring 'case insensitive backward extend-search' global user '<a-?>' <a-?>(?i)
 map -docstring 'case insensitive search' global normal / '/(?i)'
 map -docstring 'case insensitive backward search' global normal <a-/> '<a-/>(?i)'
 map -docstring 'case insensitive extend search' global normal ? '?(?i)'
 map -docstring 'case insensitive backward extend-search' global normal <a-?> '<a-?>(?i)'
-# Various mappings
-# ────────────────
-# map global normal '#' :comment-line<ret>
-# map global user -docstring 'next lint error' n ':lint-next-error<ret>'
-# map global normal <c-p> :lint<ret>
-# map global user -docstring 'gdb helper mode' g ':gdb-helper<ret>'
-# map global user -docstring 'gdb helper mode (repeat)' G ':gdb-helper-repeat<ret>'
-# hook global BufOpenFifo '\*grep\*' %{ map -- global normal - ':grep-next-match<ret>' }
-# hook global BufOpenFifo '\*make\*' %{ map -- global normal - ':make-next-error<ret>' }
-# Enable <tab>/<s-tab> for insert completion selection
-# ──────────────────────────────────────────────────────
-# hook global InsertCompletionShow .* %{ map window insert <tab> <c-n>; map window insert <s-tab> <c-p> }
-# hook global InsertCompletionHide .* %{ unmap window insert <tab> <c-n>; unmap window insert <s-tab> <c-p> }
-# Helper commands
-# ───────────────
-# define-command find -params 1 -shell-candidates %{ ag -g '' --ignore "$kak_opt_ignored_files" } %{ edit %arg{1} }
-# define-command mkdir %{ nop %sh{ mkdir -p $(dirname $kak_buffile) } }
-# Enable editor config
-# ────────────────────
-# hook global BufOpenFile .* %{ editorconfig-load }
-# hook global BufNewFile .* %{ editorconfig-load }
 hook global InsertChar j %{ try %{ # jj to escape
       exec -draft hH <a-k>jj<ret> d
         exec <esc>
@@ -268,59 +243,6 @@ hook global ModeChange .*:insert %{
 }
 # default black background
 # set-face global Default black
-
-# automatic correction (TBT)
-# :lint => clang-enable-diagnostics ?
-# https://github.com/mawww/kakoune/wiki
-# check lint and clang external tools
-# clang only for cpp
-
-def suspend-and-resume \
-    -params 1..2 \
-    -docstring 'suspend-and-resume <cli command> [<kak command after resume>]: backgrounds current kakoune client and runs specified cli command.  Upon exit of command the optional kak command is executed.' \
-    %{ evaluate-commands %sh{
-
-    # Note we are adding '&& fg' which resumes the kakoune client process after the cli command exits
-    cli_cmd="$1 && fg"
-    post_resume_cmd="$2"
-
-    # automation is different platform to platform
-    platform=$(uname -s)
-    case $platform in
-        Darwin)
-            automate_cmd="sleep 0.01; osascript -e 'tell application \"System Events\" to keystroke \"$cli_cmd\" & return '"
-            kill_cmd="/bin/kill"
-            break
-            ;;
-        Linux)
-            automate_cmd="sleep 0.2; xdotool type '$cli_cmd'; xdotool key Return"
-            kill_cmd="/usr/bin/kill"
-            break
-            ;;
-    esac
-
-    # Uses platforms automation to schedule the typing of our cli command
-    nohup sh -c "$automate_cmd"  > /dev/null 2>&1 &
-    # Send kakoune client to the background
-    $kill_cmd -SIGTSTP $kak_client_pid
-
-    # ...At this point the kakoune client is paused until the " && fg " gets run in the $automate_cmd
-
-    # Upon resume, run the kak command is specified
-    if [ ! -z "$post_resume_cmd" ]; then
-        echo "$post_resume_cmd"
-    fi
-}}
-
-def for-each-line \
-    -docstring "for-each-line <command> <path to file>: run command with the value of each line in the file" \
-    -params 2 \
-    %{ evaluate-commands %sh{
-
-    while read f; do
-        printf "$1 $f\n"
-    done < "$2"
-}}
 
 # Use ripgrep instead of grep
 set-option global grepcmd 'rg -Hn --no-heading'
