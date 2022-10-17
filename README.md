@@ -114,6 +114,8 @@ Reorder window, swap window number 2(src) and 1(dst):
 `swap-window -s 2 -t 1`  
 Move current window to the left by one position:  
 `swap-window -t -1`  
+Switch between windows:  
+`Ctrl + b w`  
 
 
 ## resurrect
