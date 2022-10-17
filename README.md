@@ -7,9 +7,9 @@ kakrc in /.config/kak
 plug.kak on dev branch if kakoune build with github !
 
 Start a Kakoune server named s1 and open file main.c:  
-'kak -s s1 main.c'  
+`kak -s s1 main.c`   
 You can then open another terminal window and connect to that server by running:  
-'kak -c s1'  
+`kak -c s1`  
 
 Connect to existing kakoune session :  
 `kak -c <session number>`  
