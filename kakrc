@@ -52,6 +52,9 @@ plug "andreyorst/tagbar.kak" config %{
         # you can also disable rendering whitespaces here, and
     }
 }
+hook global WinSetOption filetype=(c|cpp|rust) %{
+    tagbar-enable
+}
 plug "andreyorst/tagbar.kak" defer "tagbar" %{
     set-option global tagbar_sort false
     set-option global tagbar_size 40
