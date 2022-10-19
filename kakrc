@@ -193,9 +193,10 @@ hook global NormalKey y|d|c %{ nop %sh{
 # set-option global grepcmd 'ag --column'
 # set-option global clang_options -std=c++1y
 set-option global ui_options ncurses_status_on_top=true
-colorscheme gruvbox
+# colorscheme gruvbox
+colorscheme gruvbox-dark
 add-highlighter global/ show-matching
-add-highlighter global/ show-whitespaces
+# add-highlighter global/ show-whitespaces
 add-highlighter global/ dynregex '%reg{/}' 0:+u
 hook global WinCreate ^[^*]+$ %{ add-highlighter window/ number-lines -hlcursor }
 set global tabstop 4 
