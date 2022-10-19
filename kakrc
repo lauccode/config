@@ -76,29 +76,16 @@ plug "andreyorst/powerline.kak" defer powerline_gruvbox %{
     powerline-start
 }
 
-plug "ul/kak-lsp" do %{
-        cargo build --release --locked
-        cargo install --force --path .
-} config %{
-# andreyorst default config
-        define-command lsp-restart %{ lsp-stop; lsp-start }
-        set-option global lsp_completion_trigger "execute-keys 'h<a-h><a-k>\S[^\h\n,=;*(){}\[\]]\z<ret>'"
-        set-option global lsp_diagnostic_line_error_sign "!"
-        set-option global lsp_diagnostic_line_warning_sign "?"
-        hook global WinSetOption filetype=(c|cpp|rust) %{
-              map window user "l" ": enter-user-mode lsp<ret>" -docstring "LSP mode"
-              lsp-enable-window
-              # lsp-auto-hover-enable
-              lsp-auto-hover-insert-mode-disable
-              set-option window lsp_hover_anchor true
-              set-face window DiagnosticError default+u
-              set-face window DiagnosticWarning default+u
-      }
-      hook global WinSetOption filetype=rust %{
-              set-option window lsp_server_configuration rust.clippy_preference="on"
-      }
-      hook global KakEnd .* lsp-exit
+plug "kak-lsp/kak-lsp" do %{
+        cargo install --locked --force --path .
+            # optional: if you want to use specific language servers
+            #     mkdir -p ~/.config/kak-lsp
+            #         cp -n kak-lsp.toml ~/.config/kak-lsp/
+            #         }
+hook global WinSetOption filetype=(rust|python|c|cpp) %{
+        lsp-enable-window
 }
+
 #plug "ualexherbo2/connect.kak"
  ____  ____  ____  ____  __  __ _   ___ 
 / ___)(  __)(_  _)(_  _)(  )(  ( \ / __)
