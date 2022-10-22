@@ -50,3 +50,8 @@ let g:netrw_list_hide.=",\(^\|\s\s\)\zs\.\S\+'
 " :cc# to jump to error by number
 " :cn n :cp to navigate
 
+
+" SNIPPETS:
+" Read an empty HTML template and move cursor to title
+nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
+
