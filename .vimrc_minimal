@@ -1,3 +1,8 @@
+" BASIC
+set nocompatible
+syntax enable
+filetype plugin on
+
 " REPEAT LAST COMMAND
 " The last command entered with ':' can be repeated with @: and further repeats can be done with @@
 " @:,@@
@@ -9,7 +14,6 @@
 " g^]     list tags
 " ^t        jump back up the tag stack
 
-
 " FINDING FILES
 " Search down into subfolders
 " Provides tab-completion for all file-related tasks
@@ -20,17 +24,15 @@ set wildmenu
 " Use * to make it fuzzy
 " :b lets you autocomplete any open buffer
 
+" FINDING WORDS
+" :vimgrep word *.cpp *.h
+
 " AUTOCOMPLETE
 " ^x^n        just for this file
 " ^x^f        for filenames(works with path tricks)
 " ^x ^]        for tags only
 " ^n            complete
 " ^p             go back
-
-" BASIC
-set nocompatible
-syntax enable
-filetype plugin on
 
 " FILE BROWSING
 let g:netrw_banner = 0
@@ -49,7 +51,6 @@ let g:netrw_list_hide.=",\(^\|\s\s\)\zs\.\S\+'
 " :cl to list errors
 " :cc# to jump to error by number
 " :cn n :cp to navigate
-
 
 " SNIPPETS:
 " Read an empty HTML template and move cursor to title
