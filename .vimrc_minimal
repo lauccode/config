@@ -1,0 +1,52 @@
+" REPEAT LAST COMMAND
+" The last command entered with ':' can be repeated with @: and further repeats can be done with @@
+" @:,@@
+" This is useful for commands like :bnext or :cNext.
+
+" CTAGS
+" command! MakeTags !ctags -R .
+" ^]        jump to tag under cursor
+" g^]     list tags
+" ^t        jump back up the tag stack
+
+
+" FINDING FILES
+" Search down into subfolders
+" Provides tab-completion for all file-related tasks
+set path+=**
+" Display all matching files when we tab
+set wildmenu
+" hit tab to :find by partial match
+" Use * to make it fuzzy
+" :b lets you autocomplete any open buffer
+
+" AUTOCOMPLETE
+" ^x^n        just for this file
+" ^x^f        for filenames(works with path tricks)
+" ^x ^]        for tags only
+" ^n            complete
+" ^p             go back
+
+" BASIC
+set nocompatible
+syntax enable
+filetype plugin on
+
+" FILE BROWSING
+let g:netrw_banner = 0
+let g:netrw_browse_split=4
+let g:netrw_altv=1
+let g:netrw_liststyle=3
+let g:netrw_list_hide=netrw_gitignore#Hide()
+let g:netrw_list_hide.=",\(^\|\s\s\)\zs\.\S\+'
+" :edit a folder to open file browser
+" <CR>/v/t to open in an h-split/v-split/tab
+" check |netrw-browse-maps| for more mappings
+
+" BUILD
+" set makeprg=ninja
+" :make to run
+" :cl to list errors
+" :cc# to jump to error by number
+" :cn n :cp to navigate
+
