@@ -66,7 +66,7 @@ nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
 " :cn, cp  (next, previous error of quickfixlist)
 
 " DEBUG
-" packadd termdebug
+packadd termdebug
 " Termdebug bin/exe
 " GDB cmd :
 " b main  (breakpoint on main)
@@ -75,3 +75,7 @@ nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
 " n       (next)
 " S+k     (evaluate variable under cursor)
 " :let termdebugger="rust-gdb"
+
+" TAB
+" to select tab with mouse :
+set mouse=a
