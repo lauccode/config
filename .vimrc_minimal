@@ -2,6 +2,9 @@
 set nocompatible
 syntax enable
 filetype plugin on
+" to select tab with mouse
+" also to have buttons for termdebug !
+set mouse=a
 
 " REPEAT LAST COMMAND
 " The last command entered with ':' can be repeated with @: and further repeats can be done with @@
@@ -77,5 +80,4 @@ packadd termdebug
 " :let termdebugger="rust-gdb"
 
 " TAB
-" to select tab with mouse :
-set mouse=a
+" :tabedit namefile.txt
