@@ -6,6 +6,10 @@ filetype plugin on
 " also to have buttons for termdebug !
 set mouse=a
 
+" COLOR SCHEME
+" :colo   (to check colorscheme used)
+" :colo delek
+
 " REPEAT LAST COMMAND
 " The last command entered with ':' can be repeated with @: and further repeats can be done with @@
 " @:,@@
