@@ -67,3 +67,9 @@ nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
 " DEBUG
 " packadd termdebug
 " Termdebug bin/exe
+" GDB cmd :
+" b main  (breakpoint on main)
+" r       (run)
+" s       (step)
+" n       (next)
+" S+k     (evaluate variable under cursor)
