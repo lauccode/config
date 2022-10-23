@@ -74,3 +74,4 @@ nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
 " s       (step)
 " n       (next)
 " S+k     (evaluate variable under cursor)
+" :let termdebugger="rust-gdb"
