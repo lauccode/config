@@ -56,3 +56,9 @@ let g:netrw_list_hide.=",\(^\|\s\s\)\zs\.\S\+'
 " Read an empty HTML template and move cursor to title
 nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
 
+" TERMINAL
+" :terminal
+" :terminal make  (launch make in terminal)
+" launch script to build and use :
+" :cbuffer (parse terminal buffer to fill quickfixlist)
+" :cn, cp  (next, previous error of quickfixlist)
