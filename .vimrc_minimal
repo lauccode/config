@@ -57,8 +57,13 @@ let g:netrw_list_hide.=",\(^\|\s\s\)\zs\.\S\+'
 nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
 
 " TERMINAL
+" exit from terminal : CTRL+\CTRL+n
 " :terminal
 " :terminal make  (launch make in terminal)
 " launch script to build and use :
 " :cbuffer (parse terminal buffer to fill quickfixlist)
 " :cn, cp  (next, previous error of quickfixlist)
+
+" DEBUG
+" packadd termdebug
+" Termdebug bin/exe
