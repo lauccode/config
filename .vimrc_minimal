@@ -82,3 +82,7 @@ packadd termdebug
 
 " TAB
 " :tabedit namefile.txt
+
+" SEARCH AND REPLACE 
+" to have preview :
+" https://github.com/osyo-manga/vim-over
