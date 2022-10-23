@@ -78,6 +78,7 @@ packadd termdebug
 " n       (next)
 " S+k     (evaluate variable under cursor)
 " :let termdebugger="rust-gdb"
+" we navigate to the source code view and type Ctrl+w and L to have it on the right.
 
 " TAB
 " :tabedit namefile.txt
