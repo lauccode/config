@@ -51,6 +51,7 @@ let g:netrw_list_hide.=",\(^\|\s\s\)\zs\.\S\+'
 " :cl to list errors
 " :cc# to jump to error by number
 " :cn n :cp to navigate
+" :compiler <TAB>  (choose compiler to use)
 
 " SNIPPETS:
 " Read an empty HTML template and move cursor to title
