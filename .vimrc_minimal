@@ -90,3 +90,5 @@ packadd termdebug
 " SEARCH AND REPLACE 
 " to have preview :
 " https://github.com/osyo-manga/vim-over
+" Delete all line where "Bianry File" is present
+" g/Binary File/d
