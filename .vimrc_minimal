@@ -5,6 +5,24 @@ filetype plugin on
 " to select tab with mouse
 " also to have buttons for termdebug !
 set mouse=a
+syntax enable
+filetype plugin indent on
+set nu rnu
+set completeopt=menuone,noinsert,noselect
+set shortmess+=c
+set expandtab
+set smartindent
+set tabstop=4 softtabstop=4
+set cmdheight=2
+set updatetime=50
+set signcolumn=yes
+
+" SHORTCUTS
+:let mapleader = " "
+nnoremap <leader>r :source $MYVIMRC<CR>
+nnoremap <leader>w :w<CR>
+nnoremap <leader>q :q<CR>
+noremap <F2> :edit ~/.vimrc<CR>
 
 " MOVE
 "  % key will be your friend. This key will jump between start and end of 
