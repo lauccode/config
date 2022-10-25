@@ -6,6 +6,10 @@ filetype plugin on
 " also to have buttons for termdebug !
 set mouse=a
 
+" MOVE
+"  % key will be your friend. This key will jump between start and end of 
+" curly braces quickly.
+
 " COLOR SCHEME
 " :colo   (to check colorscheme used)
 " :colo delek
