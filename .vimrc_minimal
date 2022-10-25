@@ -16,7 +16,7 @@ set tabstop=4 softtabstop=4
 set cmdheight=2
 set updatetime=50
 set signcolumn=yes
-set ignorecase  " be sure to find even if bad case
+set smartcase  " be sure to find even if bad case
 " set list!  " show invisible character
 " set lcs=tab:»_,trail:·  " set lcs=tab:j_,trail:·,eol:$
 " set cwh=30 " high for the preview of incommand
