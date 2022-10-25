@@ -8,20 +8,25 @@ set mouse=a
 syntax enable
 filetype plugin indent on
 set nu rnu
-set completeopt=menuone,noinsert,noselect
-set shortmess+=c
-set expandtab
+set completeopt=menuone,noinsert,noselect "for completion
+set shortmess+=c " avoid hit enter prompt
+set expandtab    " number of space to indent with <Tab>
 set smartindent
 set tabstop=4 softtabstop=4
 set cmdheight=2
 set updatetime=50
 set signcolumn=yes
+set ignorecase  " be sure to find even if bad case
+" set list!  " show invisible character
+" set lcs=tab:»_,trail:·  " set lcs=tab:j_,trail:·,eol:$
+" set cwh=30 " high for the preview of incommand
 
 " SHORTCUTS
 :let mapleader = " "
 nnoremap <leader>r :source $MYVIMRC<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
+nnoremap <leader>c :bd<CR>
 noremap <F2> :edit ~/.vimrc<CR>
 
 " MOVE
@@ -56,6 +61,13 @@ set wildmenu
 
 " FINDING WORDS
 " :vimgrep word *.cpp *.h
+if executable("rg")  " use :grep <word> with ripgrep
+  set grepprg=rg\ --vimgrep\ --smart-case\ --hidden
+  set grepformat=%f:%l:%c:%m
+endif 
+" Search for the exact word foo (not foobar): :grep -w foo (equivalent to :grep '\bfoo\b').
+ " Search for foo in JavaScript files: :grep foo -t js
+ " Search for foo in files matching a glob: :grep foo -g '*.js'
 
 " AUTOCOMPLETE
 " ^x^n        just for this file
@@ -65,6 +77,8 @@ set wildmenu
 " ^p             go back
 
 " FILE BROWSING
+" E     explorer all screen
+" Ex    explorer split screen
 let g:netrw_banner = 0
 let g:netrw_browse_split=4
 let g:netrw_altv=1
@@ -113,5 +127,5 @@ packadd termdebug
 " SEARCH AND REPLACE 
 " to have preview :
 " https://github.com/osyo-manga/vim-over
-" Delete all line where "Bianry File" is present
+" Delete all line where "Binary File" is present
 " g/Binary File/d
