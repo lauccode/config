@@ -58,6 +58,11 @@ set wildmenu
 " hit tab to :find by partial match
 " Use * to make it fuzzy
 " :b lets you autocomplete any open buffer
+" FZF
+" to find and open with fzf in terminal
+" filepath=$(fzf);vim $filepath
+" to put in .bashrc
+" alias ff='filepath=$(fzf);vim $filepath'
 
 " FINDING WORDS
 " :vimgrep word *.cpp *.h
