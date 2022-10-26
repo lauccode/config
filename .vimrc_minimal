@@ -159,3 +159,15 @@ packadd termdebug
 " REGISTRES
 " :registres    on voit tous les buffers de copier/coller
 " "%p       path du fichier en cours
+
+" COMMAND HISTORY
+" see your history of commands : 
+" ctrl-f.
+" Use 
+" jk 
+" to move down and up the list and press Enter to execute a command again. 
+" Or to hop back out of the list, press 
+" ctrl-c. 
+" You could then press 
+" Esc or ctrl-c again
+" to exit command mode entirely. 
