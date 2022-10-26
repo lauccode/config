@@ -139,9 +139,12 @@ packadd termdebug
 " Fold activation and deactivation
 " To activate fold use following command: 
 " :set foldenable 
-:set foldmethod=indent 
+" :set foldmethod=indent 
+:set foldmethod=syntax 
 " To deactivate fold use following command: 
 " :set nofoldenable
+" zm to fold one level
+" zR to reopen all
 
 " :help folding les replis !
 " :zf       créé repli
