@@ -205,7 +205,9 @@ lvim.builtin.telescope.defaults={
 -- "z" to have fold menu
 -- vim.opt.foldmethod = "indent"  -- indent, syntax, marker, expr
 -- vim.opt.foldexpr = "}"
-vim.opt.foldmethod = "manual"
+vim.opt.foldmethod = "syntax"
+vim.cmd 'set nofoldenable'
+-- zm to fold and zR to come back
 
 -- generic LSP settings
 
