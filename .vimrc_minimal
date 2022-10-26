@@ -134,3 +134,28 @@ packadd termdebug
 " https://github.com/osyo-manga/vim-over
 " Delete all line where "Binary File" is present
 " g/Binary File/d
+
+" FOLDER
+" Fold activation and deactivation
+" To activate fold use following command: 
+" :set foldenable 
+:set foldmethod=indent 
+" To deactivate fold use following command: 
+" :set nofoldenable
+
+" :help folding les replis !
+" :zf       créé repli
+" :zo zc zd ouvre ferme supprime
+" :zR zM    ouvre/ferme TOUT
+" :zm zr    augmente/diminue niveau
+" :zE zO    supprime/ouvre tous les replis sous le curseur
+
+" MARKER
+" Balises
+" :ma       marqueur a
+" :'a       va au marqueur a
+" :marks    list des marques
+
+" REGISTRES
+" :registres    on voit tous les buffers de copier/coller
+" "%p       path du fichier en cours
