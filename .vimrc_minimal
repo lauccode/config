@@ -138,6 +138,9 @@ packadd termdebug
 " https://github.com/osyo-manga/vim-over
 " Delete all line where "Binary File" is present
 " g/Binary File/d
+" :%s//bar/g
+" Replace each match of the last search pattern with 'bar'.
+" 'bar' can be previously copy and recall with <C-r>" 
 
 " FOLDER
 " Fold activation and deactivation
