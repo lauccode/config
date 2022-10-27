@@ -114,6 +114,10 @@ nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
 " :cbuffer (parse terminal buffer to fill quickfixlist) very practice !!!!!
 " :cn, cp  (next, previous error of quickfixlist)
 
+" QUICKFIX
+" if you want to load the quickfix item into the previously used window.
+set switchbuf+=uselast
+
 " DEBUG
 packadd termdebug
 " Termdebug bin/exe
