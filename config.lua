@@ -199,7 +199,8 @@ lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.telescope.defaults={
 	find_command = { "fd", "-t=f", "-a" },
 	path_display = { "absolute" },
-  wrap_results = true
+  	wrap_results = true,
+	vimgrep_arguments = { "--unrestricted","" }
 }
 
 -- "z" to have fold menu
