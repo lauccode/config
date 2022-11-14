@@ -200,8 +200,18 @@ lvim.builtin.telescope.defaults={
 	find_command = { "fd", "-t=f", "-a" },
 	path_display = { "absolute" },
   	wrap_results = true,
-	-- vimgrep_arguments = { "--unrestricted","" }
+  vimgrep_arguments = {
+      'rg',
+      '--color=never',
+      '--no-heading',
+      '--with-filename',
+      '--line-number',
+      '--column',
+      '--smart-case',
+      '-u' -- thats the new thing
+        }
 }
+
 
 -- "z" to have fold menu
 -- vim.opt.foldmethod = "indent"  -- indent, syntax, marker, expr
