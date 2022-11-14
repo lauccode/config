@@ -485,7 +485,7 @@ dap.configurations.cpp = {
           {
               text = '-enable-pretty-printing',
               description =  'enable pretty printing',
-              ignoreFailures = yes
+              ignoreFailures = yes  -- in GDB: "handle SIGPIPE nostop"
           },
       },
   },
