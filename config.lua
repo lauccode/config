@@ -309,7 +309,7 @@ lvim.plugins = {
   {"ellisonleao/gruvbox.nvim"},
   {"luisiacc/gruvbox-baby"},
   {"sainnhe/gruvbox-material"},
-  {"folke/tokyonight.nvim"},
+  -- {"folke/tokyonight.nvim"},
   {"EdenEast/nightfox.nvim"},
   {"savq/melange"},
   {"sainnhe/sonokai"},
