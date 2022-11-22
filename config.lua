@@ -158,7 +158,6 @@ vim.cmd 'nnoremap <A-l> <C-w>l'
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
-lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 
 lvim.builtin.nvimtree.show_icons.git = 0
