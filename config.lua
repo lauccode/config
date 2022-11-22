@@ -222,7 +222,7 @@ lvim.builtin.telescope.defaults={
       '-u' -- thats the new thing
         }
 }
-
+lvim.builtin.telescope.pickers = { find_files = { hidden = true, no_ignore = true } }
 
 -- "z" to have fold menu
 -- vim.opt.foldmethod = "indent"  -- indent, syntax, marker, expr
