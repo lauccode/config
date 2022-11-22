@@ -43,12 +43,9 @@ lvim.leader = "space"
 
 -- lvim.keys.normal_mode["<C-k>"] = "dd"
 
--- lvim.keys.normal_mode["<C-c>"] = "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>"
--- lvim.keys.visual_mode["<C-c>"] = "<ESC><CMD>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>"
--- lvim.keys.normal_mode["<C-c>"] = "<cmd>lua require('Comment.api').toggle.linewise()<CR>"           
--- lvim.keys.visual_mode["<C-c>"] = "<ESC><CMD>lua require('Comment.api').toggle.blockwise(vim.fn.visualmode())<CR>"
--- lvim.keys.normal_mode["cc"] = "<cmd>lua require('Comment.api').toggle.linewise()<CR>"           
---lvim.keys.visual_mode["cc"] = "<ESC><CMD>lua require('Comment.api').toggle.blockwise(vim.fn.visualmode())<CR>"
+local api = require('Comment.api')
+-- local config = require('Comment.config'):get()
+vim.keymap.set('n', 'cc', api.toggle.linewise.current)
 -- NORMAL mode
 -- `gcc` - Toggles the current line using linewise comment
 -- `gbc` - Toggles the current line using blockwise comment
