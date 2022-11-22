@@ -43,9 +43,13 @@ lvim.leader = "space"
 
 -- lvim.keys.normal_mode["<C-k>"] = "dd"
 
-local api = require('Comment.api')
--- local config = require('Comment.config'):get()
-vim.keymap.set('n', 'cc', api.toggle.linewise.current)
+-- Toggle current line or with count
+vim.keymap.set('n', 'gcc', function()
+   return vim.v.count == 0
+      and '<Plug>(comment_toggle_linewise_current)'
+      or '<Plug>(comment_toggle_linewise_count)'
+end, { expr = true })
+
 -- NORMAL mode
 -- `gcc` - Toggles the current line using linewise comment
 -- `gbc` - Toggles the current line using blockwise comment
