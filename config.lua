@@ -44,7 +44,7 @@ lvim.leader = "space"
 -- lvim.keys.normal_mode["<C-k>"] = "dd"
 
 -- Toggle current line or with count
-vim.keymap.set('n', 'gcc', function()
+vim.keymap.set('n', 'cc', function()
    return vim.v.count == 0
       and '<Plug>(comment_toggle_linewise_current)'
       or '<Plug>(comment_toggle_linewise_count)'
