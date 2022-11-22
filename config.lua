@@ -522,6 +522,29 @@ dap.configurations.cpp = {
       return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
     end,
   },
+{
+    name= "Debug BIN in Docker",
+    type= "cppdbg",
+    request= "launch",
+    program= "${workspaceFolder}/path/To/Bin",
+    miDebuggerServerAddress = ':44134',
+    stopAtEntry= false,
+    cwd= "${workspaceFolder}",
+    externalConsole= false,
+    MIMode= "gdb",
+    setupCommands={
+        {
+            description= "Enable pretty-printing for gdb",
+            text= "-enable-pretty-printing",
+            ignoreFailures= true
+        },
+        {
+            description= "Do not stop on SIGPIPE error",
+            text= "handle SIGPIPE nostop noprint pass",
+            ignoreFailures= true
+        }
+    }
+},	
 }
 
 require("dapui").setup()
