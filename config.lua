@@ -47,8 +47,19 @@ lvim.leader = "space"
 -- lvim.keys.visual_mode["<C-c>"] = "<ESC><CMD>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>"
 -- lvim.keys.normal_mode["<C-c>"] = "<cmd>lua require('Comment.api').toggle.linewise()<CR>"           
 -- lvim.keys.visual_mode["<C-c>"] = "<ESC><CMD>lua require('Comment.api').toggle.blockwise(vim.fn.visualmode())<CR>"
-lvim.keys.normal_mode["cc"] = "<cmd>lua require('Comment.api').toggle.linewise()<CR>"           
-lvim.keys.visual_mode["cc"] = "<ESC><CMD>lua require('Comment.api').toggle.blockwise(vim.fn.visualmode())<CR>"
+-- lvim.keys.normal_mode["cc"] = "<cmd>lua require('Comment.api').toggle.linewise()<CR>"           
+--lvim.keys.visual_mode["cc"] = "<ESC><CMD>lua require('Comment.api').toggle.blockwise(vim.fn.visualmode())<CR>"
+-- NORMAL mode
+-- `gcc` - Toggles the current line using linewise comment
+-- `gbc` - Toggles the current line using blockwise comment
+-- `[count]gcc` - Toggles the number of line given as a prefix-count using linewise
+-- `[count]gbc` - Toggles the number of line given as a prefix-count using blockwise
+-- `gc[count]{motion}` - (Op-pending) Toggles the region using linewise comment
+-- `gb[count]{motion}` - (Op-pending) Toggles the region using blockwise comment
+-- VISUAL mode
+-- `gc` - Toggles the region using linewise comment
+-- `gb` - Toggles the region using blockwise comment
+
 lvim.keys.normal_mode["<F2>"] = "<cmd>edit " .. get_config_dir() .. "/config.lua<cr>"
 -- unmap a default keymapping
 -- lvim.keys.normal_mode["<C-Up>"] = false
