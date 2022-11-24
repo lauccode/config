@@ -481,6 +481,42 @@ lvim.builtin.which_key.mappings["r"]= {
       f = { "viw:lua require('spectre').open_file_search()<cr>", "search in current file" },                                       
 }         
 
+
+   local retrieveServerAddress = {}
+   function retrieveServerAddress.input()
+      ServerAddress=:44203
+      vim.ui.input({
+         prompt = "Enter a value: ",
+         default = ":",
+         completion = "file",
+         highlight = function(input)
+            if string.len(input) > 8 then
+               return { { 0, 8, "InputHighlight" } }
+            else
+               return {}
+            end
+         end,
+      }, function(input)
+            if input then
+               print("You entered " .. input)
+               ServerAddress=input
+               -- source again config.lua to update miDebuggerServerAddress
+               vim.cmd ':LvimReload'
+            else
+               print "You cancelled"
+            end
+         end)
+   end
+   
+   vim.api.nvim_create_user_command('Rsa', function()
+      retrieveServerAddress.input()
+      -- ServerAddress = retrieveServerAddress
+   end, { nargs = '*' })
+   
+   lvim.builtin.which_key.mappings["da"] = { ":Rsa<CR>" , "Give server address" }
+   lvim.builtin.which_key.mappings["k"] = { ":lua print(ServerAddress)<CR>" , "print server address" }
+
+
 -- DAP for cpp as in vscode
 local dap = require('dap')
 -- https://github.com/mfussenegger/nvim-dap/wiki/C-C---Rust-(gdb-via--vscode-cpptools)
@@ -527,7 +563,7 @@ dap.configurations.cpp = {
     type= "cppdbg",
     request= "launch",
     program= "${workspaceFolder}/path/To/Bin",
-    miDebuggerServerAddress = ':44134',
+    miDebuggerServerAddress = ServerAddress,
     stopAtEntry= false,
     cwd= "${workspaceFolder}",
     externalConsole= false,
