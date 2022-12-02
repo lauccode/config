@@ -64,6 +64,11 @@ https://github.com/AmitXShukla/AmitXShukla.github.io/blob/master/blogs/vim/tmux_
 ### config
 .tmux.conf in HOME
 ### copy/paste
+`<C+b>[`	normal vi mode
+`Space`		start highlight
+`Enter`		copy highlight
+`<C+b>]`	paste
+
 To copy from outside of cygwin to kakoune : Put kakoune in insert mode and <S-Ins> to paste  
 To copy from kakoune to outside : In kakoune, <C+b>[ , select what you need and do <C-Ins>  
 ## shortcuts
