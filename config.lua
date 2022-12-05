@@ -206,6 +206,18 @@ lvim.builtin.treesitter.ensure_installed = {
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 
+-- local find_all_files_cmd = {
+--     "fd",
+--     "--type", "f",
+--     "--type", "l",
+--     "--follow",
+--     "--color=never",
+--     "--hidden",
+--     "--no-ignore",
+--     "-g '!.*cache/*'",
+--     "-g '!.git/*'",
+--     "-E", "*.hex",
+-- }
 -- lvim.builtin.telescope.defaults.path_display = {"absolute", "smart"}
 lvim.builtin.telescope.defaults={
 	find_command = { "fd", "-t=f", "-a", "-I" },
@@ -216,7 +228,6 @@ lvim.builtin.telescope.defaults={
 		".git/.*",
 		".bin"
 	},
-
   vimgrep_arguments = {
       'rg',
       '--color=never',
@@ -227,6 +238,7 @@ lvim.builtin.telescope.defaults={
       '--smart-case',
       '-u' -- thats the new thing
         }
+  -- find_files={find_command = find_all_files_cmd}
 }
 lvim.builtin.telescope.pickers = { find_files = { hidden = true, no_ignore = true } }
 
