@@ -211,6 +211,12 @@ lvim.builtin.telescope.defaults={
 	find_command = { "fd", "-t=f", "-a", "-I" },
 	path_display = { "absolute" },
   	wrap_results = true,
+        file_ignore_patterns = {
+		"path/to/dir/.*",
+		".git/.*",
+		".bin"
+	},
+
   vimgrep_arguments = {
       'rg',
       '--color=never',
