@@ -440,6 +440,7 @@ lvim.plugins = {
           })
   end,
 },
+	"Luxed/ayu-vim",
 }
 	
   lvim.builtin.which_key.mappings["S"]= {
