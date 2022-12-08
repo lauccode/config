@@ -61,6 +61,7 @@ Alias in config.fish in ~/.config/fish/
 
 ## tmux
 https://github.com/AmitXShukla/AmitXShukla.github.io/blob/master/blogs/vim/tmux_cheatsheet.pdf
+Shift + Mouse Wheel : to scroll in terminal !
 ### config
 .tmux.conf in HOME
 ### copy/paste
