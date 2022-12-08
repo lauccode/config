@@ -72,6 +72,7 @@ https://github.com/AmitXShukla/AmitXShukla.github.io/blob/master/blogs/vim/tmux_
 To copy from outside of cygwin to kakoune : Put kakoune in insert mode and <S-Ins> to paste  
 To copy from kakoune to outside : In kakoune, <C+b>[ , select what you need and do <C-Ins>  
 ## shortcuts
+tmux source-file <path to the tmux.conf file>  
 tmux new-session -s <your_session_name>  
 tmux ls  
 List command-mode shortcuts: ctrl-b ?  
