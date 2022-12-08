@@ -72,37 +72,37 @@ https://github.com/AmitXShukla/AmitXShukla.github.io/blob/master/blogs/vim/tmux_
 To copy from outside of cygwin to kakoune : Put kakoune in insert mode and <S-Ins> to paste  
 To copy from kakoune to outside : In kakoune, <C+b>[ , select what you need and do <C-Ins>  
 ## shortcuts
-    source configuration file:  
-    `tmux source-file <path to the tmux.conf file>`  
-    List command-mode shortcuts:  
-    `ctrl-b ?`  
-    list tmux session:  
-    `tmux ls`  
-    Start a tmux session:  
-    `tmux new-session -s <your_session_name>`  
-    `tmux new -s <your_session_name>`  
-    To split vertically:  
-    `ctrl-b %`  
-    To split horizontally:  
-    `ctrl-b "`  
-    To navigate and select a pane:  
-    `ctrl-b <arrow keys>`  
-    To toggle full-screen zoom in/out on the current pane:  
-    `ctrl-b z`  
-    To close the current pane:  
-    `ctrl-b x` then confirm with y or n  
-    Do your work in your tmux session  
-    Detach from your session when you are done:  
-    `ctrl-b d`  
-    `tmux detach`  
-    [Optional] View available attachable sessions:  
-    `tmux list-sessions`  
-    `tmux ls`  
-    Reattach to your tmux session when you are ready to continue working:  
-    `tmux attach-session -t <your_session_name>`  
-    `tmux attach -t <your_session_name>`  
-    Kill session:  
-    `tmux kill-session -t mysession`  
+source configuration file:  
+`tmux source-file <path to the tmux.conf file>`  
+List command-mode shortcuts:  
+`ctrl-b ?`  
+list tmux session:  
+`tmux ls`  
+Start a tmux session:  
+`tmux new-session -s <your_session_name>`  
+`tmux new -s <your_session_name>`  
+To split vertically:  
+`ctrl-b %`  
+To split horizontally:  
+`ctrl-b "`  
+To navigate and select a pane:  
+`ctrl-b <arrow keys>`  
+To toggle full-screen zoom in/out on the current pane:  
+`ctrl-b z`  
+To close the current pane:  
+`ctrl-b x` then confirm with y or n  
+Do your work in your tmux session  
+Detach from your session when you are done:  
+`ctrl-b d`  
+`tmux detach`  
+[Optional] View available attachable sessions:  
+`tmux list-sessions`  
+`tmux ls`  
+Reattach to your tmux session when you are ready to continue working:  
+`tmux attach-session -t <your_session_name>`  
+`tmux attach -t <your_session_name>`  
+Kill session:  
+`tmux kill-session -t mysession`  
 ### windows
 start a new session with the name mysession and window mywindow:  
 `tmux new -s mysession -n mywindow`  
