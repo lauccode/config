@@ -591,6 +591,24 @@ dap.configurations.cpp = {
           },
       },
   },
+{
+        name= "Debug UT",
+        type= "cppdbg",
+        request= "launch",
+        program= "${workspaceFolder}/path/to/bin",
+        args={""},
+        stopAtEntry= false,
+        cwd= "${workspaceFolder}",
+        externalConsole= false,
+        MIMode= "gdb",
+        setupCommands= {
+            {
+                text = '-enable-pretty-printing',
+                description =  'enable pretty printing',
+                ignoreFailures = true
+            }
+        }
+ },
   {
     name = 'Attach to gdbserver :1234',
     type = 'cppdbg',
