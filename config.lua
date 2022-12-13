@@ -103,6 +103,25 @@ lvim.keys.normal_mode["<S-w>"] = "viw\"0p"  -- paste word of buffer 0 on word yo
 --   w = { "<cmd>Trouble lsp_workspace_diagnostics<cr>", "Diagnostics" },
 -- }
 
+lvim.builtin.which_key.setup = {
+       plugins = {
+         marks = true, -- shows a list of your marks on ' and `
+         registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
+         -- the presets plugin, adds help for a bunch of default keybindings in Neovim
+         -- No actual key bindings are created
+         presets = {
+           operators = true, -- adds help for operators like d, y, ...
+           motions = true, -- adds help for motions
+           text_objects = true, -- help for text objects triggered after entering an operator
+           windows = true, -- default bindings on <c-w>
+           nav = true, -- misc bindings to work with windows
+           z = true, -- bindings for folds, spelling and others prefixed with z
+           g = true, -- bindings for prefixed with g
+         },
+         spelling = { enabled = true, suggestions = 20 }, -- use which-key for spelling hints
+       }
+ }
+
 lvim.builtin.which_key.mappings["i"] = {
   name = "+call",
   i = { "<cmd>lua vim.lsp.buf.incoming_calls()<CR>", "incoming calls" },
