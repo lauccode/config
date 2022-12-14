@@ -185,6 +185,8 @@ vim.cmd 'nnoremap <A-j> <C-w>j'
 vim.cmd 'nnoremap <A-k> <C-w>k'
 vim.cmd 'nnoremap <A-l> <C-w>l'
 
+vim.cmd 'nnoremap <C-w>m <C-w>\\| <C-w>_'  -- maximize windows, come back <C-w>=
+
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = true
