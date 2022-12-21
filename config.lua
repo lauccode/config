@@ -64,6 +64,9 @@ end, { expr = true })
 -- lvim.keys.insert_mode["ùù"] = "<Esc>"
 -- lvim.keys.insert_mode[",,"] = "<Esc>"
 -- lvim.keys.insert_mode["jj"] = "<Esc>"
+-- lvim.keys.visual_mode["ùù"] = "<Esc>"
+-- lvim.keys.visual_mode[",,"] = "<Esc>"
+-- lvim.keys.visual_mode["jj"] = "<Esc>"
 
 lvim.keys.normal_mode["<F2>"] = "<cmd>edit " .. get_config_dir() .. "/config.lua<cr>"
 -- unmap a default keymapping
