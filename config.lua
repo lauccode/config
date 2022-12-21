@@ -61,6 +61,10 @@ end, { expr = true })
 -- `gc` - Toggles the region using linewise comment
 -- `gb` - Toggles the region using blockwise comment
 
+-- lvim.keys.insert_mode["ùù"] = "<Esc>"
+-- lvim.keys.insert_mode[",,"] = "<Esc>"
+-- lvim.keys.insert_mode["jj"] = "<Esc>"
+
 lvim.keys.normal_mode["<F2>"] = "<cmd>edit " .. get_config_dir() .. "/config.lua<cr>"
 -- unmap a default keymapping
 -- lvim.keys.normal_mode["<C-Up>"] = false
