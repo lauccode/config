@@ -556,7 +556,7 @@ lvim.builtin.which_key.mappings["r"]= {
 
    local retrieveServerAddress = {}
    function retrieveServerAddress.input()
-      ServerAddress=:44203
+      ServerAddress=44203
       vim.ui.input({
          prompt = "Enter a value: ",
          default = ":",
