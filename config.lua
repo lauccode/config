@@ -61,6 +61,7 @@ end, { expr = true })
 -- `gc` - Toggles the region using linewise comment
 -- `gb` - Toggles the region using blockwise comment
 
+ lvim.keys.insert_mode[",,"] = "<Esc>"
  lvim.keys.insert_mode["ù"] = "<Esc>"
  lvim.keys.insert_mode["ùù"] = "<Esc>"
  lvim.keys.visual_mode["ù"] = "<Esc>"
