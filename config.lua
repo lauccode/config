@@ -278,6 +278,7 @@ lvim.builtin.telescope.pickers = { find_files = { hidden = true, no_ignore = tru
 -- zm to fold and zR to come back
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+--  set it to 0 it’ll fold all foldable on opening a file
 vim.opt.foldlevel = 99
 
 -- generic LSP settings
