@@ -276,9 +276,9 @@ lvim.builtin.telescope.pickers = { find_files = { hidden = true, no_ignore = tru
 -- vim.opt.foldmethod = "syntax"
 -- vim.cmd 'set nofoldenable'
 -- zm to fold and zR to come back
-vim.opt.foldmethod = "expr"                                                                                                                │f6d31bcd3029   ubt_simulator/carpent7                                        "./runSimu.sh debug"   18 minutes ago   Up 18 minutes   0.0.0.0:36737->161/u
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"                                                                                            │dp, 0.0.0.0:36736->162/udp, 0.0.0.0:44926->443/tcp, 0.0.0.0:44925->3510/tcp, 0.0.0.0:44924->9500/tcp, 0.0.0.0:44923->10500/tcp, 0.0.0.0:44922->11500/tcp,
-vim.opt.foldlevel = 99             
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldlevel = 99
 
 -- generic LSP settings
 
