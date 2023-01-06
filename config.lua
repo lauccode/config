@@ -602,7 +602,7 @@ local dap = require('dap')
 dap.adapters.cppdbg = {
   id = 'cppdbg',
   type = 'executable',
-  command = '/home/coyote/extension/debugAdapters/bin/OpenDebugAD7',
+  -- command = '/home/name/.local/share/nvim/mason/packages/cpptools/extension/debugAdapters/bin/OpenDebugAD7',
 }
 
 dap.configurations.cpp = {
