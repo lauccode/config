@@ -203,16 +203,16 @@ lvim.builtin.telescope.defaults = {
     --       ".vim",
     --       "modem/build/vxworksDiabLinux/symTbl.c"
     --  },
-    --   vimgrep_arguments = {
-    --       'rg',
-    --       '--color=never',
-    --       '--no-heading',
-    --       '--with-filename',
-    --       '--line-number',
-    --       '--column',
-    --       '--smart-case',
+      vimgrep_arguments = {
+          'rg',
+          '--color=never',
+          '--no-heading',
+          '--with-filename',
+          '--line-number',
+          '--column',
+          '--smart-case',
     --       '-u' -- thats the new thing
-    --         },
+            },
 
     -- -- find_files={find_command = find_all_files_cmd}
 
