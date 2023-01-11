@@ -87,6 +87,7 @@ lvim.builtin.which_key.mappings["i"] = {
 
 lvim.builtin.which_key.mappings["*"] = { "<cmd>Telescope grep_string<cr>", "grep string under cursor" }
 lvim.builtin.which_key.mappings["F"] = { "<cmd>SymbolsOutline<cr>", "Function list on the right" }
+lvim.builtin.which_key.mappings["sF"] = { "<cmd>Telescope find_files hidden=true no_ignore=true<cr>", "Find File Everywhere" }
 -- lvim.builtin.which_key.mappings["sF"] = { "<cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files<cr>", "Find File Everywhere" }
 -- lvim.builtin.which_key.mappings["sT"] = { "<cmd>Telescope live_grep find_command=rg,--ignore,--hidden,--files<cr>", "Text Everywhere" }
 
@@ -217,8 +218,8 @@ lvim.builtin.telescope.defaults = {
 
     -- -- find_files={find_command = find_all_files_cmd}
 
-    -- }
-    -- lvim.builtin.telescope.pickers = { find_files = { hidden = true, no_ignore = true } 
+    }
+    lvim.builtin.telescope.pickers = { find_files = { hidden = false, no_ignore = false } 
 }
 
 vim.opt.foldmethod = "expr"
