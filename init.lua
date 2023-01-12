@@ -441,86 +441,89 @@ local config = {
     end, { nargs = '*' })
 
     -- lvim.builtin.which_key.mappings["da"] = { ":Rsa<CR>" , "Give server address" }
-
-    local dap = require('dap')
-    dap.configurations.cpp = {
-      {
-        name = "Launch file",
-        type = "cppdbg",
-        request = "launch",
-        program = function()
-          return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-        end,
-        cwd = '${workspaceFolder}',
-        stopAtEntry = false,
-        setupCommands = {
-          {
-            text = '-enable-pretty-printing',
-            description = 'enable pretty printing',
-            ignoreFailures = true
-          },
-        },
-      },
-      {
-        name = 'Attach to gdbserver :1234',
-        type = 'cppdbg',
-        request = 'launch',
-        MIMode = 'gdb',
-        miDebuggerServerAddress = 'localhost:1234',
-        miDebuggerPath = '/usr/bin/gdb',
-        cwd = '${workspaceFolder}',
-        program = function()
-          return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-        end,
-      },
-      {
-        name = "Debug UT debian",
-        type = "cppdbg",
-        request = "launch",
-        program = "${workspaceFolder}/modem/UbtApplication/Test/U2Tests/U2TestsLinux",
-        args = { "SviPerformanceMonitorCodecsTestSuite" },
-        stopAtEntry = false,
-        cwd = "${workspaceFolder}",
-        externalConsole = false,
-        MIMode = "gdb",
-        setupCommands = {
-          {
-            text = '-enable-pretty-printing',
-            description = 'enable pretty printing',
-            ignoreFailures = true
-          }
-        }
-      },
-      {
-        name = "Debug SIMU in Docker",
-        type = "cppdbg",
-        -- type= "cpptools",
-        request = "launch",
-        program = "${workspaceFolder}/modem/build/simu/UbtApplication",
-        -- miDebuggerServerAddress= dap.input,
-        miDebuggerServerAddress = ServerAddress,
-        -- miDebuggerServerAddress = ":44249",
-        stopAtEntry = false,
-        cwd = "${workspaceFolder}",
-        -- environment= "[]",
-        externalConsole = false,
-        MIMode = "gdb",
-        setupCommands = {
-          {
-            description = "Enable pretty-printing for gdb",
-            text = "-enable-pretty-printing",
-            ignoreFailures = true
-          },
-          {
-            description = "Do not stop on SIGPIPE error",
-            text = "handle SIGPIPE nostop noprint pass",
-            ignoreFailures = true
-          }
-        }
-      }
-    }
-
   end,
+  
+      dap = {
+        configurations = {
+            cpp = {
+                {
+                    name = "Launch file",
+                    type = "cppdbg",
+                    request = "launch",
+                    program = function()
+                        return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+                    end,
+                    cwd = '${workspaceFolder}',
+                    stopAtEntry = false,
+                    setupCommands = {
+                        {
+                            text = '-enable-pretty-printing',
+                            description = 'enable pretty printing',
+                            ignoreFailures = true
+                        },
+                    },
+                },
+                {
+                    name = 'Attach to gdbserver :1234',
+                    type = 'cppdbg',
+                    request = 'launch',
+                    MIMode = 'gdb',
+                    miDebuggerServerAddress = 'localhost:1234',
+                    miDebuggerPath = '/usr/bin/gdb',
+                    cwd = '${workspaceFolder}',
+                    program = function()
+                        return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+                    end,
+                },
+                {
+                    name = "Debug UT debian",
+                    type = "cppdbg",
+                    request = "launch",
+                    program = "${workspaceFolder}/modem/UbtApplication/Test/U2Tests/U2TestsLinux",
+                    args = { "SviPerformanceMonitorCodecsTestSuite" },
+                    stopAtEntry = false,
+                    cwd = "${workspaceFolder}",
+                    externalConsole = false,
+                    MIMode = "gdb",
+                    setupCommands = {
+                        {
+                            text = '-enable-pretty-printing',
+                            description = 'enable pretty printing',
+                            ignoreFailures = true
+                        }
+                    }
+                },
+                {
+                    name = "Debug SIMU in Docker",
+                    type = "cppdbg",
+                    -- type= "cpptools",
+                    request = "launch",
+                    program = "${workspaceFolder}/modem/build/simu/UbtApplication",
+                    -- miDebuggerServerAddress= dap.input,
+                    miDebuggerServerAddress = ServerAddress,
+                    -- miDebuggerServerAddress = ":44249",
+                    stopAtEntry = false,
+                    cwd = "${workspaceFolder}",
+                    -- environment= "[]",
+                    externalConsole = false,
+                    MIMode = "gdb",
+                    setupCommands = {
+                        {
+                            description = "Enable pretty-printing for gdb",
+                            text = "-enable-pretty-printing",
+                            ignoreFailures = true
+                        },
+                        {
+                            description = "Do not stop on SIGPIPE error",
+                            text = "handle SIGPIPE nostop noprint pass",
+                            ignoreFailures = true
+                        }
+                    }
+                }
+
+            },
+        },
+    },
 }
 
 return config
