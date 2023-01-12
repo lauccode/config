@@ -88,6 +88,14 @@ lvim.builtin.which_key.mappings["i"] = {
 lvim.builtin.which_key.mappings["*"] = { "<cmd>Telescope grep_string<cr>", "grep string under cursor" }
 lvim.builtin.which_key.mappings["F"] = { "<cmd>SymbolsOutline<cr>", "Function list on the right" }
 lvim.builtin.which_key.mappings["sF"] = { "<cmd>Telescope find_files hidden=true no_ignore=true<cr>", "Find File Everywhere" }
+lvim.builtin.which_key.mappings["sT"] = {
+  function()
+    require("telescope.builtin").live_grep {
+     additional_args = function(args) return vim.list_extend(args, { "--hidden", "--no-ignore" }) end,
+    }
+  end,
+  "Text Everywhere",
+}
 
 vim.cmd 'packadd cfilter' -- allow filter on quickfix list (:Cfilter cpp, colder to go back)
 vim.cmd 'set list!' -- show invisible character  -- allow filter on quickfix list (:Cfilter cpp, colder to go back)
