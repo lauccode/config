@@ -250,6 +250,26 @@ local config = {
       --     require("lsp_signature").setup()
       --   end,
       -- },
+            {
+                "f-person/git-blame.nvim",
+                event = "BufRead",
+                config = function()
+                    vim.cmd "highlight default link gitblame SpecialComment"
+                    vim.g.gitblame_enabled = 1
+                end,
+            },
+            { "tpope/vim-surround" },
+            -- { "ellisonleao/gruvbox.nvim" },
+            -- { "luisiacc/gruvbox-baby" },
+            -- { "sainnhe/gruvbox-material" },
+            -- -- { "folke/tokyonight.nvim" },
+            -- { "EdenEast/nightfox.nvim" },
+            -- { "savq/melange" },
+            -- { "sainnhe/sonokai" },
+            -- { "sainnhe/everforest" },
+            -- { "Mofiqul/dracula.nvim" },
+            -- { "tamelion/neovim-molokai" },
+            -- { "liuchengxu/vista.vim" },       
     },
     -- All other entries override the require("<key>").setup({...}) call for default plugins
     ["null-ls"] = function(config) -- overrides `require("null-ls").setup(config)`
