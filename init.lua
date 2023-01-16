@@ -54,6 +54,13 @@ local config = {
       foldexpr = "nvim_treesitter#foldexpr()",
       foldlevel = 99,
       -- -- foldlevel = 0
+      inccommand = "split", -- preview for substitute commande
+      cwh = 30, -- high for the preview of incommand
+      makeprg = "ninja"
+      -- vim.cmd 'set list!' -- show invisible character  -- allow filter on quickfix list (:Cfilter cpp, colder to go back)
+      -- vim.cmd 'set lcs=tab:»_,trail:·'
+      -- vim.cmd 'packadd termdebug'
+      -- vim.cmd 'set hlsearch!'
     },
 
     g = {
