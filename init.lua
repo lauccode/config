@@ -400,14 +400,11 @@ local config = {
 
     -- where to put the cmd ???
     --
-    -- vim.cmd 'set list!' -- show invisible character  -- allow filter on quickfix list (:Cfilter cpp, colder to go back)
-    -- vim.cmd 'set lcs=tab:»_,trail:·'
-    vim.cmd 'set inccommand=split' -- preview for substitute commande
-    vim.cmd 'set cwh=30' -- high for the preview of incommand
-    vim.cmd 'set makeprg=ninja'
+
     -- vim.cmd 'packadd termdebug'
     -- vim.cmd 'set hlsearch!'
     -- vim.cmd 'nnoremap * :keepjumps normal! mi*`i<CR>' -- no search forward with '*'
+    -- vim.cmd 'nnoremap <C-w>m <C-w>\\| <C-w>_'
     vim.cmd 'nnoremap <C-w>m <C-w>\\| <C-w>_'
     vim.api.nvim_create_user_command('But', function()
       vim.cmd ':Make -C modem/UbtApplication/Test/ U2TestsLinux'
