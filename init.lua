@@ -57,10 +57,6 @@ local config = {
       inccommand = "split", -- preview for substitute commande
       cwh = 30, -- high for the preview of incommand
       makeprg = "ninja"
-      -- vim.cmd 'set list!' -- show invisible character  -- allow filter on quickfix list (:Cfilter cpp, colder to go back)
-      -- vim.cmd 'set lcs=tab:»_,trail:·'
-      -- vim.cmd 'packadd termdebug'
-      -- vim.cmd 'set hlsearch!'
     },
 
     g = {
@@ -398,13 +394,13 @@ local config = {
 
     vim.on_key(nil, vim.api.nvim_get_namespaces()["auto_hlsearch"]) -- always highlight searched word
 
-    -- where to put the cmd ???
-    --
-
-    -- vim.cmd 'packadd termdebug'
-    -- vim.cmd 'set hlsearch!'
-    -- vim.cmd 'nnoremap * :keepjumps normal! mi*`i<CR>' -- no search forward with '*'
-    -- vim.cmd 'nnoremap <C-w>m <C-w>\\| <C-w>_'
+    vim.cmd(':set list!') -- show invisible character  -- allow filter on quickfix list (:Cfilter cpp, colder to go back) 
+    vim.cmd('set lcs=tab:»_,trail:·')
+    vim.cmd('packadd termdebug')
+    vim.cmd('set hlsearch!') 
+    vim.cmd('nnoremap * :keepjumps normal! mi*`i<CR>') -- no search forward with '*')
+    vim.cmd('nnoremap <C-w>m <C-w>\\| <C-w>_')
+    
     vim.cmd 'nnoremap <C-w>m <C-w>\\| <C-w>_'
     vim.api.nvim_create_user_command('But', function()
       vim.cmd ':Make -C modem/UbtApplication/Test/ U2TestsLinux'
