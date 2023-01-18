@@ -268,6 +268,8 @@ lvim.plugins = {
     { "Mofiqul/dracula.nvim" },
     { "tamelion/neovim-molokai" },
     { "liuchengxu/vista.vim" },
+    { 'uloco/bluloco.nvim'},
+    { 'rktjmp/lush.nvim' }, -- used by bluloco
     -- FOR LITEE (call-tree) (TBT)
     -- configure the litee.nvim library
     -- config = function()
