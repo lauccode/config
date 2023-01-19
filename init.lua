@@ -397,7 +397,7 @@ local config = {
     vim.cmd(':set list!') -- show invisible character  -- allow filter on quickfix list (:Cfilter cpp, colder to go back) 
     vim.cmd('set lcs=tab:»_,trail:·')
     vim.cmd('packadd termdebug')
-    vim.cmd('set hlsearch!') 
+    -- vim.cmd('set hlsearch!') 
     vim.cmd('nnoremap * :keepjumps normal! mi*`i<CR>') -- no search forward with '*')
     vim.cmd('nnoremap <C-w>m <C-w>\\| <C-w>_')
     
