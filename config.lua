@@ -245,9 +245,18 @@ lvim.plugins = {
     --       "folke/trouble.nvim",
     --       cmd = "TroubleToggle",
     --     },
-    -- { "ldelossa/litee.nvim" },
-
-    -- { "ldelossa/litee-calltree.nvim" },
+    { "ldelossa/litee.nvim",
+    config = function()
+        -- configure the litee.nvim library·
+        require('litee.lib').setup({})
+    end,
+    },
+    { "ldelossa/litee-calltree.nvim" ,
+    config = function()
+        -- configure litee-calltree.nvim
+        require('litee.calltree').setup({})
+    end,
+    },
 
     { "sakhnik/nvim-gdb" },
     {
