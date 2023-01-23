@@ -272,7 +272,18 @@ local config = {
             -- { "sainnhe/everforest" },
             -- { "Mofiqul/dracula.nvim" },
             -- { "tamelion/neovim-molokai" },
-            -- { "liuchengxu/vista.vim" },       
+            -- { "liuchengxu/vista.vim" },   
+      
+          { "ldelossa/litee.nvim",
+             config = function()
+               -- configure the litee.nvim library·
+               require('litee.lib').setup({})
+             end,  },
+          { "ldelossa/litee-calltree.nvim" ,
+             config = function()
+             -- configure litee-calltree.nvim
+             require('litee.calltree').setup({})
+             end,  },
     },
     -- All other entries override the require("<key>").setup({...}) call for default plugins
     ["null-ls"] = function(config) -- overrides `require("null-ls").setup(config)`
