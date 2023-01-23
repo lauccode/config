@@ -303,6 +303,13 @@ local config = {
     ["mason-nvim-dap"] = { -- overrides `require("mason-nvim-dap").setup(...)`
       -- ensure_installed = { "python" },
     },
+    
+    ["neo-tree"] = {
+      window = {
+        width = 50,
+      }
+    },
+
   },
 
   -- LuaSnip Options
