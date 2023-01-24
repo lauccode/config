@@ -417,7 +417,7 @@ lvim.builtin.which_key.mappings["S"] = {
 vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "clangd" })
 
 local clangd_flags = {
-    -- "–-header-insertion=iwyu",
+    -- "--header-insertion=iwyu",
     "--query-driver=/usr/bin/c++,/usr/bin/gcc",
     -- "--clang-tidy-checks=-*,llvm-*,clang-analyzer-*,modernize-*,-modernize-use-trailing-return-type",
     -- "--fallback-style=Google",
