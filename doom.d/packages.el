@@ -54,3 +54,4 @@
 ;;(package! alect-themes)
 ;;(package! lsp-treemacs)
 ;;(package! bitebake)
+;;(package! leuven-theme)
