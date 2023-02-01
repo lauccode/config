@@ -46,6 +46,7 @@
 ;; (setq doom-theme 'doom-henna)
 ;; (setq doom-theme 'tsdh-dark)
 (setq doom-theme 'doom-1337)
+;; (setq doom-theme 'leuven-dark)
 ;; (load-theme 'alect-light t)
 
 ;; (when (eq window-system 'nil)
