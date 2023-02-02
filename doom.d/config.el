@@ -340,3 +340,10 @@
 (set-face-attribute 'dap-ui-marker-face nil :inherit nil) ; Do not inherit other styles
 (set-face-background 'dap-ui-pending-breakpoint-face "red") ; Blue background for breakpoints line
 (set-face-attribute 'dap-ui-verified-breakpoint-face nil :inherit 'dap-ui-pending-breakpoint-face))
+
+;; tree-sitter
+(use-package! tree-sitter
+  :config
+  (require 'tree-sitter-langs)
+  (global-tree-sitter-mode)
+  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
