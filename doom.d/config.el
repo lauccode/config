@@ -172,7 +172,7 @@
 (menu-bar-mode 1)
 (tool-bar-mode 1)
 
-(setq evil-escape-key-sequence "jj")
+(setq evil-escape-key-sequence ",,")
 
 (set-default 'truncate-lines nil)
 
