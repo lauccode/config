@@ -363,3 +363,9 @@
    :v "V" #'er/contract-region))
 
 ;; next page of which-key => <C-h>  (all key in vertico)
+
+(map! :n  "C-a"   #'evil-numbers/inc-at-pt
+      :v  "C-a"   #'evil-numbers/inc-at-pt-incremental
+      :v  "C-S-a" #'evil-numbers/inc-at-pt
+      :n  "C-x"   #'evil-numbers/dec-at-pt
+      :v  "C-x"   #'evil-numbers/dec-at-pt-incremental)
