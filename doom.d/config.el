@@ -350,3 +350,10 @@
 
 ;; finer undo
 (setq evil-want-fine-undo t)
+
+;; clever expand from DOOM emacs developer
+(map!
+ (:map 'override
+   :v "v" #'er/expand-region
+   :v "V" #'er/contract-region))
+
