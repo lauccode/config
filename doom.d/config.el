@@ -93,6 +93,8 @@
 (global-set-key (kbd "M-*") 'rgrep)
 ;; Switch entre cpp et h
 (global-set-key (kbd "M-o") 'lsp-clangd-find-other-file) 
+(global-set-key (kbd "C-c C-c") 'comment-line)
+
 
 ;;; Shortcut for muting search highlighting
 (define-key evil-normal-state-map (kbd "C-l") 'evil-ex-nohighlight)
