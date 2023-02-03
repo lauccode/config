@@ -176,6 +176,8 @@
 (tool-bar-mode 1)
 
 (setq evil-escape-key-sequence ",,")
+  ;; Allow to escape from the visual state as from insert.
+  (delete 'visual evil-escape-excluded-states)
 
 (set-default 'truncate-lines nil)
 
