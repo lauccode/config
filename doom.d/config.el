@@ -370,5 +370,4 @@
       :n  "C-x"   #'evil-numbers/dec-at-pt
       :v  "C-x"   #'evil-numbers/dec-at-pt-incremental)
 
-;; s to substitute
-(remove-hook 'doom-first-input-hook #'evil-snipe-mode)
+
