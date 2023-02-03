@@ -362,3 +362,4 @@
    :v "v" #'er/expand-region
    :v "V" #'er/contract-region))
 
+;; next page of which-key => <C-h>  (all key in vertico)
