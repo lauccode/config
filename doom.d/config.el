@@ -93,7 +93,7 @@
 (global-set-key (kbd "M-*") 'rgrep)
 ;; Switch entre cpp et h
 (global-set-key (kbd "M-o") 'lsp-clangd-find-other-file) 
-(global-set-key (kbd "C-c C-c") 'comment-line)
+(global-set-key (kbd "C-c C-c") 'comment-line)  ;; TODO : add evil-ret with a function
 
 
 ;;; Shortcut for muting search highlighting
