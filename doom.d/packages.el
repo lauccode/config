@@ -58,4 +58,6 @@
 (package! tree-sitter)
 (package! tree-sitter-langs)
 (package! evil-snipe :disable t)  ;; s to substitute
+(package! tldr)  ;; explain all commands
+
 
