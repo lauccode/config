@@ -372,4 +372,6 @@
       :n  "C-x"   #'evil-numbers/dec-at-pt
       :v  "C-x"   #'evil-numbers/dec-at-pt-incremental)
 
+;; avoid "async shell command" buffer with run-love-game
+(add-to-list 'display-buffer-alist '("^*Async Shell Command*" . (display-buffer-no-window)))
 
