@@ -9,6 +9,9 @@
 (setq user-full-name "John Doe"
       user-mail-address "john@doe.com")
 
+;; emacsclient without new workspace :
+;; emacsclient -c -e "(+workspace:delete)"
+
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
 ;;
