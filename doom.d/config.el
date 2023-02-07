@@ -12,6 +12,9 @@
 ;; emacsclient without new workspace :
 ;; emacsclient -c -e "(+workspace:delete)"
 
+;; to add to .bashrc to have doom command everywhere
+;; export PATH="$HOME/.emacs.d/bin:$PATH"
+
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
 ;;
