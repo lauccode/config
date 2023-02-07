@@ -93,7 +93,8 @@
 
 (setq find-name-arg "-iname")
 (global-set-key (kbd "M-p") 'find-name-dired)
-(global-set-key (kbd "M-*") 'rgrep)
+;; (global-set-key (kbd "M-*") 'rgrep)
+(global-set-key (kbd "M-*") '+vertico/project-search)  ;; to have ripgrep preview for emacs in terminal
 ;; Switch entre cpp et h
 (global-set-key (kbd "M-o") 'lsp-clangd-find-other-file) 
 (global-set-key (kbd "C-c C-c") 'comment-line)  ;; TODO : add evil-ret with a function
