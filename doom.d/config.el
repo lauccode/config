@@ -11,9 +11,6 @@
 
 ;; emacsclient without new workspace :
 ;; emacsclient -c -e "(+workspace:delete)"
-;; or use (TBT)
-(setq persp-emacsclient-init-frame-behaviour-override "main")
-
 
 ;; to add to .bashrc to have doom command everywhere
 ;; export PATH="$HOME/.emacs.d/bin:$PATH"
@@ -103,7 +100,6 @@
 (global-set-key (kbd "M-*") '+vertico/project-search)  ;; to have ripgrep preview for emacs in terminal
 ;; Switch entre cpp et h
 (global-set-key (kbd "M-o") 'lsp-clangd-find-other-file) 
-(global-set-key (kbd "C-c C-c") 'comment-line)  ;; TODO : add evil-ret with a function
 
 
 ;;; Shortcut for muting search highlighting
