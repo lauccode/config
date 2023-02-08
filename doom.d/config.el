@@ -11,6 +11,10 @@
 
 ;; emacsclient without new workspace :
 ;; emacsclient -c -e "(+workspace:delete)"
+;; OR (TBT)
+;;(after! persp-mode
+;;  (setq persp-emacsclient-init-frame-behaviour-override "main")
+;;  )
 
 ;; to add to .bashrc to have doom command everywhere
 ;; export PATH="$HOME/.emacs.d/bin:$PATH"
