@@ -103,7 +103,9 @@
 
 
 ;;; Shortcut for muting search highlighting
-(define-key evil-normal-state-map (kbd "C-l") 'evil-ex-nohighlight)
+(map! :map dap-mode-map
+      :leader
+      :desc "remove highlight"          "l" #'evil-ex-nohighlight)
 
   (define-key evil-motion-state-map (kbd "M-h") #'evil-window-left)
   (define-key evil-motion-state-map (kbd "M-j") #'evil-window-down)
