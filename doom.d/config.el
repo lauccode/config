@@ -9,13 +9,6 @@
 (setq user-full-name "John Doe"
       user-mail-address "john@doe.com")
 
-;; emacsclient without new workspace :
-;; emacsclient -c -e "(+workspace:delete)"
-;; OR (TBT)
-;;(after! persp-mode
-;;  (setq persp-emacsclient-init-frame-behaviour-override "main")
-;;  )
-
 ;; to add to .bashrc to have doom command everywhere
 ;; export PATH="$HOME/.emacs.d/bin:$PATH"
 
@@ -386,4 +379,11 @@
 
 ;; avoid "async shell command" buffer with run-love-game
 (add-to-list 'display-buffer-alist '("^*Async Shell Command*" . (display-buffer-no-window)))
+
+;; emacsclient without new workspace :
+;; emacsclient -c -e "(+workspace:delete)"
+;; OR
+(after! persp-mode
+  (setq persp-emacsclient-init-frame-behaviour-override "main")
+)
 
