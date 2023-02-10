@@ -350,7 +350,7 @@
 (unless (display-graphic-p)
 (set-face-background 'dap-ui-marker-face "green") ; An orange background for the line to execute
 (set-face-attribute 'dap-ui-marker-face nil :inherit nil) ; Do not inherit other styles
-(set-face-background 'dap-ui-pending-breakpoint-face "color-166") ; Blue background for breakpoints line
+(set-face-background 'dap-ui-pending-breakpoint-face "black") ; Blue background for breakpoints line
 (set-face-attribute 'dap-ui-verified-breakpoint-face nil :inherit 'dap-ui-pending-breakpoint-face))
 
 ;; tree-sitter
