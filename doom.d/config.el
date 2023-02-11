@@ -378,7 +378,9 @@
       :v  "C-x"   #'evil-numbers/dec-at-pt-incremental)
 
 ;; avoid "async shell command" buffer with run-love-game
-(add-to-list 'display-buffer-alist '("^*Async Shell Command*" . (display-buffer-no-window)))
+;; (add-to-list 'display-buffer-alist '("^*Async Shell Command*" . (display-buffer-no-window)))
+;; OR
+(set 'async-shell-command-display-buffer nil)
 
 ;; emacsclient without new workspace :
 ;; emacsclient -c -e "(+workspace:delete)"
