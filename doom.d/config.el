@@ -24,8 +24,11 @@
 ;; font string. You generally only need these two:
 ;; (setq doom-font (font-spec :family "monospace" :size 12 :weight 'semi-light)
 ;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
+(setq doom-font (font-spec :family "Fira Mono" :size 12)
+      doom-variable-pitch-font (font-spec :family "Fira Mono" :size 12)
+      doom-unicode-font (font-spec :family "Fira Mono")
+      doom-big-font (font-spec :family "Fira Mono" :size 18))
 
-(add-to-list 'default-frame-alist '(font . "JetBrains Mono-10"))
 (add-to-list 'default-frame-alist '(line-spacing . 0.2))
 
 ;; (add-to-list 'default-frame-alist '(font . "Monoid 9"))  ;; OK
