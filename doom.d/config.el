@@ -100,7 +100,7 @@
 (global-set-key (kbd "M-*") '+vertico/project-search)  ;; to have ripgrep preview for emacs in terminal
 ;; Switch entre cpp et h
 (global-set-key (kbd "M-o") 'lsp-clangd-find-other-file) 
-(global-set-key (kbd "C-<") 'comment-line)
+(global-set-key (kbd "M-;") 'evilnc-comment-or-uncomment-lines)
 
 ;;; Shortcut for muting search highlighting
 (map! :map dap-mode-map
