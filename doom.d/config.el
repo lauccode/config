@@ -287,6 +287,13 @@
       :desc "dap breakpoint hit count"   "h" #'dap-breakpoint-hit-condition
       :desc "dap breakpoint log message" "l" #'dap-breakpoint-log-message)
 
+;; show breakpoints with cpptools in terminal
+(unless (display-graphic-p)
+(set-face-background 'dap-ui-marker-face "green") ; An orange background for the line to execute
+(set-face-attribute 'dap-ui-marker-face nil :inherit nil) ; Do not inherit other styles
+(set-face-background 'dap-ui-pending-breakpoint-face "black") ; Blue background for breakpoints line
+(set-face-attribute 'dap-ui-verified-breakpoint-face nil :inherit 'dap-ui-pending-breakpoint-face))
+
 ;; For realgud 
 ;;   (global-set-key (kbd "<f5>") 'gud-cont)
 ;;   (global-set-key (kbd "<f10>") 'gud-next)
@@ -347,13 +354,6 @@
 ;; (setq projectile-indexing-method 'hybrid)
 ;; To force the use of alien indexing in all operating systems: (native)
 ;; (setq projectile-indexing-method 'alien)
-
-;; show breakpoints with cpptools in terminal
-(unless (display-graphic-p)
-(set-face-background 'dap-ui-marker-face "green") ; An orange background for the line to execute
-(set-face-attribute 'dap-ui-marker-face nil :inherit nil) ; Do not inherit other styles
-(set-face-background 'dap-ui-pending-breakpoint-face "black") ; Blue background for breakpoints line
-(set-face-attribute 'dap-ui-verified-breakpoint-face nil :inherit 'dap-ui-pending-breakpoint-face))
 
 ;; tree-sitter
 (use-package! tree-sitter
