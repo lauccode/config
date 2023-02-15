@@ -192,6 +192,12 @@
 
 (setq global-whitespace-mode t)
 
+(use-package centered-cursor-mode
+  :demand
+  :config
+  ;; Optional, enables centered-cursor-mode in all buffers.
+  (global-centered-cursor-mode))
+
 ;; (if (eq initial-window-system 'x)                 ; if started by emacs command or desktop file
 ;;     (toggle-frame-maximized)
 ;;   (toggle-frame-fullscreen))
