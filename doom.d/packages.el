@@ -60,5 +60,5 @@
 (package! evil-snipe :disable t)  ;; s to substitute
 (package! tldr)  ;; explain all commands
 (package! git-messenger)  ;; more git infos : git-messenger
-
+(package! centered-cursor-mode)
 
