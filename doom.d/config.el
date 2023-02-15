@@ -103,8 +103,7 @@
 (global-set-key (kbd "M-;") 'evilnc-comment-or-uncomment-lines)
 
 ;;; Shortcut for muting search highlighting
-(map! :map dap-mode-map
-      :leader
+(map! :leader
       :desc "remove highlight"          "l" #'evil-ex-nohighlight)
 
   (define-key evil-motion-state-map (kbd "M-h") #'evil-window-left)
