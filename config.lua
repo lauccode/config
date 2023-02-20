@@ -85,6 +85,7 @@ lvim.builtin.which_key.mappings["i"] = {
     O = { "<cmd>LTPopOutCalltree<CR>", "open call-tree" },
 }
 
+lvim.builtin.which_key.mappings["m"] = { "<cmd>Telescope marks<cr>", "marks" }
 lvim.builtin.which_key.mappings["*"] = { "<cmd>Telescope grep_string<cr>", "grep string under cursor" }
 lvim.builtin.which_key.mappings["F"] = { "<cmd>SymbolsOutline<cr>", "Function list on the right" }
 lvim.builtin.which_key.mappings["sF"] = { "<cmd>Telescope find_files hidden=true no_ignore=true<cr>", "Find File Everywhere" }
