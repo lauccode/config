@@ -221,6 +221,7 @@ lvim.builtin.telescope.defaults = {
           '--smart-case',
     --       '-u' -- thats the new thing
             },
+    dynamic_preview_title = true,
 
     -- -- find_files={find_command = find_all_files_cmd}
 
