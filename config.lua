@@ -404,6 +404,7 @@ lvim.plugins = {
         end,
     },
     { "Luxed/ayu-vim" },
+    { "terryma/vim-expand-region" },
 }
 
 lvim.builtin.which_key.mappings["S"] = {
