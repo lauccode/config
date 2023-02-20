@@ -405,6 +405,7 @@ lvim.plugins = {
     },
     { "Luxed/ayu-vim" },
     { "terryma/vim-expand-region" },
+    { "kkvh/vim-docker-tools" },
 }
 
 lvim.builtin.which_key.mappings["S"] = {
