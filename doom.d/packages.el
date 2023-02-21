@@ -61,4 +61,6 @@
 (package! tldr)  ;; explain all commands
 (package! git-messenger)  ;; more git infos : git-messenger
 (package! centered-cursor-mode)
+(package! beacon)
+
 
