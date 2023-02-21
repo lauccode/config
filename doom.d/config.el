@@ -396,3 +396,4 @@
   (setq persp-emacsclient-init-frame-behaviour-override "main")
 )
 
+(beacon-mode 1)
