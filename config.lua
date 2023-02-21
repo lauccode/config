@@ -201,6 +201,7 @@ lvim.builtin.telescope.defaults = {
     -- :h telescope.defaults.path_display
     path_display = { "absolute" },
     wrap_results = true,
+    layout_strategy = "vertical",
     -- file_ignore_patterns = {
     --       "common/sgpa/MIB/.*",
     --       ".git/.*",
