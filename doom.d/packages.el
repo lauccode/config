@@ -62,5 +62,6 @@
 (package! git-messenger)  ;; more git infos : git-messenger
 (package! centered-cursor-mode)
 (package! beacon)
+(package! moe-theme)
 
 
