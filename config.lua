@@ -1,3 +1,5 @@
+-- :TSinstall vim ,if there is treesitter errors (with vim.cmd)
+
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save = false
