@@ -121,7 +121,7 @@ end, { nargs = '*' })
 -- vim.cmd 'noremap <F9> :Break<cr>'
 -- vim.cmd 'noremap <F8> :Clear<cr>'
 -- vim.cmd 'noremap <F10> :Over<cr>'
--- vim.cmd 'noremap <F12> :Step<cr>'
+-- vim.cmd 'noremap <F11> :Step<cr>'
 -- vim.cmd 'noremap <F5> :Continue<cr>'
 -- vim.cmd 'noremap <F6> :Run<cr>'
 -- vim.cmd 'noremap <F4> :Evaluate<cr>'
