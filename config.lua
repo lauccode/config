@@ -468,6 +468,7 @@ local colors = {
     color15 = "chartreuse",
     color10 = "#36a3d9",
     color8 = "#f07178",
+    color9 = "black",
 }
 
 lvim.builtin.lualine.options.theme = {
