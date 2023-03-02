@@ -26,7 +26,7 @@
 ;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
 (setq doom-font (font-spec :family "Fira Mono" :size 12)
       doom-variable-pitch-font (font-spec :family "Fira Mono" :size 12)
-      doom-unicode-font (font-spec :family "Fira Mono")
+      doom-unicode-font (font-spec :family "Fira Mono" :size 12)
       doom-big-font (font-spec :family "Fira Mono" :size 18))
 
 (add-to-list 'default-frame-alist '(line-spacing . 0.2))
