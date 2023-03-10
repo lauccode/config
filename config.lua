@@ -288,6 +288,7 @@ lvim.plugins = {
     { "sainnhe/sonokai" },
     { "sainnhe/everforest" },
     { "Mofiqul/dracula.nvim" },
+    { "catppuccin/nvim" },
     { "tamelion/neovim-molokai" },
     { "liuchengxu/vista.vim" },
     { 'uloco/bluloco.nvim'},
