@@ -663,3 +663,8 @@ vim.keymap.set('n', '<F8>', function() require('dapui').toggle() end)
 -- vim.keymap.set('n', '<space>di', function() require('dap').repl.open() end)
 vim.keymap.set({ 'v', 'n' }, '<C-k>', function() require('dapui').eval() end)
 -- vnoremap <M-k> <Cmd>lua require("dapui").eval()<CR>
+
+-- format with .clang-format
+-- use shortcut <gq> :
+-- https://neovim.io/doc/user/lsp.html
+-- 'formatexpr' is set to vim.lsp.formatexpr() if both 'formatprg' and 'formatexpr' are empty. This allows to format lines via gq if the language server supports it.
