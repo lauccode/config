@@ -492,6 +492,7 @@ lvim.builtin.lualine.options.theme = {
     replace = {
         a = { fg = colors.color2, bg = colors.color8, gui = "bold" },
         b = { fg = colors.color4, bg = colors.color5 },
+        c = { fg = colors.color9, bg = colors.color13 },
     },
     inactive = {
         c = { fg = colors.color4, bg = colors.color2 },
