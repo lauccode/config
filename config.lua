@@ -385,13 +385,14 @@ lvim.plugins = {
     },
     {"tpope/vim-surround"},
     { "tpope/vim-dispatch" }, -- :Make  (make asynchronoulsy !)
-    {--TBT  navigate and highlight matching words
-        "andymass/vim-matchup",
-        event = "CursorMoved",
-        config = function()
-            vim.g.matchup_matchparen_offscreen = { method = "popup" }
-        end,
-    },
+    -- /!\ NOT WORK WITH PackerUpdate/PackerSync 
+    -- {--TBT  navigate and highlight matching words
+    --    "andymass/vim-matchup",
+    --    event = "CursorMoved",
+    --    config = function()
+    --        vim.g.matchup_matchparen_offscreen = { method = "popup" }
+    --    end,
+    -- },
     {--TBT better quickfix list
         "kevinhwang91/nvim-bqf",
         event = { "BufRead", "BufNew" },
