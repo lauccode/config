@@ -422,6 +422,13 @@ lvim.plugins = {
     { "Luxed/ayu-vim" },
     { "terryma/vim-expand-region" },
     { "kkvh/vim-docker-tools" },
+    {
+        "folke/todo-comments.nvim",
+        event = "BufRead",
+        config = function()
+             require("todo-comments").setup()
+        end,
+    },
 }
 
 lvim.builtin.which_key.mappings["S"] = {
