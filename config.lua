@@ -502,6 +502,7 @@ lvim.builtin.lualine.options.theme = {
     },
 }
 
+
 -- to alias of shell in vim command with :!
 -- vim.cmd 'set shellcmdflag=-ic'
 
