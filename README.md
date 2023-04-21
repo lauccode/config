@@ -128,7 +128,7 @@ Move current window to the left by one position:
 Switch between windows:  
 `Ctrl + b w`  
 Switch pane left/right  
-`Ctrl + b {  
+`Ctrl + b {` 
 
 ## resurrect
 save session:  
