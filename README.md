@@ -127,7 +127,8 @@ Move current window to the left by one position:
 `swap-window -t -1`  
 Switch between windows:  
 `Ctrl + b w`  
-
+Switch pane left/right  
+`Ctrl + b {  
 
 ## resurrect
 save session:  
