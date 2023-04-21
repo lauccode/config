@@ -129,6 +129,8 @@ Switch between windows:
 `Ctrl + b w`  
 Switch pane left/right  
 `Ctrl + b {` 
+Switch pane layout  
+`Ctrl + b Space` 
 
 ## resurrect
 save session:  
