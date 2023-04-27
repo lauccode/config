@@ -398,3 +398,10 @@
 )
 
 (beacon-mode 1)
+
+;; (setq plantuml-default-exec-mode 'server)
+;; (setq plantuml-server-url "http://...")
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((plantuml . t))) ; this line activates plantuml
+(setq org-plantuml-jar-path (expand-file-name "/home/name/.emacs.d/.local/etc/plantuml.jar"))
