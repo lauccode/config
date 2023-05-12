@@ -272,13 +272,13 @@ lvim.plugins = {
     },
 
     { "sakhnik/nvim-gdb" },
-    {
-        "nvim-telescope/telescope-project.nvim",
-        event = "BufWinEnter",
-        setup = function()
-            vim.cmd [[packadd telescope.nvim]]
-        end,
-    },
+    --{
+    --    "nvim-telescope/telescope-project.nvim",
+    --    event = "BufWinEnter",
+    --    setup = function()
+    --        vim.cmd [[packadd telescope.nvim]]
+    --    end,
+    --},
     { "ellisonleao/gruvbox.nvim" },
     { "luisiacc/gruvbox-baby" },
     { "sainnhe/gruvbox-material" },
