@@ -209,6 +209,10 @@ lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.telescope.defaults = {
     -- :h telescope.defaults.path_display
+    layout_config = {
+        width = 0.95,
+        height = 0.95,
+    },
     path_display = { "absolute" },
     wrap_results = true,
     layout_strategy = "vertical",
