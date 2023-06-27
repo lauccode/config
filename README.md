@@ -104,6 +104,8 @@ Reattach to your tmux session when you are ready to continue working:
 `tmux attach -t <your_session_name>`  
 Kill session:  
 `tmux kill-session -t mysession`  
+Create new session on first session created with independent window switching  
+`tmux new -s second -t 0` 
 ### windows
 start a new session with the name mysession and window mywindow:  
 `tmux new -s mysession -n mywindow`  
@@ -131,8 +133,6 @@ Switch pane left/right
 `Ctrl + b {` 
 Switch pane layout  
 `Ctrl + b Space` 
-Create new session on first session created with independent window switching  
-`tmux new -s second -t 0` 
 
 ## resurrect
 save session:  
