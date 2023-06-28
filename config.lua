@@ -298,7 +298,8 @@ lvim.plugins = {
     { "liuchengxu/vista.vim" },
     { 'uloco/bluloco.nvim'},
     { 'rockyzhang24/arctic.nvim' },
-    { 'rktjmp/lush.nvim' }, -- used by bluloco
+    { 'justinsgithub/oh-my-monokai.nvim'},
+    { 'rktjmp/lush.nvim' }, -- used by bluloco and arctic
     -- FOR LITEE (call-tree) (TBT)
     -- configure the litee.nvim library
     -- config = function()
