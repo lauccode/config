@@ -103,7 +103,7 @@ lvim.builtin.which_key.mappings["sT"] = {
 vim.cmd 'packadd cfilter' -- allow filter on quickfix list (:Cfilter cpp, colder to go back)
 vim.cmd 'set list!' -- show invisible character  -- allow filter on quickfix list (:Cfilter cpp, colder to go back)
 vim.cmd 'set lcs=tab:»_,trail:·,eol:$'
-vim.cmd 'set relativenumber'
+vim.cmd 'set relativenumber'  -- set rnu; set nrnu; set rnu!(toggle)
 vim.cmd 'set inccommand=split' -- preview for substitute commande
 vim.cmd 'set cwh=30' -- high for the preview of incommand
 vim.cmd 'set makeprg=ninja'
