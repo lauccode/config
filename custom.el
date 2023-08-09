@@ -47,6 +47,16 @@
          :program "${workspaceFolder}/bin/greet"
          :cwd "${workspaceFolder}")))
 
+(package-initialize)
+
+;; Bootstrap `use-package'
+(unless (package-installed-p 'use-package)
+(package-refresh-contents)
+(package-install 'use-package))
+
+(use-package beacon
+  :ensure t)
+
 ;; Fonts
 (defun centaur-setup-fonts ()
   "Setup fonts."
