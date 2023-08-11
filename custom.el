@@ -55,7 +55,8 @@
 (package-install 'use-package))
 
 (use-package beacon
-  :ensure t)
+  :ensure t
+  :config beacon-mode 1)
 
 ;; Fonts
 (defun centaur-setup-fonts ()
