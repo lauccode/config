@@ -31,6 +31,8 @@
 ;; (setq desktop-base-lock-name (format ".emacs-%s.desktop.lock" emacs-major-version))
 ;; to have dap-cpptools-setup, it will setup and install automatically for cpp
 
+(setq lsp-auto-guess-root t)
+
 (with-eval-after-load 'lsp-mode
   (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
   (require 'dap-cpptools)
