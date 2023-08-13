@@ -49,16 +49,45 @@
          :program "${workspaceFolder}/bin/greet"
          :cwd "${workspaceFolder}")))
 
-(package-initialize)
+;; (package-initialize)
 
-;; Bootstrap `use-package'
-(unless (package-installed-p 'use-package)
-(package-refresh-contents)
-(package-install 'use-package))
+;; ;; Bootstrap `use-package'
+;; (unless (package-installed-p 'use-package)
+;; (package-refresh-contents)
+;; (package-install 'use-package))
+
+;; (use-package beacon
+;;   :ensure t
+;;   :config (beacon-mode 1))
+
+;; straight to manage package
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+      (bootstrap-version 6))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+
+(setq package-enable-at-startup nil)
+
+(straight-use-package 'use-package)
 
 (use-package beacon
+  :straight t
   :ensure t
   :config (beacon-mode 1))
+
+(use-package love-minor-mode :straight (love-minor-mode
+                                        :type git
+                                        :host github
+                                        :repo "ejmr/love-minor-mode"
+                                        :branch "master"))
 
 ;; Fonts
 (defun centaur-setup-fonts ()
