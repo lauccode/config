@@ -62,11 +62,11 @@
                                         :repo "ejmr/love-minor-mode"
                                         :branch "master"))
 
-███████ ███    ██ ██████  
-██      ████   ██ ██   ██ 
-█████   ██ ██  ██ ██   ██ 
-██      ██  ██ ██ ██   ██ 
-███████ ██   ████ ██████  
+;;███████ ███    ██ ██████  
+;;██      ████   ██ ██   ██ 
+;;█████   ██ ██  ██ ██   ██ 
+;;██      ██  ██ ██ ██   ██ 
+;;███████ ██   ████ ██████  
 
 (setq centaur-logo nil)                        ; Logo file or nil (official logo)
 ;; (setq centaur-full-name "user name")           ; User full name
