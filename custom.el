@@ -54,7 +54,8 @@
 (use-package beacon
   :straight t
   :ensure t
-  :config (beacon-mode 1))
+  :config (beacon-mode 1)
+  :config (setq beacon-color "green"))
 
 (use-package love-minor-mode :straight (love-minor-mode
                                         :type git
