@@ -62,6 +62,44 @@
                                         :repo "ejmr/love-minor-mode"
                                         :branch "master"))
 
+;; ;; GOD-MODE
+(use-package god-mode
+  :straight t
+  :ensure t)
+;; (global-set-key (kbd "<escape>") #'god-local-mode)
+;; ;; (global-set-key (kbd "<escape>") #'god-mode-all)
+;; (setq god-mode-enable-function-key-translation nil)
+;; (require 'god-mode)
+
+;; ;; (custom-set-faces
+;; ;;  '(god-mode-lighter ((t (:inherit error)))))
+
+;; ;; change cursor in line = no GOD MODE
+;; (defun my-god-mode-update-cursor-type ()
+;;   (setq cursor-type (if (or god-local-mode buffer-read-only) 'box 'bar)))
+;; (add-hook 'post-command-hook #'my-god-mode-update-cursor-type)
+
+;; ;; change foreground and foreground for GOD-MODE
+;; (defun my-god-mode-update-mode-line ()
+;;   (cond
+;;    (god-local-mode
+;;     (set-face-attribute 'mode-line nil
+;;                         :foreground "black"
+;;                         :background "DarkGoldenrod3")
+;;     (set-face-attribute 'mode-line-inactive nil
+;;                         :foreground "gray"
+;;                         :background "goldenrod4"))
+;;    (t
+;;     (set-face-attribute 'mode-line nil
+;; 			            :foreground "LightGray"
+;; 			            :background "black")
+;;     (set-face-attribute 'mode-line-inactive nil
+;; 			            :foreground "gray"
+;; 			            :background "DimGray"))))
+;; (add-hook 'post-command-hook #'my-god-mode-update-mode-line)
+
+
+
 ;;███████ ███    ██ ██████  
 ;;██      ████   ██ ██   ██ 
 ;;█████   ██ ██  ██ ██   ██ 
