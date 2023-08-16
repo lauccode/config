@@ -55,7 +55,7 @@
   :straight t
   :ensure t
   :config (beacon-mode 1)
-  :config (setq beacon-color "green"))
+  :config (setq beacon-color "orange"))
 
 (use-package love-minor-mode :straight (love-minor-mode
                                         :type git
@@ -106,7 +106,8 @@
       (progn
         (setq cursor-type 'hbar)
         (set-face-attribute 'cursor nil
-                            :background "#11ff33"))
+                            ;; :background "#11ff33"))
+                            :background "orange"))
     (progn
       (setq cursor-type 'box)
       (set-face-attribute 'cursor nil
