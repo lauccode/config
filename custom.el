@@ -67,18 +67,18 @@
 (use-package god-mode
   :straight t
   :ensure t)
-;; (global-set-key (kbd "<escape>") #'god-local-mode)
-;; ;; (global-set-key (kbd "<escape>") #'god-mode-all)
-;; (setq god-mode-enable-function-key-translation nil)
-;; (require 'god-mode)
+(global-set-key (kbd "<escape>") #'god-local-mode)
+;; (global-set-key (kbd "<escape>") #'god-mode-all)
+(setq god-mode-enable-function-key-translation nil)
+(require 'god-mode)
 
 ;; ;; (custom-set-faces
 ;; ;;  '(god-mode-lighter ((t (:inherit error)))))
 
-;; ;; change cursor in line = no GOD MODE
-;; (defun my-god-mode-update-cursor-type ()
-;;   (setq cursor-type (if (or god-local-mode buffer-read-only) 'box 'bar)))
-;; (add-hook 'post-command-hook #'my-god-mode-update-cursor-type)
+;; change cursor in line = no GOD MODE
+(defun my-god-mode-update-cursor-type ()
+  (setq cursor-type (if (or god-local-mode buffer-read-only) 'box 'bar)))
+(add-hook 'post-command-hook #'my-god-mode-update-cursor-type)
 
 ;; ;; change foreground and foreground for GOD-MODE
 ;; (defun my-god-mode-update-mode-line ()
