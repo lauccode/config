@@ -146,8 +146,7 @@
 (global-set-key (kbd "C-x C-3") #'split-window-right)
 (global-set-key (kbd "C-x C-0") #'delete-window)
 
-;;
-;;
-;;            END
+(menu-bar-mode t)
+(setq tab-bar-show t)
 
 ;;; custom-post.el ends here
