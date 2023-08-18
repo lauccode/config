@@ -156,14 +156,19 @@
                                   :repo "karthink/project-x"
                                   :branch "master")
   :ensure t
-  :load-path "~/path/to/project-x/"
+  :load-path "~/project-x/"
   :after project
   :config
-  (add-hook 'project-find-functions 'project-x-try-local 90)
-  (add-hook 'kill-emacs-hook 'project-x--window-state-write)
-  (add-to-list 'project-switch-commands
-               '(?j "Restore windows" project-x-windows) t)
-  :bind (("C-x p w" . project-x-window-state-save)
-         ("C-x p j" . project-x-window-state-load)))
 
+  (setq project-x-save-interval 600)    ;Save project state every 10 min
+  (project-x-mode 1))
+;; ;; OR no minor-mode used
+;; (add-hook 'project-find-functions 'project-x-try-local 90)
+;; (add-hook 'kill-emacs-hook 'project-x--window-state-write)
+;; (add-to-list 'project-switch-commands
+;;              '(?j "Restore windows" project-x-windows) t)
+;; :bind (("C-x p w" . project-x-window-state-save)
+;;        ("C-x p j" . project-x-window-state-load)))
+
+;; (setq project-x-local-identifier '(".project"))
 ;;; custom-post.el ends here
