@@ -159,8 +159,8 @@
   :load-path "~/project-x/"
   :after project
   :config
-  (setq project-x-save-interval 600)    ;Save project state every 10 min
-  (project-x-mode 1))
+  (project-x-mode 1)  
+  (setq project-x-save-interval 600))    ;Save project state every 10 min
 (require 'project-x)
 
 ;;; custom-post.el ends here
