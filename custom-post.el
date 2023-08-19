@@ -162,5 +162,11 @@
   (project-x-mode 1)  
   (setq project-x-save-interval 600))    ;Save project state every 10 min
 (require 'project-x)
+;; To not use project-x
+;; (use-package project
+;;   :init
+;;   (setq project-vc-extra-root-markers '(".project")))
+
+
 
 ;;; custom-post.el ends here
