@@ -167,6 +167,8 @@
   :init
   (setq project-vc-extra-root-markers '(".project")))
 
+;; restore session on startup
+(setq desktop-save-mode t)
 
 
 ;;; custom-post.el ends here
