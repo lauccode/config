@@ -149,23 +149,23 @@
 (menu-bar-mode t)
 (setq tab-bar-show t)
 
-;; ;; define any dir as project with .project
-(use-package project-x :straight (project-x
-                                  :type git
-                                  :host github
-                                  :repo "karthink/project-x"
-                                  :branch "master")
-  :ensure t
-  :load-path "~/project-x/"
-  :after project
-  :config
-  (project-x-mode 1)  
-  (setq project-x-save-interval 600))    ;Save project state every 10 min
-(require 'project-x)
+;; ;; ;; define any dir as project with .project
+;; (use-package project-x :straight (project-x
+;;                                   :type git
+;;                                   :host github
+;;                                   :repo "karthink/project-x"
+;;                                   :branch "master")
+;;   :ensure t
+;;   :load-path "~/project-x/"
+;;   :after project
+;;   :config
+;;   (project-x-mode 1)  
+;;   (setq project-x-save-interval 600))    ;Save project state every 10 min
+;; (require 'project-x)
 ;; To not use project-x
-;; (use-package project
-;;   :init
-;;   (setq project-vc-extra-root-markers '(".project")))
+(use-package project
+  :init
+  (setq project-vc-extra-root-markers '(".project")))
 
 
 
