@@ -148,9 +148,9 @@
 
 (menu-bar-mode t)
 ;; (setq tab-bar-show t) seems to add bug
-(use-package tab-bar-mode
-  :init
-  (setq tab-bar-show t))
+;;(use-package tab-bar-mode
+;;  :init
+;;  (setq tab-bar-show t))
 
 
 ;; ;; ;; define any dir as project with .project
