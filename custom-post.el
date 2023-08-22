@@ -147,7 +147,7 @@
 (global-set-key (kbd "C-x C-0") #'delete-window)
 
 (menu-bar-mode t)
-(setq tab-bar-show t)
+;; (setq tab-bar-show t) seems to add bug
 
 ;; ;; ;; define any dir as project with .project
 ;; (use-package project-x :straight (project-x
