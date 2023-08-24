@@ -139,6 +139,7 @@
   (tsa/god-cursor))
 
 (add-hook 'post-command-hook 'tsa/reflect-god-mode))
+(god-mode)
 
 ;; key binding for god-mode
 (global-set-key (kbd "C-x C-1") #'delete-other-windows)
