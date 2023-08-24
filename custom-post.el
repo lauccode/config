@@ -64,11 +64,11 @@
 ;; ;; GOD-MODE
 (use-package god-mode
   :straight t
-  :ensure t)
+  :ensure t
+  :config (require 'god-mode)
 (global-set-key (kbd "<escape>") #'god-local-mode)
 ;; (global-set-key (kbd "<escape>") #'god-mode-all)
 (setq god-mode-enable-function-key-translation nil)
-(require 'god-mode)
 
 ;; ;; (custom-set-faces
 ;; ;;  '(god-mode-lighter ((t (:inherit error)))))
@@ -138,7 +138,7 @@
   (tsa/god-update-mode-line)
   (tsa/god-cursor))
 
-(add-hook 'post-command-hook 'tsa/reflect-god-mode)
+(add-hook 'post-command-hook 'tsa/reflect-god-mode))
 
 ;; key binding for god-mode
 (global-set-key (kbd "C-x C-1") #'delete-other-windows)
