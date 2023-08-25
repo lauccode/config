@@ -31,6 +31,8 @@
 
 (add-to-list 'default-frame-alist '(line-spacing . 0.2))
 
+(setq confirm-kill-emacs nil)
+
 ;; (add-to-list 'default-frame-alist '(font . "Monoid 9"))  ;; OK
 ;; (add-to-list 'default-frame-alist '(line-spacing . 0.2))  ;; OK
 ;; (setq doom-font (font-spec :family "Monoid" :size 12 :weight 'regular))  ;; OK
