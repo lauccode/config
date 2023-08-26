@@ -1,4 +1,4 @@
-;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
+/rel;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
@@ -53,7 +53,7 @@
 ;; (setq doom-theme 'doom-xcode)
 ;; (setq doom-theme 'doom-henna)
 ;; (setq doom-theme 'tsdh-dark)
-(setq doom-theme 'doom-1337)
+;; (setq doom-theme 'doom-1337)
 ;; (setq doom-theme 'leuven-dark)
 ;; (load-theme 'alect-light t)
 
@@ -72,7 +72,7 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type 'relative)
+;; (setq display-line-numbers-type 'relative)
 (blink-cursor-mode 1)
 
 ;; Here are some additional functions/macros that could help you configure Doom:
@@ -204,7 +204,7 @@
 ;;     (toggle-frame-maximized)
 ;;   (toggle-frame-fullscreen))
 ;; Maximize first frame
-(set-frame-parameter nil 'fullscreen 'maximized)
+;; (set-frame-parameter nil 'fullscreen 'maximized)
 
 ;; scroll one line at a time (less "jumpy" than defaults)
     (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
