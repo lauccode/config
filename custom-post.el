@@ -149,6 +149,7 @@
 
 (menu-bar-mode t)
 (tool-bar-mode t)
+(setq confirm-kill-emacs nil)
 
 (use-package tabbar
   :init
