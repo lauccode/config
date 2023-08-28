@@ -148,6 +148,7 @@
 (global-set-key (kbd "C-x C-0") #'delete-window)
 
 (menu-bar-mode t)
+(tool-bar-mode t)
 
 (use-package tabbar
   :init
