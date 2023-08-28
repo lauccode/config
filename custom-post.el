@@ -149,6 +149,7 @@
 
 (menu-bar-mode t)
 (tool-bar-mode t)
+(add-to-list 'god-exempt-major-modes 'vterm-mode)
 ;; (setq confirm-kill-emacs nil) not here, in custom.el
 
 (use-package tabbar
