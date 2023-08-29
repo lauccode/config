@@ -68,7 +68,6 @@
   :config (require 'god-mode)
 (global-set-key (kbd "<escape>") #'god-local-mode)
 ;; (global-set-key (kbd "<escape>") #'god-mode-all)
-(setq god-mode-enable-function-key-translation nil)
 
 ;; ;; (custom-set-faces
 ;; ;;  '(god-mode-lighter ((t (:inherit error)))))
@@ -139,6 +138,7 @@
   (tsa/god-cursor))
 
 (add-hook 'post-command-hook 'tsa/reflect-god-mode))
+(setq god-mode-enable-function-key-translation nil)
 (god-mode)
 
 ;; key binding for god-mode
