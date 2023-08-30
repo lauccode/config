@@ -1,6 +1,7 @@
 ;;; custom-post.el --- user customization file
 ;;; Commentary:
 ;;; post centaur configuration
+;;; code:
 
 (setq lsp-auto-guess-root t)
 
@@ -140,6 +141,7 @@
 (add-hook 'post-command-hook 'tsa/reflect-god-mode))
 (setq god-mode-enable-function-key-translation nil)
 (god-mode)
+(add-to-list 'god-exempt-major-modes 'vterm-mode)
 
 ;; key binding for god-mode
 (global-set-key (kbd "C-x C-1") #'delete-other-windows)
@@ -149,7 +151,6 @@
 
 (menu-bar-mode t)
 (tool-bar-mode t)
-(add-to-list 'god-exempt-major-modes 'vterm-mode)
 
 (use-package tabbar
   :init
