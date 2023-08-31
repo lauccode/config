@@ -267,6 +267,12 @@
 (meow-setup)
 (meow-global-mode 1)
 
-
+(custom-set-faces
+ '(meow-normal-cursor ((t (:background "violet"))))
+ '(meow-insert-cursor ((t (:background "red"))))
+ '(meow-motion-cursor ((t (:background "green"))))
+ '(meow-keypad-cursor ((t (:background "blue"))))
+ '(meow-beacon-cursor ((t (:background "orange"))))
+ )
 
 ;;; custom-post.el ends here
