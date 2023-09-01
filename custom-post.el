@@ -211,10 +211,10 @@
    '("4" . meow-expand-4)
    '("3" . meow-expand-3)
    '("2" . meow-expand-2)
-
+   '("1" . meow-expand-1)
    '("-" . negative-argument)
    '(";" . meow-reverse)
-
+   '("," . meow-inner-of-thing)
    '("." . meow-bounds-of-thing)
    '("[" . meow-beginning-of-thing)
    '("]" . meow-end-of-thing)
@@ -232,7 +232,7 @@
    '("G" . meow-grab)
    '("h" . meow-left)
    '("H" . meow-left-expand)
-
+   '("i" . meow-insert)
    '("I" . meow-open-above)
    '("j" . meow-next)
    '("J" . meow-next-expand)
