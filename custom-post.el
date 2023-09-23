@@ -559,4 +559,10 @@
   :custom
   (zoom-window-mode-line-color "DarkGreen"))
 
+;; (use-package projectile
+;;   :straight t
+;;   :ensure t)
+;; (projectile-mode +1)
+;; (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+
 ;;; custom-post.el ends here
