@@ -565,4 +565,8 @@
 ;; (projectile-mode +1)
 ;; (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
+;; etags --lang=c++ --lang=c *
+;; Once you have a tags file and you visit it using command ‘visit-tags-table’, 
+;; you can follow tags (of functions, variables, macros, whatever) to their definitions with 'M-.'.
+
 ;;; custom-post.el ends here
