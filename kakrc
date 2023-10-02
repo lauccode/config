@@ -7,9 +7,10 @@
 # use shell command to launch .sh with
 # :echo %sh{<cmd>}
 
-map global normal <space> , -docstring 'leader'
-map global normal <backspace> <space> -docstring 'remove all sels except main'
-map global normal <a-backspace> <a-space> -docstring 'remove main sel'
+# To remove/adapt ???
+# map global normal <space> , -docstring 'leader'
+# map global normal <backspace> <space> -docstring 'remove all sels except main'
+# map global normal <a-backspace> <a-space> -docstring 'remove main sel'
 
 # source ~/.config/kak/plugins/plug.kak/rc/plug.kak
 # ____  __    _  _   ___  __  __ _ 
