@@ -12,10 +12,10 @@ map global normal <backspace> <space> -docstring 'remove all sels except main'
 map global normal <a-backspace> <a-space> -docstring 'remove main sel'
 
 # source ~/.config/kak/plugins/plug.kak/rc/plug.kak
- ____  __    _  _   ___  __  __ _ 
-(  _ \(  )  / )( \ / __)(  )(  ( \
- ) __// (_/\) \/ (( (_ \ )( /    /
-(__)  \____/\____/ \___/(__)\_)__)
+# ____  __    _  _   ___  __  __ _ 
+#(  _ \(  )  / )( \ / __)(  )(  ( \
+# ) __// (_/\) \/ (( (_ \ )( /    /
+#(__)  \____/\____/ \___/(__)\_)__)
 
 evaluate-commands %sh{
         plugins="$kak_config/plugins"
@@ -90,10 +90,10 @@ hook global WinSetOption filetype=(rust|python|c|cpp) %{
 }
 
 #plug "ualexherbo2/connect.kak"
- ____  ____  ____  ____  __  __ _   ___ 
-/ ___)(  __)(_  _)(_  _)(  )(  ( \ / __)
-\___ \ ) _)   )(    )(   )( /    /( (_ \
-(____/(____) (__)  (__) (__)\_)__) \___/
+# ____  ____  ____  ____  __  __ _   ___ 
+#/ ___)(  __)(_  _)(_  _)(  )(  ( \ / __)
+#\___ \ ) _)   )(    )(   )( /    /( (_ \
+#(____/(____) (__)  (__) (__)\_)__) \___/
 
 # addhl global/ column '%val{cursor_column}' default,magenta
 addhl global/ line '%val{cursor_line}' default,magenta
