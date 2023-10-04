@@ -85,7 +85,7 @@ plug "kak-lsp/kak-lsp" do %{
             # optional: if you want to use specific language servers
             #     mkdir -p ~/.config/kak-lsp
             #         cp -n kak-lsp.toml ~/.config/kak-lsp/
-            #         }
+}
 hook global WinSetOption filetype=(rust|python|c|cpp) %{
         lsp-enable-window
 }
