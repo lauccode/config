@@ -262,4 +262,8 @@ map global object d '<a-semicolon>lsp-diagnostic-object --include-warnings<ret>'
 map global object D '<a-semicolon>lsp-diagnostic-object<ret>' -docstring 'LSP errors'
 
 eval %sh{ kak-tree-sitter -dks --session $kak_session }
+# 'kak-tree-sitter' needs a config.toml file in ~/.config/kak-tree-sitter. 
+#   Try copying the one in the repo GitHub
+# You need to run 'ktsctl -fci cpp' to install the cpp grammar. Without that, kak-tree-sitter doesn’t know how to handle cpp files.
+
 
