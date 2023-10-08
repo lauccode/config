@@ -114,7 +114,7 @@ set-option current comment_block_end '*/'
 map global user C :comment-block<ret>' -docstring 'To comment the block'
 map global user g ':cscope ' -docstring 'Find tag with cscope'  # Pour cscope il faut surligner le mot à chercher
 map global user ) '<a-i>)<S>,<ret><a-)>' -docstring 'Swap Arguments'
-map global normal <F2> ':e ~/.config/kak/kakrc<ret>'
+# map global normal <F2> ':e ~/.config/kak/kakrc<ret>'
 map global user r ':ranger-select<ret>' -docstring 'select files in ranger'
 map global normal <F3> '|clang-format<ret>'
 alias global g grep # Pour le grep, recuperer le mot copier avec <c-r>"
