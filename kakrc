@@ -1,4 +1,4 @@
-# fish as default
+G# fish as default
 # chsh -s `which fish`
 # https://stackoverflow.com/questions/2762994/how-to-define-an-alias-in-fish-shell
 #  PLUGIN
@@ -260,4 +260,6 @@ map global object e '<a-semicolon>lsp-object Function Method<ret>' -docstring 'L
 map global object k '<a-semicolon>lsp-object Class Interface Struct<ret>' -docstring 'LSP class interface or struct'
 map global object d '<a-semicolon>lsp-diagnostic-object --include-warnings<ret>' -docstring 'LSP errors and warnings'
 map global object D '<a-semicolon>lsp-diagnostic-object<ret>' -docstring 'LSP errors'
+
+eval %sh{ kak-tree-sitter -dks --session $kak_session }
 
