@@ -28,7 +28,7 @@ evaluate-commands %sh{
                             plug "andreyorst/plug.kak" noload
 
 
-plug "andreyorst/fzf.kak"
+plug "andreyorst/fzf.kak" config %{
 } defer fzf-file %{
     set-option global fzf_highlight_command 'Bat'
 }
