@@ -30,8 +30,10 @@ evaluate-commands %sh{
 
 plug "andreyorst/fzf.kak" config %{
 } defer fzf-file %{
-    set-option global fzf_highlight_command 'Bat'
+    set-option global fzf_highlight_command 'Bat'  # not work
 }
+# Only for terminal example
+# export FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --preview 'batcat --color=always --style=header --style=numbers,grid --line-range :300 {}'"
 
 # plug "dryvenn/kakoune-cscope"
 plug Delapouite/kakoune-buffers
