@@ -29,6 +29,10 @@ evaluate-commands %sh{
 
 
 plug "andreyorst/fzf.kak"
+} defer fzf-file %{
+    set-option global fzf_highlight_command 'Bat'
+}
+
 # plug "dryvenn/kakoune-cscope"
 plug Delapouite/kakoune-buffers
 
