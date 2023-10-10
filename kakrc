@@ -1,4 +1,4 @@
-G# fish as default
+# fish as default
 # chsh -s `which fish`
 # https://stackoverflow.com/questions/2762994/how-to-define-an-alias-in-fish-shell
 #  PLUGIN
