@@ -49,32 +49,24 @@ plug "andreyorst/kaktree" config %{
 }
 
 
-# # For this plugin to work, you need working ctags and readtags programs. 
-# # Note that readtags isn't shipped with exuberant-ctags by default (you can use universal-ctags).
-# plug "andreyorst/tagbar.kak" config %{
-#     # if you have wrap highlighter enamled in you configuration
-#     # files it's better to turn it off for tagbar, using this hook:
-#     hook global WinSetOption filetype=tagbar %{
-#         remove-highlighter window/wrap
-#         # you can also disable rendering whitespaces here, and
-#     }
-# }
-# hook global WinSetOption filetype=(c|cpp|rust) %{
-#     tagbar-enable
-# }
-# plug "andreyorst/tagbar.kak" defer "tagbar" %{
-#     set-option global tagbar_sort false
-#     set-option global tagbar_size 40
-#     set-option global tagbar_display_anon false
-# } config %{
-#     # if you have wrap highlighter enamled in you configuration
-#     # files it's better to turn it off for tagbar, using this hook:
-#     # hook global WinSetOption filetype=tagbar %{
-#     #     remove-highlighter window/wrap
-#         # you can also disable rendering whitespaces here, line numbers, and
-#         # matching characters
-#     }
-# }
+# For this plugin to work, you need working ctags and readtags programs. 
+# Note that readtags isn't shipped with exuberant-ctags by default (you can use universal-ctags).
+plug "andreyorst/tagbar.kak" defer "tagbar" %{
+    set-option global tagbar_sort false
+    set-option global tagbar_size 40
+    set-option global tagbar_display_anon false
+} config %{
+    # if you have wrap highlighter enamled in you configuration
+    # files it's better to turn it off for tagbar, using this hook:
+    hook global WinSetOption filetype=tagbar %{
+        remove-highlighter window/wrap
+        # you can also disable rendering whitespaces here, line numbers, and
+        # matching characters
+    }
+}
+hook global WinSetOption filetype=(c|cpp|rust) %{
+    tagbar-enable
+}
 
 
 plug "andreyorst/smarttab.kak"
