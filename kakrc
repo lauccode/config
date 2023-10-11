@@ -150,6 +150,8 @@ map global normal <F9> ':kaktree-toggle<ret>'
 # show-whitespaces
 # :addhl buffer/ show-whitespaces
 # :rmhl buffer/show-whitespaces
+map global user h ':addhl buffer/ show-whitespaces<ret>' -docstring 'to Highlight whitespaces'
+map global user H ':rmhl buffer/show-whitespaces<ret>' -docstring 'to remove Highlight whitespaces'
 # <c-d> to select for multi-cursors
 map global normal '<c-n>' ': select-or-add-cursor<ret>' -docstring "add cursor on current word, and jump to the next match"
 map global insert <tab> '<a-;><gt>'
