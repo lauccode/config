@@ -266,4 +266,5 @@ eval %sh{ kak-tree-sitter -dks --session $kak_session }
 #   Try copying the one in the repo GitHub
 # You need to run 'ktsctl -fci cpp' to install the cpp grammar. Without that, kak-tree-sitter doesn’t know how to handle cpp files.
 
+add-highlighter global/ wrap  # wrap line
 
