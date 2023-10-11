@@ -96,6 +96,9 @@ hook global WinSetOption filetype=(rust|python|c|cpp) %{
         lsp-enable-window
 }
 
+# plug-chain "andreyorst/plug.kak" noload \
+plug "tom-huntington/simple-git-gutter.kak"
+
 #plug "ualexherbo2/connect.kak"
 # ____  ____  ____  ____  __  __ _   ___ 
 #/ ___)(  __)(_  _)(_  _)(  )(  ( \ / __)
