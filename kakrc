@@ -113,7 +113,7 @@ map global user g ':cscope ' -docstring 'Find tag with cscope'  # Pour cscope il
 map global user ) '<a-i>)<S>,<ret><a-)>' -docstring 'Swap Arguments'
 # map global normal <F2> ':e ~/.config/kak/kakrc<ret>'
 map global user r ':ranger-select<ret>' -docstring 'select files in ranger'
-map global normal <F3> '|clang-format<ret>'
+# map global normal <F3> '|clang-format<ret>'
 alias global g grep # Pour le grep, recuperer le mot copier avec <c-r>"
 hook global WinDisplay .* info-buffers
 map global user b ':enter-buffers-mode<ret>'              -docstring 'buffers…'
