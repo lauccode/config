@@ -1,0 +1,12 @@
+# conf for lazygit
+os:
+  editPreset: 'kakoune'
+  edit: 'kakoune {{filename}}'
+  editAtLine: 'kakoune --line={{line}} {{filename}}'
+  editAtLineAndWait: 'kakoune --block --line={{line}} {{filename}}'
+  editInTerminal: true
+  openDirInEditor: 'kakoune {{dir}}'
+
+# export EDITOR=kak
+# export VISUAL=kak
+
