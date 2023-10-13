@@ -68,6 +68,19 @@ hook global WinSetOption filetype=(c|cpp|rust) %{
     tagbar-enable
 }
 
+plug "andreyorst/smarttab.kak" defer smarttab %{
+    # when `backspace' is pressed, 4 spaces are deleted at once
+    set-option global softtabstop 4
+} config %{
+    # these languages will use `expandtab' behavior
+    hook global WinSetOption filetype=(rust|markdown|kak|lisp|scheme|sh|perl) expandtab
+    # these languages will use `noexpandtab' behavior
+    hook global WinSetOption filetype=(makefile|gas) noexpandtab
+    # these languages will use `smarttab' behavior
+    hook global WinSetOption filetype=(c|cpp) smarttab
+}
+set global tabstop 4 
+set global indentwidth 4
 
 plug "andreyorst/smarttab.kak"
 plug "Crote/kakoune-ranger.git"
@@ -147,8 +160,8 @@ map global user h ':addhl buffer/ show-whitespaces<ret>' -docstring 'to Highligh
 map global user H ':rmhl buffer/show-whitespaces<ret>' -docstring 'to remove Highlight whitespaces'
 # <c-d> to select for multi-cursors
 map global normal '<c-n>' ': select-or-add-cursor<ret>' -docstring "add cursor on current word, and jump to the next match"
-map global insert <tab> '<a-;><gt>'
-map global insert <s-tab> '<a-;><lt>'
+# map global insert <tab> '<a-;><gt>'
+# map global insert <s-tab> '<a-;><lt>'
 
 define-command -docstring "vsplit [/]: split tmux vertically" \
 vsplit -params .. -command-completion %{
@@ -204,8 +217,7 @@ add-highlighter global/ show-matching
 # add-highlighter global/ show-whitespaces
 add-highlighter global/ dynregex '%reg{/}' 0:+u
 hook global WinCreate ^[^*]+$ %{ add-highlighter window/ number-lines -hlcursor }
-set global tabstop 4 
-set global indentwidth 4
+
 # hook global WinSetOption filetype=c|cpp %{
 #   set window formatcmd 'clang-format'
 #  clang-enable-autocomplete; clang-enable-diagnostics
