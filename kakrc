@@ -29,8 +29,12 @@ evaluate-commands %sh{
 
 
 plug "andreyorst/fzf.kak" config %{
+    map global normal <c-p> ':fzf-mode<ret>' # note that the space after colon is intentional to suppess fzf-mode to show in command history
 } defer fzf-file %{
+    set-option global fzf_file_command 'fd' # 'ag', 'fd', or 'find'
     set-option global fzf_highlight_command 'Bat'  # not work
+} defer fzf-grep %{
+    set-option global fzf_grep_command 'rg' # 'ag', or 'find'
 }
 # Only for terminal example
 # export FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --preview 'batcat --color=always --style=header --style=numbers,grid --line-range :300 {}'"
@@ -118,7 +122,6 @@ addhl global/ line '%val{cursor_line}' default,magenta
 map global user P '!xsel --output --clipboard<ret>' -docstring 'Paste before' # Paste before
 map global user p '<a-!>xsel --output --clipboard<ret>' -docstring 'Paste after' # Paste after
 map global user o ':clangd-switch-source-header<ret>' -docstring 'Switch to header file'
-map global normal <c-p> ':fzf-mode<ret>' # note that the space after colon is intentional to suppess fzf-mode to show in command history
 map global user 'c :comment-line<ret>' -docstring 'To comment the line'
 set-option current comment_block_begin '/*'
 set-option current comment_block_end '*/'
