@@ -86,7 +86,6 @@ plug "andreyorst/smarttab.kak" defer smarttab %{
 set global tabstop 4 
 set global indentwidth 4
 
-plug "andreyorst/smarttab.kak"
 plug "Crote/kakoune-ranger.git"
 
 plug "andreyorst/powerline.kak" defer powerline_gruvbox %{
