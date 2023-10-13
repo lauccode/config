@@ -206,10 +206,10 @@ add-highlighter global/ dynregex '%reg{/}' 0:+u
 hook global WinCreate ^[^*]+$ %{ add-highlighter window/ number-lines -hlcursor }
 set global tabstop 4 
 set global indentwidth 4
-hook global WinSetOption filetype=c|cpp %{
-  set window formatcmd 'clang-format'
+# hook global WinSetOption filetype=c|cpp %{
+#   set window formatcmd 'clang-format'
 #  clang-enable-autocomplete; clang-enable-diagnostics
-}
+# }
 # map global normal = :format<ret> -docstring 'format buffer'
 
 # Highlight the word under the cursor
