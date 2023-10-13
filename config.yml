@@ -1,4 +1,4 @@
-# conf for lazygit
+# conf for lazygit ( .config/lazygit/config.yml )
 os:
   editPreset: 'kakoune'
   edit: 'kakoune {{filename}}'
