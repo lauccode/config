@@ -104,6 +104,7 @@ addhl global/ line '%val{cursor_line}' default,magenta
 # ! xsel --output --clipboard <ret>
 map global user P '!xsel --output --clipboard<ret>' -docstring 'Paste before' # Paste before
 map global user p '<a-!>xsel --output --clipboard<ret>' -docstring 'Paste after' # Paste after
+map global user o ':clangd-switch-source-header<ret>' -docstring 'Switch to header file'
 map global normal <c-p> ':fzf-mode<ret>' # note that the space after colon is intentional to suppess fzf-mode to show in command history
 map global user 'c :comment-line<ret>' -docstring 'To comment the line'
 set-option current comment_block_begin '/*'
