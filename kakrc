@@ -122,10 +122,10 @@ addhl global/ line '%val{cursor_line}' default,magenta
 map global user P '!xsel --output --clipboard<ret>' -docstring 'Paste before' # Paste before
 map global user p '<a-!>xsel --output --clipboard<ret>' -docstring 'Paste after' # Paste after
 map global user o ':clangd-switch-source-header<ret>' -docstring 'Switch to header file'
-map global user 'c :comment-line<ret>' -docstring 'To comment the line'
+map global user c ':comment-line<ret>' -docstring 'To comment the line'
 set-option current comment_block_begin '/*'
 set-option current comment_block_end '*/'
-map global user 'C :comment-block<ret>' -docstring 'To comment the block'
+map global user C ':comment-block<ret>' -docstring 'To comment the block'
 map global user g ':cscope ' -docstring 'Find tag with cscope'  # Pour cscope il faut surligner le mot à chercher
 map global user ) '<a-i>)<S>,<ret><a-)>' -docstring 'Swap Arguments'
 # map global normal <F2> ':e ~/.config/kak/kakrc<ret>'
