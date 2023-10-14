@@ -1,18 +1,3 @@
-# fish as default
-# chsh -s `which fish`
-# https://stackoverflow.com/questions/2762994/how-to-define-an-alias-in-fish-shell
-#  PLUGIN
-#  ───────────────
-
-# use shell command to launch .sh with
-# :echo %sh{<cmd>}
-
-# To remove/adapt ???
-# map global normal <space> , -docstring 'leader'
-# map global normal <backspace> <space> -docstring 'remove all sels except main'
-# map global normal <a-backspace> <a-space> -docstring 'remove main sel'
-
-# source ~/.config/kak/plugins/plug.kak/rc/plug.kak
 # ____  __    _  _   ___  __  __ _ 
 #(  _ \(  )  / )( \ / __)(  )(  ( \
 # ) __// (_/\) \/ (( (_ \ )( /    /
@@ -27,7 +12,6 @@ evaluate-commands %sh{
                             }
                             plug "andreyorst/plug.kak" noload
 
-
 plug "andreyorst/fzf.kak" config %{
     map global normal <c-p> ':fzf-mode<ret>' # note that the space after colon is intentional to suppess fzf-mode to show in command history
 } defer fzf-file %{
@@ -36,10 +20,7 @@ plug "andreyorst/fzf.kak" config %{
 } defer fzf-grep %{
     set-option global fzf_grep_command 'rg' # 'ag', or 'find'
 }
-# Only for terminal example
-# export FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --preview 'batcat --color=always --style=header --style=numbers,grid --line-range :300 {}'"
 
-# plug "dryvenn/kakoune-cscope"
 plug Delapouite/kakoune-buffers
 
 plug "andreyorst/kaktree" config %{
@@ -51,7 +32,6 @@ plug "andreyorst/kaktree" config %{
     }
     kaktree-enable
 }
-
 
 # For this plugin to work, you need working ctags and readtags programs. 
 # Note that readtags isn't shipped with exuberant-ctags by default (you can use universal-ctags).
@@ -107,7 +87,6 @@ hook global WinSetOption filetype=(rust|python|c|cpp) %{
 # plug-chain "andreyorst/plug.kak" noload \
 plug "tom-huntington/simple-git-gutter.kak"
 
-#plug "ualexherbo2/connect.kak"
 # ____  ____  ____  ____  __  __ _   ___ 
 #/ ___)(  __)(_  _)(_  _)(  )(  ( \ / __)
 #\___ \ ) _)   )(    )(   )( /    /( (_ \
@@ -115,6 +94,11 @@ plug "tom-huntington/simple-git-gutter.kak"
 
 # addhl global/ column '%val{cursor_column}' default,magenta
 addhl global/ line '%val{cursor_line}' default,magenta
+colorscheme gruvbox-dark
+
+# default black background
+# set-face global Default black
+
 ############################################# SHORTKEYS ###########################
 # To paste
 # ! xsel --output --clipboard <ret>
@@ -125,15 +109,10 @@ map global user c ':comment-line<ret>' -docstring 'To comment the line'
 set-option current comment_block_begin '/*'
 set-option current comment_block_end '*/'
 map global user C ':comment-block<ret>' -docstring 'To comment the block'
-map global user g ':cscope ' -docstring 'Find tag with cscope'  # Pour cscope il faut surligner le mot à chercher
 map global user ) '<a-i>)<S>,<ret><a-)>' -docstring 'Swap Arguments'
-# map global normal <F2> ':e ~/.config/kak/kakrc<ret>'
 map global user r ':ranger-select<ret>' -docstring 'select files in ranger'
-# map global normal <F3> '|clang-format<ret>'
-alias global g grep # Pour le grep, recuperer le mot copier avec <c-r>"
 hook global WinDisplay .* info-buffers
 map global user b ':enter-buffers-mode<ret>'              -docstring 'buffers…'
-# map global user B ':enter-user-mode -lock buffers<ret>'   -docstring 'buffers (lock)…'
 map global user B ':pick-buffers<ret>'   -docstring 'pick-buffers'
 alias global bd delete-buffer
 alias global bf buffer-first
@@ -143,27 +122,22 @@ alias global bo! buffer-only-force
 map global user w ':w<ret>'   -docstring 'Write buffers'
 map global user q ':q<ret>'   -docstring 'Quit Kakoune'
 
-# map global normal <F8> ':tagbar-toggle<ret>'
-# # To see what filetypes are supported use `ctags --list-kinds | awk '/^\w+/'
-# hook global WinSetOption filetype=(cpp|rust) %{
-#     tagbar-enable
-#     alias global 'q' 'tagbar-quit'
-#     alias global 'wq' 'tagbar-write-quit'
-# }
-
 map global normal <F7> ':bn<ret>'
 map global normal <F6> ':bp<ret>'
 map global normal <F9> ':kaktree-toggle<ret>'
 
-# show-whitespaces
-# :addhl buffer/ show-whitespaces
-# :rmhl buffer/show-whitespaces
+# for lsp selection
+map global user l %{:enter-user-mode lsp<ret>} -docstring "LSP mode"
+map global insert <tab> '<a-;>:try lsp-snippets-select-next-placeholders catch %{ execute-keys -with-hooks <lt>tab> }<ret>' -docstring 'Select next snippet placeholder'
+map global object a '<a-semicolon>lsp-object<ret>' -docstring 'LSP any symbol'
+map global object <a-a> '<a-semicolon>lsp-object<ret>' -docstring 'LSP any symbol'
+map global object e '<a-semicolon>lsp-object Function Method<ret>' -docstring 'LSP function or method'
+map global object k '<a-semicolon>lsp-object Class Interface Struct<ret>' -docstring 'LSP class interface or struct'
+map global object d '<a-semicolon>lsp-diagnostic-object --include-warnings<ret>' -docstring 'LSP errors and warnings'
+map global object D '<a-semicolon>lsp-diagnostic-object<ret>' -docstring 'LSP errors'
+
 map global user h ':addhl buffer/ show-whitespaces<ret>' -docstring 'to Highlight whitespaces'
 map global user H ':rmhl buffer/show-whitespaces<ret>' -docstring 'to remove Highlight whitespaces'
-# <c-d> to select for multi-cursors
-map global normal '<c-n>' ': select-or-add-cursor<ret>' -docstring "add cursor on current word, and jump to the next match"
-# map global insert <tab> '<a-;><gt>'
-# map global insert <s-tab> '<a-;><lt>'
 
 define-command -docstring "vsplit [/]: split tmux vertically" \
 vsplit -params .. -command-completion %{
@@ -184,18 +158,20 @@ map -docstring 'case insensitive search' global normal / '/(?i)'
 map -docstring 'case insensitive backward search' global normal <a-/> '<a-/>(?i)'
 map -docstring 'case insensitive extend search' global normal ? '?(?i)'
 map -docstring 'case insensitive backward extend-search' global normal <a-?> '<a-?>(?i)'
+
+# map global normal <F8> ':tagbar-toggle<ret>'
+# # To see what filetypes are supported use `ctags --list-kinds | awk '/^\w+/'
+# hook global WinSetOption filetype=(cpp|rust) %{
+#     tagbar-enable
+#     alias global 'q' 'tagbar-quit'
+#     alias global 'wq' 'tagbar-write-quit'
+# }
+
 hook global InsertChar j %{ try %{ # jj to escape
       exec -draft hH <a-k>jj<ret> d
         exec <esc>
 }}
-define-command -override -docstring "select a word under cursor, or add cursor on next occurrence of current selection" \
-select-or-add-cursor %{ execute-keys -save-regs '' %sh{
-        if [ $(expr $(echo $kak_selection | wc -m) - 1) -eq 1 ]; then
-                echo "<a-i>w*"
-                    else
-                            echo "*<s-n>"
-                                fi
-}}
+
 # https://github.com/mawww/kakoune/wiki/Registers---Clipboard
 # with xsel to install first
 # To yank (copy)
@@ -209,35 +185,6 @@ hook global NormalKey y|d|c %{ nop %sh{
 #set-option global makecmd 'make -C hello'
 # create commands
 #define-command makehello %{set-option global makecmd 'make -j16 -C hello'}
-
-# set-option global grepcmd 'ag --column'
-# set-option global clang_options -std=c++1y
-set-option global ui_options ncurses_status_on_top=true
-# colorscheme gruvbox
-colorscheme gruvbox-dark
-add-highlighter global/ show-matching
-# add-highlighter global/ show-whitespaces
-add-highlighter global/ dynregex '%reg{/}' 0:+u
-hook global WinCreate ^[^*]+$ %{ add-highlighter window/ number-lines -hlcursor }
-
-# hook global WinSetOption filetype=c|cpp %{
-#   set window formatcmd 'clang-format'
-#  clang-enable-autocomplete; clang-enable-diagnostics
-# }
-# map global normal = :format<ret> -docstring 'format buffer'
-
-# Highlight the word under the cursor
-declare-option -hidden regex curword
-set-face global CurWord default,rgb:4a4a4a
-hook global NormalIdle .* %{
-    eval -draft %{ try %{
-        exec <space><a-i>w <a-k>\A\w+\z<ret>
-        set-option buffer curword "\b\Q%val{selection}\E\b"
-    } catch %{
-        set-option buffer curword ''
-    } }
-}
-add-highlighter global/ dynregex '%opt{curword}' 0:CurWord
 
 # will open new windows with tmux 
 define-command ide %{
@@ -258,20 +205,8 @@ hook global ModeChange ".*:insert" %{
     set-face global PrimaryCursor      red,red
 }
 
-# default black background
-# set-face global Default black
-
 # Use ripgrep instead of grep
-set-option global grepcmd 'rg -Hn --no-heading'
-
-map global user l %{:enter-user-mode lsp<ret>} -docstring "LSP mode"
-map global insert <tab> '<a-;>:try lsp-snippets-select-next-placeholders catch %{ execute-keys -with-hooks <lt>tab> }<ret>' -docstring 'Select next snippet placeholder'
-map global object a '<a-semicolon>lsp-object<ret>' -docstring 'LSP any symbol'
-map global object <a-a> '<a-semicolon>lsp-object<ret>' -docstring 'LSP any symbol'
-map global object e '<a-semicolon>lsp-object Function Method<ret>' -docstring 'LSP function or method'
-map global object k '<a-semicolon>lsp-object Class Interface Struct<ret>' -docstring 'LSP class interface or struct'
-map global object d '<a-semicolon>lsp-diagnostic-object --include-warnings<ret>' -docstring 'LSP errors and warnings'
-map global object D '<a-semicolon>lsp-diagnostic-object<ret>' -docstring 'LSP errors'
+# set-option global grepcmd 'rg -Hn --no-heading'
 
 eval %sh{ kak-tree-sitter -dks --session $kak_session }
 # 'kak-tree-sitter' needs a config.toml file in ~/.config/kak-tree-sitter. 
@@ -279,4 +214,87 @@ eval %sh{ kak-tree-sitter -dks --session $kak_session }
 # You need to run 'ktsctl -fci cpp' to install the cpp grammar. Without that, kak-tree-sitter doesn’t know how to handle cpp files.
 
 add-highlighter global/ wrap  # wrap line
+
+######### TBU ######################################################
+
+# Highlight the word under the cursor
+declare-option -hidden regex curword
+set-face global CurWord default,rgb:4a4a4a
+hook global NormalIdle .* %{
+    eval -draft %{ try %{
+        exec <space><a-i>w <a-k>\A\w+\z<ret>
+        set-option buffer curword "\b\Q%val{selection}\E\b"
+    } catch %{
+        set-option buffer curword ''
+    } }
+}
+add-highlighter global/ dynregex '%opt{curword}' 0:CurWord
+
+# set-option global grepcmd 'ag --column'
+# set-option global clang_options -std=c++1y
+set-option global ui_options ncurses_status_on_top=true
+add-highlighter global/ show-matching
+add-highlighter global/ dynregex '%reg{/}' 0:+u
+hook global WinCreate ^[^*]+$ %{ add-highlighter window/ number-lines -hlcursor }
+
+define-command -override -docstring "select a word under cursor, or add cursor on next occurrence of current selection" \
+select-or-add-cursor %{ execute-keys -save-regs '' %sh{
+        if [ $(expr $(echo $kak_selection | wc -m) - 1) -eq 1 ]; then
+                echo "<a-i>w*"
+                    else
+                            echo "*<s-n>"
+                                fi
+}}
+
+#  ____  ____  ____    __    ___ 
+# (_  _)(  _ \( ___)  /__\  / __)
+#  _)(_  )(_) ))__)  /(__)\ \__ \
+# (____)(____/(____)(__)(__)(___/
+                              
+# fish as default
+# chsh -s `which fish`
+# https://stackoverflow.com/questions/2762994/how-to-define-an-alias-in-fish-shell
+#  PLUGIN
+#  ───────────────
+
+# use shell command to launch .sh with
+# :echo %sh{<cmd>}
+
+# To remove/adapt ???
+# map global normal <space> , -docstring 'leader'
+# map global normal <backspace> <space> -docstring 'remove all sels except main'
+# map global normal <a-backspace> <a-space> -docstring 'remove main sel'
+
+# source ~/.config/kak/plugins/plug.kak/rc/plug.kak
+
+# Only for terminal example
+# export FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --preview 'batcat --color=always --style=header --style=numbers,grid --line-range :300 {}'"
+
+#plug "ualexherbo2/connect.kak"
+
+# map global normal <F2> ':e ~/.config/kak/kakrc<ret>'
+
+# map global user B ':enter-user-mode -lock buffers<ret>'   -docstring 'buffers (lock)…'
+# map global normal <F3> '|clang-format<ret>'
+
+# show-whitespaces
+# :addhl buffer/ show-whitespaces
+# :rmhl buffer/show-whitespaces
+
+# map global insert <tab> '<a-;><gt>'
+# map global insert <s-tab> '<a-;><lt>'
+
+# add-highlighter global/ show-whitespaces
+
+# hook global WinSetOption filetype=c|cpp %{
+#   set window formatcmd 'clang-format'
+#  clang-enable-autocomplete; clang-enable-diagnostics
+# }
+# map global normal = :format<ret> -docstring 'format buffer'
+
+# <c-d> to select for multi-cursors
+# map global normal '<c-n>' ': select-or-add-cursor<ret>' -docstring "add cursor on current word, and jump to the next match"
+
+# map global user g ':cscope ' -docstring 'Find tag with cscope'  # Pour cscope il faut surligner le mot à chercher
+
 
