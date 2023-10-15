@@ -107,7 +107,7 @@ evaluate-commands %sh{kak-popup init}
 #(____/(____) (__)  (__) (__)\_)__) \___/
 
 # addhl global/ column '%val{cursor_column}' default,magenta
-addhl global/ line '%val{cursor_line}' default,magenta
+addhl global/ line '%val{cursor_line}' default,black
 colorscheme gruvbox-dark
 
 # default black background
