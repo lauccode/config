@@ -33,25 +33,6 @@ plug "andreyorst/kaktree" config %{
     kaktree-enable
 }
 
-# For this plugin to work, you need working ctags and readtags programs. 
-# Note that readtags isn't shipped with exuberant-ctags by default (you can use universal-ctags).
-plug "andreyorst/tagbar.kak" defer "tagbar" %{
-    set-option global tagbar_sort false
-    set-option global tagbar_size 40
-    set-option global tagbar_display_anon false
-} config %{
-    # if you have wrap highlighter enamled in you configuration
-    # files it's better to turn it off for tagbar, using this hook:
-    hook global WinSetOption filetype=tagbar %{
-        remove-highlighter window/wrap
-        # you can also disable rendering whitespaces here, line numbers, and
-        # matching characters
-    }
-}
-hook global WinSetOption filetype=(c|cpp|rust) %{
-    tagbar-enable
-}
-
 plug "andreyorst/smarttab.kak" defer smarttab %{
     # when `backspace' is pressed, 4 spaces are deleted at once
     set-option global softtabstop 4
@@ -172,14 +153,6 @@ map -docstring 'case insensitive search' global normal / '/(?i)'
 map -docstring 'case insensitive backward search' global normal <a-/> '<a-/>(?i)'
 map -docstring 'case insensitive extend search' global normal ? '?(?i)'
 map -docstring 'case insensitive backward extend-search' global normal <a-?> '<a-?>(?i)'
-
-# map global normal <F8> ':tagbar-toggle<ret>'
-# # To see what filetypes are supported use `ctags --list-kinds | awk '/^\w+/'
-# hook global WinSetOption filetype=(cpp|rust) %{
-#     tagbar-enable
-#     alias global 'q' 'tagbar-quit'
-#     alias global 'wq' 'tagbar-write-quit'
-# }
 
 hook global InsertChar j %{ try %{ # jj to escape
       exec -draft hH <a-k>jj<ret> d
@@ -310,5 +283,33 @@ select-or-add-cursor %{ execute-keys -save-regs '' %sh{
 # map global normal '<c-n>' ': select-or-add-cursor<ret>' -docstring "add cursor on current word, and jump to the next match"
 
 # map global user g ':cscope ' -docstring 'Find tag with cscope'  # Pour cscope il faut surligner le mot à chercher
+
+# OLD TAGBAR to see if we keep ?
+# For this plugin to work, you need working ctags and readtags programs. 
+# Note that readtags isn't shipped with exuberant-ctags by default (you can use universal-ctags).
+# plug "andreyorst/tagbar.kak" defer "tagbar" %{
+#     set-option global tagbar_sort false
+#     set-option global tagbar_size 40
+#     set-option global tagbar_display_anon false
+# } config %{
+#     # if you have wrap highlighter enamled in you configuration
+#     # files it's better to turn it off for tagbar, using this hook:
+#     hook global WinSetOption filetype=tagbar %{
+#         remove-highlighter window/wrap
+#         # you can also disable rendering whitespaces here, line numbers, and
+#         # matching characters
+#     }
+# }
+# hook global WinSetOption filetype=(c|cpp|rust) %{
+#     tagbar-enable
+# }
+# map global normal <F8> ':tagbar-toggle<ret>'
+# # To see what filetypes are supported use `ctags --list-kinds | awk '/^\w+/'
+# hook global WinSetOption filetype=(cpp|rust) %{
+#     tagbar-enable
+#     alias global 'q' 'tagbar-quit'
+#     alias global 'wq' 'tagbar-write-quit'
+# }
+
 
 
