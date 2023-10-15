@@ -87,6 +87,20 @@ hook global WinSetOption filetype=(rust|python|c|cpp) %{
 # plug-chain "andreyorst/plug.kak" noload \
 plug "tom-huntington/simple-git-gutter.kak"
 
+# To be fully added with shortcuts
+plug "gustavo-hms/luar" %{
+    require-module luar
+    plug "gustavo-hms/peneira" %{
+        require-module peneira
+    }
+}
+plug "enricozb/popup.kak" %{
+    require-module luar
+}
+evaluate-commands %sh{kak-popup init}
+# popup --title open --kak-script %{edit %opt{popup_output}} -- fzf --preview 'batcat --color=always {}' --preview-window '~3'
+# use the scritp with fzf + ripgrep + bat to have grep with color preview
+
 # ____  ____  ____  ____  __  __ _   ___ 
 #/ ___)(  __)(_  _)(_  _)(  )(  ( \ / __)
 #\___ \ ) _)   )(    )(   )( /    /( (_ \
