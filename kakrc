@@ -1,3 +1,12 @@
+## COLORS ##
+
+# addhl global/ column '%val{cursor_column}' default,magenta
+addhl global/ line '%val{cursor_line}' default,black
+colorscheme gruvbox-dark
+
+# default black background
+# set-face global Default black
+
 # ____  __    _  _   ___  __  __ _ 
 #(  _ \(  )  / )( \ / __)(  )(  ( \
 # ) __// (_/\) \/ (( (_ \ )( /    /
@@ -82,17 +91,13 @@ evaluate-commands %sh{kak-popup init}
 # popup --title open --kak-script %{edit %opt{popup_output}} -- fzf --preview 'batcat --color=always {}' --preview-window '~3'
 # use the scritp with fzf + ripgrep + bat to have grep with color preview
 
+plug "anhsirk0/kakoune-themes"
+# cp .config/kak/plugins/kakoune-themes/colors ~/.config/kak/ -r
+
 # ____  ____  ____  ____  __  __ _   ___ 
 #/ ___)(  __)(_  _)(_  _)(  )(  ( \ / __)
 #\___ \ ) _)   )(    )(   )( /    /( (_ \
 #(____/(____) (__)  (__) (__)\_)__) \___/
-
-# addhl global/ column '%val{cursor_column}' default,magenta
-addhl global/ line '%val{cursor_line}' default,black
-colorscheme gruvbox-dark
-
-# default black background
-# set-face global Default black
 
 ############################################# SHORTKEYS ###########################
 # To paste
