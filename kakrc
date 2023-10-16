@@ -1,12 +1,3 @@
-## COLORS ##
-
-# addhl global/ column '%val{cursor_column}' default,magenta
-addhl global/ line '%val{cursor_line}' default,black
-colorscheme gruvbox-dark
-
-# default black background
-# set-face global Default black
-
 # ____  __    _  _   ___  __  __ _ 
 #(  _ \(  )  / )( \ / __)(  )(  ( \
 # ) __// (_/\) \/ (( (_ \ )( /    /
@@ -98,6 +89,14 @@ plug "anhsirk0/kakoune-themes"
 #/ ___)(  __)(_  _)(_  _)(  )(  ( \ / __)
 #\___ \ ) _)   )(    )(   )( /    /( (_ \
 #(____/(____) (__)  (__) (__)\_)__) \___/
+## COLORS ##
+
+# addhl global/ column '%val{cursor_column}' default,magenta
+addhl global/ line '%val{cursor_line}' default,black
+colorscheme gruvbox-dark
+
+# default black background
+# set-face global Default black
 
 ############################################# SHORTKEYS ###########################
 # To paste
