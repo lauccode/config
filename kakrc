@@ -70,7 +70,7 @@ plug "tom-huntington/simple-git-gutter.kak"
 
 # To be fully added with shortcuts
 plug "gustavo-hms/luar" %{
-    require-module luar
+#    require-module luar
     plug "gustavo-hms/peneira" %{
         require-module peneira
     }
