@@ -75,9 +75,7 @@ plug "gustavo-hms/luar" %{
         require-module peneira
     }
 }
-plug "enricozb/popup.kak" %{
-    require-module luar
-}
+plug "enricozb/popup.kak"
 evaluate-commands %sh{kak-popup init}
 # popup --title open --kak-script %{edit %opt{popup_output}} -- fzf --preview 'batcat --color=always {}' --preview-window '~3'
 # use the scritp with fzf + ripgrep + bat to have grep with color preview
