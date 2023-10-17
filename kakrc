@@ -90,7 +90,15 @@ colorscheme gruvbox-dark
 ############################################# SHORTKEYS ###########################
 # To paste
 # ! xsel --output --clipboard <ret>
-map global user -docstring 'open fuzzy finder' f ': edit %sh{fzf-tmux --color=16 --preview "batcat --theme=Nord --style=numbers,changes --color always {}" -}<ret>'
+
+# fzf and rzf with popup
+map global user -docstring 'popup fzf (NO TMUX)' F ":popup --title open --kak-script %{edit %opt{popup_output}} -- fzf --preview 'batcat --color=always {}' --preview-window '~3'<ret>"
+map global user -docstring 'popup rzf (NO TMUX)' G ":popup --title open --kak-script %{edit %opt{popup_output}} -- fr<ret>"
+
+# fzf and rzf with nothing
+map global user -docstring 'open fuzzy finder (TMUX)' f ': edit %sh{fzf-tmux --color=16 --preview "batcat --theme=Nord --style=numbers,changes --color always {}" -}<ret>'
+map global user -docstring 'open fuzzy finder (TMUX)' g ': edit %sh{fr -}<ret>'
+
 map global user P '!xsel --output --clipboard<ret>' -docstring 'Paste before' # Paste before
 map global user p '<a-!>xsel --output --clipboard<ret>' -docstring 'Paste after' # Paste after
 map global user o ':clangd-switch-source-header<ret>' -docstring 'Switch to header file'
