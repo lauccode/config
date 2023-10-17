@@ -111,7 +111,6 @@ map global user q ':q<ret>'   -docstring 'Quit Kakoune'
 
 map global normal <F7> ':bn<ret>'
 map global normal <F6> ':bp<ret>'
-map global normal <F9> ':kaktree-toggle<ret>'
 
 # for lsp selection
 map global user l %{:enter-user-mode lsp<ret>} -docstring "LSP mode"
@@ -313,5 +312,5 @@ select-or-add-cursor %{ execute-keys -save-regs '' %sh{
 #     }
 #     kaktree-enable
 # }
-
+# map global normal <F9> ':kaktree-toggle<ret>'
 
