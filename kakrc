@@ -23,16 +23,6 @@ plug "andreyorst/fzf.kak" config %{
 
 plug Delapouite/kakoune-buffers
 
-plug "andreyorst/kaktree" config %{
-    hook global WinSetOption filetype=kaktree %{
-        remove-highlighter buffer/numbers
-        remove-highlighter buffer/matching
-        remove-highlighter buffer/wrap
-        remove-highlighter buffer/show-whitespaces
-    }
-    kaktree-enable
-}
-
 plug "andreyorst/smarttab.kak" defer smarttab %{
     # when `backspace' is pressed, 4 spaces are deleted at once
     set-option global softtabstop 4
@@ -313,5 +303,15 @@ select-or-add-cursor %{ execute-keys -save-regs '' %sh{
 #     alias global 'wq' 'tagbar-write-quit'
 # }
 
+
+# plug "andreyorst/kaktree" config %{
+#     hook global WinSetOption filetype=kaktree %{
+#         remove-highlighter buffer/numbers
+#         remove-highlighter buffer/matching
+#         remove-highlighter buffer/wrap
+#         remove-highlighter buffer/show-whitespaces
+#     }
+#     kaktree-enable
+# }
 
 
