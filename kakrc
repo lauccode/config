@@ -70,7 +70,8 @@ evaluate-commands %sh{kak-popup init}
 # popup --title open --kak-script %{edit %opt{popup_output}} -- fzf --preview 'batcat --color=always {}' --preview-window '~3'
 # use the scritp with fzf + ripgrep + bat to have grep with color preview
 
-plug "anhsirk0/kakoune-themes"
+# TO COMMENT OTERWISE IT IS BREAKING COPY / PASTE
+# plug "anhsirk0/kakoune-themes"
 # cp .config/kak/plugins/kakoune-themes/colors ~/.config/kak/ -r
 
 # ____  ____  ____  ____  __  __ _   ___ 
