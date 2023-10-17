@@ -67,6 +67,7 @@ plug "gustavo-hms/luar" %{
 }
 plug "enricozb/popup.kak"
 evaluate-commands %sh{kak-popup init}
+# Install the binary with cargo install kak-popup
 # popup --title open --kak-script %{edit %opt{popup_output}} -- fzf --preview 'batcat --color=always {}' --preview-window '~3'
 # use the scritp with fzf + ripgrep + bat to have grep with color preview
 
