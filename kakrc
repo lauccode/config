@@ -197,6 +197,7 @@ hook global ModeChange ".*:insert" %{
 
 # Use ripgrep instead of grep
 # set-option global grepcmd 'rg -Hn --no-heading'
+set-option global grepcmd 'rg --column --smart-case --sort path'
 
 eval %sh{ kak-tree-sitter -dks --session $kak_session }
 # 'kak-tree-sitter' needs a config.toml file in ~/.config/kak-tree-sitter. 
