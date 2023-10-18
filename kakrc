@@ -16,7 +16,7 @@ plug "andreyorst/fzf.kak" config %{
     map global normal <c-p> ':fzf-mode<ret>' # note that the space after colon is intentional to suppess fzf-mode to show in command history
 } defer fzf-file %{
     set-option global fzf_file_command 'fd' # 'ag', 'fd', or 'find'
-    set-option global fzf_highlight_command 'batcat --color=always --style=numbers {}'
+    set-option global fzf_highlight_command 'bat --color=always --style=numbers {}'
 } defer fzf-grep %{
     set-option global fzf_grep_command 'rg' # 'ag', or 'find'
 }
