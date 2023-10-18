@@ -259,7 +259,7 @@ select-or-add-cursor %{ execute-keys -save-regs '' %sh{
 # source ~/.config/kak/plugins/plug.kak/rc/plug.kak
 
 # Only for terminal example
-# export FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --preview 'batcat --color=always --style=header --style=numbers,grid --line-range :300 {}'"
+# export FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --preview 'bat --color=always --style=header --style=numbers,grid --line-range :300 {}'"
 
 #plug "ualexherbo2/connect.kak"
 
