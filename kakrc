@@ -93,11 +93,11 @@ colorscheme gruvbox-dark
 # ! xsel --output --clipboard <ret>
 
 # fzf and rzf with popup
-map global user -docstring 'popup fzf (NO TMUX)' F ":popup --title open --kak-script %{edit %opt{popup_output}} -- fzf --preview 'batcat --color=always {}' --preview-window '~3'<ret>"
+map global user -docstring 'popup fzf (NO TMUX)' F ":popup --title open --kak-script %{edit %opt{popup_output}} -- fzf --preview 'bat --color=always {}' --preview-window '~3'<ret>"
 map global user -docstring 'popup rzf (NO TMUX)' G ":popup --title open --kak-script %{edit %opt{popup_output}} -- fr<ret>"
 
 # fzf and frf with nothing
-map global user -docstring 'open fuzzy finder (TMUX)' f ': edit %sh{fzf-tmux --color=16 --preview "batcat --theme=Nord --style=numbers,changes --color always {}" -}<ret>'
+map global user -docstring 'open fuzzy finder (TMUX)' f ': edit %sh{fzf-tmux --color=16 --preview "bat --theme=Nord --style=numbers,changes --color always {}" -}<ret>'
 # The script here for fzf+ripgrep need to use fzf-tmux rather than only fzf
 map global user -docstring 'open fuzzy finder (TMUX)' g ': edit %sh{frf -}<ret>'
 
