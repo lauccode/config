@@ -67,7 +67,7 @@ plug "gustavo-hms/luar" %{
 }
 plug "enricozb/popup.kak"
 evaluate-commands %sh{kak-popup init}
-# Install the binary with cargo install kak-popup
+# Install the binary with : 'cargo install kak-popup'
 # popup --title open --kak-script %{edit %opt{popup_output}} -- fzf --preview 'bat --color=always {}' --preview-window '~3'
 # use the scritp with fzf + ripgrep + bat to have grep with color preview
 
@@ -92,6 +92,7 @@ colorscheme gruvbox-dark
 # To paste
 # ! xsel --output --clipboard <ret>
 
+# install bat with 'cargo install --locked bat'
 # fzf and rzf with popup
 map global user -docstring 'popup fzf (NO TMUX)' F ":popup --title open --kak-script %{edit %opt{popup_output}} -- fzf --preview 'bat --color=always {}' --preview-window '~3'<ret>"
 map global user -docstring 'popup rzf (NO TMUX)' G ":popup --title open --kak-script %{edit %opt{popup_output}} -- fr<ret>"
@@ -200,6 +201,7 @@ hook global ModeChange ".*:insert" %{
 set-option global grepcmd 'rg --column --smart-case --sort path'
 
 eval %sh{ kak-tree-sitter -dks --session $kak_session }
+# install kak-tree-sitter with : 'cargo install kak-tree-sitter' and 'cargo install ktsctl'
 # 'kak-tree-sitter' needs a config.toml file in ~/.config/kak-tree-sitter. 
 #   Try copying the one in the repo GitHub
 # You need to run 'ktsctl -fci cpp' to install the cpp grammar. Without that, kak-tree-sitter doesn’t know how to handle cpp files.
