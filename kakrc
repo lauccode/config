@@ -75,6 +75,10 @@ evaluate-commands %sh{kak-popup init}
 # plug "anhsirk0/kakoune-themes"
 # cp .config/kak/plugins/kakoune-themes/colors ~/.config/kak/ -r
 
+plug "evanrelf/byline.kak" config %{  # x to expand more lines
+  require-module "byline"
+}
+
 # ____  ____  ____  ____  __  __ _   ___ 
 #/ ___)(  __)(_  _)(_  _)(  )(  ( \ / __)
 #\___ \ ) _)   )(    )(   )( /    /( (_ \
