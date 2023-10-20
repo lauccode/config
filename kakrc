@@ -158,6 +158,9 @@ map -docstring 'case insensitive backward search' global normal <a-/> '<a-/>(?i)
 map -docstring 'case insensitive extend search' global normal ? '?(?i)'
 map -docstring 'case insensitive backward extend-search' global normal <a-?> '<a-?>(?i)'
 
+# Always keep one line and three columns displayed around the cursor
+set-option global scrolloff 5,5
+
 hook global InsertChar j %{ try %{ # jj to escape
       exec -draft hH <a-k>jj<ret> d
         exec <esc>
