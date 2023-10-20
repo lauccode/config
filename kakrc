@@ -94,8 +94,8 @@ colorscheme gruvbox-dark
 
 # install bat with 'cargo install --locked bat'
 # fzf and rzf with popup
-map global user -docstring 'popup fzf (NO TMUX)' F ":popup --title open --kak-script %{edit %opt{popup_output}} -- fzf --preview 'bat --color=always {}' --preview-window '~3'<ret>"
-map global user -docstring 'popup rzf (NO TMUX)' G ":popup --title open --kak-script %{edit %opt{popup_output}} -- fr<ret>"
+map global user -docstring 'popup fzf (NO TMUX)' F ':popup --title open --kak-script %{edit %opt{popup_output}} -- fzf --preview 'bat --color=always {}' --preview-window '~3'<ret>'
+map global user -docstring 'popup rzf (NO TMUX)' G ':popup --title open --kak-script %{edit %opt{popup_output}} -- fr<ret>'
 
 # fzf and frf with nothing
 map global user -docstring 'open fuzzy finder (TMUX)' f ': edit %sh{fzf-tmux --color=16 --preview "bat --theme=Nord --style=numbers,changes --color always {}" -}<ret>'
