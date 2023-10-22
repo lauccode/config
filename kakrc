@@ -126,6 +126,7 @@ alias global bo! buffer-only-force
 map global user w ':w<ret>'   -docstring 'Write buffers'
 map global user q ':q<ret>'   -docstring 'Quit Kakoune'
 
+map global normal <F5> ':%sh{love .}<ret>'
 map global normal <F7> ':bn<ret>'
 map global normal <F6> ':bp<ret>'
 
