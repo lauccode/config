@@ -98,6 +98,7 @@ colorscheme gruvbox-dark
 
 # install bat with 'cargo install --locked bat'
 # fzf and rzf with popup
+#     --bind 'enter:become(echo {1} {2})', prob is that kak do ":e 'rfzk 13'" rather that ":e rfzk 13"
 map global user -docstring 'popup fzf (NO TMUX)' F ':popup --title open --kak-script %{edit %opt{popup_output}} -- fzf --preview "bat --color=always {}" --preview-window "~3"<ret>'
 map global user -docstring 'popup rzf (NO TMUX)' G ':popup --title open --kak-script %{edit %opt{popup_output}} -- fr<ret>'
 
