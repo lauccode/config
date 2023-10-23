@@ -19,6 +19,7 @@ plug "andreyorst/fzf.kak" config %{
     set-option global fzf_highlight_command 'bat --color=always --style=numbers {}'
 } defer fzf-grep %{
     set-option global fzf_grep_command 'rg' # 'ag', or 'find'
+    set-option global fzf_grep_preview_command 'bat'
 }
 
 plug Delapouite/kakoune-buffers
