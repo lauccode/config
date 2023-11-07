@@ -35,6 +35,10 @@ enter
 [a-space] pour ne pas selectionner  
 [backspace] remove multiselection
 
+### Marks
+“aZ	Store mark in register a
+“az	Restrore mark of register a
+
 ### Parameters swapping  
 Select paramaters ([a-i] or [s-w] ...)  
 Split slection on charatere "," [S,RET]   
