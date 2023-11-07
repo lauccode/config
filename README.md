@@ -36,7 +36,7 @@ enter
 [backspace] remove multiselection
 
 ### Marks
-“aZ	Store mark in register a
+“aZ	Store mark in register a  
 “az	Restrore mark of register a
 
 ### Parameters swapping  
