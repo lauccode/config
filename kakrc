@@ -80,6 +80,11 @@ plug "evanrelf/byline.kak" config %{  # x to expand more lines
   require-module "byline"
 }
 
+plug "fsub/kakoune-mark"config %{    # clone yourself if mark.kak is not in directory .config/kak/plugins/kakoune-mark/
+    map global user a :mark-word<ret> -docstring 'Highlight word'
+    map global user A :mark-clear<ret> -docstring 'Unhighlight word'
+}
+
 # ____  ____  ____  ____  __  __ _   ___ 
 #/ ___)(  __)(_  _)(_  _)(  )(  ( \ / __)
 #\___ \ ) _)   )(    )(   )( /    /( (_ \
