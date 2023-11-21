@@ -94,6 +94,11 @@ plug "fsub/kakoune-mark"config %{    # clone yourself if mark.kak is not in dire
     map global user A :mark-clear<ret> -docstring 'Unhighlight word'
 }
 
+# DAP for cpp as in vscode
+# to be found and tested ...
+# https://github.com/memsharded/hello
+# cmake . -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=1
+
 # ____  ____  ____  ____  __  __ _   ___ 
 #/ ___)(  __)(_  _)(_  _)(  )(  ( \ / __)
 #\___ \ ) _)   )(    )(   )( /    /( (_ \
