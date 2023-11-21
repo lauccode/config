@@ -55,6 +55,15 @@ plug "kak-lsp/kak-lsp" do %{
 hook global WinSetOption filetype=(rust|python|c|cpp) %{
         lsp-enable-window
 }
+# Navigate in markdown :
+# install marksman in ~/.local/bin/
+# And add config in .config/kak-lsp/kak-lsp.toml :
+# [language_server.markdown] # NOTE for kak-lsp < 15.0.0 this would need to be `[language.markdown]`
+# filetypes = ["markdown"]
+# roots = [".marksman.toml"]
+# command = "marksman"
+# args = ["server"]
+# also create an empty .marksman.toml in the root folder of your project or initialize a repository (e.g. git init)
 
 # plug-chain "andreyorst/plug.kak" noload \
 plug "tom-huntington/simple-git-gutter.kak"
