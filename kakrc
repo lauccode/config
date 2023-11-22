@@ -241,7 +241,7 @@ eval %sh{ kak-tree-sitter -dks --session $kak_session }
 # install kak-tree-sitter with : 'cargo install kak-tree-sitter' and 'cargo install ktsctl'
 # 'kak-tree-sitter' needs a config.toml file in ~/.config/kak-tree-sitter. 
 #   Try copying the one in the repo GitHub
-# You need to run 'ktsctl -fci cpp' to install the cpp grammar. Without that, kak-tree-sitter doesn’t know how to handle cpp files.
+# You need to run 'ktsctl -fci cpp' to install the cpp grammar(+markdown). Without that, kak-tree-sitter doesn’t know how to handle cpp files.
 
 add-highlighter global/ wrap  # wrap line
 
