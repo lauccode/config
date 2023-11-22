@@ -65,6 +65,13 @@ hook global WinSetOption filetype=(rust|python|c|cpp) %{
 # args = ["server"]
 # also create an empty .marksman.toml in the root folder of your project or initialize a repository (e.g. git init)
 
+# Use the formatter dprint for markdown :
+# cargo install --locked dprint
+# dprint init (in project)
+hook global WinSetOption filetype=markdown %{
+    set window formatcmd 'dprint fmt'
+}
+
 # plug-chain "andreyorst/plug.kak" noload \
 plug "tom-huntington/simple-git-gutter.kak"
 
