@@ -236,7 +236,7 @@ hook global ModeChange ".*:insert" %{
 # Whenever a window switches to insert mode,
 # override its Default face to have a red background
 # black, red, green, yellow, blue, magenta, cyan, white, bright-black, bright-red, bright-green, bright-yellow bright-blue, bright-magenta, bright-cyan, bright-white
-hook global ModeChange .*:insert %{ set-face window Default default,bright-black}
+hook global ModeChange .*:insert %{ set-face window Default default,black}
 # Whenever a window leaves insert mode,
 # remove its override of the Default face
 hook global ModeChange .*:insert:.* %{ unset-face window Default }
