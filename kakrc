@@ -69,7 +69,8 @@ hook global WinSetOption filetype=(rust|python|c|cpp) %{
 # cargo install --locked dprint
 # dprint init (in project)
 hook global WinSetOption filetype=markdown %{
-    set window formatcmd 'dprint fmt'
+    # set window formatcmd 'dprint fmt %val{buffile}'  # old, not work
+    set-option buffer formatcmd "dprint fmt %val{buffile}"
 }
 
 # plug-chain "andreyorst/plug.kak" noload \
