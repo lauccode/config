@@ -52,7 +52,7 @@ plug "kak-lsp/kak-lsp" do %{
             #     mkdir -p ~/.config/kak-lsp
             #         cp -n kak-lsp.toml ~/.config/kak-lsp/
 }
-hook global WinSetOption filetype=(rust|python|c|cpp) %{
+hook global WinSetOption filetype=(rust|python|c|cpp|lua) %{
         lsp-enable-window
 }
 # Navigate in markdown :
