@@ -157,6 +157,7 @@ alias global bo! buffer-only-force
 map global user w ':w<ret>'   -docstring 'Write buffers'
 map global user q ':q<ret>'   -docstring 'Quit Kakoune'
 map global user d ':echo %sh{pwd}<ret>'   -docstring 'Get the path (d)irectory'
+map global user s ':set buffer filetype sh<ret>'   -docstring 'filetype sh'
 
 map global normal <F3> '|clang-format<ret>'  # use the pipe on selection
 # :set buffer filetype 'sh'  # to set file type of file
