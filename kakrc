@@ -114,6 +114,7 @@ plug "fsub/kakoune-mark"config %{    # clone yourself if mark.kak is not in dire
 ## COLORS ##
 
 # addhl global/ column '%val{cursor_column}' default,magenta
+# addhl global/ column '%val{cursor_column}' default,black
 addhl global/ line '%val{cursor_line}' default,black
 # colorscheme gruvbox-dark
 # colorscheme ef-winter
