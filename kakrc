@@ -99,7 +99,7 @@ plug "evanrelf/byline.kak" config %{  # x to expand more lines
 
 plug "fsub/kakoune-mark"config %{    # clone yourself if mark.kak is not in directory .config/kak/plugins/kakoune-mark/
     map global user a :mark-word<ret> -docstring 'Highlight word'
-    map global user A :mark-clear<ret> -docstring 'Unhighlight word'
+    map global user A :mark-clear<ret> -docstring 'Unhighlight words'
 }
 
 # DAP for cpp as in vscode
