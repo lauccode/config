@@ -187,6 +187,13 @@ map global object D '<a-semicolon>lsp-diagnostic-object<ret>' -docstring 'LSP er
 map global user h ':addhl buffer/ show-whitespaces<ret>' -docstring 'to Highlight whitespaces'
 map global user H ':rmhl buffer/show-whitespaces<ret>' -docstring 'to remove Highlight whitespaces'
 
+# Use ripgrep instead of grep
+# set-option global grepcmd 'rg -Hn --no-heading'
+alias global 'g' 'grep'
+set-option global grepcmd 'rg --column --smart-case --sort path
+define-command gn %{set-option global grepcmd 'rg --column --smart-case --sort path'} -docstring 'set-option grep normal'
+define-command ga %{set-option global grepcmd 'rg -u --column --smart-case --sort path'} -docstring 'set-option grep all'
+
 define-command -docstring "vsplit [/]: split tmux vertically" \
 vsplit -params .. -command-completion %{
         tmux-terminal-horizontal kak -c %val{session} -e "%arg{@}"
@@ -247,10 +254,6 @@ hook global ModeChange ".*:normal" %{
 hook global ModeChange ".*:insert" %{
     set-face global PrimaryCursor      red,red
 }
-
-# Use ripgrep instead of grep
-# set-option global grepcmd 'rg -Hn --no-heading'
-set-option global grepcmd 'rg --column --smart-case --sort path'
 
 eval %sh{ kak-tree-sitter -dks --session $kak_session }
 # install kak-tree-sitter with : 'cargo install kak-tree-sitter' and 'cargo install ktsctl'
