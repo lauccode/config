@@ -190,7 +190,7 @@ map global user H ':rmhl buffer/show-whitespaces<ret>' -docstring 'to remove Hig
 # Use ripgrep instead of grep
 # set-option global grepcmd 'rg -Hn --no-heading'
 alias global 'g' 'grep'
-set-option global grepcmd 'rg --column --smart-case --sort path
+set-option global grepcmd 'rg --column --smart-case --sort path'
 define-command gn %{set-option global grepcmd 'rg --column --smart-case --sort path'} -docstring 'set-option grep normal'
 define-command ga %{set-option global grepcmd 'rg -u --column --smart-case --sort path'} -docstring 'set-option grep all'
 
