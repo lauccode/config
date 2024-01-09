@@ -102,6 +102,9 @@ plug "fsub/kakoune-mark"config %{    # clone yourself if mark.kak is not in dire
     map global user A :mark-clear<ret> -docstring 'Unhighlight words'
 }
 
+plug "dracula/kakoune"
+# Add dracula.kak to your colors directory.
+
 # DAP for cpp as in vscode
 # to be found and tested ...
 # https://github.com/memsharded/hello
