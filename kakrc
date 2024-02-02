@@ -110,6 +110,30 @@ plug "dracula/kakoune"
 # https://github.com/memsharded/hello
 # cmake . -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=1
 
+# TO USE BROOT configure ~/.conf/broot/verbs.hjson
+# {
+#     invocation: edit
+#     shortcut: e
+#     key: ctrl-e
+#     apply_to: text_file
+#     execution: "$EDITOR {file} +{line}"
+#     leave_broot: false
+# }
+# {
+#     invocation : "edit"
+#     key : "enter"
+#     execution : "$EDITOR {file} +{line}"
+#     leave_broot: false
+# }
+# install connect.kak with 'git clone + make install'
+plug "kakounedotcom/prelude.kak" config %{
+require-module prelude
+}
+plug "kakounedotcom/connect.kak" config %{
+require-module connect
+}
+# use :connect-repl broot
+
 # ____  ____  ____  ____  __  __ _   ___ 
 #/ ___)(  __)(_  _)(_  _)(  )(  ( \ / __)
 #\___ \ ) _)   )(    )(   )( /    /( (_ \
@@ -139,17 +163,33 @@ hook global ModeChange .*:insert:.* %{ unset-face window Default }
 # ! xsel --output --clipboard <ret>
 
 # install bat with 'cargo install --locked bat'
-# fzf and rzf with popup
+
+# fzf and rzf with popup  (TO BE REMOVED)
 #     --bind 'enter:become(echo {1} {2})', prob is that kak do ":e 'rfzk 13'" rather that ":e rfzk 13"
 # map global user -docstring 'popup fzf (NO TMUX)' F ':popup --title open --kak-script %{edit %opt{popup_output}} -- fzf --preview "bat --color=always {}" --preview-window "~3"<ret>'
 # map global user -docstring 'popup rzf (NO TMUX)' G ':popup --title open --kak-script %{edit %opt{popup_output}} -- fr<ret>'
 
-# fzf and frf with nothing
+# fzf and frf with nothing (TO BE REMOVED)
 # map global user -docstring 'open fuzzy finder (TMUX)' f ': edit %sh{fzf-tmux --color=16 --preview "bat --theme=Nord --style=numbers,changes --color always {}" -}<ret>'
 # The script here for fzf+ripgrep need to use fzf-tmux rather than only fzf
 # map global user -docstring 'open fuzzy finder (TMUX)' g ': edit %sh{frf -}<ret>'
+
+# USE fzf with connect+broot+fzf(+ripgrep)
 map global user -docstring 'open FZF fuzzy file finder' f ':@ ffzf<ret>'
+# #!/usr/bin/env bash
+# fzf --preview 'bat --color=always {}' --preview-window '~3' \
+#     --bind 'enter:become($EDITOR {1})'
 map global user -docstring 'open FZF fuzzy word finder' g ':@ rfzf<ret>'
+# #!/usr/bin/env bash
+# RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
+# INITIAL_QUERY="${*:-}"
+# : | fzf --ansi --disabled --query "$INITIAL_QUERY" \
+#     --bind "start:reload:$RG_PREFIX {q}" \
+#     --bind "change:reload:sleep 0.1; $RG_PREFIX {q} || true" \
+#     --delimiter : \
+#     --preview 'bat --color=always {1} --highlight-line {2}' \
+#     --preview-window 'up,60%,border-bottom,+{2}+3/3,~3' \
+#     --bind 'enter:become($EDITOR {1} +{2})'
 
 map global user P '!xsel --output --clipboard<ret>' -docstring 'Paste before' # Paste before
 map global user p '<a-!>xsel --output --clipboard<ret>' -docstring 'Paste after' # Paste after
@@ -269,28 +309,6 @@ eval %sh{ kak-tree-sitter -dks --session $kak_session }
 
 add-highlighter global/ wrap  # wrap line
 
-# TO USE BROOT configure ~/.conf/broot/verbs.hjson
-# {
-#     invocation: edit
-#     shortcut: e
-#     key: ctrl-e
-#     apply_to: text_file
-#     execution: "$EDITOR {file} +{line}"
-#     leave_broot: false
-# }
-# {
-#     invocation : "edit"
-#     key : "enter"
-#     execution : "$EDITOR {file} +{line}"
-#     leave_broot: false
-# }
-plug "kakounedotcom/prelude.kak" config %{
-require-module prelude
-}
-plug "kakounedotcom/connect.kak" config %{
-require-module connect
-}
-# use :connect-repl broot
 ######### TBU ######################################################
 
 # Highlight the word under the cursor
