@@ -266,6 +266,21 @@ eval %sh{ kak-tree-sitter -dks --session $kak_session }
 
 add-highlighter global/ wrap  # wrap line
 
+# TO USE BROOT configure ~/.conf/broot/verbs.hjson
+# {
+#     invocation: edit
+#     shortcut: e
+#     key: ctrl-e
+#     apply_to: text_file
+#     execution: "$EDITOR {file} +{line}"
+#     leave_broot: false
+# }
+# {
+# invocation : "edit"
+# key : "enter"
+# execution : "$EDITOR {file}"
+# }
+
 ######### TBU ######################################################
 
 # Highlight the word under the cursor
