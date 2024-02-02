@@ -276,9 +276,9 @@ add-highlighter global/ wrap  # wrap line
 #     leave_broot: false
 # }
 # {
-# invocation : "edit"
-# key : "enter"
-# execution : "$EDITOR {file}"
+#     invocation : "edit"
+#     key : "enter"
+#     execution : "$EDITOR {file} +{line}"
 # }
 
 ######### TBU ######################################################
