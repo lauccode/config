@@ -287,7 +287,7 @@ require-module prelude
 plug "kakounedotcom/connect.kak" config %{
 require-module connect
 }
-
+# use :connect-repl broot
 ######### TBU ######################################################
 
 # Highlight the word under the cursor
