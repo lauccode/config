@@ -83,8 +83,8 @@ plug "gustavo-hms/luar" %{
         require-module peneira
     }
 }
-plug "enricozb/popup.kak"
-evaluate-commands %sh{kak-popup init}
+# plug "enricozb/popup.kak"
+# evaluate-commands %sh{kak-popup init}
 # Install the binary with : 'cargo install kak-popup'
 # popup --title open --kak-script %{edit %opt{popup_output}} -- fzf --preview 'bat --color=always {}' --preview-window '~3'
 # use the scritp with fzf + ripgrep + bat to have grep with color preview
@@ -141,13 +141,15 @@ hook global ModeChange .*:insert:.* %{ unset-face window Default }
 # install bat with 'cargo install --locked bat'
 # fzf and rzf with popup
 #     --bind 'enter:become(echo {1} {2})', prob is that kak do ":e 'rfzk 13'" rather that ":e rfzk 13"
-map global user -docstring 'popup fzf (NO TMUX)' F ':popup --title open --kak-script %{edit %opt{popup_output}} -- fzf --preview "bat --color=always {}" --preview-window "~3"<ret>'
-map global user -docstring 'popup rzf (NO TMUX)' G ':popup --title open --kak-script %{edit %opt{popup_output}} -- fr<ret>'
+# map global user -docstring 'popup fzf (NO TMUX)' F ':popup --title open --kak-script %{edit %opt{popup_output}} -- fzf --preview "bat --color=always {}" --preview-window "~3"<ret>'
+# map global user -docstring 'popup rzf (NO TMUX)' G ':popup --title open --kak-script %{edit %opt{popup_output}} -- fr<ret>'
 
 # fzf and frf with nothing
-map global user -docstring 'open fuzzy finder (TMUX)' f ': edit %sh{fzf-tmux --color=16 --preview "bat --theme=Nord --style=numbers,changes --color always {}" -}<ret>'
+# map global user -docstring 'open fuzzy finder (TMUX)' f ': edit %sh{fzf-tmux --color=16 --preview "bat --theme=Nord --style=numbers,changes --color always {}" -}<ret>'
 # The script here for fzf+ripgrep need to use fzf-tmux rather than only fzf
-map global user -docstring 'open fuzzy finder (TMUX)' g ': edit %sh{frf -}<ret>'
+# map global user -docstring 'open fuzzy finder (TMUX)' g ': edit %sh{frf -}<ret>'
+map global user -docstring 'open FZF fuzzy file finder' f ':@ ffzf<ret>'
+map global user -docstring 'open FZF fuzzy word finder' g ':@ rfzf<ret>'
 
 map global user P '!xsel --output --clipboard<ret>' -docstring 'Paste before' # Paste before
 map global user p '<a-!>xsel --output --clipboard<ret>' -docstring 'Paste after' # Paste after
