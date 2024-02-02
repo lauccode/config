@@ -281,6 +281,12 @@ add-highlighter global/ wrap  # wrap line
 #     execution : "$EDITOR {file} +{line}"
 #     leave_broot: false
 # }
+plug "kakounedotcom/prelude.kak" config %{
+require-module prelude
+}
+plug "kakounedotcom/connect.kak" config %{
+require-module connect
+}
 
 ######### TBU ######################################################
 
