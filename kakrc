@@ -134,6 +134,8 @@ require-module connect
 }
 # use :connect-repl broot
 
+plug "raiguard/kak-live-grep.git"
+
 # ____  ____  ____  ____  __  __ _   ___ 
 #/ ___)(  __)(_  _)(_  _)(  )(  ( \ / __)
 #\___ \ ) _)   )(    )(   )( /    /( (_ \
