@@ -147,7 +147,7 @@ plug "raiguard/kak-live-grep.git"
 addhl global/ line '%val{cursor_line}' default,black
 # colorscheme gruvbox-dark
 # colorscheme ef-winter
-colorscheme mygruvbox
+# colorscheme mygruvbox
 
 # Whenever a window switches to insert mode,
 # override its Default face to have a red background
