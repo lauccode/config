@@ -177,11 +177,11 @@ hook global ModeChange .*:insert:.* %{ unset-face window Default }
 # map global user -docstring 'open fuzzy finder (TMUX)' g ': edit %sh{frf -}<ret>'
 
 # USE fzf with connect+broot+fzf(+ripgrep)
-map global user -docstring 'open FZF fuzzy file finder' f ':@ ffzf;tmux-terminal-zoom 1<ret>'
+map global user -docstring 'open FZF fuzzy file finder' f ':@ ffzf;tmux-terminal-zoom 1<ret>'  # need connect.kak
 # #!/usr/bin/env bash
 # fzf --preview 'bat --color=always {}' --preview-window '~3' \
 #     --bind 'enter:become($EDITOR {1})'
-map global user -docstring 'open FZF fuzzy word finder' g ':@ rfzf;tmux-terminal-zoom 1<ret>'
+map global user -docstring 'open FZF fuzzy word finder' g ':@ rfzf;tmux-terminal-zoom 1<ret>'  # need connect.kak
 # #!/usr/bin/env bash
 # RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
 # INITIAL_QUERY="${*:-}"
@@ -192,6 +192,8 @@ map global user -docstring 'open FZF fuzzy word finder' g ':@ rfzf;tmux-terminal
 #     --preview 'bat --color=always {1} --highlight-line {2}' \
 #     --preview-window 'up,60%,border-bottom,+{2}+3/3,~3' \
 #     --bind 'enter:become($EDITOR {1} +{2})'
+
+map global user -docstring 'Zoom/Unzoom tmux pane' z ':tmux-terminal-zoom 1<ret>'
 
 map global user P '!xsel --output --clipboard<ret>' -docstring 'Paste before' # Paste before
 map global user p '<a-!>xsel --output --clipboard<ret>' -docstring 'Paste after' # Paste after
