@@ -177,11 +177,11 @@ hook global ModeChange .*:insert:.* %{ unset-face window Default }
 # map global user -docstring 'open fuzzy finder (TMUX)' g ': edit %sh{frf -}<ret>'
 
 # USE fzf with connect+broot+fzf(+ripgrep)
-map global user -docstring 'open FZF fuzzy file finder' f ':@ ffzf<ret>'
+map global user -docstring 'open FZF fuzzy file finder' f ':@ ffzf;tmux-terminal-zoom 1<ret>'
 # #!/usr/bin/env bash
 # fzf --preview 'bat --color=always {}' --preview-window '~3' \
 #     --bind 'enter:become($EDITOR {1})'
-map global user -docstring 'open FZF fuzzy word finder' g ':@ rfzf<ret>'
+map global user -docstring 'open FZF fuzzy word finder' g ':@ rfzf;tmux-terminal-zoom 1<ret>'
 # #!/usr/bin/env bash
 # RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
 # INITIAL_QUERY="${*:-}"
@@ -342,6 +342,15 @@ select-or-add-cursor %{ execute-keys -save-regs '' %sh{
                             echo "*<s-n>"
                                 fi
 }}
+
+define-command tmux-terminal-zoom -params 1.. -docstring '
+tmux-terminal-zoom <program> [<arguments>]: zoom tmux pane
+The current pane is zoomed
+The program passed as argument will be executed in the new terminal' \
+%{
+    tmux-terminal-impl 'resize-pane -Z' %arg{@}
+}
+complete-command tmux-terminal-zoom shell
 
 #  ____  ____  ____    __    ___ 
 # (_  _)(  _ \( ___)  /__\  / __)
