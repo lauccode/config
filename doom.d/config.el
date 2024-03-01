@@ -43,6 +43,13 @@
 ;; to put in .bashrc with mobaXterm to have color theme 
 ;; export TERM=xterm-256color
 
+ ;;  _______ _    _ ______ __  __ ______
+ ;; |__   __| |  | |  ____|  \/  |  ____|
+ ;;    | |  | |__| | |__  | \  / | |__
+ ;;    | |  |  __  |  __| | |\/| |  __|
+ ;;    | |  | |  | | |____| |  | | |____
+ ;;    |_|  |_|  |_|______|_|  |_|______|
+
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
@@ -65,6 +72,12 @@
 ;; for selection
 ;; (region :background "color-201" :weight bold)))
 
+;;   ____  _____   _____
+ ;;  / __ \|  __ \ / ____|
+ ;; | |  | | |__) | |  __
+ ;; | |  | |  _  /| | |_ |
+ ;; | |__| | | \ \| |__| |
+ ;;  \____/|_|  \_\\_____|
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -74,6 +87,13 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 ;; (setq display-line-numbers-type 'relative)
 (blink-cursor-mode 1)
+
+;; (setq plantuml-default-exec-mode 'server)
+;; (setq plantuml-server-url "http://...")
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((plantuml . t))) ; this line activates plantuml
+(setq org-plantuml-jar-path (expand-file-name "/home/name/.emacs.d/.local/etc/plantuml.jar"))
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
@@ -96,6 +116,13 @@
 ;;   :custom
 ;;   (lsp-treemacs-sync-mode 1))
 
+ ;;  _  __________     ______ _____ _   _ _____ _____ _   _  _____
+ ;; | |/ /  ____\ \   / /  _ \_   _| \ | |  __ \_   _| \ | |/ ____|
+ ;; | ' /| |__   \ \_/ /| |_) || | |  \| | |  | || | |  \| | |  __
+ ;; |  < |  __|   \   / |  _ < | | | . ` | |  | || | | . ` | | |_ |
+ ;; | . \| |____   | |  | |_) || |_| |\  | |__| || |_| |\  | |__| |
+ ;; |_|\_\______|  |_|  |____/_____|_| \_|_____/_____|_| \_|\_____|
+
 (setq find-name-arg "-iname")
 (global-set-key (kbd "M-p") 'find-name-dired)
 ;; (global-set-key (kbd "M-*") 'rgrep)
@@ -112,6 +139,17 @@
   (define-key evil-motion-state-map (kbd "M-j") #'evil-window-down)
   (define-key evil-motion-state-map (kbd "M-k") #'evil-window-up)
   (define-key evil-motion-state-map (kbd "M-l") #'evil-window-right)
+;; (with-eval-after-load 'evil-maps
+;;    (define-key evil-normal-state-map (kbd "f") 'evilem-motion-find-char)
+;;    (define-key evil-normal-state-map (kbd "F") 'evilem-motion-find-char-backward))
+
+(menu-bar-mode 1)
+(tool-bar-mode 1)
+(setq evil-escape-key-sequence ",,")
+  ;; Allow to escape from the visual state as from insert.
+  (delete 'visual evil-escape-excluded-states)
+(set-default 'truncate-lines nil)
+(setq global-whitespace-mode t)
 
 ;; Shortcuts for GDB
 (global-set-key (kbd "<f7>") 'gud-break)
@@ -121,9 +159,112 @@
 (global-set-key (kbd "<f10>") 'gud-next)
 (global-set-key (kbd "<f9>") 'gud-step)
 
-;; (with-eval-after-load 'evil-maps
-;;    (define-key evil-normal-state-map (kbd "f") 'evilem-motion-find-char)
-;;    (define-key evil-normal-state-map (kbd "F") 'evilem-motion-find-char-backward))
+;; clever expand from DOOM emacs developer
+(map!
+ (:map 'override
+   :v "v" #'er/expand-region
+   :v "V" #'er/contract-region))
+
+;; next page of which-key => <C-h>  (all key in vertico)
+
+(map! :n  "C-a"   #'evil-numbers/inc-at-pt
+      :v  "C-a"   #'evil-numbers/inc-at-pt-incremental
+      :v  "C-S-a" #'evil-numbers/inc-at-pt
+      :n  "C-x"   #'evil-numbers/dec-at-pt
+      :v  "C-x"   #'evil-numbers/dec-at-pt-incremental)
+
+ ;;  __  __  ____  _    _  _____ ______
+ ;; |  \/  |/ __ \| |  | |/ ____|  ____|
+ ;; | \  / | |  | | |  | | (___ | |__
+ ;; | |\/| | |  | | |  | |\___ \|  __|
+ ;; | |  | | |__| | |__| |____) | |____
+ ;; |_|  |_|\____/ \____/|_____/|______|
+
+;; scroll one line at a time (less "jumpy" than defaults)
+    (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
+    (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
+    (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+    (setq scroll-step 1) ;; keyboard scroll one line at a time
+;; xterm mouse support
+;; (require 'mouse)
+;; (xterm-mouse-mode t)
+(global-set-key (kbd "M-m") 'xterm-mouse-mode)
+
+ ;;  _       _____ _____
+ ;; | |     / ____|  __ \
+ ;; | |    | (___ | |__) |
+ ;; | |     \___ \|  ___/
+ ;; | |____ ____) | |
+ ;; |______|_____/|_|
+
+(after! lsp-clangd (set-lsp-priority! 'clangd 2))
+;; Si besoin
+(setq lsp-clients-clangd-args '("--log=verbose" "--query-driver=/usr/bin/c++" "--header-insertion=iwyu" "--background-index"))
+;; option en plus
+(after! lsp-ui
+  (setq lsp-ui-doc-enable t)
+  (setq lsp-ui-doc-show-with-mouse t))
+
+ ;;  _____  _____   ____       _ ______ _____ _______
+ ;; |  __ \|  __ \ / __ \     | |  ____/ ____|__   __|
+ ;; | |__) | |__) | |  | |    | | |__ | |       | |
+ ;; |  ___/|  _  /| |  | |_   | |  __|| |       | |
+ ;; | |    | | \ \| |__| | |__| | |___| |____   | |
+ ;; |_|    |_|  \_\\____/ \____/|______\_____|  |_|
+
+;; The default is to not sort files:
+;; (setq projectile-sort-order 'default)
+;; To sort files by recently opened:
+(setq projectile-sort-order 'recentf)
+;; To sort files by recently active buffers and then recently opened files:
+;; (setq projectile-sort-order 'recently-active)
+;; To sort files by modification time (mtime):
+;; (setq projectile-sort-order 'modification-time)
+;; To sort files by access time (atime):
+;; (setq projectile-sort-order 'access-time)
+
+;; To force the use of native indexing in all operating systems:
+(setq projectile-indexing-method 'native)
+;; To force the use of hybrid indexing in all operating systems:
+;; (setq projectile-indexing-method 'hybrid)
+;; To force the use of alien indexing in all operating systems: (native)
+;; (setq projectile-indexing-method 'alien)
+
+;;(require 'bitbake)
+;; (add-to-list 'auto-mode-alist '("\\.bbappend\\'" . bitbake-mode))
+;; (add-to-list 'auto-mode-alist '("\\.bb\\'" . bitbake-mode))
+;; (add-to-list 'auto-mode-alist '("\\.inc$" . bitebake-mode))
+;; (add-to-list 'auto-mode-alist '("\\.bbclass$" . bitebake-mode))
+;; (add-to-list 'auto-mode-alist '("\\.conf$" . bitebake-mode))
+;; (setq auto-mode-alist (cons '("\\.bb$" . bitbake-mode) auto-mode-alist))
+;; (setq auto-mode-alist (cons '("\\.inc$" . bitbake-mode) auto-mode-alist))
+;; (setq auto-mode-alist (cons '("\\.bbappend$" . bitbake-mode) auto-mode-alist))
+;; (setq auto-mode-alist (cons '("\\.bbclass$" . bitbake-mode) auto-mode-alist))
+;; (setq auto-mode-alist (cons '("\\.conf$" . bitbake-mode) auto-mode-alist))
+
+;; tree-sitter
+(use-package! tree-sitter
+  :config
+  (require 'tree-sitter-langs)
+  (global-tree-sitter-mode)
+  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
+
+;; finer undo
+(setq evil-want-fine-undo t)
+
+;; avoid "async shell command" buffer with run-love-game
+;; (add-to-list 'display-buffer-alist '("^*Async Shell Command*" . (display-buffer-no-window)))
+;; OR
+(set 'async-shell-command-display-buffer nil)
+
+;; emacsclient without new workspace :
+;; emacsclient -c -e "(+workspace:delete)"
+;; OR
+(after! persp-mode
+  (setq persp-emacsclient-init-frame-behaviour-override "main")
+)
+
+(beacon-mode 1)
 
 
 ;; to have horizontal bar on cursor
@@ -175,24 +316,7 @@
 ;;                                 "--completion-style=detailed"
 ;;                                 "--header-insertion=never"
 ;;                                 "--header-insertion-decorators=0"))
-(after! lsp-clangd (set-lsp-priority! 'clangd 2))
-;; option en plus
-(after! lsp-ui
-  (setq lsp-ui-doc-enable t)
-  (setq lsp-ui-doc-show-with-mouse t))
-;; Si besoin
-(setq lsp-clients-clangd-args '("--log=verbose" "--query-driver=/usr/bin/c++" "--header-insertion=iwyu" "--background-index"))
 
-(menu-bar-mode 1)
-(tool-bar-mode 1)
-
-(setq evil-escape-key-sequence ",,")
-  ;; Allow to escape from the visual state as from insert.
-  (delete 'visual evil-escape-excluded-states)
-
-(set-default 'truncate-lines nil)
-
-(setq global-whitespace-mode t)
 
 (use-package centered-cursor-mode
   :demand
@@ -205,12 +329,6 @@
 ;;   (toggle-frame-fullscreen))
 ;; Maximize first frame
 ;; (set-frame-parameter nil 'fullscreen 'maximized)
-
-;; scroll one line at a time (less "jumpy" than defaults)
-    (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
-    (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
-    (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
-    (setq scroll-step 1) ;; keyboard scroll one line at a time
 
 ;; (setq fancy-splash-image "~/.doom.d/black-hole.png")
 ;; (setq fancy-splash-image "~/.doom.d/cute-doom.png")
@@ -241,6 +359,13 @@
 
 ;; gdb /docker:container_name:/path/to/bin -ex "set substitute-path /path/to/local/repo /path/to/docker/repo" -ex "handle SIGPIPE nostop" -f
 ;; gdb /docker:container_name:/path/to/bin -ex "set substitute-path /path/to/local/repo /path/to/docker/repo" -ex "handle SIGPIPE nostop"
+
+ ;;  _____  ______ ____  _    _  _____
+ ;; |  __ \|  ____|  _ \| |  | |/ ____|
+ ;; | |  | | |__  | |_) | |  | | |  __
+ ;; | |  | |  __| |  _ <| |  | | | |_ |
+ ;; | |__| | |____| |_) | |__| | |__| |
+ ;; |_____/|______|____/ \____/ \_____|
 
 ;; to debug with DAP-MODE
 (setq dap-auto-configure-mode t)
@@ -309,24 +434,6 @@
 ;;   (global-set-key (kbd "<f12>") 'gud-print)
 ;;   (global-set-key (kbd "<S-f12>") 'gud-watch)
 
-
-;; xterm mouse support
-;; (require 'mouse)
-;; (xterm-mouse-mode t)
-(global-set-key (kbd "M-m") 'xterm-mouse-mode)
-
-;;(require 'bitbake)
-;; (add-to-list 'auto-mode-alist '("\\.bbappend\\'" . bitbake-mode))
-;; (add-to-list 'auto-mode-alist '("\\.bb\\'" . bitbake-mode))
-;; (add-to-list 'auto-mode-alist '("\\.inc$" . bitebake-mode))
-;; (add-to-list 'auto-mode-alist '("\\.bbclass$" . bitebake-mode))
-;; (add-to-list 'auto-mode-alist '("\\.conf$" . bitebake-mode))
-;; (setq auto-mode-alist (cons '("\\.bb$" . bitbake-mode) auto-mode-alist))
-;; (setq auto-mode-alist (cons '("\\.inc$" . bitbake-mode) auto-mode-alist))
-;; (setq auto-mode-alist (cons '("\\.bbappend$" . bitbake-mode) auto-mode-alist))
-;; (setq auto-mode-alist (cons '("\\.bbclass$" . bitbake-mode) auto-mode-alist))
-;; (setq auto-mode-alist (cons '("\\.conf$" . bitbake-mode) auto-mode-alist))
-
 ;; Merge conflict with magit :
 ;; S,g,g 	: open git status
 ;; e 	      : on unmerge file (so, with conflicts), to open ediff
@@ -343,65 +450,6 @@
 ;; i	: infos
 
 
-;; The default is to not sort files:
-;; (setq projectile-sort-order 'default)
-;; To sort files by recently opened:
-(setq projectile-sort-order 'recentf)
-;; To sort files by recently active buffers and then recently opened files:
-;; (setq projectile-sort-order 'recently-active)
-;; To sort files by modification time (mtime):
-;; (setq projectile-sort-order 'modification-time)
-;; To sort files by access time (atime):
-;; (setq projectile-sort-order 'access-time)
 
-;; To force the use of native indexing in all operating systems:
-(setq projectile-indexing-method 'native)
-;; To force the use of hybrid indexing in all operating systems:
-;; (setq projectile-indexing-method 'hybrid)
-;; To force the use of alien indexing in all operating systems: (native)
-;; (setq projectile-indexing-method 'alien)
 
-;; tree-sitter
-(use-package! tree-sitter
-  :config
-  (require 'tree-sitter-langs)
-  (global-tree-sitter-mode)
-  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
 
-;; finer undo
-(setq evil-want-fine-undo t)
-
-;; clever expand from DOOM emacs developer
-(map!
- (:map 'override
-   :v "v" #'er/expand-region
-   :v "V" #'er/contract-region))
-
-;; next page of which-key => <C-h>  (all key in vertico)
-
-(map! :n  "C-a"   #'evil-numbers/inc-at-pt
-      :v  "C-a"   #'evil-numbers/inc-at-pt-incremental
-      :v  "C-S-a" #'evil-numbers/inc-at-pt
-      :n  "C-x"   #'evil-numbers/dec-at-pt
-      :v  "C-x"   #'evil-numbers/dec-at-pt-incremental)
-
-;; avoid "async shell command" buffer with run-love-game
-;; (add-to-list 'display-buffer-alist '("^*Async Shell Command*" . (display-buffer-no-window)))
-;; OR
-(set 'async-shell-command-display-buffer nil)
-
-;; emacsclient without new workspace :
-;; emacsclient -c -e "(+workspace:delete)"
-;; OR
-(after! persp-mode
-  (setq persp-emacsclient-init-frame-behaviour-override "main")
-)
-
-(beacon-mode 1)
-
-;; (setq plantuml-default-exec-mode 'server)
-;; (setq plantuml-server-url "http://...")
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((plantuml . t))) ; this line activates plantuml
-(setq org-plantuml-jar-path (expand-file-name "/home/name/.emacs.d/.local/etc/plantuml.jar"))
