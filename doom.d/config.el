@@ -32,6 +32,8 @@
 (add-to-list 'default-frame-alist '(line-spacing . 0.2))
 
 (setq confirm-kill-emacs nil)
+(toggle-frame-maximized )
+;; (toggle-frame-fullscreen)
 
 ;; (add-to-list 'default-frame-alist '(font . "Monoid 9"))  ;; OK
 ;; (add-to-list 'default-frame-alist '(line-spacing . 0.2))  ;; OK
