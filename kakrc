@@ -181,7 +181,8 @@ map global user -docstring 'open FZF fuzzy file finder' f ':@ ffzf;tmux-terminal
 # #!/usr/bin/env bash
 # fzf --preview 'bat --color=always {}' --preview-window '~3' \
 #     --bind 'enter:become($EDITOR {1})'
-map global user -docstring 'open FZF fuzzy word finder' g ':@ rfzf;tmux-terminal-zoom 1<ret>'  # need connect.kak
+#map global user -docstring 'open FZF fuzzy word finder' g ':@ rfzf;tmux-terminal-zoom 1<ret>'  # need connect.kak
+map global user -docstring 'open FZF fuzzy word finder' g ':@ rfzf %sh{ echo "$kak_selection" };tmux-terminal-zoom 1<ret>'  # need connect.kak
 # #!/usr/bin/env bash
 # RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
 # INITIAL_QUERY="${*:-}"
