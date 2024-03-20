@@ -136,6 +136,8 @@ require-module connect
 
 plug "raiguard/kak-live-grep.git"
 
+plug "yveoch/kakoune-cscope.git"
+
 # ____  ____  ____  ____  __  __ _   ___ 
 #/ ___)(  __)(_  _)(_  _)(  )(  ( \ / __)
 #\___ \ ) _)   )(    )(   )( /    /( (_ \
@@ -239,6 +241,8 @@ map global object D '<a-semicolon>lsp-diagnostic-object<ret>' -docstring 'LSP er
 
 map global user h ':addhl buffer/ show-whitespaces<ret>' -docstring 'to Highlight whitespaces'
 map global user H ':rmhl buffer/show-whitespaces<ret>' -docstring 'to remove Highlight whitespaces'
+
+map global user d ':cscope ' -docstring 'Find tag with cscope'  # Pour cscope il faut surligner le mot à chercher
 
 # Use ripgrep instead of grep
 # set-option global grepcmd 'rg -Hn --no-heading'
