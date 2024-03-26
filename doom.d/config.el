@@ -207,6 +207,11 @@
   (setq lsp-ui-doc-enable t)
   (setq lsp-ui-doc-show-with-mouse t))
 
+;; CSCOPE
+;; (require 'xcscope)
+;; (cscope-setup)
+;; (setq cscope-do-not-update-database t) ;; (not work ?)
+
  ;;  _____  _____   ____       _ ______ _____ _______
  ;; |  __ \|  __ \ / __ \     | |  ____/ ____|__   __|
  ;; | |__) | |__) | |  | |    | | |__ | |       | |
