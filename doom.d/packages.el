@@ -65,5 +65,7 @@
 (package! moe-theme)
 (package! ox-gfm) ;; good export org table to markdown (org-gfm-export-to-markdown)
 (package! highlight)
+;; (package! xcscope)
+
 
 
