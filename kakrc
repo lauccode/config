@@ -219,7 +219,7 @@ alias global bo! buffer-only-force
 map global user w ':w<ret>'   -docstring 'Write buffers'
 map global user q ':q<ret>'   -docstring 'Quit Kakoune'
 map global user d ':echo %sh{pwd}<ret>'   -docstring 'Get the path (d)irectory'
-map global user s ':set buffer filetype sh<ret>'   -docstring 'filetype sh'
+# map global user s ':set buffer filetype sh<ret>'   -docstring 'filetype sh'
 map global user -docstring 'Open broot' t ':@ broot<ret>'
 define-command lg %{@ lazygit;tmux-terminal-zoom 1} -docstring 'Open lazygit'
 
@@ -242,7 +242,9 @@ map global object D '<a-semicolon>lsp-diagnostic-object<ret>' -docstring 'LSP er
 map global user h ':addhl buffer/ show-whitespaces<ret>' -docstring 'to Highlight whitespaces'
 map global user H ':rmhl buffer/show-whitespaces<ret>' -docstring 'to remove Highlight whitespaces'
 
-map global user d ':cscope ' -docstring 'Find tag with cscope'  # Pour cscope il faut surligner le mot à chercher
+map global user d ':cscope 1<ret>' -docstring 'Find definition with cscope'  # Pour cscope il faut surligner le mot à chercher
+map global user D ':cscope ' -docstring 'Choose with cscope'  # Pour cscope il faut surligner le mot à chercher
+map global user s ':cscope 0<ret>' -docstring 'Find definition with cscope'  # Pour cscope il faut surligner le mot à chercher
 
 # Use ripgrep instead of grep
 # set-option global grepcmd 'rg -Hn --no-heading'
