@@ -244,7 +244,7 @@ map global user H ':rmhl buffer/show-whitespaces<ret>' -docstring 'to remove Hig
 
 map global user d ':cscope 1<ret>' -docstring 'Find definition with cscope'  # Pour cscope il faut surligner le mot à chercher
 map global user D ':cscope ' -docstring 'Choose with cscope'  # Pour cscope il faut surligner le mot à chercher
-map global user s ':cscope 0<ret>' -docstring 'Find definition with cscope'  # Pour cscope il faut surligner le mot à chercher
+map global user s ':cscope 0<ret>' -docstring 'Find symbol with cscope'  # Pour cscope il faut surligner le mot à chercher
 
 # Use ripgrep instead of grep
 # set-option global grepcmd 'rg -Hn --no-heading'
