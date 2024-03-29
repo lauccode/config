@@ -266,6 +266,8 @@ map global user = ':tmux-terminal-vertical kak -c %val{session}<ret>' -docstring
 
 map global user n ':tmux-repl-window kak -c %val{session}<ret>' -docstring 'New tmux pane with kak'
 
+map global user i '<a-i>w' -docstring 'Select word'
+
 # Remove delete or change selection in yank buffer 
 map global normal c \"_c
 map global normal d \"_d
