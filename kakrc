@@ -102,7 +102,7 @@ plug "fsub/kakoune-mark"config %{    # clone yourself if mark.kak is not in dire
     map global user A :mark-clear<ret> -docstring 'Unhighlight words'
 }
 
-plug "dracula/kakoune"
+# plug "dracula/kakoune"
 # Add dracula.kak to your colors directory.
 
 # DAP for cpp as in vscode
@@ -318,11 +318,14 @@ hook global ModeChange ".*:insert" %{
     set-face global PrimaryCursor      red,red
 }
 
-eval %sh{ kak-tree-sitter -dks --session $kak_session }
+eval %sh{ kak-tree-sitter -dks --init $kak_session }
 # install kak-tree-sitter with : 'cargo install kak-tree-sitter' and 'cargo install ktsctl'
 # 'kak-tree-sitter' needs a config.toml file in ~/.config/kak-tree-sitter. 
 #   Try copying the one in the repo GitHub
 # You need to run 'ktsctl -fci cpp' to install the cpp grammar(+markdown). Without that, kak-tree-sitter doesn’t know how to handle cpp files.
+# colorscheme catppuccin_macchiato
+colorscheme night-owl
+
 
 add-highlighter global/ wrap  # wrap line
 
