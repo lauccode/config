@@ -248,7 +248,7 @@ map global user s ':cscope 0<ret>' -docstring 'Find symbol with cscope'  # Pour 
 
 # Use ripgrep instead of grep
 # set-option global grepcmd 'rg -Hn --no-heading'
-alias global 'g' 'grep'
+# alias global 'g' 'grep'
 set-option global grepcmd 'rg --column --smart-case --sort path'
 define-command gn %{set-option global grepcmd 'rg --column --smart-case --sort path'} -docstring 'set-option grep normal'
 define-command ga %{set-option global grepcmd 'rg -u --column --smart-case --sort path'} -docstring 'set-option grep all'
@@ -322,7 +322,7 @@ eval %sh{ kak-tree-sitter -dks --init $kak_session }
 # install kak-tree-sitter with : 'cargo install kak-tree-sitter' and 'cargo install ktsctl'
 # 'kak-tree-sitter' needs a config.toml file in ~/.config/kak-tree-sitter. 
 #   Try copying the one in the repo GitHub
-# You need to run 'ktsctl -fci cpp' to install the cpp grammar(+markdown). Without that, kak-tree-sitter doesn’t know how to handle cpp files.
+# You need to run 'ktsctl sync cpp' to install the cpp grammar(+markdown). Without that, kak-tree-sitter doesn’t know how to handle cpp files.
 # colorscheme catppuccin_macchiato
 colorscheme night-owl
 
