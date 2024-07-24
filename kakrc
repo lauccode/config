@@ -135,6 +135,7 @@ require-module connect
 # use :connect-repl broot
 
 plug "raiguard/kak-live-grep.git"
+plug "jtrv/grep-write.kak"
 
 plug "yveoch/kakoune-cscope.git"
 
