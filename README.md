@@ -14,6 +14,8 @@ You can then open another terminal window and connect to that server by running:
 Connect to existing kakoune session :  
 `kak -c <session number>`  
 
+Use `:kill` in kak to kill the server in use.  
+
 ### Vertical block selection
 [s-c] and [a+s-C] are the way to go for a similar to block selection functionality
 #### All the file
