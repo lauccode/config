@@ -171,3 +171,8 @@ uncompress 	tar xvf <name>.tar
 compress 	tar cfv backup <path/file1> <path/file2>  
 uncompress 	tar xf backup  
 list of file	tar tvf backup
+
+## ripgrep
+-i		case insensitive		
+-u		unrestricted
+-F 		fixed string
