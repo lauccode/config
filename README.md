@@ -173,6 +173,6 @@ uncompress 	tar xf backup
 list of file	tar tvf backup
 
 ## ripgrep
--i		case insensitive		
--u		unrestricted
--F 		fixed string
+- `-i`		case insensitive  
+- `-u`		unrestricted  
+- `-F` 		fixed string  
