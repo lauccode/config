@@ -17,56 +17,57 @@ Connect to existing kakoune session :
 Use `:kill` in kak to kill the server in use.  
 
 ### Vertical block selection
-[s-c] and [a+s-C] are the way to go for a similar to block selection functionality
+`[s-c]` and `[a+s-C]` are the way to go for a similar to block selection functionality
 #### All the file
-% , [a-s]
+`%` , `[a-s]`
 
 ### Multiple selection  
 simple 
-[s+l] to select word to be search
-[s-n] to select next word
-[p] to paste yanked word
-[d] to delete previous
+`[s+l]` to select word to be search
+`[s-n]` to select next word
+`[p]` to paste yanked word
+`[d]` to delete previous
 
-[*] put the word in kakoune buffer("Search current selections (smart)" in dance vscode plugin)  
-[/] to search the word (this one of previous line) 
+`[*]` put the word in kakoune buffer("Search current selections (smart)" in dance vscode plugin)  
+`[/]` to search the word (this one of previous line) 
 enter
-[a-n] to select before  
-[s-n] to select after (only n to skip)  
-[a-n] to select before  
-[a-space] pour ne pas selectionner  
-[backspace] remove multiselection
+`[a-n]` to select before  
+`[s-n]` to select after (only n to skip)  
+`[a-n]` to select before  
+`[a-space]` pour ne pas selectionner  
+`[backspace]` remove multiselection
 
 ### Marks
-“aZ	Store mark in register a  
-“az	Restrore mark of register a
+`“aZ`	Store mark in register a  
+`“az`	Restrore mark of register a
 
 ### Parameters swapping  
-Select paramaters ([a-i] or [s-w] ...)  
-Split slection on charatere "," [S,RET]   
-swap [a-)]  
+Select paramaters `([a-i]` or `[s-w]` ...)  
+Split slection on charatere "," `[S,RET]`   
+swap `[a-)]`  
 
-[a-k] Keep matching (in multiple selection)
-[a-p] paste several line
+`[a-k]` Keep matching (in multiple selection)
+`[a-p]` paste several line
 
 ### Replace multi-selection with yank selection  
 After all multi-selection done
-[s-r]
+`[s-r]`
 
 ### Reverse lines
 select lines  
-|nl		To add line numbers  
-|sort -nr	To reverse line order    
+`|nl`		To add line numbers  
+select lines  
+`|sort -nr`	To reverse line order    
 remove line numbers  
 
 ## fzf
 
 ## ranger
 Open ranger on specific open file  
-:ranger [c-r]%
+:ranger `[c-r]`%
 
 ## mc
-a-o	source=dest
+`a-o`	source=dest
 
 ## fish
 Alias in config.fish in ~/.config/fish/
