@@ -180,15 +180,19 @@ hook global ModeChange .*:insert:.* %{ unset-face window Default }
 # map global user -docstring 'open fuzzy finder (TMUX)' g ': edit %sh{frf -}<ret>'
 
 # USE fzf with connect+broot+fzf(+ripgrep)
-map global user -docstring 'open FZF fuzzy file finder' f ':@ ffzf;tmux-terminal-zoom 1<ret>'  # need connect.kak
+map global user -docstring 'open FZF fuzzy files finder' f ':@ ffzf;tmux-terminal-zoom 1<ret>'  # need connect.kak
+map global user -docstring 'open FZF fuzzy all files finder' F ':@ FFZF;tmux-terminal-zoom 1<ret>'
 # #!/usr/bin/env bash
 # fzf --preview 'bat --color=always {}' --preview-window '~3' \
+############## fzf -I --preview 'bat --color=always {}' --preview-window '~3' \
 #     --bind 'enter:become($EDITOR {1})'
 #map global user -docstring 'open FZF fuzzy word finder' g ':@ rfzf;tmux-terminal-zoom 1<ret>'  # need connect.kak
 #map global user -docstring 'open FZF fuzzy word finder' g ':@ rfzf %sh{ echo "$kak_selection" };tmux-terminal-zoom 1<ret>'  # need connect.kak
-map global user -docstring 'open FZF fuzzy word finder' g ':@ rfzf %val{selection};tmux-terminal-zoom 1<ret>'  # need connect.kak
+map global user -docstring 'open FZF fuzzy words finder' g ':@ rfzf %val{selection};tmux-terminal-zoom 1<ret>'  # need connect.kak
+map global user -docstring 'open FZF fuzzy all words finder' G ':@ RFZF %val{selection};tmux-terminal-zoom 1<ret>'
 # #!/usr/bin/env bash
 # RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
+############## RG_PREFIX="rg -u --column --line-number --no-heading --color=always --smart-case "
 # INITIAL_QUERY="${*:-}"
 # : | fzf --ansi --disabled --query "$INITIAL_QUERY" \
 #     --bind "start:reload:$RG_PREFIX {q}" \
