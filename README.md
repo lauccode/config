@@ -53,6 +53,12 @@ swap [a-)]
 After all multi-selection done
 [s-r]
 
+### Reverse lines
+select lines  
+|nl		To add line numbers  
+|sort -nr	To reverse line order    
+remove line numbers  
+
 ## fzf
 
 ## ranger
