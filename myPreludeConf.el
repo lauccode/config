@@ -16,14 +16,14 @@
 (prelude-require-package 'dracula-theme)  ;; should work
 ; (prelude-require-package 'doom-themes)  ;; should work
 (prelude-require-package 'darktooth-theme)
-(prelude-require-package 'solarized-theme)  ;; should work
+; (prelude-require-package 'solarized-theme)  ;; should work
 (prelude-require-package 'gruvbox-theme)  ;; should work
 (prelude-require-package 'nano-theme)
 ; (prelude-require-package 'nord-theme)
 ; (prelude-require-package 'ef-themes)
 (prelude-require-package 'kaolin-themes)
 ; (prelude-require-package 'modus-themes)
-(prelude-require-package 'apropospriate-theme)
+; (prelude-require-package 'apropospriate-theme)
 
 ;; LSP
 ;;;;;;
