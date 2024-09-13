@@ -13,7 +13,7 @@
 ; (prelude-require-package 'github-dark-dimmed-theme)
 (prelude-require-package 'cyanometric-theme)
 ; (prelude-require-package 'catppuccin-theme)
-(prelude-require-package 'dracula-theme)  ;; should work
+; (prelude-require-package 'dracula-theme)  ;; should work
 ; (prelude-require-package 'doom-themes)  ;; should work
 (prelude-require-package 'darktooth-theme)
 ; (prelude-require-package 'solarized-theme)  ;; should work
