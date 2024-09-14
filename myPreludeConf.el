@@ -3,17 +3,19 @@
 ;; (beacon-mode 1)
 
 (toggle-frame-maximized )
-;; (global-set-key (kbd "M-o") 'lsp-clangd-find-other-file)
-(global-set-key (kbd "M-o") 'ff-find-other-file)
-
-;; remove change color 80 chars
-(setq prelude-whitespace nil)
+(toggle-frame-fullscreen)
+(desktop-save-mode 1)
+;; (global-set-key (kbd "C-c h") 'lsp-clangd-find-other-file)
+(global-set-key (kbd "C-c h") 'ff-find-other-file)
+;; (global-set-key (kbd "C-c h") 'ff-find-other-file-other-window)
+(global-set-key (kbd "<f9>") 'restart-emacs)
+(setq prelude-whitespace nil) ;; remove change color 80 chars
 
 ;; THEMES
 ; (prelude-require-package 'github-dark-dimmed-theme)
 (prelude-require-package 'cyanometric-theme)
 ; (prelude-require-package 'catppuccin-theme)
-; (prelude-require-package 'dracula-theme)  ;; should work
+; (prelude-require-package 'dracula-theme)  ;; shouldo work
 ; (prelude-require-package 'doom-themes)  ;; should work
 (prelude-require-package 'darktooth-theme)
 ; (prelude-require-package 'solarized-theme)  ;; should work
@@ -24,6 +26,8 @@
 (prelude-require-package 'kaolin-themes)
 ; (prelude-require-package 'modus-themes)
 ; (prelude-require-package 'apropospriate-theme)
+
+(prelude-require-package 'vterm)
 
 ;; LSP
 ;;;;;;
@@ -57,12 +61,6 @@
 ; (global-set-key (kbd "C->") 'mc/mark-next-like-this) 
 ; (global-set-key (kbd "C-<") 'mc/mark-previous-like-this) 
 ; (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
-
-
-
-
-
-
 
 ;; MEOW
 ;;;;;;;;
@@ -152,9 +150,6 @@
    '("z" . meow-pop-selection)
    '("'" . repeat)
    '("<escape>" . ignore)))
-
-
-
 (require 'meow)
 (meow-setup)
 (meow-global-mode 1)
