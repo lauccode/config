@@ -13,9 +13,29 @@
 
 (use-package consult
   :ensure t
-  :bind (("C-c C-r" . consult-ripgrep))
+  :bind (("C-c C-f" . consult-ripgrep)
+         ("C-c C-g" . my/consult-ripgrep-all))
   :config
-  (setq consult-ripgrep-args "rg --hidden --no-ignore -u --null --line-buffered --color=never --max-columns=1000 --path-separator / --smart-case --no-heading --line-number ."))
+  (setq consult-ripgrep-args "rg --null --line-buffered --color=never --max-columns=1000 --path-separator / --smart-case --no-heading --line-number ."))
+
+(defun my/consult-ripgrep-all ()
+  "Run `consult-ripgrep` with arguments to include hidden and ignored files."
+  (interactive)
+  (let ((consult-ripgrep-args "rg --hidden --no-ignore -u --null --line-buffered --color=never --max-columns=1000 --path-separator / --smart-case --no-heading --line-number ."))
+    (consult-ripgrep)))
+
+(use-package projectile
+  :ensure t
+  :bind (("C-c p f" . projectile-find-file)
+         ("C-c p G" . my/projectile-find-file-all))
+  :config
+  (projectile-mode +1))
+
+(defun my/projectile-find-file-all ()
+  "Run `projectile-find-file` including hidden and ignored files."
+  (interactive)
+  (let ((projectile-generic-command "rg --files --hidden --no-ignore -u"))
+    (projectile-find-file)))
 
 ;; THEMES
 ; (prelude-require-package 'github-dark-dimmed-theme)
