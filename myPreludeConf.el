@@ -154,6 +154,7 @@
 (meow-setup)
 (meow-global-mode 1)
 
+(global-set-key (kbd "M-p") (lambda () (interactive) (shell-command "love .")))
 
 ;;;;;;;;;;;;;  PRELOAD ;;;;;;;;;;;;;;
 ; (disable-theme 'zenburn)
