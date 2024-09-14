@@ -77,6 +77,11 @@
   :config
   (define-key lsp-mode-map (kbd "C-c C-l") lsp-command-map)
   :hook (lsp-mode . lsp-enable-which-key-integration))
+(prelude-require-package 'lsp-treemacs)
+(use-package lsp-treemacs
+  :after lsp)
+(global-set-key (kbd "<f3>") 'lsp-treemacs-call-hierarchy)
+
 
 (prelude-require-package 'meow)
 (defun meow-setup ()
