@@ -11,6 +11,12 @@
 (global-set-key (kbd "<f9>") 'restart-emacs)
 (setq prelude-whitespace nil) ;; remove change color 80 chars
 
+(use-package consult
+  :ensure t
+  :bind (("C-c C-r" . consult-ripgrep))
+  :config
+  (setq consult-ripgrep-args "rg --hidden --no-ignore -u --null --line-buffered --color=never --max-columns=1000 --path-separator / --smart-case --no-heading --line-number ."))
+
 ;; THEMES
 ; (prelude-require-package 'github-dark-dimmed-theme)
 (prelude-require-package 'cyanometric-theme)
@@ -43,7 +49,6 @@
 ;; (after! lsp-ui
 ;;         (setq lsp-ui-doc-enable t)
 ;;         (setq lsp-ui-doc-show-with-mouse t))
-;; replace (s-l)  (C-x @ s)
 (global-unset-key (kbd "s-l"))
 (use-package lsp-mode
   :commands lsp
