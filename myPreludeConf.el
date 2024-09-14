@@ -43,6 +43,7 @@
 ;; (after! lsp-ui
 ;;         (setq lsp-ui-doc-enable t)
 ;;         (setq lsp-ui-doc-show-with-mouse t))
+;; replace (s-l)  (C-x @ s)
 (global-unset-key (kbd "s-l"))
 (use-package lsp-mode
   :commands lsp
