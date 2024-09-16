@@ -13,8 +13,8 @@
 
 (use-package consult
   :ensure t
-  :bind (("C-c C-f" . consult-ripgrep)
-         ("C-c C-g" . my/consult-ripgrep-all))
+  :bind (("C-c C-f" . consult-ripgrep)          ; WORK
+         ("C-c C-g" . my/consult-ripgrep-all))  ; WORK
   :config
   (setq consult-ripgrep-args "rg --null --line-buffered --color=never --max-columns=1000 --path-separator / --smart-case --no-heading --line-number ."))
 
@@ -26,8 +26,8 @@
 
 (use-package projectile
   :ensure t
-  :bind (("C-c p f" . projectile-find-file)
-         ("C-c p G" . my/projectile-find-file-all))
+  :bind (("C-c p f" . projectile-find-file)          ; WORK
+         ("C-c p G" . my/projectile-find-file-all))  ; FAIL
   :config
   (projectile-mode +1))
 
