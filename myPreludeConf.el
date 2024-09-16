@@ -21,7 +21,8 @@
 (defun my/consult-ripgrep-all ()
   "Run `consult-ripgrep` with arguments to include hidden and ignored files."
   (interactive)
-  (let ((consult-ripgrep-args "rg --hidden --no-ignore -u --null --line-buffered --color=never --max-columns=1000 --path-separator / --smart-case --no-heading --line-number ."))
+  ; (let ((consult-ripgrep-args "rg --hidden --no-ignore -u --null --line-buffered --color=never --max-columns=1000 --path-separator / --smart-case --no-heading --line-number ."))
+  (let ((consult-ripgrep-args "rg -u --null --line-buffered --color=never --max-columns=1000 --path-separator / --smart-case --no-heading --line-number ."))
     (consult-ripgrep)))
 
 (use-package projectile
