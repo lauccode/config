@@ -80,7 +80,7 @@
 (prelude-require-package 'lsp-treemacs)
 (use-package lsp-treemacs
   :after lsp)
-(global-set-key (kbd "<f3>") 'lsp-treemacs-call-hierarchy)
+(global-set-key (kbd "<f5>") 'lsp-treemacs-call-hierarchy)
 
 
 (prelude-require-package 'meow)
