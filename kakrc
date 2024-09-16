@@ -181,7 +181,7 @@ hook global ModeChange .*:insert:.* %{ unset-face window Default }
 
 # USE fzf with connect+broot+fzf(+ripgrep)
 map global user -docstring 'open FZF fuzzy files finder' f ':@ ffzf;tmux-terminal-zoom 1<ret>'  # need connect.kak
-map global user -docstring 'open FZF fuzzy all files finder' F ':@ FFZF;tmux-terminal-zoom 1<ret>'
+# map global user -docstring 'open FZF fuzzy all files finder' F ':@ FFZF;tmux-terminal-zoom 1<ret>'  # fzf need ripgrep to ignore .gitignore
 # #!/usr/bin/env bash
 # fzf --preview 'bat --color=always {}' --preview-window '~3' \
 ############## fzf -I --preview 'bat --color=always {}' --preview-window '~3' \
