@@ -82,6 +82,23 @@
   :after lsp)
 (global-set-key (kbd "<f5>") 'lsp-treemacs-call-hierarchy)
 
+;; TREE SITTER
+(prelude-require-package 'tree-sitter)
+(prelude-require-package 'tree-sitter-langs)
+(require 'tree-sitter)
+(require 'tree-sitter-langs)
+(add-hook 'prog-mode-hook #'tree-sitter-mode)
+(add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
+
+;; MULTI CURSOR
+; (prelude-require-package 'multiple-cursors) 
+; (require 'multiple-cursors) 
+; ;; When you have an active region that spans multiple lines, the following will add a cursor to each line:
+; (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines) 
+; ;; When you want to add multiple cursors not based on continuous lines, but based on keywords in the buffer, use:
+; (global-set-key (kbd "C->") 'mc/mark-next-like-this) 
+; (global-set-key (kbd "C-<") 'mc/mark-previous-like-this) 
+; (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
 (prelude-require-package 'meow)
 (defun meow-setup ()
