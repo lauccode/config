@@ -25,18 +25,53 @@
   (let ((consult-ripgrep-args "rg -u --null --line-buffered --color=never --max-columns=1000 --path-separator / --smart-case --no-heading --line-number ."))
     (consult-ripgrep)))
 
-(use-package projectile
-  :ensure t
-  :bind (("C-c p f" . projectile-find-file)          ; WORK
-         ("C-c p G" . my/projectile-find-file-all))  ; FAIL
-  :config
-  (projectile-mode +1))
+;; (use-package projectile
+;;   :ensure t
+;;   :bind (("C-c p f" . projectile-find-file)
+;;          ("C-c p G" . my/projectile-find-file-all))
+;;   :config
+;;   (projectile-mode +1))
 
-(defun my/projectile-find-file-all ()
-  "Run `projectile-find-file` including hidden and ignored files."
-  (interactive)
-  (let ((projectile-generic-command "rg --files --hidden --no-ignore -u"))
-    (projectile-find-file)))
+;; (defun my/projectile-find-file-all ()
+;;   "Run `projectile-find-file` including hidden and ignored files."
+;;   (interactive)
+;;   (let ((projectile-generic-command "rg --files --hidden --no-ignore -u"))
+;;   ; (let ((projectile-generic-command "rg --files -u"))
+;;     (projectile-invalidate-cache nil)
+;;     (projectile-find-file)))
+
+;; (defun my/projectile-find-file-all ()
+;;   "Run `projectile-find-file` including hidden and ignored files using fd."
+;;   (interactive)
+;;   ;; (let ((projectile-generic-command "fd . --hidden --no-ignore"))
+;;     (let ((projectile-generic-command "fd . -I"))
+;;     (projectile-invalidate-cache nil)
+;;     (projectile-find-file)))
+
+;; (use-package projectile
+;;   :ensure t
+;;   :bind (("C-c p f" . projectile-find-file)
+;;          ("C-c p G" . my/projectile-find-file-all))
+;;   :config
+;;   (projectile-mode +1))
+
+;; (defun my/projectile-find-file-all ()
+;;   "Run `projectile-find-file` including hidden and ignored files using fd."
+;;   (interactive)
+;;   (let ((projectile-generic-command "fd . --hidden --no-ignore --type f"))
+;;     ;; (let ((projectile-generic-command "fd . --hidden --no-ignore"))
+;;     (projectile-invalidate-cache nil)
+;;     (projectile-find-file)))
+
+;; (use-package projectile
+;;   :ensure t
+;;   :bind (("C-c p f" . projectile-find-file)
+;;          ("C-c p G" . my/projectile-find-file-all))
+;;   :config
+;;   (projectile-mode +1)
+;;   (setq projectile-indexing-method 'alien
+;;         projectile-generic-command "fd . --type f --hidden --no-ignore"))
+
 
 ;; THEMES
 ; (prelude-require-package 'github-dark-dimmed-theme)
