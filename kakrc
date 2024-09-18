@@ -226,6 +226,7 @@ map global user q ':q<ret>'   -docstring 'Quit Kakoune'
 map global user d ':echo %sh{pwd}<ret>'   -docstring 'Get the path (d)irectory'
 # map global user s ':set buffer filetype sh<ret>'   -docstring 'filetype sh'
 map global user -docstring 'Open broot' t ':@ broot<ret>'
+map global user -docstring 'Open broot --hidden' T ':@ broot --hidden<ret>'
 define-command lg %{@ lazygit;tmux-terminal-zoom 1} -docstring 'Open lazygit'
 
 map global normal <F3> '|clang-format<ret>'  # use the pipe on selection
