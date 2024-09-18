@@ -74,10 +74,9 @@
   :config
   (define-key lsp-mode-map (kbd "C-c C-l") lsp-command-map)
   :hook (lsp-mode . lsp-enable-which-key-integration))
-(prelude-require-package 'lsp-treemacs)
+(prelude-require-package 'lsp-treemacs)  ;; to have call hierarchy
 (use-package lsp-treemacs
   :after lsp)
-(global-set-key (kbd "<f5>") 'lsp-treemacs-call-hierarchy)
 
 ;; TREE SITTER
 (prelude-require-package 'tree-sitter)
