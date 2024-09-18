@@ -5,6 +5,7 @@
 (toggle-frame-maximized )
 (toggle-frame-fullscreen)
 (desktop-save-mode 1)
+(xterm-mouse-mode 1)
 ;; (global-set-key (kbd "C-c h") 'lsp-clangd-find-other-file)
 (global-set-key (kbd "C-c h") 'ff-find-other-file)
 ;; (global-set-key (kbd "C-c h") 'ff-find-other-file-other-window)
