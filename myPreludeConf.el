@@ -26,52 +26,12 @@
   (let ((consult-ripgrep-args "rg -u --null --line-buffered --color=never --max-columns=1000 --path-separator / --smart-case --no-heading --line-number ."))
     (consult-ripgrep)))
 
-;; (use-package projectile
-;;   :ensure t
-;;   :bind (("C-c p f" . projectile-find-file)
-;;          ("C-c p G" . my/projectile-find-file-all))
-;;   :config
-;;   (projectile-mode +1))
-
-;; (defun my/projectile-find-file-all ()
-;;   "Run `projectile-find-file` including hidden and ignored files."
-;;   (interactive)
-;;   (let ((projectile-generic-command "rg --files --hidden --no-ignore -u"))
-;;   ; (let ((projectile-generic-command "rg --files -u"))
-;;     (projectile-invalidate-cache nil)
-;;     (projectile-find-file)))
-
-;; (defun my/projectile-find-file-all ()
-;;   "Run `projectile-find-file` including hidden and ignored files using fd."
-;;   (interactive)
-;;   ;; (let ((projectile-generic-command "fd . --hidden --no-ignore"))
-;;     (let ((projectile-generic-command "fd . -I"))
-;;     (projectile-invalidate-cache nil)
-;;     (projectile-find-file)))
-
-;; (use-package projectile
-;;   :ensure t
-;;   :bind (("C-c p f" . projectile-find-file)
-;;          ("C-c p G" . my/projectile-find-file-all))
-;;   :config
-;;   (projectile-mode +1))
-
-;; (defun my/projectile-find-file-all ()
-;;   "Run `projectile-find-file` including hidden and ignored files using fd."
-;;   (interactive)
-;;   (let ((projectile-generic-command "fd . --hidden --no-ignore --type f"))
-;;     ;; (let ((projectile-generic-command "fd . --hidden --no-ignore"))
-;;     (projectile-invalidate-cache nil)
-;;     (projectile-find-file)))
-
-;; (use-package projectile
-;;   :ensure t
-;;   :bind (("C-c p f" . projectile-find-file)
-;;          ("C-c p G" . my/projectile-find-file-all))
-;;   :config
-;;   (projectile-mode +1)
-;;   (setq projectile-indexing-method 'alien
-;;         projectile-generic-command "fd . --type f --hidden --no-ignore"))
+(defun projectile-ripgrep-find-file-all ()
+  "Find file in project, including those ignored by .gitignore using ripgrep."
+  (interactive)
+  (let ((projectile-generic-command "rg --files --hidden --no-ignore --glob '!.git/' -0"))
+    (projectile-find-file)))
+(define-key projectile-mode-map (kbd "C-c p G") 'projectile-ripgrep-find-file-all)
 
 
 ;; THEMES
