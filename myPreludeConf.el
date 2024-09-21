@@ -12,6 +12,11 @@
 (global-set-key (kbd "<f9>") 'restart-emacs)
 (setq prelude-whitespace nil) ;; remove change color 80 chars
 
+(require 'tramp)
+(setq tramp-default-method "ssh")
+(projectile-mode +1)
+;; (setq projectile-project-search-path '("~/remote-projects/"))
+
 (use-package consult
   :ensure t
   :bind (("C-c C-f" . consult-ripgrep)          ; WORK
