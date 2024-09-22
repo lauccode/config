@@ -14,7 +14,7 @@ local plugins = {
 	{ url = 'erf/vis-cursors' },
 
 	-- specify the lua file to require (or theme to set) and give a ref (commit, branch, tag) to checkout
-	{ 'erf/vis-test', file = 'test', ref = 'some-branch' },
+	-- { 'erf/vis-test', file = 'test', ref = 'some-branch' },
 
 	-- specify an alias to later use to access plugin variables (see example below)
 	{ 'erf/vis-highlight', alias = 'hi' },
@@ -27,7 +27,7 @@ local plugins = {
 plug.init(plugins, true)
 
 -- access plugins via alias
-plug.plugins.hi.patterns[' +\n'] = { style = 'back:#444444' }
+-- plug.plugins.hi.patterns[' +\n'] = { style = 'back:#444444' }
 
 
 -- Mapping configuration example
