@@ -1,6 +1,9 @@
 -- load standard vis module, providing parts of the Lua API
 require('vis')
 
+-- look default install in /usr/share/vis/
+
+-- in ~/.config/vis/
 -- git clone https://github.com/erf/vis-plug.git
 local plug = require('plugins/vis-plug')
 
