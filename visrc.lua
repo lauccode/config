@@ -24,6 +24,9 @@ local plugins = {
 
 	-- configure themes by setting 'theme = true'. The theme 'file' will be set on INIT
 	{ 'samlwood/vis-gruvbox', theme = true, file = 'gruvbox' },
+
+	{ 'fischerling/vis-lspc' },
+        { 'fischerling/vis-lspc', alias = 'lsp' },
 }
 
 -- require and optionally install plugins on init
