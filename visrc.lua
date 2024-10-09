@@ -47,3 +47,24 @@ function(win)
 	-- vis:command('set number')
     vis:command('set number')
 end)
+
+-- --vffzf
+-- #!/usr/bin/env bash
+-- fzf --preview 'bat --color=always {}' --preview-window '~3' \
+--     --bind 'enter:become($EDITOR {1})'
+
+-- --vrfzf
+-- #!/usr/bin/env bash
+-- # 1. Search for text in files using Ripgrep
+-- # 2. Interactively restart Ripgrep with reload action
+-- # 3. Open the file in Vis
+-- RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
+-- INITIAL_QUERY="${*:-}"
+-- : | fzf --ansi --disabled --query "$INITIAL_QUERY" \
+--     --bind "start:reload:$RG_PREFIX {q}" \
+--     --bind "change:reload:sleep 0.1; $RG_PREFIX {q} || true" \
+--     --delimiter : \
+--     --preview 'bat --color=always {1} --highlight-line {2}' \
+--     --preview-window 'up,60%,border-bottom,+{2}+3/3,~3' \
+--     --bind 'enter:become($EDITOR +{2} {1})'
+
