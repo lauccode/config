@@ -20,4 +20,7 @@ mouse = true
 [editor.file-picker]
 hidden = true
 
+[keys.normal]
+C-g = [":new", ":insert-output lazygit", ":buffer-close!", ":redraw"]
+
 
