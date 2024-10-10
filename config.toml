@@ -4,6 +4,7 @@
 # export HELIX_RUNTIME=~/helix/runtime
 # For fish in ~/.config/fish/config.fish :
 # nano ~/.config/fish/config.fish
+# put themes in ~/.config/helix/themes/
 
 theme = "onedark"
 
