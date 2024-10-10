@@ -1,3 +1,10 @@
+# config for helix
+# ~/.config/helix/config.toml
+# In .bashr :
+# export HELIX_RUNTIME=~/helix/runtime
+# For fish in ~/.config/fish/config.fish :
+# nano ~/.config/fish/config.fish
+
 theme = "onedark"
 
 [editor]
