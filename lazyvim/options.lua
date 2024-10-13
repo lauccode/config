@@ -1,12 +1,9 @@
 -- Options are automatically loaded before lazy.nvim startup
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
--- in ~/.config/nvim/lua/config/
 
 vim.g.autoformat = false
 -- Add this to your init.lua or appropriate configuration file :so %
-
-vim.cmd("colorscheme sorbet") -- allow filter on quickfix list (:Cfilter cpp, colder to go back)
 
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 vim.opt.expandtab = true -- convert tabs to spaces
@@ -20,7 +17,7 @@ vim.opt.scrolloff = 5 -- always center cursor line vertically / 8 default
 vim.cmd("nnoremap * :keepjumps normal! mi*`i<CR>") -- no search forward with '*'
 
 vim.cmd("packadd cfilter") -- allow filter on quickfix list (:Cfilter cpp, colder to go back)
-vim.cmd("set list!") -- show invisible character  -- allow filter on quickfix list (:Cfilter cpp, colder to go back)
+-- vim.cmd("set list!") -- show invisible character  -- allow filter on quickfix list (:Cfilter cpp, colder to go back)
 vim.cmd("set lcs=tab:»_,trail:·,eol:$")
 vim.cmd("set norelativenumber") -- set rnu; set nrnu; set rnu!(toggle)
 vim.cmd("set inccommand=split") -- preview for substitute commande
@@ -115,13 +112,25 @@ vim.opt.foldlevel = 99
 -- 'formatexpr' is set to vim.lsp.formatexpr() if both 'formatprg' and 'formatexpr' are empty. This allows to format lines via gq if the language server supports it.
 
 -- ▗▖ ▗▖▗▄▄▄▖▗▖  ▗▖▗▖  ▗▖ ▗▄▖ ▗▄▄▖  ▗▄▄▖
--- ▐▌▗▞▘▐▌    ▝▚▞▘ ▐▛▚▞▜▌▐▌ ▐▌▐▌ ▐▌▐▌   
+-- ▐▌▗▞▘▐▌    ▝▚▞▘ ▐▛▚▞▜▌▐▌ ▐▌▐▌ ▐▌▐▌
 -- ▐▛▚▖ ▐▛▀▀▘  ▐▌  ▐▌  ▐▌▐▛▀▜▌▐▛▀▘  ▝▀▚▖
 -- ▐▌ ▐▌▐▙▄▄▖  ▐▌  ▐▌  ▐▌▐▌ ▐▌▐▌   ▗▄▄▞▘
 
 vim.api.nvim_set_keymap(
   "n",
-  "<leader>o",
+  "<leader>O",
   ":e ~/.config/nvim/lua/config/options.lua<CR>",
-  { noremap = true, silent = true, desc = "config options" }
+  { noremap = true, silent = true, desc = "config Options" }
+)
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>o",
+  ":ClangdSwitchSourceHeader<CR>",
+  { noremap = true, silent = true, desc = "Header file" }
+)
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>h",
+  ":set list!<CR>",
+  { noremap = true, silent = true, desc = "Show invisible" }
 )
