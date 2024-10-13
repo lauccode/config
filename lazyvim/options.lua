@@ -137,3 +137,10 @@ vim.api.nvim_set_keymap(
   ":set list!<CR>",
   { noremap = true, silent = true, desc = "Show invisible" }
 )
+vim.api.nvim_set_keymap(
+  "n",
+  "<F5>",
+  ":!love .<CR>",
+  { noremap = true, silent = true, desc = "Launch love project" }
+)
+
