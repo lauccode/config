@@ -58,18 +58,18 @@ vim.cmd("tnoremap <Esc> <C-\\><C-n>")
 -- -- To simulate |i_CTRL-R| in terminal-mode:
 -- -- vim.cmd 'tnoremap <expr> <C-R> '<C-\\><C-N>"'.nr2char(getchar()).'pi''
 -- -- To use `ALT+{h,j,k,l}` to navigate windows from any mode:
-vim.cmd("tnorema <A-h> <C-\\><C-N><C-w>h")
-vim.cmd("tnoremap <A-j> <C-\\><C-N><C-w>j")
-vim.cmd("tnoremap <A-k> <C-\\><C-N><C-w>k")
-vim.cmd("tnoremap <A-l> <C-\\><C-N><C-w>l")
-vim.cmd("inoremap <A-h> <C-\\><C-N><C-w>h")
-vim.cmd("inoremap <A-j> <C-\\><C-N><C-w>j")
-vim.cmd("inoremap <A-k> <C-\\><C-N><C-w>k")
-vim.cmd("inoremap <A-l> <C-\\><C-N><C-w>l")
-vim.cmd("nnoremap <A-h> <C-w>h")
-vim.cmd("nnoremap <A-j> <C-w>j")
-vim.cmd("nnoremap <A-k> <C-w>k")
-vim.cmd("nnoremap <A-l> <C-w>l")
+-- vim.cmd("tnorema <A-h> <C-\\><C-N><C-w>h")
+-- vim.cmd("tnoremap <A-j> <C-\\><C-N><C-w>j")
+-- vim.cmd("tnoremap <A-k> <C-\\><C-N><C-w>k")
+-- vim.cmd("tnoremap <A-l> <C-\\><C-N><C-w>l")
+-- vim.cmd("inoremap <A-h> <C-\\><C-N><C-w>h")
+-- vim.cmd("inoremap <A-j> <C-\\><C-N><C-w>j")
+-- vim.cmd("inoremap <A-k> <C-\\><C-N><C-w>k")
+-- vim.cmd("inoremap <A-l> <C-\\><C-N><C-w>l")
+-- vim.cmd("nnoremap <A-h> <C-w>h")
+-- vim.cmd("nnoremap <A-j> <C-w>j")
+-- vim.cmd("nnoremap <A-k> <C-w>k")
+-- vim.cmd("nnoremap <A-l> <C-w>l")
 
 -- vim.cmd("nnoremap <C-w>m <C-w>\\| <C-w>_") --maximize window
 
