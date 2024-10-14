@@ -143,4 +143,16 @@ vim.api.nvim_set_keymap(
   ":!love .<CR>",
   { noremap = true, silent = true, desc = "Launch love project" }
 )
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>F",
+  ":Telescope find_files find_command=rg,--files,--hidden,--iglob,!.git <CR>",
+  { noremap = true, silent = true, desc = "Find All Files" }
+)
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>G",
+  ":Telescope live_grep additional_args=--glob,!.git/** <CR>",
+  { noremap = true, silent = true, desc = "Find All Grep" }
+)
 
