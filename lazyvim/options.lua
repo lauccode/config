@@ -152,7 +152,7 @@ vim.api.nvim_set_keymap(
 vim.api.nvim_set_keymap(
   "n",
   "<leader>G",
-  ":Telescope live_grep additional_args=--glob,!.git/** <CR>",
+  ":lua require('telescope.builtin').live_grep({ additional_args = function() return {'--no-ignore-vcs', '--glob', '!.git/**'} end })<CR>",
   { noremap = true, silent = true, desc = "Find All Grep" }
 )
 
