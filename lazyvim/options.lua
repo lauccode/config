@@ -146,7 +146,7 @@ vim.api.nvim_set_keymap(
 vim.api.nvim_set_keymap(
   "n",
   "<leader>F",
-  ":Telescope find_files find_command=rg,--files,--hidden,--iglob,!.git <CR>",
+  ":Telescope find_files find_command=rg,--files,--hidden,--no-ignore,--iglob,!.git <CR>",
   { noremap = true, silent = true, desc = "Find All Files" }
 )
 vim.api.nvim_set_keymap(
