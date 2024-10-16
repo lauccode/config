@@ -155,4 +155,10 @@ vim.api.nvim_set_keymap(
   ":lua require('telescope.builtin').live_grep({ additional_args = function() return {'--no-ignore-vcs', '--glob', '!.git/**'} end })<CR>",
   { noremap = true, silent = true, desc = "Find All Grep" }
 )
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>i",
+  "viw",
+  { noremap = true, silent = true, desc = "Select word" }
+)
 
