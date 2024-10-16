@@ -159,6 +159,11 @@ vim.api.nvim_set_keymap(
   "n",
   "<leader>i",
   "viw",
-  { noremap = true, silent = true, desc = "Select word" }
+  { noremap = true, silent = true, desc = "Inner word" }
 )
-
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>I",
+  "viW",
+  { noremap = true, silent = true, desc = "Inner WORD" }
+)
