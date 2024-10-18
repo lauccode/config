@@ -3,6 +3,7 @@
 -- Add any additional options here
 
 -- SET COLORSCHEME in ~/.config/nvim/lua/plugins/colorscheme.lua
+-- vim.cmd("set bg=light")
 
 vim.g.autoformat = false
 -- Add this to your init.lua or appropriate configuration file :so %
