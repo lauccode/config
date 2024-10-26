@@ -1,4 +1,19 @@
 " BASIC
+
+call plug#begin('~/.vim/plugged')
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+call plug#end()
+
+:let mapleader = " "
+" LSP
+nnoremap gd :LspDefinition<CR>
+nnoremap gn :LspNextDiagnostic<CR>
+nnoremap gp :LspPreviousDiagnostic<CR>
+nnoremap gr :LspRename<CR>
+
+
 set nocompatible
 syntax enable
 filetype plugin on
@@ -7,7 +22,7 @@ filetype plugin on
 set mouse=a
 syntax enable
 filetype plugin indent on
-set nu rnu
+set nu nu
 set completeopt=menuone,noinsert,noselect "for completion
 set shortmess+=c " avoid hit enter prompt
 set expandtab    " number of space to indent with <Tab>
@@ -22,7 +37,6 @@ set smartcase  " be sure to find even if bad case
 " set cwh=30 " high for the preview of incommand
 
 " SHORTCUTS
-:let mapleader = " "
 nnoremap <leader>r :source $MYVIMRC<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
@@ -147,7 +161,9 @@ packadd termdebug
 " To activate fold use following command: 
 " :set foldenable 
 " :set foldmethod=indent 
-:set foldmethod=syntax 
+"
+" :set foldmethod=syntax 
+"
 " To deactivate fold use following command: 
 " :set nofoldenable
 " zm to fold one level
@@ -181,3 +197,7 @@ packadd termdebug
 " You could then press 
 " Esc or ctrl-c again
 " to exit command mode entirely. 
+
+
+
+
