@@ -13,7 +13,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-" Plug 'inkarkat/vim-mark' 
+Plug 'inkarkat/vim-mark'
+Plug 'inkarkat/vim-ingo-library'
 call plug#end()
 :let mapleader = " "
 
