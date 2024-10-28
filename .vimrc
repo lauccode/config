@@ -8,6 +8,8 @@ Plug 'easymotion/vim-easymotion'
 Plug 'mg979/vim-visual-multi'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-fugitive'
+" Plug 'inkarkat/vim-mark' 
 call plug#end()
 :let mapleader = " "
 
@@ -173,6 +175,8 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <leader>f :!vimffzf<CR>
 nnoremap <leader>g :!vimrfzf<CR>
+command! Lg execute '!lazygit'
+
 
 
 " MOVE
