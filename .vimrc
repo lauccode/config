@@ -17,27 +17,6 @@ Plug 'junegunn/fzf.vim'
 call plug#end()
 :let mapleader = " "
 
-" vimffzf
-" #!/usr/bin/env bash
-" fzf --preview 'bat --color=always {}' --preview-window '~3' \
-    " --bind 'enter:become($EDITOR {1})'
-
-" vimrfzf
-" #!/usr/bin/env bash
-
-" # 1. Search for text in files using Ripgrep
-" # 2. Interactively restart Ripgrep with reload action
-" # 3. Open the file in Vim
-" RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
-" INITIAL_QUERY="${*:-}"
-" : | fzf --ansi --disabled --query "$INITIAL_QUERY" \
-    " --bind "start:reload:$RG_PREFIX {q}" \
-    " --bind "change:reload:sleep 0.1; $RG_PREFIX {q} || true" \
-    " --delimiter : \
-    " --preview 'bat --color=always {1} --highlight-line {2}' \
-    " --preview-window 'up,60%,border-bottom,+{2}+3/3,~3' \
-    " --bind 'enter:become($EDITOR +{2} {1})'
-
 " NERD COMMENTER
 " To don't have the bug of NERDTree because of the CLOUD !!!!!
 let g:NERDTreeDirArrows=0
@@ -82,6 +61,7 @@ let g:NERDRPlace= "*/"
 
 " Basic configuration: For VIM-EASYMOTION, you can add basic key bindings to your .vimrc:
 nmap f <Plug>(easymotion-s)
+
 " For vim-visual-multi, you can enable it with:
 let g:VM_maps = {}
 let g:VM_maps['Find Under']         = '<C-d>'
@@ -128,13 +108,11 @@ function! ExtendSelectionNextWord()
     xnoremap W :call ExtendSelectionNextWord()<CR>
 endfunction
 
-
 " LSP
 nnoremap gd :LspDefinition<CR>
 nnoremap gn :LspNextDiagnostic<CR>
 nnoremap gp :LspPreviousDiagnostic<CR>
 nnoremap gr :LspRename<CR>
-
 
 set nocompatible
 syntax enable
@@ -177,11 +155,9 @@ nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
-nnoremap <leader>f :!vimffzf<CR>
-nnoremap <leader>g :!vimrfzf<CR>
+nnoremap <leader>f :Files<CR>
+nnoremap <leader>g :RG<CR>
 command! Lg execute '!lazygit'
-
-
 
 " MOVE
 "  % key will be your friend. This key will jump between start and end of 
