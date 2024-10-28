@@ -11,6 +11,8 @@ Plug 'mg979/vim-visual-multi'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 " Plug 'inkarkat/vim-mark' 
 call plug#end()
 :let mapleader = " "
