@@ -138,6 +138,11 @@ set smartcase  " be sure to find even if bad case
 " set cwh=30 " high for the preview of incommand
 
 " SHORTCUTS
+" removed because used by mark.vim
+autocmd VimEnter * silent! nunmap <leader>r
+autocmd VimEnter * nnoremap <leader>r :source $MYVIMRC<CR>
+set shortmess+=I
+
 nnoremap <leader>r :source $MYVIMRC<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
