@@ -27,7 +27,10 @@ Plug 'sheerun/vim-polyglot'
 call plug#end()
 :let mapleader = " "
 
-" no autocomment
+" persistent undo
+set undofile
+
+" no autocomment (not work ?)
 set formatoptions-=cro
 
 " NERD COMMENTER
