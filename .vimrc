@@ -2,7 +2,7 @@
 
 set bg=dark  " dark/light
 
-" set cursorline                                    " afficher la ligne courante
+set cursorline                                    " afficher la ligne courante
 " hi CursorLine guibg=#4d4d4d                       " couleur de fond pour la ligne courante
 
 call plug#begin('~/.vim/plugged')
@@ -180,7 +180,8 @@ command! Lg execute '!lazygit'
 
 " COLOR SCHEME
 " :colo   (to check colorscheme used)
-:colo delek
+" :colo delek
+:colo desert
 " :colo industry
 
 " REPEAT LAST COMMAND
