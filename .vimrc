@@ -33,6 +33,9 @@ set undofile
 " no autocomment (not work ?)
 set formatoptions-=cro
 
+" security options
+set nomodeline
+
 " NERD COMMENTER
 " To don't have the bug of NERDTree because of the CLOUD !!!!!
 let g:NERDTreeDirArrows=0
