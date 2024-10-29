@@ -21,9 +21,6 @@ Plug 'inkarkat/vim-ingo-library'
 call plug#end()
 :let mapleader = " "
 
-" no search forward with '*'
-nnoremap * :keepjumps normal! mi*`i<CR>
-
 " NERD COMMENTER
 " To don't have the bug of NERDTree because of the CLOUD !!!!!
 let g:NERDTreeDirArrows=0
@@ -147,9 +144,15 @@ set smartcase  " be sure to find even if bad case
 " removed because used by mark.vim
 autocmd VimEnter * silent! nunmap <leader>r
 autocmd VimEnter * nnoremap <leader>r :source $MYVIMRC<CR>
-set shortmess+=I
 
-" nnoremap <leader>r :source $MYVIMRC<CR>
+autocmd VimEnter * silent! nunmap *
+autocmd VimEnter * nnoremap * :keepjumps normal! mi*`i<CR>
+
+set shortmess+=I
+" nnoremap! <leader>r :source $MYVIMRC<CR>
+" no search forward with '*'
+" nnoremap * :keepjumps normal! mi*`i<CR>
+
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>c :bd<CR>
