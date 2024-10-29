@@ -2,6 +2,9 @@
 
 set bg=dark  " dark/light
 
+set cursorline                                    " afficher la ligne courante
+hi CursorLine guibg=#4d4d4d                       " couleur de fond pour la ligne courante
+
 call plug#begin('~/.vim/plugged')
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
