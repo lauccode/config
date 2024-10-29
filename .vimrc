@@ -36,6 +36,8 @@ set formatoptions-=cro
 " security options
 set nomodeline
 
+set hlsearch
+
 " NERD COMMENTER
 " To don't have the bug of NERDTree because of the CLOUD !!!!!
 let g:NERDTreeDirArrows=0
