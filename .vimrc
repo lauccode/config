@@ -5,6 +5,11 @@ set bg=dark  " dark/light
 set cursorline                                    " afficher la ligne courante
 " hi CursorLine guibg=#4d4d4d                       " couleur de fond pour la ligne courante
 
+" POLYGLOT (TREE SITTER)
+highlight Comment ctermfg=green guifg=green
+highlight Keyword ctermfg=blue guifg=blue
+let g:polyglot_disabled = ['autoindent']
+
 call plug#begin('~/.vim/plugged')
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
@@ -18,6 +23,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'inkarkat/vim-mark'
 Plug 'inkarkat/vim-ingo-library'
+Plug 'sheerun/vim-polyglot'
 call plug#end()
 :let mapleader = " "
 
