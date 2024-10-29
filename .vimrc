@@ -2,8 +2,8 @@
 
 set bg=dark  " dark/light
 
-set cursorline                                    " afficher la ligne courante
-hi CursorLine guibg=#4d4d4d                       " couleur de fond pour la ligne courante
+" set cursorline                                    " afficher la ligne courante
+" hi CursorLine guibg=#4d4d4d                       " couleur de fond pour la ligne courante
 
 call plug#begin('~/.vim/plugged')
 Plug 'prabirshrestha/vim-lsp'
@@ -20,6 +20,9 @@ Plug 'inkarkat/vim-mark'
 Plug 'inkarkat/vim-ingo-library'
 call plug#end()
 :let mapleader = " "
+
+" no search forward with '*'
+nnoremap * :keepjumps normal! mi*`i<CR>
 
 " NERD COMMENTER
 " To don't have the bug of NERDTree because of the CLOUD !!!!!
