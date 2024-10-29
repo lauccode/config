@@ -27,6 +27,9 @@ Plug 'sheerun/vim-polyglot'
 call plug#end()
 :let mapleader = " "
 
+" no autocomment
+set formatoptions-=cro
+
 " NERD COMMENTER
 " To don't have the bug of NERDTree because of the CLOUD !!!!!
 let g:NERDTreeDirArrows=0
