@@ -149,7 +149,7 @@ autocmd VimEnter * silent! nunmap <leader>r
 autocmd VimEnter * nnoremap <leader>r :source $MYVIMRC<CR>
 set shortmess+=I
 
-nnoremap <leader>r :source $MYVIMRC<CR>
+" nnoremap <leader>r :source $MYVIMRC<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>c :bd<CR>
@@ -258,7 +258,7 @@ nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
 
 " QUICKFIX
 " if you want to load the quickfix item into the previously used window.
-set switchbuf+=uselast
+" set switchbuf+=uselast
 
 " DEBUG
 "packadd termdebug
