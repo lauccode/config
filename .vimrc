@@ -4,6 +4,7 @@ set bg=dark  " dark/light
 
 set cursorline                                    " afficher la ligne courante
 " hi CursorLine guibg=#4d4d4d                       " couleur de fond pour la ligne courante
+:set laststatus=2                                 " cursor bar on
 
 " POLYGLOT (TREE SITTER)
 highlight Comment ctermfg=green guifg=green
