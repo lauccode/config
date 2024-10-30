@@ -1,10 +1,15 @@
-" BASIC
 
 set bg=dark  " dark/light
 
 set cursorline                                    " afficher la ligne courante
 " hi CursorLine guibg=#4d4d4d                       " couleur de fond pour la ligne courante
-:set laststatus=2                                 " cursor bar on
+set laststatus=2                                 " cursor bar on
+
+" COLOR SCHEME:
+" :colo   (to check colorscheme used)
+" :colo delek
+:colo desert
+" :colo industry
 
 " POLYGLOT (TREE SITTER)
 highlight Comment ctermfg=green guifg=green
@@ -28,18 +33,80 @@ Plug 'sheerun/vim-polyglot'
 call plug#end()
 :let mapleader = " "
 
-" persistent undo
-set undofile
+" SHORTCUTS:
+" removed because used by mark.vim
+autocmd VimEnter * silent! nunmap <leader>r
+autocmd VimEnter * nnoremap <leader>r :source $MYVIMRC<CR>
 
-" no autocomment (not work ?)
-set formatoptions-=cro
+autocmd VimEnter * silent! nunmap *
+autocmd VimEnter * nnoremap * :keepjumps normal! mi*`i<CR>
 
-" security options
-set nomodeline
+set shortmess+=I
+" nnoremap! <leader>r :source $MYVIMRC<CR>
+" no search forward with '*'
+" nnoremap * :keepjumps normal! mi*`i<CR>
 
+nnoremap <leader>w :w<CR>
+nnoremap <leader>q :q<CR>
+nnoremap <leader>c :bd<CR>
+noremap <F2> :edit ~/.vimrc<CR>
+noremap <F5> :!love .<CR>
+noremap <F6> :bp<CR>
+noremap <F7> :bn<CR>
+nnoremap <silent> <F9> :NERDTreeToggle<CR>
+nnoremap <leader>i viw
+nnoremap <leader>I viW
+set lcs=tab:»_,trail:·,eol:$
+nnoremap <leader>h :set list!<CR>
+nnoremap <leader>o :LspDocumentSwitchSourceHeader<CR>
+nnoremap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <leader>f :Files<CR>
+nnoremap <leader>g :RG <C-R><C-W><CR>
+command! Lg execute '!lazygit'
+" VIM_EASYMOTION:
+nmap f <Plug>(easymotion-s)
+" LSP:
+nnoremap gd :LspDefinition<CR>
+nnoremap gn :LspNextDiagnostic<CR>
+nnoremap gp :LspPreviousDiagnostic<CR>
+nnoremap gr :LspRename<CR>
+" VIM_VISUAL_MULTI:
+let g:VM_maps = {}
+let g:VM_maps['Find Under']         = '<C-d>'
+let g:VM_maps['Add Cursor Down']    = '<C-Down>'
+let g:VM_maps['Add Cursor Up']      = '<C-Up>'
+
+" SETTINGS:
+set nocompatible
+syntax enable
+filetype plugin on
+" to select tab with mouse
+" also to have buttons for termdebug !
+set mouse=a
+syntax enable
+filetype plugin indent on
+set nu nu
+set completeopt=menuone,noinsert,noselect "for completion
+set shortmess+=c " avoid hit enter prompt
+set expandtab    " number of space to indent with <Tab>
+set smartindent
+set tabstop=4 softtabstop=4
+set cmdheight=2
+set updatetime=50
+set signcolumn=yes
+set smartcase  " be sure to find even if bad case
+" set list!  " show invisible character
+" set lcs=tab:»_,trail:·  " set lcs=tab:j_,trail:·,eol:$
+" set cwh=30 " high for the preview of incommand
+set undofile                " persistent undo
+set formatoptions-=cro      " no autocomment (not work ?)
+set nomodeline              " security options
 set hlsearch
 
-" NERD COMMENTER
+" NERD COMMENTER:
 " To don't have the bug of NERDTree because of the CLOUD !!!!!
 let g:NERDTreeDirArrows=0
 " To avoid bug of NERDTREE that doesn't open Directory with new HD to work (so new cygwin ...)
@@ -53,43 +120,8 @@ let g:NERDLPlace= "/*"
 let g:NERDRPlace= "*/"
 " let g:NERDUsePlaceHolders = 0
 " let g:NERDDefaultNesting = 1
-" [count]<leader>cc |NERDCommenterComment|
-" Comment out the current line or text selected in visual mode.
-" [count]<leader>cn |NERDCommenterNested|
-" Same as cc but forces nesting.
-" [count]<leader>c<space> |NERDCommenterToggle|
-" Toggles the comment state of the selected line(s). If the topmost selected line is commented, all selected lines are uncommented and vice versa.
-" [count]<leader>cm |NERDCommenterMinimal|
-" Comments the given lines using only one set of multipart delimiters.
-" [count]<leader>ci |NERDCommenterInvert|
-" Toggles the comment state of the selected line(s) individually.
-" [count]<leader>cs |NERDCommenterSexy|
-" Comments out the selected lines with a pretty block formatted layout.
-" [count]<leader>cy |NERDCommenterYank|
-" Same as cc except that the commented line(s) are yanked first.
-" <leader>c$ |NERDCommenterToEOL|
-" Comments the current line from the cursor to the end of line.
-" <leader>cA |NERDCommenterAppend|
-" Adds comment delimiters to the end of line and goes into insert mode between them.
-" |NERDCommenterInsert|
-" Adds comment delimiters at the current cursor position and inserts between. Disabled by default.
-" <leader>ca |NERDCommenterAltDelims|
-" Switches to the alternative set of delimiters.
-" [count]<leader>cl |NERDCommenterAlignLeft [count]<leader>cb |NERDCommenterAlignBoth
-" Same as |NERDCommenterComment| except that the delimiters are aligned down the left side (<leader>cl) or both sides (<leader>cb).
-" [count]<leader>cu |NERDCommenterUncomment|
-" Uncomments the selected line(s).
- 
 
-" Basic configuration: For VIM-EASYMOTION, you can add basic key bindings to your .vimrc:
-nmap f <Plug>(easymotion-s)
-
-" For vim-visual-multi, you can enable it with:
-let g:VM_maps = {}
-let g:VM_maps['Find Under']         = '<C-d>'
-let g:VM_maps['Add Cursor Down']    = '<C-Down>'
-let g:VM_maps['Add Cursor Up']      = '<C-Up>'
-
+" KAKOUNE_LIKE:
 " make d to kill character
 nnoremap d x
 " kakoune line selection (x down/X up)
@@ -129,78 +161,50 @@ function! ExtendSelectionNextWord()
     execute "normal! gv"
     xnoremap W :call ExtendSelectionNextWord()<CR>
 endfunction
+" do g,li for ^ and g,h for $
 
-" LSP
-nnoremap gd :LspDefinition<CR>
-nnoremap gn :LspNextDiagnostic<CR>
-nnoremap gp :LspPreviousDiagnostic<CR>
-nnoremap gr :LspRename<CR>
 
-set nocompatible
-syntax enable
-filetype plugin on
-" to select tab with mouse
-" also to have buttons for termdebug !
-set mouse=a
-syntax enable
-filetype plugin indent on
-set nu nu
-set completeopt=menuone,noinsert,noselect "for completion
-set shortmess+=c " avoid hit enter prompt
-set expandtab    " number of space to indent with <Tab>
-set smartindent
-set tabstop=4 softtabstop=4
-set cmdheight=2
-set updatetime=50
-set signcolumn=yes
-set smartcase  " be sure to find even if bad case
-" set list!  " show invisible character
-" set lcs=tab:»_,trail:·  " set lcs=tab:j_,trail:·,eol:$
-" set cwh=30 " high for the preview of incommand
+" NERD COMMENTER DEFAULT SHORTCUTS:
+" [count]<leader>cc |NERDCommenterComment|
+" Comment out the current line or text selected in visual mode.
+" [count]<leader>cn |NERDCommenterNested|
+" Same as cc but forces nesting.
+" [count]<leader>c<space> |NERDCommenterToggle|
+" Toggles the comment state of the selected line(s). If the topmost selected line is commented, all selected lines are uncommented and vice versa.
+" [count]<leader>cm |NERDCommenterMinimal|
+" Comments the given lines using only one set of multipart delimiters.
+" [count]<leader>ci |NERDCommenterInvert|
+" Toggles the comment state of the selected line(s) individually.
+" [count]<leader>cs |NERDCommenterSexy|
+" Comments out the selected lines with a pretty block formatted layout.
+" [count]<leader>cy |NERDCommenterYank|
+" Same as cc except that the commented line(s) are yanked first.
+" <leader>c$ |NERDCommenterToEOL|
+" Comments the current line from the cursor to the end of line.
+" <leader>cA |NERDCommenterAppend|
+" Adds comment delimiters to the end of line and goes into insert mode between them.
+" |NERDCommenterInsert|
+" Adds comment delimiters at the current cursor position and inserts between. Disabled by default.
+" <leader>ca |NERDCommenterAltDelims|
+" Switches to the alternative set of delimiters.
+" [count]<leader>cl |NERDCommenterAlignLeft [count]<leader>cb |NERDCommenterAlignBoth
+" Same as |NERDCommenterComment| except that the delimiters are aligned down the left side (<leader>cl) or both sides (<leader>cb).
+" [count]<leader>cu |NERDCommenterUncomment|
+" Uncomments the selected line(s).
+ 
 
-" SHORTCUTS
-" removed because used by mark.vim
-autocmd VimEnter * silent! nunmap <leader>r
-autocmd VimEnter * nnoremap <leader>r :source $MYVIMRC<CR>
 
-autocmd VimEnter * silent! nunmap *
-autocmd VimEnter * nnoremap * :keepjumps normal! mi*`i<CR>
 
-set shortmess+=I
-" nnoremap! <leader>r :source $MYVIMRC<CR>
-" no search forward with '*'
-" nnoremap * :keepjumps normal! mi*`i<CR>
 
-nnoremap <leader>w :w<CR>
-nnoremap <leader>q :q<CR>
-nnoremap <leader>c :bd<CR>
-noremap <F2> :edit ~/.vimrc<CR>
-noremap <F5> :!love .<CR>
-noremap <F6> :bp<CR>
-noremap <F7> :bn<CR>
-nnoremap <silent> <F9> :NERDTreeToggle<CR>
-nnoremap <leader>i viw
-nnoremap <leader>I viW
-set lcs=tab:»_,trail:·,eol:$
-nnoremap <leader>h :set list!<CR>
-nnoremap <leader>o :LspDocumentSwitchSourceHeader<CR>
-nnoremap <C-l> <C-w>l
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <leader>f :Files<CR>
-nnoremap <leader>g :RG<CR>
-command! Lg execute '!lazygit'
 
+
+
+
+
+" BASIC:
 " MOVE
 "  % key will be your friend. This key will jump between start and end of 
 " curly braces quickly.
-
-" COLOR SCHEME
-" :colo   (to check colorscheme used)
-" :colo delek
-:colo desert
-" :colo industry
 
 " REPEAT LAST COMMAND
 " The last command entered with ':' can be repeated with @: and further repeats can be done with @@
@@ -238,14 +242,14 @@ endif
  " Search for foo in JavaScript files: :grep foo -t js
  " Search for foo in files matching a glob: :grep foo -g '*.js'
 
-" AUTOCOMPLETE
+" AUTOCOMPLETE:
 " ^x^n        just for this file
 " ^x^f        for filenames(works with path tricks)
 " ^x ^]        for tags only
 " ^n            complete
 " ^p             go back
 
-" FILE BROWSING
+" FILE BROWSING:
 " E     explorer all screen
 " Ex    explorer split screen
 let g:netrw_banner = 0
@@ -258,7 +262,7 @@ let g:netrw_list_hide=netrw_gitignore#Hide()
 " <CR>/v/t to open in an h-split/v-split/tab
 " check |netrw-browse-maps| for more mappings
 
-" BUILD
+" BUILD:
 " set makeprg=ninja
 " :make to run
 " :cl to list errors
@@ -268,9 +272,9 @@ let g:netrw_list_hide=netrw_gitignore#Hide()
 
 " SNIPPETS:
 " Read an empty HTML template and move cursor to title
-nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
+" nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
 
-" TERMINAL
+" TERMINAL:
 " exit from terminal : CTRL+\CTRL+n
 " :terminal
 " :terminal make  (launch make in terminal)
@@ -278,11 +282,11 @@ nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
 " :cbuffer (parse terminal buffer to fill quickfixlist) very practice !!!!!
 " :cn, cp  (next, previous error of quickfixlist)
 
-" QUICKFIX
+" QUICKFIX:
 " if you want to load the quickfix item into the previously used window.
 " set switchbuf+=uselast
 
-" DEBUG
+" DEBUG:
 "packadd termdebug
 " Termdebug bin/exe
 " GDB cmd :
@@ -294,10 +298,10 @@ nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
 " :let termdebugger="rust-gdb"
 " we navigate to the source code view and type Ctrl+w and L to have it on the right.
 
-" TAB
+" TAB:
 " :tabedit namefile.txt
 
-" SEARCH AND REPLACE 
+" SEARCH AND REPLACE:
 " to have preview :
 " https://github.com/osyo-manga/vim-over
 " Delete all line where "Binary File" is present
@@ -306,7 +310,7 @@ nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
 " Replace each match of the last search pattern with 'bar'.
 " 'bar' can be previously copy and recall with <C-r>" 
 
-" FOLDER
+" FOLDER:
 " Fold activation and deactivation
 " To activate fold use following command: 
 " :set foldenable 
@@ -326,17 +330,17 @@ nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
 " :zm zr    augmente/diminue niveau
 " :zE zO    supprime/ouvre tous les replis sous le curseur
 
-" MARKER
+" MARKER:
 " Balises
 " :ma       marqueur a
 " :'a       va au marqueur a
 " :marks    list des marques
 
-" REGISTRES
+" REGISTRES:
 " :registres    on voit tous les buffers de copier/coller
 " "%p       path du fichier en cours
 
-" COMMAND HISTORY
+" COMMAND HISTORY:
 " see your history of commands : 
 " ctrl-f.
 " Use 
