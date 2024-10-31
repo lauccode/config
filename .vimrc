@@ -30,8 +30,15 @@ Plug 'junegunn/fzf.vim'
 Plug 'inkarkat/vim-mark'
 Plug 'inkarkat/vim-ingo-library'
 Plug 'sheerun/vim-polyglot'
+Plug 'junegunn/vim-easy-align'
 call plug#end()
 :let mapleader = " "
+
+" EASY ALIGN:
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 " SHORTCUTS:
 " removed because used by mark.vim
