@@ -358,3 +358,8 @@ let g:netrw_list_hide=netrw_gitignore#Hide()
 " You could then press 
 " Esc or ctrl-c again
 " to exit command mode entirely. 
+
+" Vous exécutez la commande suivante pour remplacer example par sample:
+" :s/example/sample/
+" Si vous placez votre curseur sur une autre ligne contenant le mot example:
+" Et vous appuyez sur &, Vim appliquera la dernière substitution example -> sample à cette ligne:
