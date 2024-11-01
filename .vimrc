@@ -214,8 +214,9 @@ function! SelectOrExtendWord()
 endfunction
 
 function! ExtendSelectionNextWord()
-    execute "normal! /\\<\\k*\\>\\(\zs\\k*\\)*\\<CR>"
-    execute "normal! gv"
+    normal! ve 
+    execute "normal! /\\v<k<word>%<CR>"
+    execute "normal! gvE"
     xnoremap W :call ExtendSelectionNextWord()<CR>
 endfunction
 " do g,li for ^ and g,h for $
