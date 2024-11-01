@@ -70,8 +70,58 @@ nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
-nnoremap <leader>f :Files<CR>
-nnoremap <leader>g :RG <C-R><C-W><CR>
+
+function! FindAll()
+  if executable('rg')
+    let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --no-ignore'
+    command! -nargs=* RG call fzf#vim#grep2('rg --hidden --no-ignore --column --line-number --no-heading --color=always --smart-case', <q-args>, fzf#vim#with_preview(), 1)
+  endif
+endfunction
+
+function! Find()
+  if executable('rg')
+    let $FZF_DEFAULT_COMMAND = 'rg --files'
+    command! -nargs=* RG call fzf#vim#grep2('rg --column --line-number --no-heading --color=always --smart-case', <q-args>, fzf#vim#with_preview(), 1)
+  endif
+endfunction
+
+function! FindFile()
+  :call Find()
+  :Files
+endfunction
+
+function! FindFileAll()
+  :call FindAll()
+  :Files
+endfunction
+
+function! RGsafe()
+  :call Find()
+  let l:word = expand('<cword>') 
+  if !empty(l:word) 
+    execute 'RG ' . l:word 
+  else 
+    echo "No word under cursor"
+    execute 'RG ' 
+  endif
+endfunction
+
+function! RGsafeAll()
+  :call FindAll()
+  let l:word = expand('<cword>') 
+  if !empty(l:word) 
+    execute 'RG ' . l:word 
+  else 
+    echo "No word under cursor"
+    execute 'RG ' 
+  endif
+endfunction
+
+nnoremap <leader>f :call FindFile()<CR>
+nnoremap <leader>F :call FindFileAll()<CR>
+nnoremap <leader>g :call RGsafe()<CR>
+nnoremap <leader>G :call RGsafeAll()<CR>
+
 command! Lg execute '!lazygit'
 " VIM_EASYMOTION:
 nmap f <Plug>(easymotion-s)
