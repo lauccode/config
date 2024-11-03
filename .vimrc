@@ -31,8 +31,15 @@ Plug 'inkarkat/vim-mark'
 Plug 'inkarkat/vim-ingo-library'
 Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/vim-easy-align'
+Plug 'rafi/awesome-vim-colorschemes'
 call plug#end()
 :let mapleader = " "
+
+" COLOR SCHEME:
+" :colo   (to check colorscheme used)
+" :colo delek
+:colo gruvbox
+" :colo industry
 
 " EASY ALIGN:
 " Start interactive EasyAlign in visual mode (e.g. vipga)
