@@ -340,6 +340,7 @@ let g:netrw_list_hide=netrw_gitignore#Hide()
 " launch script to build and use :
 " :cbuffer (parse terminal buffer to fill quickfixlist) very practice !!!!!
 " :cn, cp  (next, previous error of quickfixlist)
+" CTRL+w,: to have the command prompt from terminal to do :cbuffer
 
 " QUICKFIX:
 " if you want to load the quickfix item into the previously used window.
