@@ -26,8 +26,13 @@ Plug 'inkarkat/vim-ingo-library'
 Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/vim-easy-align'
 Plug 'rafi/awesome-vim-colorschemes'
+Plug 'liuchengxu/vim-which-key'
 call plug#end()
-:let mapleader = " "
+" :let mapleader = " "
+let g:mapleader = "\<Space>"
+let g:maplocalleader = ','
+nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
+nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
 
 " COLOR SCHEME:
 " :colo   (to check colorscheme used)
