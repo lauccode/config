@@ -324,6 +324,7 @@ let g:netrw_list_hide=netrw_gitignore#Hide()
 " BUILD:
 " set makeprg=ninja
 " :make to run
+" :make -C build/simu/  (Ctrl+z before to set environement, and fg to come back in vim)
 " :cl to list errors
 " :cc# to jump to error by number
 " :cn n :cp to navigate
