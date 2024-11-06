@@ -33,6 +33,7 @@ let g:mapleader = "\<Space>"
 let g:maplocalleader = ','
 nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
 nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
+autocmd VimEnter * call which_key#register('<Space>', 'g:which_key_map')
 
 " COLOR SCHEME:
 " :colo   (to check colorscheme used)
@@ -59,7 +60,7 @@ set shortmess+=I
 " no search forward with '*'
 " nnoremap * :keepjumps normal! mi*`i<CR>
 
-nnoremap <leader>w :w<CR>
+nnoremap <leader>w :w<CR> | let g:which_key_map.w = ['<cmd>w<CR>', 'Save File']
 nnoremap <leader>q :q<CR>
 nnoremap <leader>c :bd<CR>
 noremap <F2> :edit ~/.vimrc<CR>
