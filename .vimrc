@@ -386,7 +386,7 @@ let g:netrw_list_hide=netrw_gitignore#Hide()
 " %s/oldword/newword/gc performs the substitution.
 " update saves the changes to each file.
 " The c flag will prompt you for confirmation before each replacement. 
-" Save All Changes: After making the replacements, you can save all changes with:
+" Save All Changes(no use of update before): After making the replacements, you can save all changes with:
 " :wa
 
 " FOLDER:
