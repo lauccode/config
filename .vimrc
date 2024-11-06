@@ -377,6 +377,18 @@ let g:netrw_list_hide=netrw_gitignore#Hide()
 " Replace each match of the last search pattern with 'bar'.
 " 'bar' can be previously copy and recall with <C-r>" 
 
+" SEARCH AND REPLACE IN ALL FILES:
+" Open the Quickfix List: Open the quickfix list to see all the matches:
+" :copen
+" Perform the Replacement: 
+" Use the :cdo command to perform the substitution on each entry in the quickfix list. 
+" :cdo %s/oldword/newword/gc | update
+" %s/oldword/newword/gc performs the substitution.
+" update saves the changes to each file.
+" The c flag will prompt you for confirmation before each replacement. 
+" Save All Changes: After making the replacements, you can save all changes with:
+" :wa
+
 " FOLDER:
 " Fold activation and deactivation
 " To activate fold use following command: 
