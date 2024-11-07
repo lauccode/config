@@ -60,6 +60,7 @@ set shortmess+=I
 " no search forward with '*'
 " nnoremap * :keepjumps normal! mi*`i<CR>
 
+let g:which_key_map =  {}
 nnoremap <leader>w :w<CR> | let g:which_key_map.w = ['<cmd>w<CR>', 'Save File']
 nnoremap <leader>q :q<CR>
 nnoremap <leader>c :bd<CR>
