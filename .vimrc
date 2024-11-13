@@ -10,6 +10,9 @@ highlight Comment ctermfg=green guifg=green
 highlight Keyword ctermfg=blue guifg=blue
 let g:polyglot_disabled = ['autoindent']
 
+set exrc
+set secure
+
 call plug#begin('~/.vim/plugged')
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
