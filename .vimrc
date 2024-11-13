@@ -27,6 +27,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/vim-easy-align'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'liuchengxu/vim-which-key'
+--Plug 'ycm-core/YouCompleteMe'  -- TBT
 call plug#end()
 " :let mapleader = " "
 let g:mapleader = "\<Space>"
