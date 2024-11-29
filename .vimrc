@@ -143,6 +143,13 @@ nnoremap gd :LspDefinition<CR>
 nnoremap gn :LspNextDiagnostic<CR>
 nnoremap gp :LspPreviousDiagnostic<CR>
 nnoremap gr :LspRename<CR>
+set signcolumn=yes
+let g:lsp_diagnostics_enabled = 1                                                                                                                                                                                                                     
+sign define LspDiagnosticsSignError text=\u2717 texthl=LspDiagnosticsSignError
+sign define LspDiagnosticsSignWarning text=\u26a0 texthl=LspDiagnosticsSignWarning
+sign define LspDiagnosticsSignInformation text=\u2139 texthl=LspDiagnosticsSignInformation
+sign define LspDiagnosticsSignHint text=\u27a4 texthl=LspDiagnosticsSignHint
+
 " VIM_VISUAL_MULTI:
 let g:VM_maps = {}
 let g:VM_maps['Find Under']         = '<C-d>'
