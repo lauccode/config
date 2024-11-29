@@ -30,7 +30,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/vim-easy-align'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'liuchengxu/vim-which-key'
---Plug 'ycm-core/YouCompleteMe'  -- TBT
+" Plug 'ycm-core/YouCompleteMe'  " TBT
 call plug#end()
 " :let mapleader = " "
 let g:mapleader = "\<Space>"
@@ -145,10 +145,6 @@ nnoremap gp :LspPreviousDiagnostic<CR>
 nnoremap gr :LspRename<CR>
 set signcolumn=yes
 let g:lsp_diagnostics_enabled = 1                                                                                                                                                                                                                     
-sign define LspDiagnosticsSignError text=\u2717 texthl=LspDiagnosticsSignError
-sign define LspDiagnosticsSignWarning text=\u26a0 texthl=LspDiagnosticsSignWarning
-sign define LspDiagnosticsSignInformation text=\u2139 texthl=LspDiagnosticsSignInformation
-sign define LspDiagnosticsSignHint text=\u27a4 texthl=LspDiagnosticsSignHint
 
 " VIM_VISUAL_MULTI:
 let g:VM_maps = {}
