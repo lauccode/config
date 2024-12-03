@@ -65,7 +65,7 @@ set shortmess+=I
 " nnoremap * :keepjumps normal! mi*`i<CR>
 
 let g:which_key_map =  {}
-nnoremap <leader>w :w<CR> | let g:which_key_map.w = ['<cmd>w<CR>', 'Save File']
+nnoremap <leader>w :w<CR>| let g:which_key_map.w = ['<cmd>w', 'Save File']
 nnoremap <leader>q :q<CR>
 nnoremap <leader>c :bd<CR>
 noremap <F2> :edit ~/.vimrc<CR>
