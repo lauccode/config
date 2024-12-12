@@ -1,3 +1,11 @@
+;;;;;;;;;;;;;  PRELOAD ;;;;;;;;;;;;;;
+;; in .emacs.d/personal/preload/myconf.el
+;; (disable-theme 'zenburn)
+;;;; (setq prelude-theme 'tango-dark)
+;;;; (setq prelude-theme 'tsdh-dark)
+;; (setq prelude-theme 'gruvbox)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;; (prelude-require-package 'beacon)
 ;; ;; +personalisation
 ;; (beacon-mode 1)
@@ -193,7 +201,4 @@
 
 (global-set-key (kbd "M-p") (lambda () (interactive) (shell-command "love .")))
 
-;;;;;;;;;;;;;  PRELOAD ;;;;;;;;;;;;;;
-; (disable-theme 'zenburn)
-; ;; (setq prelude-theme 'tango-dark)
-; (setq prelude-theme 'tsdh-dark)
+
