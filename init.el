@@ -9,6 +9,7 @@
   (package-install 'use-package))
 
 (global-display-line-numbers-mode t)
+(recentf-mode 1)
 
 ;; Flycheck (TO BE REMOVED IF LSP)
 (use-package flycheck
@@ -155,6 +156,7 @@
          ("C-x 5 b" . consult-buffer-other-frame)
          ("M-g g" . consult-goto-line)
          ("M-g M-g" . consult-goto-line)
+         ("C-x C-r" . consult-recent-file)
          ("M-s r" . consult-ripgrep)
          ("M-s l" . consult-line)))
 (use-package consult
