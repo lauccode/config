@@ -11,6 +11,12 @@
 (global-display-line-numbers-mode t)
 (recentf-mode 1)
 
+(use-package doom-themes
+  :ensure t
+  :config
+  (load-theme 'doom-rouge t))
+;; (load-theme 'wombat t)
+
 (use-package savehist
   :ensure t
   :init
