@@ -8,6 +8,8 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
+(global-display-line-numbers-mode t)
+
 ;; Flycheck (TO BE REMOVED IF LSP)
 (use-package flycheck
   :ensure t
@@ -56,23 +58,6 @@
   :config
   (setq dumb-jump-selector 'ivy)  ;; Use Ivy for selection interface
   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
-
-;; Company (Complete Anything)
-;; Company is a modular text completion framework that works well with many programming languages and backends.
-(use-package company
-  :ensure t
-  :init
-  (global-company-mode)
-  :config
-  (setq company-idle-delay 0)
-  (setq company-minimum-prefix-length 1)
-  :bind (("M-/" . company-complete)))
-
-(use-package company-clang
-  :ensure company
-  :config
-  (setq company-clang-executable "/usr/bin/clang")  ;; Adjust to the remote clang path
-  (setq company-clang-arguments '("-I/usr/include" "-I/usr/local/include")))
 
 ;; Projectile
 (use-package projectile
@@ -128,6 +113,23 @@
 (eval-after-load 'tramp
   '(setq magit-remote-git-executable "/usr/local/bin/git"))
 
+;; Company (Complete Anything)
+;; Company is a modular text completion framework that works well with many programming languages and backends.
+(use-package company
+  :ensure t
+  :init
+  (global-company-mode)
+  :config
+  (setq company-idle-delay 0)
+  (setq company-minimum-prefix-length 1)
+  :bind (("M-/" . company-complete)))
+
+(use-package company-clang
+  :ensure company
+  :config
+  (setq company-clang-executable "/usr/bin/clang")  ;; Adjust to the remote clang path
+  (setq company-clang-arguments '("-I/usr/include" "-I/usr/local/include")))
+
 ;; Install and configure Vertico
 (use-package vertico
   :ensure t
@@ -157,8 +159,7 @@
          ("M-s l" . consult-line)))
 (use-package consult
   :ensure t
-  :bind (("C-c C-g" . consult-ripgrep)          ; WORK
-         ("C-c C-G" . my/consult-ripgrep-all))  ; WORK
+  :bind     ("M-s R" . my/consult-ripgrep-all)  ; WORK
   :config
   (setq consult-ripgrep-args "rg --null --line-buffered --color=never --max-columns=1000 --path-separator / --smart-case --no-heading --line-number ."))
 (defun my/consult-ripgrep-all ()
@@ -181,6 +182,26 @@
   (which-key-mode)
   :config
   (setq which-key-idle-delay 0.5))  ;; Adjust the delay as needed
+
+;; Install lua-mode
+(use-package lua-mode
+  :ensure t)
+;; Download love-minor-mode: Clone the love-minor-mode repository from GitHub.
+;; git clone https://github.com/ejmr/love-minor-mode.git ~/.emacs.d/love-minor-mode
+;; Load love-minor-mode
+(add-to-list 'load-path "~/.emacs.d/love-minor-mode")
+;; (require 'love-minor-mode)
+;; ;; Enable love-minor-mode for lua-mode
+;; (add-hook 'lua-mode-hook 'love-minor-mode)
+;; (global-set-key (kbd "M-p") (lambda () (interactive) (shell-command "love .")))
+
+;; Install multiple-cursors
+(use-package multiple-cursors
+  :ensure t
+  :bind (("C-S-c C-S-c" . mc/edit-lines)
+         ("C->" . mc/mark-next-like-this)
+         ("C-<" . mc/mark-previous-like-this)
+         ("C-c C-<" . mc/mark-all-like-this)))
 
 ;; Additional settings
 ;; (setq lsp-enable-snippet nil)  ;; Disable snippets if they cause issues
