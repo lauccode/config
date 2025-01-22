@@ -118,8 +118,8 @@
 (use-package company
   :ensure t
   :init
-  (global-company-mode)
   :config
+  (global-company-mode t)
   (setq company-idle-delay 0)
   (setq company-minimum-prefix-length 1)
   :bind (("M-/" . company-complete)))
@@ -179,8 +179,8 @@
 (use-package which-key
   :ensure t
   :init
-  (which-key-mode)
   :config
+  (which-key-mode t)
   (setq which-key-idle-delay 0.5))  ;; Adjust the delay as needed
 
 ;; Install lua-mode
