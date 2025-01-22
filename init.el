@@ -11,6 +11,12 @@
 (global-display-line-numbers-mode t)
 (recentf-mode 1)
 
+(use-package savehist
+  :ensure t
+  :init
+  (savehist-mode 1)
+  (setq savehist-additional-variables '(command-history)))
+
 ;; Flycheck (TO BE REMOVED IF LSP)
 (use-package flycheck
   :ensure t
