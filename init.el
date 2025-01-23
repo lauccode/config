@@ -151,6 +151,12 @@
 (eval-after-load 'tramp
   '(setq magit-remote-git-executable "/usr/local/bin/git"))
 
+;; view git change in margin
+(use-package git-gutter
+  :ensure t
+  :config
+  (global-git-gutter-mode +1))
+
 ;; Company (Complete Anything)
 ;; Company is a modular text completion framework that works well with many programming languages and backends.
 (use-package company
