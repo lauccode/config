@@ -39,10 +39,14 @@
   (setq dumb-jump-selector 'ivy)  ;; Use Ivy for selection interface
   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 
-;; ;; Tree-sitter
+;; ;; 
 ;; The configuration variable is exordium-treesit-modes-enable and is disabled by default.
-;; modules/init-prefs.el defines the preferences that can be changed in your prefs.el. For example, your prefs.el could contain:
+;; modules/init-prefs.el defines the preferences that can be changed in your ~/.emacs.d/prefs.el. 
+;; For example, your prefs.el could contain:
 ;; (setq exordium-treesit-modes-enable t)
+;; (setq exordium-helm-everywhere t)
+;;
+;; Tree-sitter:
 ;; after use treesit-install-language-grammar in cpp file
 
 
