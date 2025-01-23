@@ -20,6 +20,14 @@
 (setq highlight-symbol-colors '("yellow" "DeepPink" "cyan" "MediumSpringGreen"
                                 "orange" "HotPink" "SpringGreen" "MediumPurple"))
 
+;; ALT + Arrow Up and ALT + Arrow Down to move lines:
+(use-package drag-stuff
+  :ensure t
+  :config
+  (drag-stuff-global-mode 1)
+  (global-set-key (kbd "M-<up>") 'drag-stuff-up)
+  (global-set-key (kbd "M-<down>") 'drag-stuff-down))
+
 (use-package doom-themes
   :ensure t
   :config
