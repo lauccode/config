@@ -43,5 +43,6 @@
 ;; The configuration variable is exordium-treesit-modes-enable and is disabled by default.
 ;; modules/init-prefs.el defines the preferences that can be changed in your prefs.el. For example, your prefs.el could contain:
 ;; (setq exordium-treesit-modes-enable t)
+;; after use treesit-install-language-grammar in cpp file
 
 
