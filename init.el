@@ -8,6 +8,13 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
+;; Add the following configuration to set the cursor type to a vertical bar:
+;; (setq-default cursor-type 'bar)
+;; If you prefer a horizontal bar, you can use:
+;; (setq-default cursor-type 'hbar)
+;; To make the cursor more visible, you can enable HL Line mode, which highlights the current line:
+(global-hl-line-mode 1)
+
 (global-display-line-numbers-mode t)
 (recentf-mode 1)
 (desktop-save-mode 1)
