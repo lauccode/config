@@ -13,6 +13,13 @@
 (desktop-save-mode 1)
 (global-set-key (kbd "C-c h") 'ff-find-other-file)  ;; Open header for cpp
 
+;; To toggle the highlight of the symbol under the cursor:
+(package-install 'highlight-symbol)
+(require 'highlight-symbol)
+(global-set-key (kbd "C-c C-SPC") 'highlight-symbol)
+(setq highlight-symbol-colors '("yellow" "DeepPink" "cyan" "MediumSpringGreen"
+                                "orange" "HotPink" "SpringGreen" "MediumPurple"))
+
 (use-package doom-themes
   :ensure t
   :config
