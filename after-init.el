@@ -39,3 +39,5 @@
   (setq dumb-jump-selector 'ivy)  ;; Use Ivy for selection interface
   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 
+;; ;; Tree-sitter
+;; The configuration variable is exordium-treesit-modes-enable and is disabled by default.
