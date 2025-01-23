@@ -28,6 +28,14 @@
   (global-set-key (kbd "M-<up>") 'drag-stuff-up)
   (global-set-key (kbd "M-<down>") 'drag-stuff-down))
 
+;; select lines
+(defun select-line-end ()
+  "Select the current line and leave the cursor at the end of the line."
+  (interactive)
+  (end-of-line)
+  (set-mark (line-beginning-position)))
+(global-set-key (kbd "C-c l") 'select-line-end)
+
 (use-package doom-themes
   :ensure t
   :config
