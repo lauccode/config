@@ -10,6 +10,8 @@
 
 (global-display-line-numbers-mode t)
 (recentf-mode 1)
+(desktop-save-mode 1)
+(global-set-key (kbd "C-c h") 'ff-find-other-file)  ;; Open header for cpp
 
 (use-package doom-themes
   :ensure t
