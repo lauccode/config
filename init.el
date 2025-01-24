@@ -93,6 +93,10 @@
 ;;   :ensure t
 ;;   :commands lsp-ivy-workspace-symbol)
 
+;; ;; Bind lsp-format-region to a key (e.g., C-c f)
+;; (eval-after-load 'cc-mode
+;;   '(define-key c++-mode-map (kbd "C-c f") 'lsp-format-region))
+
 ;; Install Dumb Jump
 (use-package dumb-jump
   :ensure t
@@ -103,6 +107,16 @@
   :config
   (setq dumb-jump-selector 'ivy)  ;; Use Ivy for selection interface
   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
+
+;; format selection with clang-format
+;; Specify the path to clang-format executable
+(use-package clang-format
+  :ensure t
+  :config
+;; Bind clang-format-region to a key (e.g., C-c f)
+(setq clang-format-executable "/home/user/extension/LLVM/bin/clang-format")
+(eval-after-load 'cc-mode
+  '(define-key c++-mode-map (kbd "C-c f") 'clang-format-region)))
 
 ;; Projectile
 (use-package projectile
