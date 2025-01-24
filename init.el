@@ -73,11 +73,6 @@
          (lsp-mode . lsp-enable-which-key-integration))
   :commands lsp)
 
-(use-package lsp-clangd
-  :ensure t
-  :config
-  (setq lsp-clangd-binary-path "/usr/bin/clangd"))
-
 ;; Optional: Install lsp-ui for additional UI features
 (use-package lsp-ui
   :ensure t
@@ -85,11 +80,6 @@
     (setq lsp-ui-doc-enable t)
     (setq lsp-ui-doc-show-with-mouse nil)          
   :commands lsp-ui-mode)
-
-;; Optional: Install company-lsp for completion
-(use-package company-lsp
-  :ensure t
-  :commands company-lsp)
 
 ;; LSP Treemacs
 (use-package lsp-treemacs
