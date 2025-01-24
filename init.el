@@ -8,6 +8,12 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
+(use-package doom-themes
+  :ensure t
+  :config
+  (load-theme 'doom-rouge t))
+;; (load-theme 'wombat t)
+
 ;; Add the following configuration to set the cursor type to a vertical bar:
 ;; (setq-default cursor-type 'bar)
 ;; If you prefer a horizontal bar, you can use:
@@ -43,17 +49,20 @@
   (set-mark (line-beginning-position)))
 (global-set-key (kbd "C-c l") 'select-line-end)
 
-(use-package doom-themes
-  :ensure t
-  :config
-  (load-theme 'doom-rouge t))
-;; (load-theme 'wombat t)
-
 (use-package savehist
   :ensure t
   :init
   (savehist-mode 1)
   (setq savehist-additional-variables '(command-history)))
+
+;; TRAMP
+(use-package tramp
+  :ensure t
+  :config
+  (setq tramp-default-method "plink")
+  (setq tramp-default-remote-shell "/bin/bash")  ;; Change to the desired shell
+  (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
+  (add-to-list 'tramp-remote-path '("/usr/local/bin" "/usr/bin" "/bin" "/snap/bin")))  ;; Add desired paths
 
 ;; Flycheck (TO BE REMOVED IF LSP)
 (use-package flycheck
@@ -134,15 +143,6 @@
 ;; Exclude unnecessary files in .projectile
 ;; -/path/to/exclude
 ;; -*.log
-
-;; TRAMP
-(use-package tramp
-  :ensure t
-  :config
-  (setq tramp-default-method "plink")
-  (setq tramp-default-remote-shell "/bin/bash")  ;; Change to the desired shell
-  (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
-  (add-to-list 'tramp-remote-path '("/usr/local/bin" "/usr/bin" "/bin" "/snap/bin")))  ;; Add desired paths
 
 ;; Tree-sitter
 (use-package tree-sitter
