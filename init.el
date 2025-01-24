@@ -64,68 +64,90 @@
   (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
   (add-to-list 'tramp-remote-path '("/usr/local/bin" "/usr/bin" "/bin" "/snap/bin")))  ;; Add desired paths
 
-;; Flycheck (TO BE REMOVED IF LSP)
-(use-package flycheck
-  :ensure t
-  :init (global-flycheck-mode))
 
-;; ;; LSP Mode
-;; (use-package lsp-mode
+;; Install and configure lsp-mode
+(use-package lsp-mode
+  :ensure t
+  :hook ((c++-mode . lsp)
+         (c-mode . lsp)
+         (lsp-mode . lsp-enable-which-key-integration))
+  :commands lsp)
+
+(use-package lsp-clangd
+  :ensure t
+  :config
+  (setq lsp-clangd-binary-path "/usr/bin/clangd"))
+
+;; Optional: Install lsp-ui for additional UI features
+(use-package lsp-ui
+  :ensure t
+  :commands lsp-ui-mode)
+
+;; Optional: Install company-lsp for completion
+(use-package company-lsp
+  :ensure t
+  :commands company-lsp)
+
+;; LSP Treemacs
+(use-package lsp-treemacs
+  :ensure t
+  :commands lsp-treemacs-errors-list)
+
+;; LSP Ivy
+(use-package lsp-ivy
+  :ensure t
+  :commands lsp-ivy-workspace-symbol)
+
+;; Ensure lsp-mode works with tramp
+(setq lsp-enable-file-watchers nil)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; TO REPLACE LSP
+
+;; ;; Flycheck (TO BE REMOVED IF LSP)
+;; (use-package flycheck
 ;;   :ensure t
-;;   :hook ((prog-mode . lsp))
-;;   :commands lsp
+;;   :init (global-flycheck-mode))
+
+;; ;; Install Dumb Jump
+;; (use-package dumb-jump
+;;   :ensure t
+;; ;;   :bind (("M-g o" . dumb-jump-go-other-window)
+;; ;;          ("M-g j" . dumb-jump-go)
+;; ;;          ("M-g b" . dumb-jump-back)
+;; ;;          ("M-g q" . dumb-jump-quick-look))
 ;;   :config
-;; ;;   (setq lsp-clients-clangd-args '("--compile-commands-dir=/remote/path/to/project"))
-;;   (lsp-register-client
-;;    (make-lsp-client :new-connection (lsp-tramp-connection "clangd")
-;;                     :major-modes '(c-mode c++-mode)
-;;                     :remote? t
-;;                     :server-id 'clangd-remote)))
+;;   (setq dumb-jump-selector 'ivy)  ;; Use Ivy for selection interface
+;;   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 
-;; ;; (setq debug-on-error t)
-;; (use-package xref
-;;   :ensure t)
-;; (setq lsp-log-io t)
-
-;; ;; LSP UI
-;; (use-package lsp-ui
+;; ;; format selection with clang-format
+;; ;; Specify the path to clang-format executable
+;; (use-package clang-format
 ;;   :ensure t
-;;   :commands lsp-ui-mode)
-
-;; ;; LSP Treemacs
-;; (use-package lsp-treemacs
-;;   :ensure t
-;;   :commands lsp-treemacs-errors-list)
-
-;; ;; LSP Ivy
-;; (use-package lsp-ivy
-;;   :ensure t
-;;   :commands lsp-ivy-workspace-symbol)
-
-;; ;; Bind lsp-format-region to a key (e.g., C-c f)
+;;   :config
+;; ;; Bind clang-format-region to a key (e.g., C-c f)
+;; (setq clang-format-executable "/home/user/extension/LLVM/bin/clang-format")
 ;; (eval-after-load 'cc-mode
-;;   '(define-key c++-mode-map (kbd "C-c f") 'lsp-format-region))
+;;   '(define-key c++-mode-map (kbd "C-c f") 'clang-format-region)))
 
-;; Install Dumb Jump
-(use-package dumb-jump
-  :ensure t
-;;   :bind (("M-g o" . dumb-jump-go-other-window)
-;;          ("M-g j" . dumb-jump-go)
-;;          ("M-g b" . dumb-jump-back)
-;;          ("M-g q" . dumb-jump-quick-look))
-  :config
-  (setq dumb-jump-selector 'ivy)  ;; Use Ivy for selection interface
-  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
+;; ;; Company (Complete Anything)
+;; ;; Company is a modular text completion framework that works well with many programming languages and backends.
+;; (use-package company
+;;   :ensure t
+;;   :init
+;;   :config
+;;   (global-company-mode t)
+;;   (setq company-idle-delay 0)
+;;   (setq company-minimum-prefix-length 1)
+;;   :bind (("M-/" . company-complete)))
 
-;; format selection with clang-format
-;; Specify the path to clang-format executable
-(use-package clang-format
-  :ensure t
-  :config
-;; Bind clang-format-region to a key (e.g., C-c f)
-(setq clang-format-executable "/home/user/extension/LLVM/bin/clang-format")
-(eval-after-load 'cc-mode
-  '(define-key c++-mode-map (kbd "C-c f") 'clang-format-region)))
+;; (use-package company-clang
+;;   :ensure company
+;;   :config
+;;   (setq company-clang-executable "/usr/bin/clang")  ;; Adjust to the remote clang path
+;;   (setq company-clang-arguments '("-I/usr/include" "-I/usr/local/include")))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; Projectile
 (use-package projectile
@@ -177,23 +199,6 @@
   :ensure t
   :config
   (global-git-gutter-mode +1))
-
-;; Company (Complete Anything)
-;; Company is a modular text completion framework that works well with many programming languages and backends.
-(use-package company
-  :ensure t
-  :init
-  :config
-  (global-company-mode t)
-  (setq company-idle-delay 0)
-  (setq company-minimum-prefix-length 1)
-  :bind (("M-/" . company-complete)))
-
-(use-package company-clang
-  :ensure company
-  :config
-  (setq company-clang-executable "/usr/bin/clang")  ;; Adjust to the remote clang path
-  (setq company-clang-arguments '("-I/usr/include" "-I/usr/local/include")))
 
 ;; Install and configure Vertico
 (use-package vertico
