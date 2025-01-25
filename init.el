@@ -81,6 +81,9 @@
 ;; ;; Optional: Install lsp-ui for additional UI features
 ;; (use-package lsp-ui
 ;;   :ensure t
+;;   :config
+;;     (setq lsp-ui-doc-enable t)
+;;     (setq lsp-ui-doc-show-with-mouse nil)
 ;;   :commands lsp-ui-mode)
 
 ;; ;; Optional: Install company-lsp for completion
