@@ -267,6 +267,27 @@
          ("C-<" . mc/mark-previous-like-this)
          ("C-c C-<" . mc/mark-all-like-this)))
 
+
+;; French check for writing
+;; sudo apt-get install aspell aspell-fr
+(setq ispell-program-name "aspell")
+(setq ispell-dictionary "francais")
+;; check word under cursor with M-$
+;; You can enable spell checking in a buffer by using:
+;; M-x ispell-buffer
+;; Or to check a specific region:
+;; M-x ispell-region
+
+;; add terminal
+(use-package vterm
+  :ensure t
+  :bind ("C-c v" . vterm)
+  :config
+  (setq vterm-size 80)
+  (setq vterm-command "/bin/bash"))
+
+
+
 ;; Additional settings
 ;; (setq lsp-enable-snippet nil)  ;; Disable snippets if they cause issues
 (custom-set-variables
