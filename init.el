@@ -292,6 +292,10 @@
   (setq vterm-size 80)
   (setq vterm-command "/bin/bash"))
 
+(require 'org)
+;; pomodoro
+;; org-timer-set-timer
+;; org-timer-pause-or-continue
 
 
 ;; Additional settings
