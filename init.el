@@ -1,3 +1,5 @@
+;;; package --- summary
+
 ;; Ensure use-package is installed
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
@@ -7,6 +9,8 @@
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
+
+;;; Commentary:
 
 (use-package doom-themes
   :ensure t
