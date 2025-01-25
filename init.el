@@ -29,6 +29,7 @@
 (recentf-mode 1)
 (desktop-save-mode 1)
 (save-place-mode 1)
+(global-auto-revert-mode 1)
 (global-set-key (kbd "C-c h") 'ff-find-other-file)  ;; Open header for cpp
 
 ;; To toggle the highlight of the symbol under the cursor:
