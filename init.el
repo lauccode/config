@@ -44,6 +44,11 @@
 (setq highlight-symbol-colors '("yellow" "DeepPink" "cyan" "MediumSpringGreen"
                                 "orange" "HotPink" "SpringGreen" "MediumPurple"))
 
+(use-package expand-region
+  :ensure t
+  :config
+  (global-set-key (kbd "C-=") 'er/expand-region))
+
 ;; ALT + Arrow Up and ALT + Arrow Down to move lines:
 (use-package drag-stuff
   :ensure t
