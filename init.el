@@ -25,6 +25,11 @@
 ;; To make the cursor more visible, you can enable HL Line mode, which highlights the current line:
 (global-hl-line-mode 1)
 
+(setq window-divider-default-places t)
+(setq window-divider-default-bottom-width 1)
+(setq window-divider-default-right-width 9) ;; Adjust this value as needed
+(window-divider-mode 1)
+
 (global-display-line-numbers-mode t)
 (recentf-mode 1)
 (desktop-save-mode 1)
