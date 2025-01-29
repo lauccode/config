@@ -307,6 +307,12 @@
 ;; org-timer-set-timer
 ;; org-timer-pause-or-continue
 
+;; for emacsc daemon use
+;; emacs --fg-daemon
+;; emacs --fg-daemon=two
+;; emacsclient -e "(kill-emacs)"
+;; emacsclient -e "(kill-emacs)" -s two
+;; var: server-socket-dir
 
 ;; Additional settings
 ;; (setq lsp-enable-snippet nil)  ;; Disable snippets if they cause issues
