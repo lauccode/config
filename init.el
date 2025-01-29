@@ -81,7 +81,11 @@
   (add-to-list 'tramp-remote-path '("/usr/local/bin" "/usr/bin" "/bin" "/snap/bin")))  ;; Add desired paths
 
 
-;; ;; Install and configure lsp-mode
+(setq lsp-feature-enabled t)
+
+(if lsp-feature-enabled
+    (progn
+     ;; ;; Install and configure lsp-mode
 (use-package lsp-mode
   :ensure t
   :hook ((c++-mode . lsp)
@@ -119,53 +123,56 @@
   :config
   (define-key lsp-mode-map (kbd "C-c C-l") lsp-command-map)
   :hook (lsp-mode . lsp-enable-which-key-integration))
+)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; TO REPLACE LSP
 
-;; ;; Flycheck (TO BE REMOVED IF LSP)
-;; (use-package flycheck
-;;   :ensure t
-;;   :init (global-flycheck-mode))
+  (progn
+   ;; Flycheck (TO BE REMOVED IF LSP)
+(use-package flycheck
+  :ensure t
+  :init (global-flycheck-mode))
 
-;; ;; Install Dumb Jump
-;; (use-package dumb-jump
-;;   :ensure t
-;; ;;   :bind (("M-g o" . dumb-jump-go-other-window)
-;; ;;          ("M-g j" . dumb-jump-go)
-;; ;;          ("M-g b" . dumb-jump-back)
-;; ;;          ("M-g q" . dumb-jump-quick-look))
-;;   :config
-;;   (setq dumb-jump-selector 'ivy)  ;; Use Ivy for selection interface
-;;   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
+;; Install Dumb Jump
+(use-package dumb-jump
+  :ensure t
+;;   :bind (("M-g o" . dumb-jump-go-other-window)
+;;          ("M-g j" . dumb-jump-go)
+;;          ("M-g b" . dumb-jump-back)
+;;          ("M-g q" . dumb-jump-quick-look))
+  :config
+  (setq dumb-jump-selector 'ivy)  ;; Use Ivy for selection interface
+  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 
-;; ;; format selection with clang-format
-;; ;; Specify the path to clang-format executable
-;; (use-package clang-format
-;;   :ensure t
-;;   :config
-;; ;; Bind clang-format-region to a key (e.g., C-c f)
-;; ;; (setq clang-format-executable "/home/user/extension/LLVM/bin/clang-format")
-;; (eval-after-load 'cc-mode
-;;   '(define-key c++-mode-map (kbd "C-c f") 'clang-format-region)))
+;; format selection with clang-format
+;; Specify the path to clang-format executable
+(use-package clang-format
+  :ensure t
+  :config
+;; Bind clang-format-region to a key (e.g., C-c f)
+;; (setq clang-format-executable "/home/user/extension/LLVM/bin/clang-format")
+(eval-after-load 'cc-mode
+  '(define-key c++-mode-map (kbd "C-c f") 'clang-format-region)))
 
-;; ;; Company (Complete Anything)
-;; ;; Company is a modular text completion framework that works well with many programming languages and backends.
-;; (use-package company
-;;   :ensure t
-;;   :init
-;;   :config
-;;   (global-company-mode t)
-;;   (setq company-idle-delay 0)
-;;   (setq company-minimum-prefix-length 1)
-;;   :bind (("M-/" . company-complete)))
+;; Company (Complete Anything)
+;; Company is a modular text completion framework that works well with many programming languages and backends.
+(use-package company
+  :ensure t
+  :init
+  :config
+  (global-company-mode t)
+  (setq company-idle-delay 0)
+  (setq company-minimum-prefix-length 1)
+  :bind (("M-/" . company-complete)))
 
-;; (use-package company-clang
-;;   :ensure company
-;;   :config
-;;   (setq company-clang-executable "/usr/bin/clang")  ;; Adjust to the remote clang path
-;;   (setq company-clang-arguments '("-I/usr/include" "-I/usr/local/include")))
-
+(use-package company-clang
+  :ensure company
+  :config
+  (setq company-clang-executable "/usr/bin/clang")  ;; Adjust to the remote clang path
+  (setq company-clang-arguments '("-I/usr/include" "-I/usr/local/include")))
+)
+)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
