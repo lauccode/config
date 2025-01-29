@@ -315,7 +315,7 @@
 ;; emacsclient -c -s two
 ;; emacsclient -e "(kill-emacs)"
 ;; emacsclient -e "(kill-emacs)" -s two
-;; var: server-socket-dir
+;; use describe-variable for server-socket-dir to check if specific path for --socket-name !
 
 ;; Additional settings
 ;; (setq lsp-enable-snippet nil)  ;; Disable snippets if they cause issues
