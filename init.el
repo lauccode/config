@@ -82,81 +82,92 @@
 
 
 ;; ;; Install and configure lsp-mode
-;; (use-package lsp-mode
-;;   :ensure t
-;;   :hook ((c++-mode . lsp)
-;;          (c-mode . lsp)
-;;          (lsp-mode . lsp-enable-which-key-integration))
-;;   :commands lsp)
+(use-package lsp-mode
+  :ensure t
+  :hook ((c++-mode . lsp)
+         (c-mode . lsp)
+         (lsp-mode . lsp-enable-which-key-integration))
+  :commands lsp)
 
-;; ;; Optional: Install lsp-ui for additional UI features
-;; (use-package lsp-ui
-;;   :ensure t
-;;   :config
-;;     (setq lsp-ui-doc-enable t)
-;;     (setq lsp-ui-doc-show-with-mouse nil)
-;;   :commands lsp-ui-mode)
+;; Optional: Install lsp-ui for additional UI features
+(use-package lsp-ui
+  :ensure t
+  :config
+    (setq lsp-ui-doc-enable t)
+    (setq lsp-ui-doc-show-with-mouse nil)
+  :commands lsp-ui-mode)
 
-;; ;; LSP Treemacs
-;; (use-package lsp-treemacs
-;;   :ensure t
-;;   :commands lsp-treemacs-errors-list)
+;; LSP Treemacs
+(use-package lsp-treemacs
+  :ensure t
+  :commands lsp-treemacs-errors-list)
 
-;; ;; LSP Ivy
-;; (use-package lsp-ivy
-;;   :ensure t
-;;   :commands lsp-ivy-workspace-symbol)
+;; LSP Ivy
+(use-package lsp-ivy
+  :ensure t
+  :commands lsp-ivy-workspace-symbol)
 
-;; ;; Ensure lsp-mode works with tramp
-;; (setq lsp-enable-file-watchers nil)
+;; Ensure lsp-mode works with tramp
+(setq lsp-enable-file-watchers nil)
+
+;; adapt shortcuts for windows
+(global-unset-key (kbd "s-l"))
+(use-package lsp-mode
+  :commands lsp
+  :init
+  (setq lsp-keymap-prefix "C-c C-l")
+  :config
+  (define-key lsp-mode-map (kbd "C-c C-l") lsp-command-map)
+  :hook (lsp-mode . lsp-enable-which-key-integration))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; TO REPLACE LSP
 
-;; Flycheck (TO BE REMOVED IF LSP)
-(use-package flycheck
-  :ensure t
-  :init (global-flycheck-mode))
+;; ;; Flycheck (TO BE REMOVED IF LSP)
+;; (use-package flycheck
+;;   :ensure t
+;;   :init (global-flycheck-mode))
 
-;; Install Dumb Jump
-(use-package dumb-jump
-  :ensure t
-;;   :bind (("M-g o" . dumb-jump-go-other-window)
-;;          ("M-g j" . dumb-jump-go)
-;;          ("M-g b" . dumb-jump-back)
-;;          ("M-g q" . dumb-jump-quick-look))
-  :config
-  (setq dumb-jump-selector 'ivy)  ;; Use Ivy for selection interface
-  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
+;; ;; Install Dumb Jump
+;; (use-package dumb-jump
+;;   :ensure t
+;; ;;   :bind (("M-g o" . dumb-jump-go-other-window)
+;; ;;          ("M-g j" . dumb-jump-go)
+;; ;;          ("M-g b" . dumb-jump-back)
+;; ;;          ("M-g q" . dumb-jump-quick-look))
+;;   :config
+;;   (setq dumb-jump-selector 'ivy)  ;; Use Ivy for selection interface
+;;   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 
-;; format selection with clang-format
-;; Specify the path to clang-format executable
-(use-package clang-format
-  :ensure t
-  :config
-;; Bind clang-format-region to a key (e.g., C-c f)
-;; (setq clang-format-executable "/home/user/extension/LLVM/bin/clang-format")
-(eval-after-load 'cc-mode
-  '(define-key c++-mode-map (kbd "C-c f") 'clang-format-region)))
+;; ;; format selection with clang-format
+;; ;; Specify the path to clang-format executable
+;; (use-package clang-format
+;;   :ensure t
+;;   :config
+;; ;; Bind clang-format-region to a key (e.g., C-c f)
+;; ;; (setq clang-format-executable "/home/user/extension/LLVM/bin/clang-format")
+;; (eval-after-load 'cc-mode
+;;   '(define-key c++-mode-map (kbd "C-c f") 'clang-format-region)))
 
-;; Company (Complete Anything)
-;; Company is a modular text completion framework that works well with many programming languages and backends.
-(use-package company
-  :ensure t
-  :init
-  :config
-  (global-company-mode t)
-  (setq company-idle-delay 0)
-  (setq company-minimum-prefix-length 1)
-  :bind (("M-/" . company-complete)))
+;; ;; Company (Complete Anything)
+;; ;; Company is a modular text completion framework that works well with many programming languages and backends.
+;; (use-package company
+;;   :ensure t
+;;   :init
+;;   :config
+;;   (global-company-mode t)
+;;   (setq company-idle-delay 0)
+;;   (setq company-minimum-prefix-length 1)
+;;   :bind (("M-/" . company-complete)))
 
-(use-package company-clang
-  :ensure company
-  :config
-  (setq company-clang-executable "/usr/bin/clang")  ;; Adjust to the remote clang path
-  (setq company-clang-arguments '("-I/usr/include" "-I/usr/local/include")))
+;; (use-package company-clang
+;;   :ensure company
+;;   :config
+;;   (setq company-clang-executable "/usr/bin/clang")  ;; Adjust to the remote clang path
+;;   (setq company-clang-arguments '("-I/usr/include" "-I/usr/local/include")))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 
 ;; Projectile
 (use-package projectile
