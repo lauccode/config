@@ -15,8 +15,7 @@
 (use-package doom-themes
   :ensure t
   :config
-  (load-theme 'doom-rouge t))
-;; (load-theme 'wombat t)
+  (load-theme 'leuven-dark t))
 
 ;; Add the following configuration to set the cursor type to a vertical bar:
 ;; (setq-default cursor-type 'bar)
@@ -38,11 +37,17 @@
 (global-set-key (kbd "C-c h") 'ff-find-other-file)  ;; Open header for cpp
 
 ;; To toggle the highlight of the symbol under the cursor:
-(package-install 'highlight-symbol)
-(require 'highlight-symbol)
-(global-set-key (kbd "C-c C-SPC") 'highlight-symbol)
-(setq highlight-symbol-colors '("yellow" "DeepPink" "cyan" "MediumSpringGreen"
-                                "orange" "HotPink" "SpringGreen" "MediumPurple"))
+(use-package symbol-overlay
+  :ensure t
+  :config
+  (symbol-overlay-mode t)
+  (global-set-key (kbd "C-c C-A") 'symbol-overlay-remove-all)
+  (global-set-key (kbd "C-c C-SPC") 'symbol-overlay-put))
+;; (package-install 'highlight-symbol)
+;; (require 'highlight-symbol)
+;; (global-set-key (kbd "C-c C-SPC") 'highlight-symbol)
+;; (setq highlight-symbol-colors '("yellow" "DeepPink" "cyan" "MediumSpringGreen"
+;;                                 "orange" "HotPink" "SpringGreen" "MediumPurple"))
 
 (use-package expand-region
   :ensure t
