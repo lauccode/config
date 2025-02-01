@@ -37,17 +37,27 @@
 (global-set-key (kbd "C-c h") 'ff-find-other-file)  ;; Open header for cpp
 
 ;; To toggle the highlight of the symbol under the cursor:
-(use-package symbol-overlay
-  :ensure t
-  :config
-  (symbol-overlay-mode t)
-  (global-set-key (kbd "C-c C-A") 'symbol-overlay-remove-all)
-  (global-set-key (kbd "C-c C-SPC") 'symbol-overlay-put))
-;; (package-install 'highlight-symbol)
-;; (require 'highlight-symbol)
-;; (global-set-key (kbd "C-c C-SPC") 'highlight-symbol)
-;; (setq highlight-symbol-colors '("yellow" "DeepPink" "cyan" "MediumSpringGreen"
-;;                                 "orange" "HotPink" "SpringGreen" "MediumPurple"))
+;; (use-package symbol-overlay
+;;   :ensure t
+;;   :config
+;;   (symbol-overlay-mode t)
+;;   (global-set-key (kbd "C-c C-M-SPC") 'symbol-overlay-remove-all)
+;;   (global-set-key (kbd "C-c C-SPC") 'symbol-overlay-put))
+;; ;; (package-install 'highlight-symbol)
+(require 'highlight-symbol)
+;; Define a function to remove all highlights
+(defun remove-all-highlights ()
+  (interactive)
+  (highlight-symbol-remove-all))
+;; Set the key binding to remove all highlights
+(global-set-key (kbd "C-c C-M-SPC") 'remove-all-highlights)
+;; Set highlight colors
+(setq highlight-symbol-colors '("yellow" "DeepPink" "cyan" "MediumSpringGreen"
+                                "orange" "HotPink" "SpringGreen" "MediumPurple"))
+;; Enable highlight-symbol mode globally
+(global-highlight-symbol-mode 1)
+;; Set the key binding to highlight symbols
+(global-set-key (kbd "C-c C-SPC") 'highlight-symbol)
 
 (use-package expand-region
   :ensure t
