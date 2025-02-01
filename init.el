@@ -54,8 +54,6 @@
 ;; Set highlight colors
 (setq highlight-symbol-colors '("yellow" "DeepPink" "cyan" "MediumSpringGreen"
                                 "orange" "HotPink" "SpringGreen" "MediumPurple"))
-;; Enable highlight-symbol mode globally
-(global-highlight-symbol-mode 1)
 ;; Set the key binding to highlight symbols
 (global-set-key (kbd "C-c C-SPC") 'highlight-symbol)
 
