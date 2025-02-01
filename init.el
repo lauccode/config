@@ -36,26 +36,42 @@
 (global-auto-revert-mode 1)
 (global-set-key (kbd "C-c h") 'ff-find-other-file)  ;; Open header for cpp
 
-;; To toggle the highlight of the symbol under the cursor:
-;; (use-package symbol-overlay
-;;   :ensure t
-;;   :config
-;;   (symbol-overlay-mode t)
-;;   (global-set-key (kbd "C-c C-M-SPC") 'symbol-overlay-remove-all)
-;;   (global-set-key (kbd "C-c C-SPC") 'symbol-overlay-put))
-;; ;; (package-install 'highlight-symbol)
-(require 'highlight-symbol)
-;; Define a function to remove all highlights
-(defun remove-all-highlights ()
+;; To toggle the highlight of the symbol under the cursor in all buffers:
+(use-package highlight-thing
+  :ensure t)
+(require 'highlight-thing)
+;; Define a list of colors
+(defvar highlight-symbol-colors '("yellow" "cyan" "magenta" "green" "blue" "orange" "red" "purple")
+  "List of colors for highlighting symbols.")
+(defvar highlight-symbol-color-index 0
+  "Index of the next color to use from `highlight-symbol-colors`.")
+(defun highlight-symbol-with-next-color ()
+  "Highlight the symbol at point with the next color from `highlight-symbol-colors`."
   (interactive)
-  (highlight-symbol-remove-all))
-;; Set the key binding to remove all highlights
-(global-set-key (kbd "C-c C-M-SPC") 'remove-all-highlights)
-;; Set highlight colors
-(setq highlight-symbol-colors '("yellow" "DeepPink" "cyan" "MediumSpringGreen"
-                                "orange" "HotPink" "SpringGreen" "MediumPurple"))
-;; Set the key binding to highlight symbols
-(global-set-key (kbd "C-c C-SPC") 'highlight-symbol)
+  (let ((symbol (thing-at-point 'symbol))
+        (color (nth highlight-symbol-color-index highlight-symbol-colors)))
+    (when symbol
+      ;; Create a custom face for the symbol with the chosen color
+      (let ((face-name (intern (concat "highlight-symbol-face-" color))))
+        (unless (facep face-name)
+          (make-face face-name)
+          (set-face-attribute face-name nil :background color :foreground "black"))
+        (dolist (window (window-list))
+          (with-current-buffer (window-buffer window)
+            (highlight-regexp symbol face-name))))
+      ;; Update the color index for the next symbol
+      (setq highlight-symbol-color-index (mod (1+ highlight-symbol-color-index) (length highlight-symbol-colors))))))
+(defun unhighlight-all-symbols-in-all-buffers ()
+  "Remove all symbol highlighting in all visible buffers."
+  (interactive)
+  (dolist (window (window-list))
+    (with-current-buffer (window-buffer window)
+      (unhighlight-regexp t))))
+;; Bind the functions to shortcuts
+(global-set-key (kbd "C-c C-SPC") 'highlight-symbol-with-next-color)
+(global-set-key (kbd "C-c C-M-SPC") 'unhighlight-all-symbols-in-all-buffers)
+
+
 
 (use-package expand-region
   :ensure t
