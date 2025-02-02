@@ -79,7 +79,14 @@
 (global-set-key (kbd "C-c C-SPC") 'highlight-symbol-with-next-color)
 (global-set-key (kbd "C-c C-M-SPC") 'unhighlight-all-symbols-in-all-buffers)
 
-
+;; GOD MODE
+(use-package god-mode
+  :ensure t
+  :init
+  (god-mode)
+  (global-set-key (kbd "<escape>") #'god-mode-all))
+(custom-set-faces
+ '(god-mode-lighter ((t (:inherit error)))))
 
 (use-package expand-region
   :ensure t
