@@ -375,6 +375,7 @@
   :bind (("C-s" . consult-line)
          ("M-y" . consult-yank-pop)
          ("C-x b" . consult-buffer)
+         ("C-x M" . consult-mark)
          ("C-x 4 b" . consult-buffer-other-window)
          ("C-x 5 b" . consult-buffer-other-frame)
          ("M-g g" . consult-goto-line)
