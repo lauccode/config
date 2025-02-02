@@ -138,7 +138,9 @@
    (god-local-mode
     (set-face-attribute 'mode-line nil
                         :foreground "white"
-                        :background "DarkGoldenrod4")
+                        ;; :background "DarkGoldenrod4")
+                        ;; :background "dark cyan")
+                        :background "purple")
     (set-face-attribute 'mode-line-inactive nil
                         :foreground tsa/fgi
                         :background tsa/bgi))
