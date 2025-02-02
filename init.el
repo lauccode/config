@@ -403,6 +403,7 @@
   :init
   :config
   (which-key-mode t)
+  (which-key-enable-god-mode-support)
   (setq which-key-idle-delay 0.5))  ;; Adjust the delay as needed
 
 ;; Install lua-mode
