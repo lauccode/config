@@ -43,6 +43,7 @@
 (save-place-mode 1)
 (global-auto-revert-mode 1)
 (global-set-key (kbd "C-c h") 'ff-find-other-file)  ;; Open header for cpp
+(global-set-key (kbd "M-o") 'other-window)
 
 ;; To toggle the highlight of the symbol under the cursor in all buffers:
 (use-package highlight-thing
