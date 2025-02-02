@@ -25,9 +25,10 @@
 (global-hl-line-mode 1)
 
 ;; Make the mouse wheel scroll one line at a time
-;; C-SPC C-SPC to mark cursor position
+;; C-SPC C-SPC to mark cursor position (set-mark-command x2)
 ;; scrool with mouse
 ;; C-u C-SPC to retrieve position
+;; c-x c-@ to retrieve position if in another buffer (pop-global-mark)
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; One line at a time
 (setq mouse-wheel-progressive-speed nil) ;; Don't accelerate scrolling
 
