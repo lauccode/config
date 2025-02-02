@@ -402,6 +402,18 @@
     (projectile-find-file)))
 (define-key projectile-mode-map (kbd "C-c p G") 'projectile-ripgrep-find-file-all)
 
+;; (defun consult-ripgrep-with-symbol-at-point ()
+;;   "Run `consult-ripgrep` with the symbol at point as the initial input."
+;;   (interactive)
+;;   (let ((symbol (thing-at-point 'symbol t)))
+;;     (if symbol
+;;         (consult-ripgrep nil symbol)
+;;       (message "No symbol found under cursor."))))
+
+;; ;; Bind the custom function to a key
+;; (global-set-key (kbd "C-c r") 'consult-ripgrep-with-symbol-at-point)
+
+
 ;; Install and configure which-key
 (use-package which-key
   :ensure t
