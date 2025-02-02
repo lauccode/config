@@ -37,6 +37,9 @@
 (setq window-divider-default-right-width 9) ;; Adjust this value as needed
 (window-divider-mode 1)
 
+;; Ensure `grep` and `rgrep` use `ripgrep`
+(setq grep-program "rg")
+
 (global-display-line-numbers-mode t)
 (recentf-mode 1)
 (desktop-save-mode 1)
