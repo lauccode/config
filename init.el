@@ -24,6 +24,10 @@
 ;; To make the cursor more visible, you can enable HL Line mode, which highlights the current line:
 (global-hl-line-mode 1)
 
+;; Make the mouse wheel scroll one line at a time
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; One line at a time
+(setq mouse-wheel-progressive-speed nil) ;; Don't accelerate scrolling
+
 (setq window-divider-default-places t)
 (setq window-divider-default-bottom-width 1)
 (setq window-divider-default-right-width 9) ;; Adjust this value as needed
