@@ -416,6 +416,12 @@
 ;; ;; Bind the custom function to a key
 ;; (global-set-key (kbd "C-c r") 'consult-ripgrep-with-symbol-at-point)
 
+(use-package deadgrep
+  :ensure t
+  :init
+  :config
+(global-set-key (kbd "<f5>") #'deadgrep))
+
 
 ;; Install and configure which-key
 (use-package which-key
