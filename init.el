@@ -374,6 +374,7 @@
   (completion-styles '(orderless basic))
   (completion-category-defaults nil)
   (completion-category-overrides '((file (styles basic partial-completion)))))
+
 (use-package consult
   :ensure t
   :bind (("C-s" . consult-line)
@@ -385,19 +386,8 @@
          ("M-g g" . consult-goto-line)
          ("M-g M-g" . consult-goto-line)
          ("C-x C-r" . consult-recent-file)
-         ("M-s r" . consult-ripgrep)
          ("M-s l" . consult-line)))
-(use-package consult
-  :ensure t
-  :bind     ("M-s R" . my/consult-ripgrep-all)  ; WORK
-  :config
-  (setq consult-ripgrep-args "rg --null --line-buffered --color=never --max-columns=1000 --path-separator / --smart-case --no-heading --line-number ."))
-(defun my/consult-ripgrep-all ()
-  "Run `consult-ripgrep` with arguments to include hidden and ignored files."
-  (interactive)
-  ; (let ((consult-ripgrep-args "rg --hidden --no-ignore -u --null --line-buffered --color=never --max-columns=1000 --path-separator / --smart-case --no-heading --line-number ."))
-  (let ((consult-ripgrep-args "rg -uu --null --line-buffered --color=never --max-columns=1000 --path-separator / --smart-case --no-heading --line-number ."))
-    (consult-ripgrep)))
+
 (defun projectile-ripgrep-find-file-all ()
   "Find file in project, including those ignored by .gitignore using ripgrep."
   (interactive)
@@ -405,22 +395,12 @@
     (projectile-find-file)))
 (define-key projectile-mode-map (kbd "C-c p G") 'projectile-ripgrep-find-file-all)
 
-;; (defun consult-ripgrep-with-symbol-at-point ()
-;;   "Run `consult-ripgrep` with the symbol at point as the initial input."
-;;   (interactive)
-;;   (let ((symbol (thing-at-point 'symbol t)))
-;;     (if symbol
-;;         (consult-ripgrep nil symbol)
-;;       (message "No symbol found under cursor."))))
-
-;; ;; Bind the custom function to a key
-;; (global-set-key (kbd "C-c r") 'consult-ripgrep-with-symbol-at-point)
-
 (use-package deadgrep
   :ensure t
   :init
   :config
 (global-set-key (kbd "<f5>") #'deadgrep))
+
 
 
 ;; Install and configure which-key
