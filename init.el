@@ -430,7 +430,9 @@
   :init
   :config
 (rg-enable-default-bindings)) ;; C-c S
-
+(with-eval-after-load 'rg
+  (advice-add 'rg-run :after
+	      #'(lambda (_pattern _files _dir &optional _literal _confirm _flags) (pop-to-buffer (rg-buffer-name)))))
 
 ;; Install and configure which-key
 (use-package which-key
