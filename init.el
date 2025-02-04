@@ -40,6 +40,8 @@
 ;; Ensure `grep` and `rgrep` use `ripgrep`
 (setq grep-program "rg")
 
+(menu-bar-mode 1)
+(tool-bar-mode nil)
 (global-display-line-numbers-mode t)
 (recentf-mode 1)
 (desktop-save-mode 1)
