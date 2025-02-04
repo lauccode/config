@@ -425,6 +425,11 @@
   :config
 (global-set-key (kbd "<f5>") #'deadgrep))
 
+(use-package rg
+  :ensure t
+  :init
+  :config
+(rg-enable-default-bindings)) ;; C-c S
 
 
 ;; Install and configure which-key
