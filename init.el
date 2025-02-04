@@ -388,8 +388,8 @@
          ("M-g g" . consult-goto-line)
          ("M-g M-g" . consult-goto-line)
          ("C-x C-r" . consult-recent-file)
-	       ("M-s r" . consult-ripgrep)
-	       ("M-s R" . my/consult-ripgrep-all)
+	 ("M-s r" . consult-ripgrep)
+	 ("M-s R" . my/consult-ripgrep-all)
          ("M-s l" . consult-line))
   :config
   (setq consult-ripgrep-args "rg --null --line-buffered --color=never --max-columns=1000 --path-separator / --smart-case --no-heading --line-number ."))
