@@ -492,10 +492,14 @@
 ;; add terminal
 (use-package vterm
   :ensure t
-  :bind ("C-c v" . vterm)
+  :bind ("C-c v" . my-vterm)
   :config
   (setq vterm-size 80)
   (setq vterm-command "/bin/bash"))
+(defun my-vterm ()
+  "Open a new instance of vterm."
+  (interactive)
+  (vterm (generate-new-buffer-name "vterm")))
 
 (require 'org)
 ;; pomodoro
