@@ -395,14 +395,14 @@
 (defun my-consult-ripgrep-standard ()
   "Run consult-ripgrep with standard parameters."
   (interactive)
-  (let ((consult-ripgrep-args "rg --null --line-buffered --color=never --max-columns=1000 --path-separator / --smart-case --no-heading --line-number ."))
+  (let ((consult-ripgrep-args "rg --null --line-buffered --color=never --max-columns=1000 --path-separator / --smart-case --no-heading --line-number"))
     (consult-ripgrep)))
 ;; Search All Files:
 (defun my/consult-ripgrep-all ()
   "Run consult-ripgrep to search all files."
   (interactive)
   ;; (let ((consult-ripgrep-args "rg --hidden --no-heading --line-number --color=never"))
-  (let ((consult-ripgrep-args "rg -uu --null --line-buffered --color=never --max-columns=1000 --path-separator / --smart-case --no-heading --line-number ."))
+  (let ((consult-ripgrep-args "rg -uu --null --line-buffered --color=never --max-columns=1000 --path-separator / --smart-case --no-heading --line-number"))
     (consult-ripgrep)))
 
 ;; (defun consult-ripgrep-with-symbol-at-point ()
