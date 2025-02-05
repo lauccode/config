@@ -399,7 +399,7 @@
         (symbol (thing-at-point 'symbol t)))
     (if symbol
         (consult-ripgrep nil symbol)
-      (message "No symbol found under cursor."))))
+      (consult-ripgrep))))
 ;; Search All Files:
 (defun my/consult-ripgrep-all ()
   "Run consult-ripgrep to search all files."
@@ -408,7 +408,8 @@
         (symbol (thing-at-point 'symbol t)))
     (if symbol
         (consult-ripgrep nil symbol)
-      (message "No symbol found under cursor."))))
+      (consult-ripgrep))))
+
 
 
 ;; (defun consult-ripgrep-with-symbol-at-point ()
