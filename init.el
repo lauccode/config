@@ -388,16 +388,20 @@
          ("M-g g" . consult-goto-line)
          ("M-g M-g" . consult-goto-line)
          ("C-x C-r" . consult-recent-file)
-	 ("M-s r" . consult-ripgrep)
+	 ("M-s r" . my-consult-ripgrep-standard)
 	 ("M-s R" . my/consult-ripgrep-all)
-         ("M-s l" . consult-line))
-  :config
-  (setq consult-ripgrep-args "rg --null --line-buffered --color=never --max-columns=1000 --path-separator / --smart-case --no-heading --line-number ."))
-
-(defun my/consult-ripgrep-all ()
-  "Run `consult-ripgrep` with arguments to include hidden and ignored files."
+         ("M-s l" . consult-line)))
+;; Standard Search:
+(defun my-consult-ripgrep-standard ()
+  "Run consult-ripgrep with standard parameters."
   (interactive)
-   ; (let ((consult-ripgrep-args "rg --hidden --no-ignore -u --null --line-buffered --color=never --max-columns=1000 --path-separator / --smart-case --no-heading --line-number ."))
+  (let ((consult-ripgrep-args "rg --null --line-buffered --color=never --max-columns=1000 --path-separator / --smart-case --no-heading --line-number ."))
+    (consult-ripgrep)))
+;; Search All Files:
+(defun my/consult-ripgrep-all ()
+  "Run consult-ripgrep to search all files."
+  (interactive)
+  ;; (let ((consult-ripgrep-args "rg --hidden --no-heading --line-number --color=never"))
   (let ((consult-ripgrep-args "rg -uu --null --line-buffered --color=never --max-columns=1000 --path-separator / --smart-case --no-heading --line-number ."))
     (consult-ripgrep)))
 
