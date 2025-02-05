@@ -364,7 +364,11 @@
 (use-package vertico
   :ensure t
   :init
-  (vertico-mode))
+  (vertico-mode)
+  :custom
+  (vertico-resize t)  ;; Enable dynamic resizing
+  (vertico-count 30)) ;; Number of candidates to show
+(setq max-mini-window-height 0.5)  ;; max 50%
 ;; Optional enhancements
 (use-package marginalia
   :ensure t
