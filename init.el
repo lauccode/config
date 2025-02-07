@@ -48,7 +48,7 @@
 (save-place-mode 1)
 (global-auto-revert-mode 1)
 (global-set-key (kbd "C-c h") 'ff-find-other-file)  ;; Open header for cpp
-(global-set-key (kbd "M-o") 'other-window)
+;; (global-set-key (kbd "M-o") 'other-window)  ;; comment if use switch-window
 
 ;; To toggle the highlight of the symbol under the cursor in all buffers:
 (use-package highlight-thing
@@ -505,6 +505,39 @@
 ;; pomodoro
 ;; org-timer-set-timer
 ;; org-timer-pause-or-continue
+
+;; add easier switch windows
+(use-package switch-window
+  :ensure t
+  :config
+(global-set-key (kbd "M-o") 'switch-window)
+(global-set-key (kbd "C-x 1") 'switch-window-then-maximize)
+(global-set-key (kbd "C-x 2") 'switch-window-then-split-below)
+(global-set-key (kbd "C-x 3") 'switch-window-then-split-right)
+(global-set-key (kbd "C-x 0") 'switch-window-then-delete)
+
+(global-set-key (kbd "C-x 4 d") 'switch-window-then-dired)
+(global-set-key (kbd "C-x 4 f") 'switch-window-then-find-file)
+(global-set-key (kbd "C-x 4 m") 'switch-window-then-compose-mail)
+(global-set-key (kbd "C-x 4 r") 'switch-window-then-find-file-read-only)
+
+(global-set-key (kbd "C-x 4 C-f") 'switch-window-then-find-file)
+(global-set-key (kbd "C-x 4 C-o") 'switch-window-then-display-buffer)
+
+(global-set-key (kbd "C-x 4 0") 'switch-window-then-kill-buffer)
+
+;; I use text terminal, but I want bigger label.
+;; The only choice is using asciiart, which draw a bigger label with small ascii char.
+;; (setq switch-window-shortcut-appearance 'text)
+;; (setq switch-window-shortcut-appearance 'asciiart)  ;; for terminal emacs mode !
+
+;; I want to select a window with "a-z" instead of "1-9".
+(setq switch-window-shortcut-style 'qwerty)
+;; Note: user can arrange qwerty shortcuts by variable `switch-window-qwerty-shortcuts'.
+;; I want to hide window label when window's number < 3
+(setq switch-window-threshold 2)
+;; I want to select minibuffer with label "z".
+(setq switch-window-minibuffer-shortcut ?z))
 
 ;; for emacsc daemon use
 ;; emacs --fg-daemon
