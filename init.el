@@ -492,7 +492,7 @@
 ;; add terminal
 (use-package vterm
   :ensure t
-  :bind ("C-c v" . my-vterm)
+  :bind ("C-c t" . my-vterm)
   :config
   (setq vterm-size 80)
   (setq vterm-command "/bin/bash"))
@@ -511,10 +511,18 @@
   :ensure t
   :config
 (global-set-key (kbd "M-o") 'switch-window)
-(global-set-key (kbd "C-x 1") 'switch-window-then-maximize)
-(global-set-key (kbd "C-x 2") 'switch-window-then-split-below)
-(global-set-key (kbd "C-x 3") 'switch-window-then-split-right)
-(global-set-key (kbd "C-x 0") 'switch-window-then-delete)
+
+;; (global-set-key (kbd "C-c m") 'delete-other-windows)
+(global-set-key (kbd "C-c m") 'switch-window-then-maximize)
+
+;; (global-set-key (kbd "C-c h") 'split-window-below)
+(global-set-key (kbd "C-c h") 'switch-window-then-split-below)
+
+;; (global-set-key (kbd "C-c v") 'split-window-right)
+(global-set-key (kbd "C-c v") 'switch-window-then-split-right)
+
+;; (global-set-key (kbd "C-c c") 'delete-window)
+(global-set-key (kbd "C-c c") 'switch-window-then-delete)
 
 (global-set-key (kbd "C-x 4 d") 'switch-window-then-dired)
 (global-set-key (kbd "C-x 4 f") 'switch-window-then-find-file)
