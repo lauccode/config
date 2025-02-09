@@ -4,11 +4,24 @@
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
                          ("org" . "https://orgmode.org/elpa/")
+                         ("melpa-stable" . "https://stable.melpa.org/packages/")
                          ("gnu" . "https://elpa.gnu.org/packages/")))
+
 (package-initialize)
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
+
+;; If error or warning with package:
+;; package-refresh-contents
+
+;; For cpp:
+;; C-x C-;    comment line
+;; C-c C-c    comment selection
+;; C-c C-k    toggle comment style
+;; M-;        comment at end of line
+(global-set-key (kbd "C-;") 'comment-line)
+
 
 ;;; Commentary:
 
