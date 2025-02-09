@@ -65,16 +65,23 @@
   (let ((symbol (thing-at-point 'symbol))
         (color (nth highlight-symbol-color-index highlight-symbol-colors)))
     (when symbol
-      ;; Create a custom face for the symbol with the chosen color
-      (let ((face-name (intern (concat "highlight-symbol-face-" color))))
-        (unless (facep face-name)
-          (make-face face-name)
-          (set-face-attribute face-name nil :background color :foreground "black"))
-        (dolist (window (window-list))
-          (with-current-buffer (window-buffer window)
-            (highlight-regexp symbol face-name))))
-      ;; Update the color index for the next symbol
-      (setq highlight-symbol-color-index (mod (1+ highlight-symbol-color-index) (length highlight-symbol-colors))))))
+      ;; Check if the symbol is already highlighted
+      (if (get-text-property (point) 'face)
+          ;; Remove highlighting in all buffers
+          (dolist (window (window-list))
+            (with-current-buffer (window-buffer window)
+              (unhighlight-regexp (regexp-quote symbol))))
+        ;; Create a custom face for the symbol with the chosen color
+        (let ((face-name (intern (concat "highlight-symbol-face-" color))))
+          (unless (facep face-name)
+            (make-face face-name)
+            (set-face-attribute face-name nil :background color :foreground "black"))
+          (dolist (window (window-list))
+            (with-current-buffer (window-buffer window)
+              (highlight-regexp symbol face-name))))
+        ;; Update the color index for the next symbol
+        (setq highlight-symbol-color-index (mod (1+ highlight-symbol-color-index) (length highlight-symbol-colors)))))))
+
 (defun unhighlight-all-symbols-in-all-buffers ()
   "Remove all symbol highlighting in all visible buffers."
   (interactive)
