@@ -50,7 +50,7 @@
 (global-set-key (kbd "C-c h") 'ff-find-other-file)  ;; Open header for cpp
 ;; (global-set-key (kbd "M-o") 'other-window)  ;; comment if use switch-window
 
-;; To toggle the highlight of the symbol under the cursor in all buffers:
+;; ;; To toggle the highlight of the symbol under the cursor in all buffers:
 (use-package highlight-thing
   :ensure t)
 (require 'highlight-thing)
@@ -62,35 +62,44 @@
 (defun highlight-symbol-with-next-color ()
   "Highlight the symbol at point with the next color from `highlight-symbol-colors`."
   (interactive)
-  (let ((symbol (thing-at-point 'symbol))
+  (let ((symbol (thing-at-point 'symbol t))  ;; Ensure the symbol is correctly identified
         (color (nth highlight-symbol-color-index highlight-symbol-colors)))
     (when symbol
-      ;; Check if the symbol is already highlighted
-      (if (get-text-property (point) 'face)
-          ;; Remove highlighting in all buffers
-          (dolist (window (window-list))
-            (with-current-buffer (window-buffer window)
-              (unhighlight-regexp (regexp-quote symbol))))
+      (save-excursion
+        ;; Remove existing highlights for this symbol
+        (dolist (buffer (buffer-list))
+          (with-current-buffer buffer
+            (unhighlight-regexp (regexp-quote symbol))))
         ;; Create a custom face for the symbol with the chosen color
         (let ((face-name (intern (concat "highlight-symbol-face-" color))))
           (unless (facep face-name)
             (make-face face-name)
             (set-face-attribute face-name nil :background color :foreground "black"))
-          (dolist (window (window-list))
-            (with-current-buffer (window-buffer window)
-              (highlight-regexp symbol face-name))))
+          (dolist (buffer (buffer-list))
+            (with-current-buffer buffer
+              (highlight-regexp (regexp-quote symbol) face-name))))
         ;; Update the color index for the next symbol
         (setq highlight-symbol-color-index (mod (1+ highlight-symbol-color-index) (length highlight-symbol-colors)))))))
-
-(defun unhighlight-all-symbols-in-all-buffers ()
-  "Remove all symbol highlighting in all visible buffers."
+(defun unhighlight-symbol-at-point ()
+  "Remove highlighting for the symbol at point in all buffers."
   (interactive)
-  (dolist (window (window-list))
-    (with-current-buffer (window-buffer window)
-      (unhighlight-regexp t))))
+  (let ((symbol (thing-at-point 'symbol t)))
+    (when symbol
+      (dolist (buffer (buffer-list))
+        (with-current-buffer buffer
+          (hi-lock-unface-buffer (regexp-quote symbol)))))))
+(defun unhighlight-all-symbols-in-all-buffers ()
+  "Remove all symbol highlighting in all buffers."
+  (interactive)
+  (dolist (buffer (buffer-list))
+    (with-current-buffer buffer
+      (hi-lock-mode 1)  ;; Ensure hi-lock-mode is enabled
+      (hi-lock-unface-buffer t))))
 ;; Bind the functions to shortcuts
 (global-set-key (kbd "C-c C-SPC") 'highlight-symbol-with-next-color)
+(global-set-key (kbd "C-c C-u") 'unhighlight-symbol-at-point)
 (global-set-key (kbd "C-c C-M-SPC") 'unhighlight-all-symbols-in-all-buffers)
+
 
 ;; GOD MODE
 ;; GOD MODE
