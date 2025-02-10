@@ -1,6 +1,8 @@
 ;;; package --- summary
 
 ;; Ensure use-package is installed
+;;; Commentary:
+
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
                          ("org" . "https://orgmode.org/elpa/")
@@ -22,10 +24,11 @@
 ;; M-;        comment at end of line
 (global-set-key (kbd "C-;") 'comment-line)
 
+;; Here's an example of aligning on the equal sign:
+;; M-x align-regexp RET = RET
+
 ;; mouse activated for emacs in terminal mode (emacs -nw)
 (xterm-mouse-mode 1)
-
-;;; Commentary:
 
 (use-package doom-themes
   :ensure t
