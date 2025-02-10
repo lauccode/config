@@ -22,6 +22,8 @@
 ;; M-;        comment at end of line
 (global-set-key (kbd "C-;") 'comment-line)
 
+;; mouse activated for emacs in terminal mode (emacs -nw)
+(xterm-mouse-mode 1)
 
 ;;; Commentary:
 
