@@ -17,6 +17,12 @@
 ;; If error or warning with package:
 ;; package-refresh-contents
 
+;; Suppress all warnings
+(setq warning-minimum-level :error)
+;; Suppress specific types of warnings
+;; (setq warning-suppress-types '((comp)))
+;; (setq warning-suppress-types '((comp) (bytecomp) (nativecomp)))
+
 ;; For cpp:
 ;; C-x C-;    comment line
 ;; C-c C-c    comment selection
