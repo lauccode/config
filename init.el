@@ -259,99 +259,122 @@
   (add-to-list 'tramp-remote-path '("/usr/local/bin" "/usr/bin" "/bin" "/snap/bin")))  ;; Add desired paths
 
 
+(setq eglot-feature-enabled nil)
 (setq lsp-feature-enabled t)
+(setq jump-feature-enabled nil)
+
+(if eglot-feature-enabled
+    (progn
+      ;; eglot
+      ;; 1. **Install Eglot**: First, make sure Eglot is installed:
+      (use-package eglot
+	:ensure t
+	;; 2. **Install `clangd`**: Install `clangd` if you haven't already. You can install it using a package manager like `brew`, `apt`, or `choco`:
+	;; sudo apt install clangd
+	;; 3. **Configure Eglot for C++**: Add `clangd` to Eglot's configuration for C++ mode:
+	:config
+	(add-to-list 'eglot-server-programs '(c++-mode . ("clangd")))
+	(add-to-list 'eglot-server-programs '(c-mode . ("clangd")))
+	;; 4. **Start Eglot**: Open a C++ file and start Eglot with `M-x eglot RET`. This will initialize `clangd` for your project.
+	;; 5. **Automatic Startup**: If you want Eglot to start automatically when you open a C++ file, add it to the major-mode hook:
+	(add-hook 'c++-mode-hook 'eglot-ensure)
+	(add-hook 'c-mode-hook 'eglot-ensure))  ))
+;; 6. **Project-Specific Configuration**: You can customize `clangd` using a `.dir-locals.el` file in your project directory:
+;; ((c++-mode . ((eglot-workspace-configuration . (:clangd (:fallbackFlags ["-std=c++17"] :clangTidy (:checks ["*"] :clangdCheck :json-false))))))
+;;  (c-mode . ((eglot-workspace-configuration . (:clangd (:fallbackFlags ["-std=c11"] :clangTidy (:checks ["*"] :clangdCheck :json-false))))))))
 
 (if lsp-feature-enabled
     (progn
-     ;; ;; Install and configure lsp-mode
-(use-package lsp-mode
-  :ensure t
-  :hook ((c++-mode . lsp)
-         (c-mode . lsp)
-         (lsp-mode . lsp-enable-which-key-integration))
-  :commands lsp)
+      ;; ;; Install and configure lsp-mode
+      (use-package lsp-mode
+	:ensure t
+	:hook ((c++-mode . lsp)
+               (c-mode . lsp)
+               (lsp-mode . lsp-enable-which-key-integration))
+	:commands lsp)
 
-;; Optional: Install lsp-ui for additional UI features
-(use-package lsp-ui
-  :ensure t
-  :config
-    (setq lsp-ui-doc-enable t)
-    (setq lsp-ui-doc-show-with-mouse nil)
-  :commands lsp-ui-mode)
+      ;; Optional: Install lsp-ui for additional UI features
+      (use-package lsp-ui
+	:ensure t
+	:config
+	(setq lsp-ui-doc-enable t)
+	(setq lsp-ui-doc-show-with-mouse nil)
+	:commands lsp-ui-mode)
 
-;; LSP Treemacs
-(use-package lsp-treemacs
-  :ensure t
-  :commands lsp-treemacs-errors-list)
+      ;; LSP Treemacs
+      (use-package lsp-treemacs
+	:ensure t
+	:commands lsp-treemacs-errors-list)
 
-;; LSP Ivy
-(use-package lsp-ivy
-  :ensure t
-  :commands lsp-ivy-workspace-symbol)
+      ;; LSP Ivy
+      (use-package lsp-ivy
+	:ensure t
+	:commands lsp-ivy-workspace-symbol)
 
-;; Ensure lsp-mode works with tramp
-(setq lsp-enable-file-watchers nil)
+      ;; Ensure lsp-mode works with tramp
+      (setq lsp-enable-file-watchers nil)
 
-;; adapt shortcuts for windows
-(global-unset-key (kbd "s-l"))
-(use-package lsp-mode
-  :commands lsp
-  :init
-  (setq lsp-keymap-prefix "C-c C-l")
-  :config
-  (define-key lsp-mode-map (kbd "C-c C-l") lsp-command-map)
-  :hook (lsp-mode . lsp-enable-which-key-integration))
-)
+      ;; adapt shortcuts for windows
+      (global-unset-key (kbd "s-l"))
+      (use-package lsp-mode
+	:commands lsp
+	:init
+	(setq lsp-keymap-prefix "C-c C-l")
+	:config
+	(define-key lsp-mode-map (kbd "C-c C-l") lsp-command-map)
+	:hook (lsp-mode . lsp-enable-which-key-integration))
+      ))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; TO REPLACE LSP
+(if jump-feature-enabled
+    (progn
+      ;; Flycheck (TO BE REMOVED IF LSP)
+      (use-package flycheck
+	:ensure t
+	:init (global-flycheck-mode))
 
-  (progn
-   ;; Flycheck (TO BE REMOVED IF LSP)
-(use-package flycheck
-  :ensure t
-  :init (global-flycheck-mode))
+      ;; Install Dumb Jump
+      (use-package dumb-jump
+	:ensure t
+	;;   :bind (("M-g o" . dumb-jump-go-other-window)
+	;;          ("M-g j" . dumb-jump-go)
+	;;          ("M-g b" . dumb-jump-back)
+	;;          ("M-g q" . dumb-jump-quick-look))
+	:config
+	(setq dumb-jump-selector 'ivy)  ;; Use Ivy for selection interface
+	(add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 
-;; Install Dumb Jump
-(use-package dumb-jump
-  :ensure t
-;;   :bind (("M-g o" . dumb-jump-go-other-window)
-;;          ("M-g j" . dumb-jump-go)
-;;          ("M-g b" . dumb-jump-back)
-;;          ("M-g q" . dumb-jump-quick-look))
-  :config
-  (setq dumb-jump-selector 'ivy)  ;; Use Ivy for selection interface
-  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
+      ;; format selection with clang-format
+      ;; Specify the path to clang-format executable
+      (use-package clang-format
+	:ensure t
+	:config
+	;; Bind clang-format-region to a key (e.g., C-c f)
+	;; (setq clang-format-executable "/home/user/extension/LLVM/bin/clang-format")
+	(eval-after-load 'cc-mode
+	  '(define-key c++-mode-map (kbd "C-c f") 'clang-format-region)))
 
-;; format selection with clang-format
-;; Specify the path to clang-format executable
-(use-package clang-format
-  :ensure t
-  :config
-;; Bind clang-format-region to a key (e.g., C-c f)
-;; (setq clang-format-executable "/home/user/extension/LLVM/bin/clang-format")
-(eval-after-load 'cc-mode
-  '(define-key c++-mode-map (kbd "C-c f") 'clang-format-region)))
+      ;; Company (Complete Anything)
+      ;; Company is a modular text completion framework that works well with many programming languages and backends.
+      (use-package company
+	:ensure t
+	:init
+	:config
+	(global-company-mode t)
+	(setq company-idle-delay 0)
+	(setq company-minimum-prefix-length 1)
+	:bind (("M-/" . company-complete)))
 
-;; Company (Complete Anything)
-;; Company is a modular text completion framework that works well with many programming languages and backends.
-(use-package company
-  :ensure t
-  :init
-  :config
-  (global-company-mode t)
-  (setq company-idle-delay 0)
-  (setq company-minimum-prefix-length 1)
-  :bind (("M-/" . company-complete)))
-
-(use-package company-clang
-  :ensure company
-  :config
-  (setq company-clang-executable "/usr/bin/clang")  ;; Adjust to the remote clang path
-  (setq company-clang-arguments '("-I/usr/include" "-I/usr/local/include")))
-)
-)
+      (use-package company-clang
+	:ensure company
+	:config
+	(setq company-clang-executable "/usr/bin/clang")  ;; Adjust to the remote clang path
+	(setq company-clang-arguments '("-I/usr/include" "-I/usr/local/include")))
+      )
+  )
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 
 
 ;; Projectile
