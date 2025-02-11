@@ -554,14 +554,23 @@
 
 
 ;; French check for writing
-;; sudo apt-get install aspell aspell-fr
+;; sudo apt-get install aspell aspell-fr aspell-en
+;; Enable Flyspell for text modes
+(add-hook 'text-mode-hook 'flyspell-mode)
 (setq ispell-program-name "aspell")
 (setq ispell-dictionary "francais")
+;; (setq ispell-dictionary "english")
 ;; check word under cursor with M-$
 ;; You can enable spell checking in a buffer by using:
 ;; M-x ispell-buffer
 ;; Or to check a specific region:
-;; M-x ispell-region
+;; M-x ispell-region  <-----------------------------------
+;; Enable Flyspell for programming modes (if desired)
+;; (add-hook 'prog-mode-hook 'flyspell-prog-mode)
+;; Ensure aspell is used
+;; Automatically check spelling when saving a file
+;; (add-hook 'before-save-hook 'ispell-buffer)
+;; Function to switch dictionary
 
 ;; add terminal
 (use-package vterm
