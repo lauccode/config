@@ -47,6 +47,11 @@
   :config
   (load-theme 'leuven-dark t))
 
+(use-package powerline
+  :ensure t
+  :config
+(powerline-default-theme))
+
 ;; Add the following configuration to set the cursor type to a vertical bar:
 ;; (setq-default cursor-type 'bar)
 ;; If you prefer a horizontal bar, you can use:
