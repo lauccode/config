@@ -387,7 +387,10 @@
   )
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-
+;; TBT, try to use project
+;; (use-package project
+;;   :init
+;;   (setq project-vc-extra-root-markers '(".project")))
 
 ;; Projectile
 (use-package projectile
