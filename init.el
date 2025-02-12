@@ -23,6 +23,12 @@
 ;; (setq warning-suppress-types '((comp)))
 ;; (setq warning-suppress-types '((comp) (bytecomp) (nativecomp)))
 
+;; Enable visual line mode globally
+(global-visual-line-mode 1)
+;; Alternatively, enable it for specific modes
+;; (add-hook 'text-mode-hook 'visual-line-mode)
+;; (add-hook 'prog-mode-hook 'visual-line-mode)
+
 ;; For cpp:
 ;; C-x C-;    comment line
 ;; C-c C-c    comment selection
