@@ -17,7 +17,7 @@
 ;; If error or warning with package:
 ;; package-refresh-contents
 
-;; C-x ->, C-x <-	navigate between buffers
+;; C-x -<, C-x ->	navigate between buffers
 ;; C-x M		consult-mark (in a file)
 
 ;; Suppress all warnings
