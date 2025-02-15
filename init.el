@@ -88,6 +88,51 @@
 (global-set-key (kbd "C-c h") 'ff-find-other-file)  ;; Open header for cpp
 ;; (global-set-key (kbd "M-o") 'other-window)  ;; comment if use switch-window
 
+
+(setq copilot-enabled nil)
+
+(if copilot-enabled
+    (progn
+
+;; QUELPA
+(unless (package-installed-p 'quelpa)
+  (with-temp-buffer
+    (url-insert-file-contents "https://raw.githubusercontent.com/quelpa/quelpa/master/quelpa.el")
+    (eval-buffer)
+    (quelpa-self-upgrade)))
+
+;; Ensure quelpa is installed and configured
+(unless (package-installed-p 'quelpa)
+  (quelpa-self-upgrade))
+
+(require 'quelpa)
+
+;; Optional: Use `quelpa-use-package` for integrating with `use-package`
+(quelpa '(quelpa-use-package :fetcher github :repo "quelpa/quelpa-use-package"))
+(require 'quelpa-use-package)
+
+;; COPILOT with QUELPA
+;; (require 'quelpa)
+(require 'use-package)
+(require 'quelpa-use-package)
+(use-package copilot
+  ;; :ensure t
+  :quelpa (copilot :fetcher github
+                   :repo "copilot-emacs/copilot.el"
+                   :branch "main"
+                   :files ("*.el")
+		   )
+  :ensure t
+  :config
+(setq copilot-node-executable "/home/coyote/node-v22.14.0-linux-x64/bin/node")
+(define-key copilot-mode-map (kbd "M-C-<next>") #'copilot-next-completion)
+(define-key copilot-mode-map (kbd "M-C-<prior>") #'copilot-previous-completion)
+(define-key copilot-mode-map (kbd "M-C-<right>") #'copilot-accept-completion-by-word)
+(define-key copilot-mode-map (kbd "M-C-<down>") #'copilot-accept-completion-by-line)
+(define-key global-map (kbd "M-C-<return>") #'rk/copilot-complete-or-accept)
+  )))
+
+
 ;; ;; To toggle the highlight of the symbol under the cursor in all buffers:
 (use-package highlight-thing
   :ensure t)
