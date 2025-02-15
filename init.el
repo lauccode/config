@@ -124,7 +124,7 @@
 		   )
   :ensure t
   :config
-(setq copilot-node-executable "/home/coyote/node-v22.14.0-linux-x64/bin/node")
+(setq copilot-node-executable "~/node-v22.14.0-linux-x64/bin/node")
 (define-key copilot-mode-map (kbd "M-C-<next>") #'copilot-next-completion)
 (define-key copilot-mode-map (kbd "M-C-<prior>") #'copilot-previous-completion)
 (define-key copilot-mode-map (kbd "M-C-<right>") #'copilot-accept-completion-by-word)
