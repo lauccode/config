@@ -111,10 +111,10 @@
 (require 'quelpa-use-package)
 
 ;; COPILOT with QUELPA and USE-PACKAGE
+(when copilot-enabled
 (require 'use-package)
 (require 'quelpa-use-package)
-
-(when copilot-enabled
+	
 (use-package copilot
   :ensure t
   :quelpa (copilot :fetcher github
