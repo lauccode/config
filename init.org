@@ -55,6 +55,7 @@ This will execute all the Emacs Lisp code blocks in the file.
     (global-visual-line-mode 1)
     ;; Alternatively, enable it for specific modes
     ;; (add-hook 'text-mode-hook 'visual-line-mode)
+    ;; (add-hook 'prog-mode-hook 'visual-line-mode)
 
     ;; For cpp:
     ;; C-x C-;    comment line
