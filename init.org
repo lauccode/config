@@ -1,106 +1,121 @@
-
 * Emacs Configuration
 
 ** to do init.el first time
-(org-babel-load-file (expand-file-name "~/.emacs.d/init.org"))
+;; (require 'org)
+;; (org-babel-load-file (expand-file-name "init.org" user-emacs-directory))
+
+;; Allow automatic evaluation of Emacs Lisp code blocks in Org-mode
+;; (setq org-confirm-babel-evaluate nil)
+
+Evaluate the Org file: When you make changes to your init.org file
+you can evaluate the entire buffer by pressing
+C-c C-v C-b (or M-x org-babel-execute-buffer).
+This will execute all the Emacs Lisp code blocks in the file.
+
 ** PACKAGE
 
 #+BEGIN_SRC emacs-lisp
-;;; package --- summary
+  ;;; package --- summary
 
-;; Ensure use-package is installed
-;;; Commentary:
+  ;; Ensure use-package is installed
+  ;;; Commentary: 
+  ;;; Commentary: 
 
-(require 'package)
-(setq package-archives '(("melpa" . "https://melpa.org/packages/")
-                         ("org" . "https://orgmode.org/elpa/")
-                         ("melpa-stable" . "https://stable.melpa.org/packages/")
-                         ("gnu" . "https://elpa.gnu.org/packages/")))
+  (require 'package)
+  (setq package-archives '(("melpa" . "https://melpa.org/packages/")
+			   ("org" . "https://orgmode.org/elpa/")
+			   ("melpa-stable" . "https://stable.melpa.org/packages/")
+			   ("gnu" . "https://elpa.gnu.org/packages/")))
 
-(package-initialize)
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
+  (package-initialize)
+  (unless (package-installed-p 'use-package)
+    (package-refresh-contents)
+    (package-install 'use-package))
 
-;; If error or warning with package:
-;; package-refresh-contents
+  ;; If error or warning with package:
+  ;; package-refresh-contents
 #+END_SRC
+
+#+RESULTS:
 
 ** Settings at start and help shortcut
 #+BEGIN_SRC emacs-lisp
-  ;; Suppress all warnings
-  (setq warning-minimum-level :error)
-  ;; Suppress specific types of warnings
-  ;; (setq warning-suppress-types '((comp)))
-  ;; (setq warning-suppress-types '((comp) (bytecomp) (nativecomp)))
+    (setq org-confirm-babel-evaluate nil)
+    ;; Suppress all warnings
+    (setq warning-minimum-level :error)
+    ;; Suppress specific types of warnings
+    ;; (setq warning-suppress-types '((comp)))
+    ;; (setq warning-suppress-types '((comp) (bytecomp) (nativecomp)))
 
 
-  ;; C-x -<, C-x ->	navigate between buffers
-  ;; C-x M		consult-mark (in a file)
+    ;; C-x -<, C-x ->	navigate between buffers
+    ;; C-x M		consult-mark (in a file)
 
-  ;; Enable visual line mode globally
-  (global-visual-line-mode 1)
-  ;; Alternatively, enable it for specific modes
-  ;; (add-hook 'text-mode-hook 'visual-line-mode)
-  ;; (add-hook 'prog-mode-hook 'visual-line-mode)
+    ;; Enable visual line mode globally
+    (global-visual-line-mode 1)
+    ;; Alternatively, enable it for specific modes
+    ;; (add-hook 'text-mode-hook 'visual-line-mode)
 
-  ;; For cpp:
-  ;; C-x C-;    comment line
-  ;; C-c C-c    comment selection
-  ;; C-c C-k    toggle comment style
-  ;; M-;        comment at end of line
-  (global-set-key (kbd "C-;") 'comment-line)
+    ;; For cpp:
+    ;; C-x C-;    comment line
+    ;; C-c C-c    comment selection
+    ;; C-c C-k    toggle comment style
+    ;; M-;        comment at end of line
+    (global-set-key (kbd "C-;") 'comment-line)
 
-  ;; Here's an example of aligning on the equal sign:
-  ;; M-x align-regexp RET = RET
+    ;; Here's an example of aligning on the equal sign:
+    ;; M-x align-regexp RET = RET
 
-  ;; mouse activated for emacs in terminal mode (emacs -nw)
-  (xterm-mouse-mode 1)
+    ;; mouse activated for emacs in terminal mode (emacs -nw)
+    (xterm-mouse-mode 1)
 
-  ;; Add the following configuration to set the cursor type to a vertical bar:
-  ;; (setq-default cursor-type 'bar)
-  ;; If you prefer a horizontal bar, you can use:
-  ;; (setq-default cursor-type 'hbar)
-  ;; To make the cursor more visible, you can enable HL Line mode, which highlights the current line:
-  (global-hl-line-mode 1)
+    ;; Add the following configuration to set the cursor type to a vertical bar:
+    ;; (setq-default cursor-type 'bar)
+    ;; If you prefer a horizontal bar, you can use:
+    ;; (setq-default cursor-type 'hbar)
+    ;; To make the cursor more visible, you can enable HL Line mode, which highlights the current line:
+    (global-hl-line-mode 1)
 
-  ;; Make the mouse wheel scroll one line at a time
-  ;; C-SPC C-SPC to mark cursor position (set-mark-command x2)
-  ;; scrool with mouse
-  ;; C-u C-SPC to retrieve position
-  ;; C-x C-SPC (or C-x C-@) to retrieve position if in another buffer (pop-global-mark)
-  (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; One line at a time
-  (setq mouse-wheel-progressive-speed nil) ;; Don't accelerate scrolling
+    ;; Make the mouse wheel scroll one line at a time
+    ;; C-SPC C-SPC to mark cursor position (set-mark-command x2)
+    ;; scrool with mouse
+    ;; C-u C-SPC to retrieve position
+    ;; C-x C-SPC (or C-x C-@) to retrieve position if in another buffer (pop-global-mark)
+    (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; One line at a time
+    (setq mouse-wheel-progressive-speed nil) ;; Don't accelerate scrolling
 
-  (setq window-divider-default-places t)
-  (setq window-divider-default-bottom-width 1)
-  (setq window-divider-default-right-width 9) ;; Adjust this value as needed
-  (window-divider-mode 1)
+    (setq window-divider-default-places t)
+    (setq window-divider-default-bottom-width 1)
+    (setq window-divider-default-right-width 9) ;; Adjust this value as needed
+    (window-divider-mode 1)
 
-  ;; Ensure `grep` and `rgrep` use `ripgrep`
-  (setq grep-program "rg")
+    ;; Ensure `grep` and `rgrep` use `ripgrep`
+    (setq grep-program "rg")
 
-  (menu-bar-mode 1)
-  (tool-bar-mode nil)
-  (global-display-line-numbers-mode t)
-  (recentf-mode 1)
-  (desktop-save-mode 1)
-  (save-place-mode 1)
-  (global-auto-revert-mode 1)
-  (global-set-key (kbd "C-c h") 'ff-find-other-file)  ;; Open header for cpp
-  ;; (global-set-key (kbd "M-o") 'other-window)  ;; comment if use switch-window
+    (menu-bar-mode 1)
+    (tool-bar-mode nil)
+    (global-display-line-numbers-mode t)
+    (recentf-mode 1)
+    (desktop-save-mode 1)
+    (save-place-mode 1)
+    (global-auto-revert-mode 1)
+    (global-set-key (kbd "C-c h") 'ff-find-other-file)  ;; Open header for cpp
+    ;; (global-set-key (kbd "M-o") 'other-window)  ;; comment if use switch-window
 
-;; for emacsc daemon use
-;; emacs --fg-daemon
-;; emacs --fg-daemon=two
-;; emacsclient -c
-;; emacsclient -c --socket-name=two
-;; emacsclient -c -s two
-;; emacsclient -e "(kill-emacs)"
-;; emacsclient -e "(kill-emacs)" -s two
-;; use describe-variable for server-socket-dir to check if specific path for --socket-name !
-  
+  ;; for emacsc daemon use
+  ;; emacs --fg-daemon
+  ;; emacs --fg-daemon=two
+  ;; emacsclient -c
+  ;; emacsclient -c --socket-name=two
+  ;; emacsclient -c -s two
+  ;; emacsclient -e "(kill-emacs)"
+  ;; emacsclient -e "(kill-emacs)" -s two
+  ;; use describe-variable for server-socket-dir to check if specific path for --socket-name !
+
 #+END_SRC
+
+#+RESULTS:
+: ff-find-other-file
 
 ** doom-themes
 #+BEGIN_SRC emacs-lisp
@@ -109,6 +124,9 @@
   :config
   (load-theme 'leuven-dark t))
 #+END_SRC
+
+#+RESULTS:
+: t
 
 ** powerline
 #+BEGIN_SRC emacs-lisp
@@ -786,6 +804,8 @@
 (setq switch-window-minibuffer-shortcut ?z))
 #+END_SRC
 
+** additional settings
+#+BEGIN_SRC emacs-lisp
 ;; Additional settings
 ;; (setq lsp-enable-snippet nil)  ;; Disable snippets if they cause issues
 (custom-set-variables
@@ -800,7 +820,10 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+ #+END_SRC
+
 
 # Local Variables:
 # eval: (add-hook 'after-save-hook (lambda () (org-babel-tangle)) nil t)
 # End:
+```
