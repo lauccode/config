@@ -7,11 +7,10 @@ M-x org-babel-tangle
 
 ** PACKAGE
 
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle init.el
   ;;; package --- summary
 
   ;; Ensure use-package is installed
-  ;;; Commentary: 
   ;;; Commentary: 
 
   (require 'package)
@@ -32,7 +31,7 @@ M-x org-babel-tangle
 #+RESULTS:
 
 ** Settings at start and help shortcut
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle init.el
     (setq org-confirm-babel-evaluate nil)
     ;; Suppress all warnings
     (setq warning-minimum-level :error)
@@ -112,7 +111,7 @@ M-x org-babel-tangle
 : ff-find-other-file
 
 ** doom-themes
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle init.el
 (use-package doom-themes
   :ensure t
   :config
@@ -123,7 +122,7 @@ M-x org-babel-tangle
 : t
 
 ** powerline
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle init.el
 (use-package powerline
   :ensure t
   :config
@@ -131,7 +130,7 @@ M-x org-babel-tangle
 #+END_SRC
 
 ** COPILOT
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle init.el
 ;;;;;;;;;;;;;
   ;; COPILOT
 ;;;;;;;;;;;;;
@@ -174,7 +173,7 @@ M-x org-babel-tangle
 #+END_SRC
 
 ** highlight-thing
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle init.el
 ;; ;; To toggle the highlight of the symbol under the cursor in all buffers:
 (use-package highlight-thing
   :ensure t)
@@ -237,7 +236,7 @@ M-x org-babel-tangle
 #+END_SRC
 
 ** GOD MODE
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle init.el
 ;; GOD MODE
 ;; GOD MODE
 (use-package god-mode
@@ -330,7 +329,7 @@ M-x org-babel-tangle
 #+END_SRC
 
 ** expand-region
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle init.el
 (use-package expand-region
   :ensure t
   :config
@@ -338,7 +337,7 @@ M-x org-babel-tangle
 #+END_SRC
 
 ** drag-stuff
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle init.el
 ;; ALT + Arrow Up and ALT + Arrow Down to move lines:
 (use-package drag-stuff
   :ensure t
@@ -349,7 +348,7 @@ M-x org-babel-tangle
 #+END_SRC
 
 ** select line functions
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle init.el
 ;; select lines
 (defun select-line-end ()
   "Select the current line and leave the cursor at the end of the line."
@@ -361,7 +360,7 @@ M-x org-babel-tangle
 #+END_SRC
 
 ** savhist
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle init.el
 (use-package savehist
   :ensure t
   :init
@@ -370,7 +369,7 @@ M-x org-babel-tangle
 #+END_SRC
 
 ** TRAMP
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle init.el
 ;; TRAMP
 (use-package tramp
   :ensure t
@@ -382,7 +381,7 @@ M-x org-babel-tangle
 #+END_SRC
 
 ** LANGUAGE SERVER (eglot, lsp, jump)
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle init.el
 (setq eglot-feature-enabled nil)
 (setq lsp-feature-enabled t)
 (setq jump-feature-enabled nil)
@@ -501,7 +500,7 @@ M-x org-babel-tangle
 #+END_SRC
 
 ** PROJECT (TBT)
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle init.el
 ;; TBT, try to use project
 ;; (use-package project
 ;;   :init
@@ -509,7 +508,7 @@ M-x org-babel-tangle
 #+END_SRC
 
 ** PROJECTILE
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle init.el
 ;; Projectile
 (use-package projectile
   :ensure t
@@ -537,7 +536,7 @@ M-x org-babel-tangle
 #+END_SRC
 
 ** Tree-sitter
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle init.el
 ;; Tree-sitter
 (use-package tree-sitter
   :ensure t
@@ -559,7 +558,7 @@ M-x org-babel-tangle
 #+END_SRC
 
 ** MAGIT
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle init.el
 ;; Magit
 (use-package magit
   :ensure t
@@ -571,7 +570,7 @@ M-x org-babel-tangle
 #+END_SRC
 
 ** Git-gutter
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle init.el
 ;; view git change in margin
 (use-package git-gutter
   :ensure t
@@ -580,7 +579,7 @@ M-x org-babel-tangle
 #+END_SRC
 
 ** VERTICO
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle init.el
 ;; Install and configure Vertico
 (use-package vertico
   :ensure t
@@ -604,7 +603,7 @@ M-x org-babel-tangle
 #+END_SRC
 
 ** Consult
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle init.el
 (use-package consult
   :ensure t
   :bind (("C-s" . consult-line)
@@ -651,7 +650,7 @@ M-x org-babel-tangle
 #+END_SRC
 
 ** deadgrep
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle init.el
 (use-package deadgrep
   :ensure t
   :init
@@ -660,7 +659,7 @@ M-x org-babel-tangle
 #+END_SRC
 
 ** rg
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle init.el
 (use-package rg
   :ensure t
   :init
@@ -672,7 +671,7 @@ M-x org-babel-tangle
 #+END_SRC
 
 ** which-key
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle init.el
 ;; Install and configure which-key
 (use-package which-key
   :ensure t
@@ -684,7 +683,7 @@ M-x org-babel-tangle
 #+END_SRC
 
 ** lua-mode
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle init.el
 ;; Install lua-mode
 (use-package lua-mode
   :ensure t)
@@ -699,7 +698,7 @@ M-x org-babel-tangle
 #+END_SRC
 
 ** multiple-cursors
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle init.el
 ;; Install multiple-cursors
 (use-package multiple-cursors
   :ensure t
@@ -710,7 +709,7 @@ M-x org-babel-tangle
 #+END_SRC
 
 ** aspell
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle init.el
 ;; French check for writing
 ;; sudo apt-get install aspell aspell-fr aspell-en
 ;; Enable Flyspell for text modes
@@ -732,7 +731,7 @@ M-x org-babel-tangle
 #+END_SRC
 
 ** VTERM
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle init.el
 ;; add terminal
 (use-package vterm
   :ensure t
@@ -747,7 +746,7 @@ M-x org-babel-tangle
 #+END_SRC
 
 ** ORG
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle init.el
 (require 'org)
 ;; pomodoro
 ;; org-timer-set-timer
@@ -755,7 +754,7 @@ M-x org-babel-tangle
 #+END_SRC
 
 ** switch-window
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle init.el
 ;; add easier switch windows
 (use-package switch-window
   :ensure t
@@ -799,7 +798,7 @@ M-x org-babel-tangle
 #+END_SRC
 
 ** additional settings
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle init.el
 ;; Additional settings
 ;; (setq lsp-enable-snippet nil)  ;; Disable snippets if they cause issues
 (custom-set-variables
@@ -821,8 +820,10 @@ To automatically tangle init.org every time you save it, add the following to yo
 #+BEGIN_SRC emacs-lisp
 (add-hook 'after-save-hook
           (lambda ()
-            (when (string-equal (file-name-nondirectory buffer-file-name) "init.org")
+            (when (and (string-equal (file-name-nondirectory buffer-file-name) "init.org")
+                       (save-excursion
+                         (goto-char (point-min))
+                         (re-search-forward "^\s*#\+BEGIN_SRC .*:tangle " nil t)))
               (org-babel-tangle)))
           nil 'local)
 #+END_SRC
-
