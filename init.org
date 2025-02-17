@@ -1,8 +1,8 @@
 * Emacs Configuration
 
 ** to do init.el first time
-Tangle the Org file: You can manually tangle the file by opening init.org and running the command:
-C-c C-v t
+Tangle the Org file: You can manually tangle the file by opening init.org and running the command:  
+C-c C-v t  
 M-x org-babel-tangle
 
 ** PACKAGE
