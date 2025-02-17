@@ -814,16 +814,3 @@ M-x org-babel-tangle
  ;; If there is more than one, they won't work right.
  )
  #+END_SRC
-
-** Automate tangling on save
-To automatically tangle init.org every time you save it, add the following to your init.el:
-#+BEGIN_SRC emacs-lisp
-(add-hook 'after-save-hook
-          (lambda ()
-            (when (and (string-equal (file-name-nondirectory buffer-file-name) "init.org")
-                       (save-excursion
-                         (goto-char (point-min))
-                         (re-search-forward "^\s*#\+BEGIN_SRC .*:tangle " nil t)))
-              (org-babel-tangle)))
-          nil 'local)
-#+END_SRC
