@@ -826,7 +826,3 @@ To automatically tangle init.org every time you save it, add the following to yo
           nil 'local)
 #+END_SRC
 
-** Local Variables
-# Local Variables:
-# eval: (add-hook 'after-save-hook (lambda () (org-babel-tangle)) nil t)
-# End:
