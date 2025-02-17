@@ -7,12 +7,23 @@ C-c C-v t
 
 M-x org-babel-tangle
 
+** generate init.el on save of init.org
+#+BEGIN_SRC emacs-lisp :tangle init.el
+    (add-hook 'after-save-hook
+              (lambda ()
+                (when (string-equal (file-name-nondirectory buffer-file-name) "~/.emacs.d/init.org")
+                  (org-babel-tangle)))
+              nil 'local)
+#+END_SRC
+
 ** PACKAGE
 
 #+BEGIN_SRC emacs-lisp :tangle init.el
   ;;; package --- summary
 
   ;; Ensure use-package is installed
+  ;;; Commentary: 
+  ;;; Commentary: 
   ;;; Commentary: 
 
   (require 'package)
@@ -816,3 +827,4 @@ M-x org-babel-tangle
  ;; If there is more than one, they won't work right.
  )
  #+END_SRC
+ 
