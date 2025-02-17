@@ -1,16 +1,9 @@
 * Emacs Configuration
 
 ** to do init.el first time
-;; (require 'org)
-;; (org-babel-load-file (expand-file-name "init.org" user-emacs-directory))
-
-;; Allow automatic evaluation of Emacs Lisp code blocks in Org-mode
-;; (setq org-confirm-babel-evaluate nil)
-
-Evaluate the Org file: When you make changes to your init.org file
-you can evaluate the entire buffer by pressing
-C-c C-v C-b (or M-x org-babel-execute-buffer).
-This will execute all the Emacs Lisp code blocks in the file.
+Tangle the Org file: You can manually tangle the file by opening init.org and running the command:
+C-c C-v t
+M-x org-babel-tangle
 
 ** PACKAGE
 
@@ -823,7 +816,17 @@ This will execute all the Emacs Lisp code blocks in the file.
  )
  #+END_SRC
 
+** Automate tangling on save
+To automatically tangle init.org every time you save it, add the following to your init.el:
+#+BEGIN_SRC emacs-lisp
+(add-hook 'after-save-hook
+          (lambda ()
+            (when (string-equal (file-name-nondirectory buffer-file-name) "init.org")
+              (org-babel-tangle)))
+          nil 'local)
+#+END_SRC
 
+** Local Variables
 # Local Variables:
 # eval: (add-hook 'after-save-hook (lambda () (org-babel-tangle)) nil t)
 # End:
