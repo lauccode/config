@@ -1,13 +1,23 @@
+(defun my/org-babel-tangle-on-save ()
+  "Tangle the current org file if it's `init.org`."
+  (when (string-equal (buffer-file-name)
+                      (expand-file-name "~/.emacs.d/init.org"))
+    (org-babel-tangle)))
+
+(add-hook 'org-mode-hook
+          (lambda ()
+            (add-hook 'after-save-hook #'my/org-babel-tangle-on-save nil 'make-it-local)))
+
 ;;; package --- summary
 
 ;; Ensure use-package is installed
-;;; Commentary:
+;;; Commentary: 
 
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
-                         ("org" . "https://orgmode.org/elpa/")
-                         ("melpa-stable" . "https://stable.melpa.org/packages/")
-                         ("gnu" . "https://elpa.gnu.org/packages/")))
+			 ("org" . "https://orgmode.org/elpa/")
+			 ("melpa-stable" . "https://stable.melpa.org/packages/")
+			 ("gnu" . "https://elpa.gnu.org/packages/")))
 
 (package-initialize)
 (unless (package-installed-p 'use-package)
@@ -17,33 +27,78 @@
 ;; If error or warning with package:
 ;; package-refresh-contents
 
-;; C-x -<, C-x ->	navigate between buffers
-;; C-x M		consult-mark (in a file)
+(setq org-confirm-babel-evaluate nil)
+  ;; Suppress all warnings
+  (setq warning-minimum-level :error)
+  ;; Suppress specific types of warnings
+  ;; (setq warning-suppress-types '((comp)))
+  ;; (setq warning-suppress-types '((comp) (bytecomp) (nativecomp)))
 
-;; Suppress all warnings
-(setq warning-minimum-level :error)
-;; Suppress specific types of warnings
-;; (setq warning-suppress-types '((comp)))
-;; (setq warning-suppress-types '((comp) (bytecomp) (nativecomp)))
 
-;; Enable visual line mode globally
-(global-visual-line-mode 1)
-;; Alternatively, enable it for specific modes
-;; (add-hook 'text-mode-hook 'visual-line-mode)
-;; (add-hook 'prog-mode-hook 'visual-line-mode)
+  ;; C-x -<, C-x ->	navigate between buffers
+  ;; C-x M		consult-mark (in a file)
 
-;; For cpp:
-;; C-x C-;    comment line
-;; C-c C-c    comment selection
-;; C-c C-k    toggle comment style
-;; M-;        comment at end of line
-(global-set-key (kbd "C-;") 'comment-line)
+  ;; Enable visual line mode globally
+  (global-visual-line-mode 1)
+  ;; Alternatively, enable it for specific modes
+  ;; (add-hook 'text-mode-hook 'visual-line-mode)
+  ;; (add-hook 'prog-mode-hook 'visual-line-mode)
 
-;; Here's an example of aligning on the equal sign:
-;; M-x align-regexp RET = RET
+  ;; For cpp:
+  ;; C-x C-;    comment line
+  ;; C-c C-c    comment selection
+  ;; C-c C-k    toggle comment style
+  ;; M-;        comment at end of line
+  (global-set-key (kbd "C-;") 'comment-line)
 
-;; mouse activated for emacs in terminal mode (emacs -nw)
-(xterm-mouse-mode 1)
+  ;; Here's an example of aligning on the equal sign:
+  ;; M-x align-regexp RET = RET
+
+  ;; mouse activated for emacs in terminal mode (emacs -nw)
+  (xterm-mouse-mode 1)
+
+  ;; Add the following configuration to set the cursor type to a vertical bar:
+  ;; (setq-default cursor-type 'bar)
+  ;; If you prefer a horizontal bar, you can use:
+  ;; (setq-default cursor-type 'hbar)
+  ;; To make the cursor more visible, you can enable HL Line mode, which highlights the current line:
+  (global-hl-line-mode 1)
+
+  ;; Make the mouse wheel scroll one line at a time
+  ;; C-SPC C-SPC to mark cursor position (set-mark-command x2)
+  ;; scrool with mouse
+  ;; C-u C-SPC to retrieve position
+  ;; C-x C-SPC (or C-x C-@) to retrieve position if in another buffer (pop-global-mark)
+  (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; One line at a time
+  (setq mouse-wheel-progressive-speed nil) ;; Don't accelerate scrolling
+
+  (setq window-divider-default-places t)
+  (setq window-divider-default-bottom-width 1)
+  (setq window-divider-default-right-width 9) ;; Adjust this value as needed
+  (window-divider-mode 1)
+
+  ;; Ensure `grep` and `rgrep` use `ripgrep`
+  (setq grep-program "rg")
+
+  (menu-bar-mode 1)
+  (tool-bar-mode nil)
+  (global-display-line-numbers-mode t)
+  (recentf-mode 1)
+  (desktop-save-mode 1)
+  (save-place-mode 1)
+  (global-auto-revert-mode 1)
+  (global-set-key (kbd "C-c h") 'ff-find-other-file)  ;; Open header for cpp
+  ;; (global-set-key (kbd "M-o") 'other-window)  ;; comment if use switch-window
+
+;; for emacsc daemon use
+;; emacs --fg-daemon
+;; emacs --fg-daemon=two
+;; emacsclient -c
+;; emacsclient -c --socket-name=two
+;; emacsclient -c -s two
+;; emacsclient -e "(kill-emacs)"
+;; emacsclient -e "(kill-emacs)" -s two
+;; use describe-variable for server-socket-dir to check if specific path for --socket-name !
 
 (use-package doom-themes
   :ensure t
@@ -54,40 +109,6 @@
   :ensure t
   :config
 (powerline-default-theme))
-
-;; Add the following configuration to set the cursor type to a vertical bar:
-;; (setq-default cursor-type 'bar)
-;; If you prefer a horizontal bar, you can use:
-;; (setq-default cursor-type 'hbar)
-;; To make the cursor more visible, you can enable HL Line mode, which highlights the current line:
-(global-hl-line-mode 1)
-
-;; Make the mouse wheel scroll one line at a time
-;; C-SPC C-SPC to mark cursor position (set-mark-command x2)
-;; scrool with mouse
-;; C-u C-SPC to retrieve position
-;; C-x C-SPC (or C-x C-@) to retrieve position if in another buffer (pop-global-mark)
-(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; One line at a time
-(setq mouse-wheel-progressive-speed nil) ;; Don't accelerate scrolling
-
-(setq window-divider-default-places t)
-(setq window-divider-default-bottom-width 1)
-(setq window-divider-default-right-width 9) ;; Adjust this value as needed
-(window-divider-mode 1)
-
-;; Ensure `grep` and `rgrep` use `ripgrep`
-(setq grep-program "rg")
-
-(menu-bar-mode 1)
-(tool-bar-mode nil)
-(global-display-line-numbers-mode t)
-(recentf-mode 1)
-(desktop-save-mode 1)
-(save-place-mode 1)
-(global-auto-revert-mode 1)
-(global-set-key (kbd "C-c h") 'ff-find-other-file)  ;; Open header for cpp
-;; (global-set-key (kbd "M-o") 'other-window)  ;; comment if use switch-window
-
 
 ;;;;;;;;;;;;;
   ;; COPILOT
@@ -128,7 +149,6 @@
   (define-key copilot-mode-map (kbd "M-C-<right>") #'copilot-accept-completion-by-word)
   (define-key copilot-mode-map (kbd "M-C-<down>") #'copilot-accept-completion-by-line)
   (define-key global-map (kbd "M-C-<return>") #'rk/copilot-complete-or-accept)))
-
 
 ;; ;; To toggle the highlight of the symbol under the cursor in all buffers:
 (use-package highlight-thing
@@ -189,8 +209,6 @@
 ;; Bind the function to the shortcut
 (global-set-key (kbd "C-c C-SPC") 'toggle-highlight-symbol-at-point)
 (global-set-key (kbd "C-c C-M-SPC") 'unhighlight-all-symbols-in-all-buffers)
-
-
 
 ;; GOD MODE
 ;; GOD MODE
@@ -282,7 +300,6 @@
 (global-set-key (kbd "C-x C-3") #'split-window-right)
 (global-set-key (kbd "C-x C-0") #'delete-window)
 
-
 (use-package expand-region
   :ensure t
   :config
@@ -319,7 +336,6 @@
   (setq tramp-default-remote-shell "/bin/bash")  ;; Change to the desired shell
   (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
   (add-to-list 'tramp-remote-path '("/usr/local/bin" "/usr/bin" "/bin" "/snap/bin")))  ;; Add desired paths
-
 
 (setq eglot-feature-enabled nil)
 (setq lsp-feature-enabled t)
@@ -459,6 +475,13 @@
 ;; -/path/to/exclude
 ;; -*.log
 
+(defun projectile-ripgrep-find-file-all ()
+  "Find file in project, including those ignored by .gitignore using ripgrep."
+  (interactive)
+  (let ((projectile-generic-command "rg --files --hidden --no-ignore --glob '!.git/' -0"))
+    (projectile-find-file)))
+(define-key projectile-mode-map (kbd "C-c p G") 'projectile-ripgrep-find-file-all)
+
 ;; Tree-sitter
 (use-package tree-sitter
   :ensure t
@@ -547,8 +570,6 @@
         (consult-ripgrep nil symbol)
       (consult-ripgrep))))
 
-
-
 ;; (defun consult-ripgrep-with-symbol-at-point ()
 ;;   "Run `consult-ripgrep` with the symbol at point as the initial input."
 ;;   (interactive)
@@ -559,13 +580,6 @@
 
 ;; ;; Bind the custom function to a key
 ;; (global-set-key (kbd "C-c r") 'consult-ripgrep-with-symbol-at-point)
-
-(defun projectile-ripgrep-find-file-all ()
-  "Find file in project, including those ignored by .gitignore using ripgrep."
-  (interactive)
-  (let ((projectile-generic-command "rg --files --hidden --no-ignore --glob '!.git/' -0"))
-    (projectile-find-file)))
-(define-key projectile-mode-map (kbd "C-c p G") 'projectile-ripgrep-find-file-all)
 
 (use-package deadgrep
   :ensure t
@@ -608,9 +622,9 @@
   :ensure t
   :bind (("C-S-c C-S-c" . mc/edit-lines)
          ("C-<" . mc/mark-next-like-this)
+         ("C-M-<" . mc/skip-to-next-like-this)
          ("C->" . mc/mark-previous-like-this)
          ("C-c C-<" . mc/mark-all-like-this)))
-
 
 ;; French check for writing
 ;; sudo apt-get install aspell aspell-fr aspell-en
@@ -688,16 +702,6 @@
 (setq switch-window-threshold 2)
 ;; I want to select minibuffer with label "z".
 (setq switch-window-minibuffer-shortcut ?z))
-
-;; for emacsc daemon use
-;; emacs --fg-daemon
-;; emacs --fg-daemon=two
-;; emacsclient -c
-;; emacsclient -c --socket-name=two
-;; emacsclient -c -s two
-;; emacsclient -e "(kill-emacs)"
-;; emacsclient -e "(kill-emacs)" -s two
-;; use describe-variable for server-socket-dir to check if specific path for --socket-name !
 
 ;; Additional settings
 ;; (setq lsp-enable-snippet nil)  ;; Disable snippets if they cause issues
