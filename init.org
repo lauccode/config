@@ -27,8 +27,6 @@ M-x org-babel-tangle
 
   ;; Ensure use-package is installed
   ;;; Commentary: 
-  ;;; Commentary: 
-  ;;; Commentary: 
 
   (require 'package)
   (setq package-archives '(("melpa" . "https://melpa.org/packages/")
@@ -44,8 +42,6 @@ M-x org-babel-tangle
   ;; If error or warning with package:
   ;; package-refresh-contents
 #+END_SRC
-
-#+RESULTS:
 
 ** Settings at start and help shortcut
 #+BEGIN_SRC emacs-lisp :tangle init.el
@@ -124,9 +120,6 @@ M-x org-babel-tangle
 
 #+END_SRC
 
-#+RESULTS:
-: ff-find-other-file
-
 ** doom-themes
 #+BEGIN_SRC emacs-lisp :tangle init.el
 (use-package doom-themes
@@ -134,9 +127,6 @@ M-x org-babel-tangle
   :config
   (load-theme 'leuven-dark t))
 #+END_SRC
-
-#+RESULTS:
-: t
 
 ** powerline
 #+BEGIN_SRC emacs-lisp :tangle init.el
@@ -832,4 +822,3 @@ M-x org-babel-tangle
  ;; If there is more than one, they won't work right.
  )
  #+END_SRC
- 
