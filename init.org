@@ -9,11 +9,15 @@ M-x org-babel-tangle
 
 ** generate init.el on save of init.org
 #+BEGIN_SRC emacs-lisp :tangle init.el
-    (add-hook 'after-save-hook
-              (lambda ()
-                (when (string-equal (file-name-nondirectory buffer-file-name) "~/.emacs.d/init.org")
-                  (org-babel-tangle)))
-              nil 'local)
+(defun my/org-babel-tangle-on-save ()
+  "Tangle the current org file if it's `init.org`."
+  (when (string-equal (buffer-file-name)
+                      (expand-file-name "~/.emacs.d/init.org"))
+    (org-babel-tangle)))
+
+(add-hook 'org-mode-hook
+          (lambda ()
+            (add-hook 'after-save-hook #'my/org-babel-tangle-on-save nil 'make-it-local)))
 #+END_SRC
 
 ** PACKAGE
