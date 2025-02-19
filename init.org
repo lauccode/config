@@ -710,6 +710,7 @@ M-x org-babel-tangle
 #+END_SRC
 
 ** multiple-cursors
+C-g    To remove selection after multi-cursor creation
 #+BEGIN_SRC emacs-lisp :tangle init.el
 ;; Install multiple-cursors
 (use-package multiple-cursors
