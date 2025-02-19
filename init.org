@@ -52,6 +52,11 @@ M-x org-babel-tangle
     ;; (setq warning-suppress-types '((comp)))
     ;; (setq warning-suppress-types '((comp) (bytecomp) (nativecomp)))
 
+    ;; set the tab width to 4 spaces for C++
+    (defun my-c++-mode-hook ()
+      (setq c-basic-offset 4)    ; Set the basic indentation to 4 spaces
+      (setq tab-width 4)         ; Set the tab width to 4 spaces
+      (setq indent-tabs-mode nil)) ; Use spaces instead of tabs
 
     ;; C-x -<, C-x ->	navigate between buffers
     ;; C-x M		consult-mark (in a file)
