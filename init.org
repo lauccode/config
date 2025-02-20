@@ -123,6 +123,13 @@ M-x org-babel-tangle
   ;; emacsclient -e "(kill-emacs)" -s two
   ;; use describe-variable for server-socket-dir to check if specific path for --socket-name !
 
+  (defun my-ninja-build ()
+    "Run Ninja build in a specific directory."
+    (interactive)
+    (let ((default-directory (projectile-project-root)))
+      (compile "ninja -C path/to/dir")))
+  (global-set-key (kbd "C-c n") 'my-ninja-build)
+
 #+END_SRC
 
 ** doom-themes
