@@ -63,6 +63,8 @@ M-x org-babel-tangle
 
     ;; C-x SPC          rectangle selection
 
+    ;; M-t              inverse both word (M-b go begin word, M-t toggle with previous)
+
     ;; Enable visual line mode globally
     (global-visual-line-mode 1)
     ;; Alternatively, enable it for specific modes
