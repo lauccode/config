@@ -791,6 +791,7 @@ C-g    To remove selection after multi-cursor creation
 
 ** switch-window
 #+BEGIN_SRC emacs-lisp :tangle init.el
+(winner-mode 1)  ;; winner-undo (C-c <left>) and winner-redo (C-c <right>)
    ;; add easier switch windows
    (use-package switch-window
      :ensure t
