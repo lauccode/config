@@ -127,37 +127,30 @@
 (powerline-default-theme))
 
 ;;;;;;;;;;;;;
-  ;; COPILOT
-;;;;;;;;;;;;;
-(setq copilot-enabled nil)
-  ;; QUELPA
-(unless (package-installed-p 'quelpa)
-  (with-temp-buffer
-    (url-insert-file-contents "https://raw.githubusercontent.com/quelpa/quelpa/master/quelpa.el")
-    (eval-buffer)
-    (quelpa-self-upgrade)))
+	    ;; COPILOT
+	  ;;;;;;;;;;;;;
+	  (setq copilot-enabled nil)
+	    ;; QUELPA
+	  (unless (package-installed-p 'quelpa)
+	    (with-temp-buffer
+	      (url-insert-file-contents "https://raw.githubusercontent.com/quelpa/quelpa/master/quelpa.el")
+	      (eval-buffer)
+	      (quelpa-self-upgrade)))
 
-;; Ensure quelpa is installed and configured
-(unless (package-installed-p 'quelpa)
+	  ;; Ensure quelpa is installed and configured
+
+(use-package quelpa
+  :ensure t
+  :config
   (quelpa-self-upgrade))
 
-(require 'quelpa)
+(use-package quelpa-use-package
+  :after quelpa
+  :ensure t)
 
-;; Optional: Use `quelpa-use-package` for integrating with `use-package`
-(quelpa '(quelpa-use-package :fetcher github :repo "quelpa/quelpa-use-package"))
-(require 'quelpa-use-package)
-
-;; COPILOT with QUELPA and USE-PACKAGE
-(when copilot-enabled
-(require 'use-package)
-(require 'quelpa-use-package)
-	
+  	(when copilot-enabled
 (use-package copilot
-  :ensure t
-  :quelpa (copilot :fetcher github
-                   :repo "copilot-emacs/copilot.el"
-                   :branch "main"
-                   :files ("*.el"))
+  :quelpa (copilot :fetcher github :repo "copilot-emacs/copilot.el" :branch "main" :files ("*.el"))
   :config
   (setq copilot-node-executable "~/node-v22.14.0-linux-x64/bin/node")
   (define-key copilot-mode-map (kbd "M-C-<next>") #'copilot-next-completion)
