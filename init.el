@@ -34,9 +34,18 @@
   ;; (setq warning-suppress-types '((comp)))
   ;; (setq warning-suppress-types '((comp) (bytecomp) (nativecomp)))
 
+  ;; set the tab width to 4 spaces for C++
+  (defun my-c++-mode-hook ()
+    (setq c-basic-offset 4)    ; Set the basic indentation to 4 spaces
+    (setq tab-width 4)         ; Set the tab width to 4 spaces
+    (setq indent-tabs-mode nil)) ; Use spaces instead of tabs
 
   ;; C-x -<, C-x ->	navigate between buffers
   ;; C-x M		consult-mark (in a file)
+
+  ;; C-x SPC          rectangle selection
+
+  ;; M-t              inverse both word (M-b go begin word, M-t toggle with previous)
 
   ;; Enable visual line mode globally
   (global-visual-line-mode 1)
@@ -99,6 +108,13 @@
 ;; emacsclient -e "(kill-emacs)"
 ;; emacsclient -e "(kill-emacs)" -s two
 ;; use describe-variable for server-socket-dir to check if specific path for --socket-name !
+
+(defun my-ninja-build ()
+  "Run Ninja build in a specific directory."
+  (interactive)
+  (let ((default-directory (projectile-project-root)))
+    (compile "ninja -C path/to/dir")))
+(global-set-key (kbd "C-c n") 'my-ninja-build)
 
 (use-package doom-themes
   :ensure t
@@ -646,6 +662,7 @@
 ;; Function to switch dictionary
 
 ;; add terminal
+(require 'vterm)
 (use-package vterm
   :ensure t
   :bind ("C-c t" . my-vterm)
@@ -662,10 +679,19 @@
 ;; org-timer-set-timer
 ;; org-timer-pause-or-continue
 
-;; add easier switch windows
-(use-package switch-window
-  :ensure t
-  :config
+(use-package pulsar
+      :ensure t
+      :config
+(pulsar-global-mode 1))
+(add-hook 'minibuffer-setup-hook #'pulsar-pulse-line)
+
+(winner-mode 1)  ;; winner-undo (C-c <left>) and winner-redo (C-c <right>)
+   ;; add easier switch windows
+   (use-package switch-window
+     :ensure t
+     :config
+     (advice-add 'switch-window :after 'pulsar-pulse-line)
+
 (global-set-key (kbd "M-o") 'switch-window)
 
 ;; (global-set-key (kbd "C-c m") 'delete-other-windows)
