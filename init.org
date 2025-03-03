@@ -585,7 +585,7 @@ M-x org-babel-tangle
          ("C-x M-g" . magit-dispatch)))
 ;; seems needed to have magit ok to find git
 (eval-after-load 'tramp
-  '(setq magit-remote-git-executable "/usr/local/bin/git"))
+  '(setq magit-remote-git-executable "/usr/bin/git"))
 #+END_SRC
 
 ** Git-gutter
