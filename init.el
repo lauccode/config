@@ -15,9 +15,9 @@
 
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
-			 ("org" . "https://orgmode.org/elpa/")
-			 ("melpa-stable" . "https://stable.melpa.org/packages/")
-			 ("gnu" . "https://elpa.gnu.org/packages/")))
+			   ("org" . "https://orgmode.org/elpa/")
+			   ("melpa-stable" . "https://stable.melpa.org/packages/")
+			   ("gnu" . "https://elpa.gnu.org/packages/")))
 
 (package-initialize)
 (unless (package-installed-p 'use-package)
@@ -127,17 +127,17 @@
 (powerline-default-theme))
 
 ;;;;;;;;;;;;;
-	    ;; COPILOT
-	  ;;;;;;;;;;;;;
-	  (setq copilot-enabled nil)
-	    ;; QUELPA
-	  (unless (package-installed-p 'quelpa)
-	    (with-temp-buffer
-	      (url-insert-file-contents "https://raw.githubusercontent.com/quelpa/quelpa/master/quelpa.el")
-	      (eval-buffer)
-	      (quelpa-self-upgrade)))
+	      ;; COPILOT
+	    ;;;;;;;;;;;;;
+	    (setq copilot-enabled nil)
+	      ;; QUELPA
+	    (unless (package-installed-p 'quelpa)
+	      (with-temp-buffer
+		(url-insert-file-contents "https://raw.githubusercontent.com/quelpa/quelpa/master/quelpa.el")
+		(eval-buffer)
+		(quelpa-self-upgrade)))
 
-	  ;; Ensure quelpa is installed and configured
+	    ;; Ensure quelpa is installed and configured
 
 (use-package quelpa
   :ensure t
@@ -148,7 +148,7 @@
   :after quelpa
   :ensure t)
 
-  	(when copilot-enabled
+	  (when copilot-enabled
 (use-package copilot
   :quelpa (copilot :fetcher github :repo "copilot-emacs/copilot.el" :branch "main" :files ("*.el"))
   :config
@@ -517,7 +517,7 @@
          ("C-x M-g" . magit-dispatch)))
 ;; seems needed to have magit ok to find git
 (eval-after-load 'tramp
-  '(setq magit-remote-git-executable "/usr/local/bin/git"))
+  '(setq magit-remote-git-executable "/usr/bin/git"))
 
 ;; view git change in margin
 (use-package git-gutter
@@ -655,7 +655,7 @@
 ;; Function to switch dictionary
 
 ;; add terminal
-(require 'vterm)
+;; (require 'vterm)
 (use-package vterm
   :ensure t
   :bind ("C-c t" . my-vterm)
@@ -673,8 +673,8 @@
 ;; org-timer-pause-or-continue
 
 (use-package pulsar
-      :ensure t
-      :config
+	:ensure t
+	:config
 (pulsar-global-mode 1))
 (add-hook 'minibuffer-setup-hook #'pulsar-pulse-line)
 
@@ -683,7 +683,7 @@
    (use-package switch-window
      :ensure t
      :config
-     (advice-add 'switch-window :after 'pulsar-pulse-line)
+     (advice-add 'swtch-window :after 'pulsar-pulse-line)
 
 (global-set-key (kbd "M-o") 'switch-window)
 
