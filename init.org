@@ -709,7 +709,7 @@ M-x org-babel-tangle
 ;; Download love-minor-mode: Clone the love-minor-mode repository from GitHub.
 ;; git clone https://github.com/ejmr/love-minor-mode.git ~/.emacs.d/love-minor-mode
 ;; Load love-minor-mode
-(add-to-list 'load-path "~/.emacs.d/love-minor-mode")
+;; (add-to-list 'load-path "~/.emacs.d/love-minor-mode")
 ;; (require 'love-minor-mode)
 ;; ;; Enable love-minor-mode for lua-mode
 ;; (add-hook 'lua-mode-hook 'love-minor-mode)
@@ -754,7 +754,7 @@ C-g    To remove selection after multi-cursor creation
 ** VTERM
 #+BEGIN_SRC emacs-lisp :tangle init.el
 ;; add terminal
-(require 'vterm)
+;; (require 'vterm)
 (use-package vterm
   :ensure t
   :bind ("C-c t" . my-vterm)
