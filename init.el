@@ -655,7 +655,7 @@
 ;; Function to switch dictionary
 
 ;; add terminal
-;; (require 'vterm)
+(require 'vterm)
 (use-package vterm
   :ensure t
   :bind ("C-c t" . my-vterm)
@@ -683,7 +683,7 @@
    (use-package switch-window
      :ensure t
      :config
-     (advice-add 'swtch-window :after 'pulsar-pulse-line)
+     (advice-add 'switch-window :after 'pulsar-pulse-line)
 
 (global-set-key (kbd "M-o") 'switch-window)
 
