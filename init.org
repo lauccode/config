@@ -39,6 +39,59 @@ M-x org-babel-tangle
     (package-refresh-contents)
     (package-install 'use-package))
 
+;; List of packages to install
+(defvar my-packages
+  '(use-package
+        doom-themes
+        powerline
+        quelpa
+        quelpa-use-package
+        copilot
+        highlight-thing
+        god-mode
+        expand-region
+        drag-stuff
+        savehist
+        tramp
+        eglot
+        lsp-mode
+        lsp-ui
+        lsp-treemacs
+        lsp-ivy
+        lsp-mode
+        flycheck
+        dumb-jump
+        clang-format
+        company
+        company-clang
+        project
+        projectile
+        tree-sitter
+        tree-sitter-langs
+        magit
+        git-gutter
+        vertico
+        marginalia
+        orderless
+        consult
+        deadgrep
+        rg
+        which-key
+        lua-mode
+        multiple-cursors
+        vterm
+        pulsar
+        switch-window))
+
+;; Install all packages in the list
+(dolist (pkg my-packages)
+  (unless (package-installed-p pkg)
+    (package-install pkg)))
+
+;; Now you can use use-package to configure each package
+(eval-when-compile
+  (require 'use-package))
+
   ;; If error or warning with package:
   ;; package-refresh-contents
 #+END_SRC
