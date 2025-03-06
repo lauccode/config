@@ -76,6 +76,7 @@
 ;; Now you can use use-package to configure each package
 (eval-when-compile
   (require 'use-package))
+(setq use-package-always-ensure t)
 
 ;; If error or warning with package:
 ;; package-refresh-contents
