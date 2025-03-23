@@ -160,6 +160,8 @@ M-x org-babel-tangle
 
     ;; Ensure `grep` and `rgrep` use `ripgrep`
     (setq grep-program "rg")
+    ;; In search buffer, use "n" "p" to see file preview also with tramp
+    ;; Use "M-s ." "M-s M-." to retrieve word under cursor to be searched
 
     (menu-bar-mode 1)
     (tool-bar-mode nil)
@@ -442,6 +444,7 @@ M-x org-babel-tangle
 #+END_SRC
 
 ** TRAMP
+Use rgrep to search word and have file preview
 #+BEGIN_SRC emacs-lisp :tangle init.el
 ;; TRAMP
 (use-package tramp
