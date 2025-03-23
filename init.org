@@ -160,8 +160,10 @@ M-x org-babel-tangle
 
     ;; Ensure `grep` and `rgrep` use `ripgrep`
     (setq grep-program "rg")
+    ;; launch with ":rgrep" or shortcuts
+    ;; "M-n" to retrieve word under cursor to be searched
     ;; In search buffer, use "n" "p" to see file preview also with tramp
-    ;; Use "M-s ." "M-s M-." to retrieve word under cursor to be searched
+    ;; Use "M-s ." "M-s M-." to retrieve word under cursor to be searched (isearch used)
 
     (menu-bar-mode 1)
     (tool-bar-mode nil)
