@@ -164,6 +164,13 @@ M-x org-babel-tangle
     ;; "M-n" to retrieve word under cursor to be searched
     ;; In search buffer, use "n" "p" to see file preview also with tramp
     ;; Use "M-s ." "M-s M-." to retrieve word under cursor to be searched (isearch used)
+    ;; define command:
+    (defun my-rgrep-word-at-point ()
+      "Run rgrep with the word under the cursor."
+      (interactive)
+      (let ((word (thing-at-point 'word t)))
+        (rgrep word "*" default-directory)))
+    (global-set-key (kbd "C-c g") 'my-rgrep-word-at-point)
 
     (menu-bar-mode 1)
     (tool-bar-mode nil)
