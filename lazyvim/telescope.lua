@@ -7,7 +7,9 @@ return {
         keys = {
             {
                 "<leader>G",
-                ":lua require('telescope.builtin').live_grep({ additional_args = function() return {'--no-ignore-vcs', '--glob', '!.git/**'} end })<CR>",
+                -- ":lua require('telescope.builtin').live_grep({ additional_args = function() return {'--no-ignore-vcs', '--glob', '!.git/**'} end })<CR>",
+                ":lua require('telescope.builtin').live_grep({ additional_args = function() return {'--no-ignore-vcs', '--glob', '!.git/**'} end, default_text = vim.fn.expand('<cword>') })<CR>",
+
                 { noremap = true, silent = true, desc = "Find All Grep" }
             },
             {
