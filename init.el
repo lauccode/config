@@ -150,8 +150,9 @@
   (defun my-rgrep-word-at-point ()
     "Run rgrep with the word under the cursor."
     (interactive)
-    (let ((word (thing-at-point 'word t)))
-        (rgrep word "*" default-directory)))
+    (let ((word (thing-at-point 'word t))
+        (root-dir (project-root (project-current))))
+    (rgrep word "*" root-dir)))
   (global-set-key (kbd "C-c g") 'my-rgrep-word-at-point)
 
   (menu-bar-mode 1)
