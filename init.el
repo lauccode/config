@@ -10,19 +10,19 @@
 
 ;;; package --- summary
 
-;; Ensure use-package is installed
-;;; Commentary: 
+  ;; Ensure use-package is installed
+  ;;; Commentary: 
 
-(require 'package)
-(setq package-archives '(  ("melpa-stable" . "https://stable.melpa.org/packages/")
-                           ("melpa" . "https://melpa.org/packages/")
-			   ("org" . "https://orgmode.org/elpa/")
-			   ("gnu" . "https://elpa.gnu.org/packages/")))
+  (require 'package)
+  (setq package-archives '(  ("melpa-stable" . "https://stable.melpa.org/packages/")
+                             ("melpa" . "https://melpa.org/packages/")
+                             ("org" . "https://orgmode.org/elpa/")
+                             ("gnu" . "https://elpa.gnu.org/packages/")))
 
-(package-initialize)
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
+  (package-initialize)
+  (unless (package-installed-p 'use-package)
+    (package-refresh-contents)
+    (package-install 'use-package))
 
 ;; List of packages to install
 (defvar my-packages
@@ -30,7 +30,7 @@
      copilot
      highlight-thing
      clang-format
-					;company-clang
+     ;; company-clang
      vterm           ;; problematic passed
      doom-themes
      powerline
@@ -78,80 +78,91 @@
   (require 'use-package))
 (setq use-package-always-ensure t)
 
-;; If error or warning with package:
-;; package-refresh-contents
+  ;; If error or warning with package:
+  ;; package-refresh-contents
 
 (setq org-confirm-babel-evaluate nil)
-;; Suppress all warnings
-(setq warning-minimum-level :error)
-;; Suppress specific types of warnings
-;; (setq warning-suppress-types '((comp)))
-;; (setq warning-suppress-types '((comp) (bytecomp) (nativecomp)))
+  ;; Suppress all warnings
+  (setq warning-minimum-level :error)
+  ;; Suppress specific types of warnings
+  ;; (setq warning-suppress-types '((comp)))
+  ;; (setq warning-suppress-types '((comp) (bytecomp) (nativecomp)))
 
-;; set the tab width to 4 spaces for C++
-(defun my-c++-mode-hook ()
-  (setq c-basic-offset 4)    ; Set the basic indentation to 4 spaces
-  (setq tab-width 4)         ; Set the tab width to 4 spaces
-  (setq indent-tabs-mode nil)) ; Use spaces instead of tabs
+  ;; set the tab width to 4 spaces for C++
+  (defun my-c++-mode-hook ()
+    (setq c-basic-offset 4)    ; Set the basic indentation to 4 spaces
+    (setq tab-width 4)         ; Set the tab width to 4 spaces
+    (setq indent-tabs-mode nil)) ; Use spaces instead of tabs
 
-;; C-x -<, C-x ->	navigate between buffers
-;; C-x M		consult-mark (in a file)
+  ;; C-x -<, C-x ->	navigate between buffers
+  ;; C-x M		consult-mark (in a file)
 
-;; C-x SPC          rectangle selection
+  ;; C-x SPC          rectangle selection
 
-;; M-t              inverse both word (M-b go begin word, M-t toggle with previous)
+  ;; M-t              inverse both word (M-b go begin word, M-t toggle with previous)
 
-;; Enable visual line mode globally
-(global-visual-line-mode 1)
-;; Alternatively, enable it for specific modes
-;; (add-hook 'text-mode-hook 'visual-line-mode)
-;; (add-hook 'prog-mode-hook 'visual-line-mode)
+  ;; Enable visual line mode globally
+  (global-visual-line-mode 1)
+  ;; Alternatively, enable it for specific modes
+  ;; (add-hook 'text-mode-hook 'visual-line-mode)
+  ;; (add-hook 'prog-mode-hook 'visual-line-mode)
 
-;; For cpp:
-;; C-x C-;    comment line
-;; C-c C-c    comment selection
-;; C-c C-k    toggle comment style
-;; M-;        comment at end of line
-(global-set-key (kbd "C-;") 'comment-line)
+  ;; For cpp:
+  ;; C-x C-;    comment line
+  ;; C-c C-c    comment selection
+  ;; C-c C-k    toggle comment style
+  ;; M-;        comment at end of line
+  (global-set-key (kbd "C-;") 'comment-line)
 
-;; Here's an example of aligning on the equal sign:
-;; M-x align-regexp RET = RET
+  ;; Here's an example of aligning on the equal sign:
+  ;; M-x align-regexp RET = RET
 
-;; mouse activated for emacs in terminal mode (emacs -nw)
-(xterm-mouse-mode 1)
+  ;; mouse activated for emacs in terminal mode (emacs -nw)
+  (xterm-mouse-mode 1)
 
-;; Add the following configuration to set the cursor type to a vertical bar:
-;; (setq-default cursor-type 'bar)
-;; If you prefer a horizontal bar, you can use:
-;; (setq-default cursor-type 'hbar)
-;; To make the cursor more visible, you can enable HL Line mode, which highlights the current line:
-(global-hl-line-mode 1)
+  ;; Add the following configuration to set the cursor type to a vertical bar:
+  ;; (setq-default cursor-type 'bar)
+  ;; If you prefer a horizontal bar, you can use:
+  ;; (setq-default cursor-type 'hbar)
+  ;; To make the cursor more visible, you can enable HL Line mode, which highlights the current line:
+  (global-hl-line-mode 1)
 
-;; Make the mouse wheel scroll one line at a time
-;; C-SPC C-SPC to mark cursor position (set-mark-command x2)
-;; scrool with mouse
-;; C-u C-SPC to retrieve position
-;; C-x C-SPC (or C-x C-@) to retrieve position if in another buffer (pop-global-mark)
-(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; One line at a time
-(setq mouse-wheel-progressive-speed nil) ;; Don't accelerate scrolling
+  ;; Make the mouse wheel scroll one line at a time
+  ;; C-SPC C-SPC to mark cursor position (set-mark-command x2)
+  ;; scrool with mouse
+  ;; C-u C-SPC to retrieve position
+  ;; C-x C-SPC (or C-x C-@) to retrieve position if in another buffer (pop-global-mark)
+  (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; One line at a time
+  (setq mouse-wheel-progressive-speed nil) ;; Don't accelerate scrolling
 
-(setq window-divider-default-places t)
-(setq window-divider-default-bottom-width 1)
-(setq window-divider-default-right-width 9) ;; Adjust this value as needed
-(window-divider-mode 1)
+  (setq window-divider-default-places t)
+  (setq window-divider-default-bottom-width 1)
+  (setq window-divider-default-right-width 9) ;; Adjust this value as needed
+  (window-divider-mode 1)
 
-;; Ensure `grep` and `rgrep` use `ripgrep`
-(setq grep-program "rg")
+  ;; Ensure `grep` and `rgrep` use `ripgrep`
+  (setq grep-program "rg")
+  ;; launch with ":rgrep" or shortcuts
+  ;; "M-n" to retrieve word under cursor to be searched
+  ;; In search buffer, use "n" "p" to see file preview also with tramp
+  ;; Use "M-s ." "M-s M-." to retrieve word under cursor to be searched (isearch used)
+  ;; define command:
+  (defun my-rgrep-word-at-point ()
+    "Run rgrep with the word under the cursor."
+    (interactive)
+    (let ((word (thing-at-point 'word t)))
+        (rgrep word "*" default-directory)))
+  (global-set-key (kbd "C-c g") 'my-rgrep-word-at-point)
 
-(menu-bar-mode 1)
-(tool-bar-mode nil)
-(global-display-line-numbers-mode t)
-(recentf-mode 1)
-(desktop-save-mode 1)
-(save-place-mode 1)
-(global-auto-revert-mode 1)
-(global-set-key (kbd "C-c h") 'ff-find-other-file)  ;; Open header for cpp
-;; (global-set-key (kbd "M-o") 'other-window)  ;; comment if use switch-window
+  (menu-bar-mode 1)
+  (tool-bar-mode nil)
+  (global-display-line-numbers-mode t)
+  (recentf-mode 1)
+  (desktop-save-mode 1)
+  (save-place-mode 1)
+  (global-auto-revert-mode 1)
+  (global-set-key (kbd "C-c h") 'ff-find-other-file)  ;; Open header for cpp
+  ;; (global-set-key (kbd "M-o") 'other-window)  ;; comment if use switch-window
 
 ;; for emacsc daemon use
 ;; emacs --fg-daemon
@@ -178,20 +189,20 @@
 (use-package powerline
   :ensure t
   :config
-  (powerline-default-theme))
+(powerline-default-theme))
 
 ;;;;;;;;;;;;;
-;; COPILOT
-	    ;;;;;;;;;;;;;
-(setq copilot-enabled nil)
-;; QUELPA
-(unless (package-installed-p 'quelpa)
-  (with-temp-buffer
-    (url-insert-file-contents "https://raw.githubusercontent.com/quelpa/quelpa/master/quelpa.el")
-    (eval-buffer)
-    (quelpa-self-upgrade)))
+	    ;; COPILOT
+	  ;;;;;;;;;;;;;
+	  (setq copilot-enabled nil)
+	    ;; QUELPA
+	  (unless (package-installed-p 'quelpa)
+	    (with-temp-buffer
+	      (url-insert-file-contents "https://raw.githubusercontent.com/quelpa/quelpa/master/quelpa.el")
+	      (eval-buffer)
+	      (quelpa-self-upgrade)))
 
-;; Ensure quelpa is installed and configured
+	  ;; Ensure quelpa is installed and configured
 
 (use-package quelpa
   :ensure t
@@ -202,16 +213,16 @@
   :after quelpa
   :ensure t)
 
-(when copilot-enabled
-  (use-package copilot
-    :quelpa (copilot :fetcher github :repo "copilot-emacs/copilot.el" :branch "main" :files ("*.el"))
-    :config
-    (setq copilot-node-executable "~/node-v22.14.0-linux-x64/bin/node")
-    (define-key copilot-mode-map (kbd "M-C-<next>") #'copilot-next-completion)
-    (define-key copilot-mode-map (kbd "M-C-<prior>") #'copilot-previous-completion)
-    (define-key copilot-mode-map (kbd "M-C-<right>") #'copilot-accept-completion-by-word)
-    (define-key copilot-mode-map (kbd "M-C-<down>") #'copilot-accept-completion-by-line)
-    (define-key global-map (kbd "M-C-<return>") #'rk/copilot-complete-or-accept)))
+  	(when copilot-enabled
+(use-package copilot
+  :quelpa (copilot :fetcher github :repo "copilot-emacs/copilot.el" :branch "main" :files ("*.el"))
+  :config
+  (setq copilot-node-executable "~/node-v22.14.0-linux-x64/bin/node")
+  (define-key copilot-mode-map (kbd "M-C-<next>") #'copilot-next-completion)
+  (define-key copilot-mode-map (kbd "M-C-<prior>") #'copilot-previous-completion)
+  (define-key copilot-mode-map (kbd "M-C-<right>") #'copilot-accept-completion-by-word)
+  (define-key copilot-mode-map (kbd "M-C-<down>") #'copilot-accept-completion-by-line)
+  (define-key global-map (kbd "M-C-<return>") #'rk/copilot-complete-or-accept)))
 
 ;; ;; To toggle the highlight of the symbol under the cursor in all buffers:
 (use-package highlight-thing
@@ -282,77 +293,77 @@
   ;; (global-set-key (kbd "<escape>") #'god-local-mode)
   (global-set-key (kbd "<escape>") #'god-mode-all)
 
-  ;; ;; (custom-set-faces
-  ;; ;;  '(god-mode-lighter ((t (:inherit error)))))
+;; ;; (custom-set-faces
+;; ;;  '(god-mode-lighter ((t (:inherit error)))))
 
-  ;; change cursor in line = no GOD MODE
-  (defun my-god-mode-update-cursor-type ()
-    (setq cursor-type (if (or god-local-mode buffer-read-only) 'box 'bar)))
-  (add-hook 'post-command-hook #'my-god-mode-update-cursor-type)
+;; change cursor in line = no GOD MODE
+(defun my-god-mode-update-cursor-type ()
+  (setq cursor-type (if (or god-local-mode buffer-read-only) 'box 'bar)))
+(add-hook 'post-command-hook #'my-god-mode-update-cursor-type)
 
-  ;; ;; change foreground and foreground for GOD-MODE
-  ;; (defun my-god-mode-update-mode-line ()
-  ;;   (cond
-  ;;    (god-local-mode
-  ;;     (set-face-attribute 'mode-line nil
-  ;;                         :foreground "black"
-  ;;                         :background "DarkGoldenrod3")
-  ;;     (set-face-attribute 'mode-line-inactive nil
-  ;;                         :foreground "gray"
-  ;;                         :background "goldenrod4"))
-  ;;    (t
-  ;;     (set-face-attribute 'mode-line nil
-  ;; 			            :foreground "LightGray"
-  ;; 			            :background "black")
-  ;;     (set-face-attribute 'mode-line-inactive nil
-  ;; 			            :foreground "gray"
-  ;; 			            :background "DimGray"))))
-  ;; (add-hook 'post-command-hook #'my-god-mode-update-mode-line)
+;; ;; change foreground and foreground for GOD-MODE
+;; (defun my-god-mode-update-mode-line ()
+;;   (cond
+;;    (god-local-mode
+;;     (set-face-attribute 'mode-line nil
+;;                         :foreground "black"
+;;                         :background "DarkGoldenrod3")
+;;     (set-face-attribute 'mode-line-inactive nil
+;;                         :foreground "gray"
+;;                         :background "goldenrod4"))
+;;    (t
+;;     (set-face-attribute 'mode-line nil
+;; 			            :foreground "LightGray"
+;; 			            :background "black")
+;;     (set-face-attribute 'mode-line-inactive nil
+;; 			            :foreground "gray"
+;; 			            :background "DimGray"))))
+;; (add-hook 'post-command-hook #'my-god-mode-update-mode-line)
 
-  (defun tsa/god-cursor ()
-    (defvar tsa/cursor-bg (face-attribute 'cursor :background))
+(defun tsa/god-cursor ()
+  (defvar tsa/cursor-bg (face-attribute 'cursor :background))
 
-    (if (or god-local-mode buffer-read-only)
-	(progn
-          (setq cursor-type 'hbar)
-          (set-face-attribute 'cursor nil
-                              ;; :background "#11ff33"))
-                              :background "orange"))
+  (if (or god-local-mode buffer-read-only)
       (progn
-	(setq cursor-type 'box)
-	(set-face-attribute 'cursor nil
-                            :background tsa/cursor-bg))))
+        (setq cursor-type 'hbar)
+        (set-face-attribute 'cursor nil
+                            ;; :background "#11ff33"))
+                            :background "orange"))
+    (progn
+      (setq cursor-type 'box)
+      (set-face-attribute 'cursor nil
+                          :background tsa/cursor-bg))))
 
-  (defun tsa/god-update-mode-line ()
-    (defvar tsa/fg  (face-attribute 'mode-line :foreground))
-    (defvar tsa/bg  (face-attribute 'mode-line :background))
-    (defvar tsa/fgi (face-attribute 'mode-line-inactive :foreground))
-    (defvar tsa/bgi (face-attribute 'mode-line-inactive :background))
-    (cond
-     (god-local-mode
-      (set-face-attribute 'mode-line nil
-                          :foreground "white"
-                          ;; :background "DarkGoldenrod4")
-                          ;; :background "dark cyan")
-                          :background "purple")
-      (set-face-attribute 'mode-line-inactive nil
-                          :foreground tsa/fgi
-                          :background tsa/bgi))
-     (t
-      (set-face-attribute 'mode-line nil
-                          :foreground tsa/fg
-                          :background tsa/bg)
-      (set-face-attribute 'mode-line-inactive nil
-                          :foreground tsa/fgi
-                          :background tsa/bgi))))
+(defun tsa/god-update-mode-line ()
+  (defvar tsa/fg  (face-attribute 'mode-line :foreground))
+  (defvar tsa/bg  (face-attribute 'mode-line :background))
+  (defvar tsa/fgi (face-attribute 'mode-line-inactive :foreground))
+  (defvar tsa/bgi (face-attribute 'mode-line-inactive :background))
+  (cond
+   (god-local-mode
+    (set-face-attribute 'mode-line nil
+                        :foreground "white"
+                        ;; :background "DarkGoldenrod4")
+                        ;; :background "dark cyan")
+                        :background "purple")
+    (set-face-attribute 'mode-line-inactive nil
+                        :foreground tsa/fgi
+                        :background tsa/bgi))
+   (t
+    (set-face-attribute 'mode-line nil
+                        :foreground tsa/fg
+                        :background tsa/bg)
+    (set-face-attribute 'mode-line-inactive nil
+                        :foreground tsa/fgi
+                        :background tsa/bgi))))
 
-  (defun tsa/reflect-god-mode ()
-    "Make visual changes representing whether God is enabled"
-    (interactive "P")
-    (tsa/god-update-mode-line)
-    (tsa/god-cursor))
+(defun tsa/reflect-god-mode ()
+  "Make visual changes representing whether God is enabled"
+  (interactive "P")
+  (tsa/god-update-mode-line)
+  (tsa/god-cursor))
 
-  (add-hook 'post-command-hook 'tsa/reflect-god-mode))
+(add-hook 'post-command-hook 'tsa/reflect-god-mode))
 (setq god-mode-enable-function-key-translation nil)
 (god-mode)
 (add-to-list 'god-exempt-major-modes 'vterm-mode)
@@ -532,7 +543,7 @@
   (setq projectile-indexing-method 'alien)
   (setq projectile-enable-caching t)
   (setq projectile-git-command "git ls-files -zco --exclude-standard")
-  ;;   (setq projectile-project-search-path '("~/projects/" "/ssh:remote:/path/to/projects/"))
+;;   (setq projectile-project-search-path '("~/projects/" "/ssh:remote:/path/to/projects/"))
   (projectile-discover-projects-in-search-path))
 ;; Exclude unnecessary files in .projectile
 ;; -/path/to/exclude
@@ -648,13 +659,13 @@
   :ensure t
   :init
   :config
-  (global-set-key (kbd "<f5>") #'deadgrep))
+(global-set-key (kbd "<f5>") #'deadgrep))
 
 (use-package rg
   :ensure t
   :init
   :config
-  (rg-enable-default-bindings)) ;; C-c S
+(rg-enable-default-bindings)) ;; C-c S
 (with-eval-after-load 'rg
   (advice-add 'rg-run :after
 	      #'(lambda (_pattern _files _dir &optional _literal _confirm _flags) (pop-to-buffer (rg-buffer-name)))))
@@ -674,7 +685,7 @@
 ;; Download love-minor-mode: Clone the love-minor-mode repository from GitHub.
 ;; git clone https://github.com/ejmr/love-minor-mode.git ~/.emacs.d/love-minor-mode
 ;; Load love-minor-mode
-(add-to-list 'load-path "~/.emacs.d/love-minor-mode")
+;; (add-to-list 'load-path "~/.emacs.d/love-minor-mode")
 ;; (require 'love-minor-mode)
 ;; ;; Enable love-minor-mode for lua-mode
 ;; (add-hook 'lua-mode-hook 'love-minor-mode)
@@ -709,7 +720,7 @@
 ;; Function to switch dictionary
 
 ;; add terminal
-					;(require 'vterm)
+;; (require 'vterm)
 (use-package vterm
   :ensure t
   :bind ("C-c t" . my-vterm)
@@ -727,54 +738,54 @@
 ;; org-timer-pause-or-continue
 
 (use-package pulsar
-  :ensure t
-  :config
-  (pulsar-global-mode 1))
+      :ensure t
+      :config
+(pulsar-global-mode 1))
 (add-hook 'minibuffer-setup-hook #'pulsar-pulse-line)
 
 (winner-mode 1)  ;; winner-undo (C-c <left>) and winner-redo (C-c <right>)
-;; add easier switch windows
-(use-package switch-window
-  :ensure t
-  :config
-  (advice-add 'switch-window :after 'pulsar-pulse-line)
+   ;; add easier switch windows
+   (use-package switch-window
+     :ensure t
+     :config
+     (advice-add 'switch-window :after 'pulsar-pulse-line)
 
-  (global-set-key (kbd "M-o") 'switch-window)
+(global-set-key (kbd "M-o") 'switch-window)
 
-  ;; (global-set-key (kbd "C-c m") 'delete-other-windows)
-  (global-set-key (kbd "C-c m") 'switch-window-then-maximize)
+;; (global-set-key (kbd "C-c m") 'delete-other-windows)
+(global-set-key (kbd "C-c m") 'switch-window-then-maximize)
 
-  ;; (global-set-key (kbd "C-c h") 'split-window-below)
-  (global-set-key (kbd "C-c h") 'switch-window-then-split-below)
+;; (global-set-key (kbd "C-c h") 'split-window-below)
+(global-set-key (kbd "C-c h") 'switch-window-then-split-below)
 
-  ;; (global-set-key (kbd "C-c v") 'split-window-right)
-  (global-set-key (kbd "C-c v") 'switch-window-then-split-right)
+;; (global-set-key (kbd "C-c v") 'split-window-right)
+(global-set-key (kbd "C-c v") 'switch-window-then-split-right)
 
-  ;; (global-set-key (kbd "C-c c") 'delete-window)
-  (global-set-key (kbd "C-c c") 'switch-window-then-delete)
+;; (global-set-key (kbd "C-c c") 'delete-window)
+(global-set-key (kbd "C-c c") 'switch-window-then-delete)
 
-  (global-set-key (kbd "C-x 4 d") 'switch-window-then-dired)
-  (global-set-key (kbd "C-x 4 f") 'switch-window-then-find-file)
-  (global-set-key (kbd "C-x 4 m") 'switch-window-then-compose-mail)
-  (global-set-key (kbd "C-x 4 r") 'switch-window-then-find-file-read-only)
+(global-set-key (kbd "C-x 4 d") 'switch-window-then-dired)
+(global-set-key (kbd "C-x 4 f") 'switch-window-then-find-file)
+(global-set-key (kbd "C-x 4 m") 'switch-window-then-compose-mail)
+(global-set-key (kbd "C-x 4 r") 'switch-window-then-find-file-read-only)
 
-  (global-set-key (kbd "C-x 4 C-f") 'switch-window-then-find-file)
-  (global-set-key (kbd "C-x 4 C-o") 'switch-window-then-display-buffer)
+(global-set-key (kbd "C-x 4 C-f") 'switch-window-then-find-file)
+(global-set-key (kbd "C-x 4 C-o") 'switch-window-then-display-buffer)
 
-  (global-set-key (kbd "C-x 4 0") 'switch-window-then-kill-buffer)
+(global-set-key (kbd "C-x 4 0") 'switch-window-then-kill-buffer)
 
-  ;; I use text terminal, but I want bigger label.
-  ;; The only choice is using asciiart, which draw a bigger label with small ascii char.
-  ;; (setq switch-window-shortcut-appearance 'text)
-  ;; (setq switch-window-shortcut-appearance 'asciiart)  ;; for terminal emacs mode !
+;; I use text terminal, but I want bigger label.
+;; The only choice is using asciiart, which draw a bigger label with small ascii char.
+;; (setq switch-window-shortcut-appearance 'text)
+;; (setq switch-window-shortcut-appearance 'asciiart)  ;; for terminal emacs mode !
 
-  ;; I want to select a window with "a-z" instead of "1-9".
-  (setq switch-window-shortcut-style 'qwerty)
-  ;; Note: user can arrange qwerty shortcuts by variable `switch-window-qwerty-shortcuts'.
-  ;; I want to hide window label when window's number < 3
-  (setq switch-window-threshold 2)
-  ;; I want to select minibuffer with label "z".
-  (setq switch-window-minibuffer-shortcut ?z))
+;; I want to select a window with "a-z" instead of "1-9".
+(setq switch-window-shortcut-style 'qwerty)
+;; Note: user can arrange qwerty shortcuts by variable `switch-window-qwerty-shortcuts'.
+;; I want to hide window label when window's number < 3
+(setq switch-window-threshold 2)
+;; I want to select minibuffer with label "z".
+(setq switch-window-minibuffer-shortcut ?z))
 
 ;; Additional settings
 ;; (setq lsp-enable-snippet nil)  ;; Disable snippets if they cause issues
