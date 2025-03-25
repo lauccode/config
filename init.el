@@ -148,11 +148,17 @@
   ;; Use "M-s ." "M-s M-." to retrieve word under cursor to be searched (isearch used)
   ;; define command:
   (defun my-rgrep-word-at-point ()
-    "Run rgrep with the word under the cursor."
+    "Run rgrep with the word under the cursor and reuse the existing grep buffer window if open."
     (interactive)
     (let ((word (thing-at-point 'word t))
-        (root-dir (project-root (project-current))))
-    (rgrep word "*" root-dir)))
+          (root-dir (project-root (project-current))))
+      (rgrep word "*" root-dir)
+      (let ((grep-buffer "*grep*"))
+        (when (get-buffer grep-buffer)
+          (let ((window (get-buffer-window grep-buffer)))
+            (if window
+                (select-window window) ;; Reuse the existing window showing the grep buffer
+              (pop-to-buffer grep-buffer))))))) ;; Otherwise, show in the current window
   (global-set-key (kbd "C-c g") 'my-rgrep-word-at-point)
 
   (menu-bar-mode 1)
