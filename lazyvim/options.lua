@@ -27,7 +27,7 @@ vim.cmd("set inccommand=split") -- preview for substitute commande
 vim.cmd("set cwh=30") -- high for the preview of incommand
 vim.cmd("set makeprg=ninja")
 vim.api.nvim_create_user_command("But", function()
-  vim.cmd(":Make -C modem/UbtApplication/Test/ U2TestsLinux")
+  vim.cmd(":make -C modem/UbtApplication/Test/ U2TestsLinux")
 end, { nargs = "*" })
 -- build example
 -- vim.api.nvim_create_user_command("Bd", function()
