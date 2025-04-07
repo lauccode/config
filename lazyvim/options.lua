@@ -156,3 +156,9 @@ vim.api.nvim_set_keymap(
   "viW",
   { noremap = true, silent = true, desc = "Inner WORD" }
 )
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>R",
+  ":source ~/.config/nvim/init.lua<CR>",
+  { noremap = true, silent = true, desc = "Reload lazyvim" }
+)
