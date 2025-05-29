@@ -301,3 +301,8 @@
   (set-mark (line-beginning-position)))
 (global-set-key (kbd "C-c l") 'select-line-end)
 ;; (global-set-key (kbd "C-c L") 'duplicate-line)  ;; "C-c C-l" with crux
+
+(use-package boon
+  :straight t
+  :ensure t
+  :config (boon-mode 0))
