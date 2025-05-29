@@ -302,10 +302,11 @@
 (global-set-key (kbd "C-c l") 'select-line-end)
 ;; (global-set-key (kbd "C-c L") 'duplicate-line)  ;; "C-c C-l" with crux
 
-(use-package boon
-  :straight t
-  :ensure t
-  :config (boon-mode 0))
+;; TO CHECK "C-c i" desapear
+;; (use-package boon
+;;   :straight t
+;;   :ensure t
+;;   :config (boon-mode 0))
 
 ;; for tree-sitter-lua need to rename ~/.emacs.d/tree-sitter/libtree-sitter-lua.so.0.0
 
