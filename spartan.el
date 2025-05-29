@@ -309,7 +309,9 @@
 ;;   :config (boon-mode 0))
 
 ;; for tree-sitter-lua need to rename ~/.emacs.d/tree-sitter/libtree-sitter-lua.so.0.0
-
+;; eval-last-sexp to know if tree sitter is OK: will return t
+;; (featurep 'treesit)
+;; (treesit-language-available-p 'lua)
 
 (use-package doom-themes
   :straight t
