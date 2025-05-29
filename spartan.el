@@ -318,3 +318,11 @@
   :ensure t
   :config
   (load-theme 'leuven-dark t))
+
+;; (use-package lsp-mode
+;;   :straight t
+;;   :ensure t
+;;   :hook ((c++-mode . lsp)
+;;          (c-mode . lsp)
+;;          (lsp-mode . lsp-enable-which-key-integration))
+;;         :commands lsp)
