@@ -306,3 +306,5 @@
   :straight t
   :ensure t
   :config (boon-mode 0))
+
+;; for tree-sitter-lua need to rename ~/.emacs.d/tree-sitter/libtree-sitter-lua.so.0.0
