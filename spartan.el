@@ -326,3 +326,17 @@
 ;;          (c-mode . lsp)
 ;;          (lsp-mode . lsp-enable-which-key-integration))
 ;;         :commands lsp)
+
+;;; Install lua-mode
+;(use-package lua-mode
+;             ;:straight t
+;  :ensure t)
+;;; Download love-minor-mode: Clone the love-minor-mode repository from GitHub.
+;;; git clone https://github.com/ejmr/love-minor-mode.git ~/.emacs.d/love-minor-mode
+;;; Load love-minor-mode
+; (add-to-list 'load-path "~/.emacs.d/love-minor-mode")
+; (require 'love-minor-mode)
+; ;; Enable love-minor-mode for lua-mode
+; (add-hook 'lua-mode-hook 'love-minor-mode)
+; (global-set-key (kbd "M-p") (lambda () (interactive) (shell-command "love .")))
+
