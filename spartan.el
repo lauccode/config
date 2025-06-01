@@ -340,3 +340,9 @@
 ; (add-hook 'lua-mode-hook 'love-minor-mode)
 ; (global-set-key (kbd "M-p") (lambda () (interactive) (shell-command "love .")))
 
+(use-package expand-region
+  :straight t
+  :ensure t
+  :config
+  (global-set-key (kbd "C-
+
