@@ -33,7 +33,7 @@
                     :weight 'light
                     :family "Monospace") ; If you have "Roboto Mono" you may want to unset this here as it was the font this theme was designed to use
 
-(nano-dark)
+;; (nano-dark)
 ;; (nano-light)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -344,5 +344,5 @@
   :straight t
   :ensure t
   :config
-  (global-set-key (kbd "C-
+  (global-set-key (kbd "C-=") 'er/expand-region))
 
