@@ -13,6 +13,9 @@
   (global-auto-revert-mode 1)
   (global-set-key (kbd "C-c h") 'ff-find-other-file)  ;; Open header for cpp
 
+(setq desktop-save t)
+(setq desktop-load-locked-desktop t)
+
 ;; select lines
 (defun select-line-end ()
   "Select the current line and leave the cursor at the end of the line."
