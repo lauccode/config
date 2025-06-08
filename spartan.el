@@ -69,3 +69,17 @@
   :config
   (global-set-key (kbd "C-=") 'er/expand-region))
 
+;; add terminal
+;; (require 'vterm)
+(use-package vterm
+  :straight t
+  :ensure t
+  :bind ("C-c t" . my-vterm)
+  :config
+  (setq vterm-size 80)
+  (setq vterm-command "/bin/bash"))
+(defun my-vterm ()
+  "Open a new instance of vterm."
+  (interactive)
+  (vterm (generate-new-buffer-name "vterm")))
+
