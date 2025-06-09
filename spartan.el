@@ -70,3 +70,6 @@
   (interactive)
   (vterm (generate-new-buffer-name "vterm")))
 
+;; Here's an example of aligning on the equal sign:
+  ;; M-x align-regexp RET = RET
+
