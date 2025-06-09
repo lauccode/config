@@ -15,6 +15,7 @@
 
 (setq desktop-save t)
 (setq desktop-load-locked-desktop t)
+(setq native-comp-deferred-compilation nil)
 
 ;; select lines
 (defun select-line-end ()
