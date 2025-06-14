@@ -221,3 +221,200 @@
   (setq which-key-idle-delay 0.5))  ;; Adjust the delay as needed
 
 
+
+
+
+
+
+
+ ;; highlight-thing
+;; ;; To toggle the highlight of the symbol under the cursor in all buffers:
+(use-package highlight-thing
+  :straight t
+  :ensure t)
+(require 'highlight-thing)
+;; Define a list of colors
+(defvar highlight-symbol-colors '("yellow" "cyan" "magenta" "green" "blue" "orange" "red" "purple")
+  "List of colors for highlighting symbols.")
+(defvar highlight-symbol-color-index 0
+  "Index of the next color to use from `highlight-symbol-colors`.")
+(defvar highlighted-symbols nil
+  "List of currently highlighted symbols.")
+(defun toggle-highlight-symbol-at-point ()
+  "Toggle highlighting for the symbol at point in all buffers."
+  (interactive)
+  (let* ((symbol-at-point (thing-at-point 'symbol t))  ;; Ensure the symbol is correctly identified
+         (pattern (regexp-quote symbol-at-point)))
+    (if (and symbol-at-point (member pattern highlighted-symbols))
+        ;; If the symbol is already highlighted, unhighlight it
+        (unhighlight-symbol-at-point pattern)
+      ;; Otherwise, highlight the symbol with the next color
+      (highlight-symbol-with-next-color symbol-at-point))))
+(defun highlight-symbol-with-next-color (symbol-at-point)
+  "Highlight the symbol at point with the next color from `highlight-symbol-colors`."
+  (let ((color (nth highlight-symbol-color-index highlight-symbol-colors)))
+    (when symbol-at-point
+      (save-excursion
+        ;; Create a custom face for the symbol with the chosen color
+        (let ((face-name (intern (concat "highlight-symbol-face-" color))))
+          (unless (facep face-name)
+            (make-face face-name)
+            (set-face-attribute face-name nil :background color :foreground "black"))
+          (dolist (buffer (buffer-list))
+            (with-current-buffer buffer
+              (highlight-regexp (regexp-quote symbol-at-point) face-name))))
+        ;; Add the symbol to the list of highlighted symbols
+        (add-to-list 'highlighted-symbols (regexp-quote symbol-at-point))
+        ;; Update the color index for the next symbol
+        (setq highlight-symbol-color-index (mod (1+ highlight-symbol-color-index) (length highlight-symbol-colors)))))))
+(defun unhighlight-symbol-at-point (pattern)
+  "Remove highlighting for the symbol at point in all buffers."
+  (interactive)
+  (when pattern
+    (dolist (buffer (buffer-list))
+      (with-current-buffer buffer
+        (hi-lock-unface-buffer pattern)))
+    ;; Remove the symbol from the list of highlighted symbols
+    (setq highlighted-symbols (remove pattern highlighted-symbols))))
+(defun unhighlight-all-symbols-in-all-buffers ()
+  "Remove all symbol highlighting in all buffers."
+  (interactive)
+  (dolist (buffer (buffer-list))
+    (with-current-buffer buffer
+      (hi-lock-mode 1)  ;; Ensure hi-lock-mode is enabled
+      (hi-lock-unface-buffer t)))
+  ;; Clear the list of highlighted symbols
+  (setq highlighted-symbols nil))
+;; Bind the function to the shortcut
+(global-set-key (kbd "C-c C-SPC") 'toggle-highlight-symbol-at-point)
+(global-set-key (kbd "C-c C-M-SPC") 'unhighlight-all-symbols-in-all-buffers)
+
+
+
+;; Consult
+(use-package consult
+  :straight t
+  :ensure t
+  :bind (("C-s" . consult-line)    ;; "M-n" to retrieve line under cursor when in mini-buffer
+         ("M-y" . consult-yank-pop)
+         ("C-x b" . consult-buffer)
+         ("C-x M" . consult-mark)
+         ("C-x 4 b" . consult-buffer-other-window)
+         ("C-x 5 b" . consult-buffer-other-frame)
+         ("M-g g" . consult-goto-line)
+         ("M-g M-g" . consult-goto-line)
+         ("C-x C-r" . consult-recent-file)
+         ("M-s r" . my-consult-ripgrep-standard)
+         ("M-s R" . my/consult-ripgrep-all)
+         ("M-s l" . consult-line)))
+;; Standard Search:
+(defun my-consult-ripgrep-standard ()
+  "Run consult-ripgrep with standard parameters."
+  (interactive)
+  (let ((consult-ripgrep-args "rg --null --line-buffered --color=never --max-columns=1000 --path-separator / --smart-case --no-heading --line-number")
+        (symbol (thing-at-point 'symbol t)))
+    (if symbol
+        (consult-ripgrep nil symbol)
+      (consult-ripgrep))))
+;; Search All Files:
+(defun my/consult-ripgrep-all ()
+  "Run consult-ripgrep to search all files."
+  (interactive)
+  (let ((consult-ripgrep-args "rg -uu --null --line-buffered --color=never --max-columns=1000 --path-separator / --smart-case --no-heading --line-number")
+        (symbol (thing-at-point 'symbol t)))
+    (if symbol
+        (consult-ripgrep nil symbol)
+      (consult-ripgrep))))
+
+;; (defun consult-ripgrep-with-symbol-at-point ()
+;;   "Run `consult-ripgrep` with the symbol at point as the initial input."
+;;   (interactive)
+;;   (let ((symbol (thing-at-point 'symbol t)))
+;;     (if symbol
+;;         (consult-ripgrep nil symbol)
+;;       (message "No symbol found under cursor."))))
+
+;; ;; Bind the custom function to a key
+;; (global-set-key (kbd "C-c r") 'consult-ripgrep-with-symbol-at-point)
+
+
+;; deadgrep
+(use-package deadgrep
+  :straight t
+  :ensure t
+  :init
+  :config
+(global-set-key (kbd "<f5>") #'deadgrep))
+
+;; rg
+(use-package rg
+  :straight t
+  :ensure t
+  :init
+  :config
+(rg-enable-default-bindings)) ;; C-c S
+(with-eval-after-load 'rg
+  (advice-add 'rg-run :after
+              #'(lambda (_pattern _files _dir &optional _literal _confirm _flags) (pop-to-buffer (rg-buffer-name)))))
+
+
+;; multiple-cursors
+;; C-g    To remove selection after multi-cursor creation
+;; Install multiple-cursors
+(use-package multiple-cursors
+  :straight t
+  :ensure t
+  :bind (("C-S-c C-S-c" . mc/edit-lines)
+         ("C-<" . mc/mark-next-like-this)
+         ("C-M-<" . mc/skip-to-next-like-this)
+         ("C->" . mc/mark-previous-like-this)
+         ("C-c C-<" . mc/mark-all-like-this)))
+
+
+
+;; switch-window
+(winner-mode 1)  ;; winner-undo (C-c <left>) and winner-redo (C-c <right>)
+   ;; add easier switch windows
+   (use-package switch-window
+     :straight t
+     :ensure t
+     :config
+     (advice-add 'switch-window :after 'pulsar-pulse-line)
+
+(global-set-key (kbd "M-o") 'switch-window)
+
+;; (global-set-key (kbd "C-c m") 'delete-other-windows)
+(global-set-key (kbd "C-c m") 'switch-window-then-maximize)
+
+;; (global-set-key (kbd "C-c h") 'split-window-below)
+(global-set-key (kbd "C-c h") 'switch-window-then-split-below)
+
+;; (global-set-key (kbd "C-c v") 'split-window-right)
+(global-set-key (kbd "C-c v") 'switch-window-then-split-right)
+
+;; (global-set-key (kbd "C-c c") 'delete-window)
+(global-set-key (kbd "C-c c") 'switch-window-then-delete)
+
+(global-set-key (kbd "C-x 4 d") 'switch-window-then-dired)
+(global-set-key (kbd "C-x 4 f") 'switch-window-then-find-file)
+(global-set-key (kbd "C-x 4 m") 'switch-window-then-compose-mail)
+(global-set-key (kbd "C-x 4 r") 'switch-window-then-find-file-read-only)
+
+(global-set-key (kbd "C-x 4 C-f") 'switch-window-then-find-file)
+(global-set-key (kbd "C-x 4 C-o") 'switch-window-then-display-buffer)
+
+(global-set-key (kbd "C-x 4 0") 'switch-window-then-kill-buffer)
+
+;; I use text terminal, but I want bigger label.
+;; The only choice is using asciiart, which draw a bigger label with small ascii char.
+;; (setq switch-window-shortcut-appearance 'text)
+;; (setq switch-window-shortcut-appearance 'asciiart)  ;; for terminal emacs mode !
+
+;; I want to select a window with "a-z" instead of "1-9".
+(setq switch-window-shortcut-style 'qwerty)
+;; Note: user can arrange qwerty shortcuts by variable `switch-window-qwerty-shortcuts'.
+;; I want to hide window label when window's number < 3
+(setq switch-window-threshold 2)
+;; I want to select minibuffer with label "z".
+(setq switch-window-minibuffer-shortcut ?z))
+
