@@ -194,12 +194,12 @@
   (savehist-mode 1)
   (setq savehist-additional-variables '(command-history)))
 
-(defun projectile-ripgrep-find-file-all ()
-  "Find file in project, including those ignored by .gitignore using ripgrep."
-  (interactive)
-  (let ((projectile-generic-command "rg --files --hidden --no-ignore --glob '!.git/' -0"))
-    (projectile-find-file)))
-(define-key projectile-mode-map (kbd "C-c p G") 'projectile-ripgrep-find-file-all)
+;; (defun projectile-ripgrep-find-file-all ()
+;;   "Find file in project, including those ignored by .gitignore using ripgrep."
+;;   (interactive)
+;;   (let ((projectile-generic-command "rg --files --hidden --no-ignore --glob '!.git/' -0"))
+;;     (projectile-find-file)))
+;; (define-key projectile-mode-map (kbd "C-c p G") 'projectile-ripgrep-find-file-all)
 
 ;; Git-gutter
 ;; view git change in margin
