@@ -10,6 +10,10 @@
                   (abbreviate-file-name buffer-file-name)
                 "%b")))
 
+;; C-x,=      To know cursor position
+;; To always see your position in the mode line:
+;; (size-indication-mode 1)
+
 ;; BASIC SETTINGS
 (setq org-confirm-babel-evaluate nil)
 ;; Suppress all warnings
