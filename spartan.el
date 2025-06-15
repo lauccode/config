@@ -33,6 +33,11 @@
 ;; (add-hook 'text-mode-hook 'visual-line-mode)
 ;; (add-hook 'prog-mode-hook 'visual-line-mode)
 
+;; M-% to replace
+;; M-n recall word under cursor
+;; C-x,n,n narrow-to-region
+;; C-x,n,w widen, cancel narrow-to-region
+
 ;; For cpp:
 ;; C-x C-;    comment line
 ;; C-c C-c    comment selection
