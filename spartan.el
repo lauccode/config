@@ -4,6 +4,12 @@
 
 ;; TO COPY AT END OF REAL FILE:
 
+;; path in title bar
+(setq frame-title-format
+      '(:eval (if buffer-file-name
+                  (abbreviate-file-name buffer-file-name)
+                "%b")))
+
 ;; BASIC SETTINGS
 (setq org-confirm-babel-evaluate nil)
 ;; Suppress all warnings
