@@ -136,15 +136,6 @@
 (setq desktop-load-locked-desktop t)
 (setq native-comp-deferred-compilation nil)
 
-;; select lines
-(defun select-line-end ()
-  "Select the current line and leave the cursor at the end of the line."
-  (interactive)
-  (end-of-line)
-  (set-mark (line-beginning-position)))
-(global-set-key (kbd "C-c l") 'select-line-end)
-;; (global-set-key (kbd "C-c L") 'duplicate-line)  ;; "C-c C-l" with crux
-
 ;; (use-package boon
 ;;   :straight t
 ;;   :ensure t
