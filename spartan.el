@@ -105,9 +105,9 @@ Reuse the existing grep buffer window if open."
             (pop-to-buffer grep-buffer)))))))
 (global-set-key (kbd "C-c g") 'my-rgrep-selection-or-word)
 
-(menu-bar-mode 1)
+(menu-bar-mode nil)
 (tool-bar-mode nil)
-(global-display-line-numbers-mode t)
+(global-display-line-numbers-mode nil)
 (recentf-mode 1)
 (desktop-save-mode 1)
 (save-place-mode 1)
