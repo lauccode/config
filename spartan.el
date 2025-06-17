@@ -427,3 +427,4 @@ Reuse the existing grep buffer window if open."
 ;; I want to select minibuffer with label "z".
 (setq switch-window-minibuffer-shortcut ?z))
 
+;; hello cpp project https://github.com/memsharded/hello
