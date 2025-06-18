@@ -11,6 +11,7 @@
 ;;; package --- summary
 
   ;; Ensure use-package is installed
+  ;;; Commentary:
   ;;; Commentary: 
 
   (require 'package)
@@ -101,6 +102,8 @@
 
   ;; M-t              inverse both word (M-b go begin word, M-t toggle with previous)
 
+  ;; "M-n"            retrieve better word or line under cursor when in mini-buffer
+
   ;; Enable visual line mode globally
   (global-visual-line-mode 1)
   ;; Alternatively, enable it for specific modes
@@ -142,11 +145,12 @@
 
   ;; Ensure `grep` and `rgrep` use `ripgrep`
   (setq grep-program "rg")
-  ;; launch with ":rgrep" or shortcuts
+  ;; launch with ":rgrep"
   ;; "M-n" to retrieve word under cursor to be searched
-  ;; In search buffer, use "n" "p" to see file preview also with tramp
-  ;; Use "M-s ." "M-s M-." to retrieve word under cursor to be searched (isearch used)
-  ;; define command:
+  ;; In grep buffer, use "n" "p" to see file next/previous preview also with tramp
+  ;; In grep buffer, use "C-o" to preview the file under cursor in grep buffer
+  ;; Use "M-s ." "M-s M-." to retrieve word under cursor to be searched (classic isearch used)
+  ;; define command to search in * from project root :
   (defun my-rgrep-word-at-point ()
     "Run rgrep with the word under the cursor and reuse the existing grep buffer window if open."
     (interactive)
@@ -199,17 +203,17 @@
 (powerline-default-theme))
 
 ;;;;;;;;;;;;;
-	    ;; COPILOT
-	  ;;;;;;;;;;;;;
-	  (setq copilot-enabled nil)
-	    ;; QUELPA
-	  (unless (package-installed-p 'quelpa)
-	    (with-temp-buffer
-	      (url-insert-file-contents "https://raw.githubusercontent.com/quelpa/quelpa/master/quelpa.el")
-	      (eval-buffer)
-	      (quelpa-self-upgrade)))
+	      ;; COPILOT
+	    ;;;;;;;;;;;;;
+	    (setq copilot-enabled nil)
+	      ;; QUELPA
+	    (unless (package-installed-p 'quelpa)
+	      (with-temp-buffer
+		(url-insert-file-contents "https://raw.githubusercontent.com/quelpa/quelpa/master/quelpa.el")
+		(eval-buffer)
+		(quelpa-self-upgrade)))
 
-	  ;; Ensure quelpa is installed and configured
+	    ;; Ensure quelpa is installed and configured
 
 (use-package quelpa
   :ensure t
@@ -220,7 +224,7 @@
   :after quelpa
   :ensure t)
 
-  	(when copilot-enabled
+	  (when copilot-enabled
 (use-package copilot
   :quelpa (copilot :fetcher github :repo "copilot-emacs/copilot.el" :branch "main" :files ("*.el"))
   :config
@@ -620,7 +624,7 @@
 
 (use-package consult
   :ensure t
-  :bind (("C-s" . consult-line)
+  :bind (("C-s" . consult-line)    ;; "M-n" to retrieve line under cursor when in mini-buffer 
          ("M-y" . consult-yank-pop)
          ("C-x b" . consult-buffer)
          ("C-x M" . consult-mark)
@@ -745,8 +749,8 @@
 ;; org-timer-pause-or-continue
 
 (use-package pulsar
-      :ensure t
-      :config
+	:ensure t
+	:config
 (pulsar-global-mode 1))
 (add-hook 'minibuffer-setup-hook #'pulsar-pulse-line)
 
