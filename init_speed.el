@@ -16,6 +16,11 @@
 
 (straight-use-package 'use-package)
 
+;; path in title bar
+(setq frame-title-format
+      '(:eval (if buffer-file-name
+                  (abbreviate-file-name buffer-file-name)
+                "%b")))
 
 (setq org-confirm-babel-evaluate nil)
 ;; Suppress all warnings
