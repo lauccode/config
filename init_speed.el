@@ -111,7 +111,11 @@ Reuse the existing grep buffer window if open."
 (save-place-mode 1)
 (global-auto-revert-mode 1)
 (global-set-key (kbd "C-c h") 'ff-find-other-file)  ;; Open header for cpp
-;; (global-set-key (kbd "M-o") 'other-window)  ;; comment if use switch-window
+(global-set-key (kbd "M-o") 'other-window)  ;; comment if use switch-window
+
+(setq desktop-save t)
+(setq desktop-load-locked-desktop t)
+(setq native-comp-deferred-compilation nil)
 
 ;; for emacsc daemon use
 ;; emacs --fg-daemon
