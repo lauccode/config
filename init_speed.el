@@ -145,17 +145,11 @@ Reuse the existing grep buffer window if open."
   (load-theme 'nano t)
   (nano-dark))  ;; or (nano-light) if you prefer the light variant
 
-(require 'nano)
-(nano-mode)
-
-(require 'nano-minimal)
-(require 'nano-splash)
-
-(use-package doom-themes
-             :straight t
-             :ensure t
-             :config
-             (load-theme 'leuven-dark t))
+;; (use-package doom-themes
+;;              :straight t
+;;              :ensure t
+;;              :config
+;;              (load-theme 'leuven-dark nil))
 
 ; (use-package powerline
 ;              :straight t
