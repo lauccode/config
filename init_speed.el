@@ -134,6 +134,18 @@ Reuse the existing grep buffer window if open."
     (compile "ninja -C path/to/dir")))
 (global-set-key (kbd "C-c n") 'my-ninja-build)
 
+(use-package nano-theme
+  :straight (nano-theme :type git :host github :repo "rougier/nano-theme")
+  :config
+  (load-theme 'nano t)
+  (nano-dark))  ;; or (nano-light) if you prefer the light variant
+
+(require 'nano)
+(nano-mode)
+
+(require 'nano-minimal)
+(require 'nano-splash)
+
 (use-package doom-themes
              :straight t
              :ensure t
@@ -530,25 +542,21 @@ Reuse the existing grep buffer window if open."
 ; (define-key projectile-mode-map (kbd "C-c p G") 'projectile-ripgrep-find-file-all)
 
 ;; Tree-sitter
-(use-package tree-sitter
-             :straight t
-             :ensure t
-             :hook ((prog-mode . tree-sitter-mode)
-                    (tree-sitter-after-on . tree-sitter-hl-mode))
-             :config
-             (add-to-list 'tree-sitter-major-mode-language-alist '(c++-mode . cpp))
-             (add-hook 'find-file-hook
-                       (lambda ()
-                         (when (file-remote-p (buffer-file-name))
-                           (tree-sitter-mode)
-                           (tree-sitter-hl-mode)))))
-
 (use-package tree-sitter-langs
              :straight t
              :ensure t
              :after tree-sitter
              :config
              (tree-sitter-require 'cpp))
+
+(use-package treesit-auto
+  :straight t
+  :custom
+  (treesit-auto-install 'prompt)
+  :config
+  (treesit-auto-add-to-auto-mode-alist 'all)
+  (global-treesit-auto-mode))
+
 
 ;; Magit
 (use-package magit
