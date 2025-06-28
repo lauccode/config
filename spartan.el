@@ -428,3 +428,5 @@ Reuse the existing grep buffer window if open."
 (setq switch-window-minibuffer-shortcut ?z))
 
 ;; hello cpp project https://github.com/memsharded/hello
+;; # cmake . -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=1
+
