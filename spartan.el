@@ -154,6 +154,10 @@ Reuse the existing grep buffer window if open."
   :config
   (load-theme 'leuven-dark t))
 
+(use-package markdown-mode
+  :straight t
+  :ensure t)
+
 ;;; Download love-minor-mode: Clone the love-minor-mode repository from GitHub.
 ;;; git clone https://github.com/ejmr/love-minor-mode.git ~/.emacs.d/love-minor-mode
 ;;; Load love-minor-mode
