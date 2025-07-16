@@ -64,6 +64,12 @@ set shortmess+=I
 " no search forward with '*'
 " nnoremap * :keepjumps normal! mi*`i<CR>
 
+" to delete without affecting the registers, especially the default one, you can use the black hole register.
+" Prefix your delete command with "_ to avoid copying the deleted text into any register:
+" •	"_d – delete without copying
+" •	"_dd – delete the current line without copying
+" •	"_x – delete a character without copying
+
 let g:which_key_map =  {}
 nnoremap <leader>w :w<CR>| let g:which_key_map.w = ['<cmd>w', 'Save File']
 nnoremap <leader>q :q<CR>
