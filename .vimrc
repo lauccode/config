@@ -74,13 +74,13 @@ set shortmess+=I
 xnoremap p "_dP
 
 " Normal mode: delete line, char, and word without affecting registers
-nnoremap dd "_dd
-nnoremap x "_x
+" nnoremap dd "_dd
+" nnoremap x "_x
 nnoremap D "_D
 nnoremap dw "_dw
 nnoremap d$ "_d$
 " Visual mode: delete without affecting registers
-xnoremap d "_d
+" xnoremap d "_d
 
 let g:which_key_map =  {}
 nnoremap <leader>w :w<CR>| let g:which_key_map.w = ['<cmd>w', 'Save File']
