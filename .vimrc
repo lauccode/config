@@ -73,6 +73,15 @@ set shortmess+=I
 " Prevent p in visual mode from overwriting the default register
 xnoremap p "_dP
 
+" Normal mode: delete line, char, and word without affecting registers
+nnoremap dd "_dd
+nnoremap x "_x
+nnoremap D "_D
+nnoremap dw "_dw
+nnoremap d$ "_d$
+" Visual mode: delete without affecting registers
+xnoremap d "_d
+
 let g:which_key_map =  {}
 nnoremap <leader>w :w<CR>| let g:which_key_map.w = ['<cmd>w', 'Save File']
 nnoremap <leader>q :q<CR>
@@ -205,7 +214,7 @@ let g:NERDRPlace= "*/"
 
 " KAKOUNE_LIKE:
 " make d to kill character
-nnoremap d x
+nnoremap d "_x
 " kakoune line selection (x down/X up)
 nnoremap x :<C-u>call SelectCurrentLine()<CR>
 xnoremap x :<C-u>call ExtendOrShrinkSelection('extend')<CR>
