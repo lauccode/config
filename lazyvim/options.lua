@@ -163,3 +163,12 @@ vim.api.nvim_set_keymap(
   ":source ~/.config/nvim/init.lua<CR>",
   { noremap = true, silent = true, desc = "Reload lazyvim" }
 )
+
+vim.keymap.set("x", "p", [["_dP]], { desc = "Paste without overwriting register" })
+vim.keymap.set("x", "d", [["_d]], { desc = "Delete without overwriting register" })
+-- Normal mode: delete line without overwriting register
+vim.keymap.set("n", "dd", [["_dd]], { desc = "Delete line without overwriting register" })
+-- Normal mode: delete character without overwriting register
+vim.keymap.set("n", "x", [["_x]], { desc = "Delete char without overwriting register" })
+-- Normal mode: delete word without overwriting register
+vim.keymap.set("n", "dw", [["_dw]], { desc = "Delete word without overwriting register" })
