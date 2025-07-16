@@ -70,6 +70,9 @@ set shortmess+=I
 " •	"_dd – delete the current line without copying
 " •	"_x – delete a character without copying
 
+" Prevent p in visual mode from overwriting the default register
+xnoremap p "_dP
+
 let g:which_key_map =  {}
 nnoremap <leader>w :w<CR>| let g:which_key_map.w = ['<cmd>w', 'Save File']
 nnoremap <leader>q :q<CR>
