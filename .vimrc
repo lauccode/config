@@ -17,20 +17,20 @@ call plug#begin('~/.vim/plugged')
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete.vim',
-Plug 'easymotion/vim-easymotion'
+Plug 'easymotion/vim-easymotion'    " move to next char
 Plug 'mg979/vim-visual-multi'
-Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdcommenter'     " comment
+Plug 'scrooloose/nerdtree'          " file explorator
+Plug 'tpope/vim-fugitive'           " manage git
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'inkarkat/vim-mark'
-Plug 'inkarkat/vim-ingo-library'
-Plug 'sheerun/vim-polyglot'
+Plug 'inkarkat/vim-mark'            " Highlight several words simultaneously
+Plug 'inkarkat/vim-ingo-library'    " common autoload functions for some plugins
+Plug 'sheerun/vim-polyglot'         " same as tree-sitter
 Plug 'junegunn/vim-easy-align'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'liuchengxu/vim-which-key'
-" Plug 'ycm-core/YouCompleteMe'  " TBT
+" Plug 'ycm-core/YouCompleteMe'     " TBT
 call plug#end()
 " :let mapleader = " "
 let g:mapleader = "\<Space>"
