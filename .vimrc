@@ -30,6 +30,7 @@ Plug 'sheerun/vim-polyglot'         " same as tree-sitter
 Plug 'junegunn/vim-easy-align'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'liuchengxu/vim-which-key'
+Plug 'chrisbra/changesPlugin'       " git modified lines
 " Plug 'ycm-core/YouCompleteMe'     " TBT
 call plug#end()
 " :let mapleader = " "
