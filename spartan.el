@@ -155,12 +155,11 @@ Reuse the existing grep buffer window if open."
   ;; (load-theme 'leuven-dark t)
   )
 
-(use-package hercules-theme
-  :straight t
-  :ensure t
-  :config
-  (load-theme 'hercules t)
-  :bind ("C-c t h" . hercules-toggle-theme))
+;; (use-package hercules-theme
+;;   :straight t
+;;   :ensure t
+;;   :config
+;;   (load-theme 'hercules t))
 
 
 (use-package markdown-mode
