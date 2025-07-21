@@ -159,8 +159,22 @@ Reuse the existing grep buffer window if open."
 ;;   :straight t
 ;;   :ensure t
 ;;   :config
-;;   (load-theme 'hercules t))
-
+;;   (load-theme 'hercules t)
+;;   )
+;; /\ previous not work
+;; git clone https://github.com/0xcefaedfe/hercules-theme.git in ~/.emacs.d/themes/
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/hercules-theme/")
+;; To load the dark theme:
+(load-theme 'hercules t)
+;; To load the light theme:
+(load-theme 'hercules-light t)
+;; Theme Switching Functions
+;; The dark theme includes convenient functions for switching between variants:
+;; Select a specific variant
+(hercules-select-theme 'dark)
+;; (hercules-select-theme 'light)
+;; Toggle between dark and light
+;; (hercules-toggle-theme)
 
 (use-package markdown-mode
   :straight t
