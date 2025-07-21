@@ -386,7 +386,6 @@ Reuse the existing grep buffer window if open."
   (advice-add 'rg-run :after
               #'(lambda (_pattern _files _dir &optional _literal _confirm _flags) (pop-to-buffer (rg-buffer-name)))))
 
-
 ;; multiple-cursors
 ;; C-g    To remove selection after multi-cursor creation
 ;; Install multiple-cursors
@@ -394,12 +393,16 @@ Reuse the existing grep buffer window if open."
   :straight t
   :ensure t
   :bind (("C-S-c C-S-c" . mc/edit-lines)
-         ("C-<" . mc/mark-next-like-this)
-         ("C-M-<" . mc/skip-to-next-like-this)
-         ("C->" . mc/mark-previous-like-this)
-         ("C-c C-<" . mc/mark-all-like-this)))
-
-
+         ;; ("C-<" . mc/mark-next-like-this)
+         ;; ("C-M-<" . mc/skip-to-next-like-this)
+         ("C-c C-d" . mc/skip-to-next-like-this)
+         ;; ("C->" . mc/mark-previous-like-this)
+         ;;("C-c C-<" . mc/mark-all-like-this)
+         ("C-c C-a" . mc/mark-all-like-this)
+         ))
+(with-eval-after-load 'paredit
+  (define-key paredit-mode-map (kbd "C-d") 'mc/mark-next-like-this)
+  )
 
 ;; switch-window
 (winner-mode 1)  ;; winner-undo (C-c <left>) and winner-redo (C-c <right>)
