@@ -152,7 +152,7 @@ Reuse the existing grep buffer window if open."
   :straight t
   :ensure t
   :config
-  ;; (load-theme 'leuven-dark t)
+  (load-theme 'leuven-dark t)
   )
 
 ;; (use-package hercules-theme
