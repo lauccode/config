@@ -32,6 +32,7 @@ Plug 'rafi/awesome-vim-colorschemes'
 Plug 'liuchengxu/vim-which-key'
 Plug 'chrisbra/changesPlugin'       " git modified lines
 " Plug 'ycm-core/YouCompleteMe'     " TBT
+Plug 'markonm/traces.vim'           " as inccommand in neovim
 call plug#end()
 " :let mapleader = " "
 let g:mapleader = "\<Space>"
