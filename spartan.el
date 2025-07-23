@@ -4,6 +4,14 @@
 
 ;; TO COPY AT END OF REAL FILE:
 
+(require 'projectile)
+;; Optional: set where your projects live
+;; (setq projectile-project-search-path '("~/projects/"))
+;; Ensure known projects are saved
+(setq projectile-known-projects-file "~/.emacs.d/projectile-bookmarks.eld")
+;; Enable Projectile globally
+(projectile-mode +1)
+
 ;; path in title bar
 (setq frame-title-format
       '(:eval (if buffer-file-name
