@@ -459,10 +459,7 @@ Reuse the existing grep buffer window if open."
          ;;("C-c C-<" . mc/mark-all-like-this)
          ("C-c C-a" . mc/mark-all-like-this)
          ))
-(with-eval-after-load 'paredit
-  (define-key paredit-mode-map (kbd "C-d") 'mc/mark-next-like-this)
-  )
-
+(global-set-key (kbd "C-d") 'mc/mark-next-like-this)
 
 ;; French check for writing
 ;; sudo apt-get install aspell aspell-fr aspell-en
