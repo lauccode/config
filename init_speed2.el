@@ -286,36 +286,13 @@ Reuse the existing grep buffer window if open."
 ;;   :init
 ;;   (setq project-vc-extra-root-markers '(".project")))
 
-; ;; Tree-sitter (ISSUE WITH !!!! )
-; (use-package tree-sitter
-  ; :straight t
-  ; :ensure t
-  ; :hook ((prog-mode . tree-sitter-mode)
-         ; (tree-sitter-after-on . tree-sitter-hl-mode))
-  ; :config
-  ; (add-to-list 'tree-sitter-major-mode-language-alist '(c++-mode . cpp))
-  ; (add-hook 'find-file-hook
-            ; (lambda ()
-              ; (when (file-remote-p (buffer-file-name))
-                ; (tree-sitter-mode)
-                ; (tree-sitter-hl-mode)))))
-
-; (use-package tree-sitter-langs
-  ; :straight t
-  ; :ensure t
-  ; :after tree-sitter
-  ; :config
-  ; (tree-sitter-require 'cpp))
-
-;; TBT
-;; (use-package treesit-auto
-;;   :straight t
-;;   :custom
-;;   (treesit-auto-install 'prompt)
-;;   :config
-;;   (treesit-auto-add-to-auto-mode-alist 'all)
-;;   (global-treesit-auto-mode))
-
+(use-package treesit-auto
+  :straight t
+  :custom
+  (treesit-auto-install 'prompt)
+  :config
+  (treesit-auto-add-to-auto-mode-alist 'all)
+  (global-treesit-auto-mode))
 
 ;; Magit
 (use-package magit
