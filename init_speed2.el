@@ -282,9 +282,9 @@ Reuse the existing grep buffer window if open."
 
 
 ;; TBT, try to use project
-;; (use-package project
-;;   :init
-;;   (setq project-vc-extra-root-markers '(".project")))
+(use-package project
+  :init
+  (setq project-vc-extra-root-markers '(".project")))
 
 (use-package treesit-auto
   :straight t
