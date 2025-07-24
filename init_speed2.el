@@ -321,7 +321,7 @@ Reuse the existing grep buffer window if open."
              :init
              (vertico-mode)
              :config
-	     (define-key vertico-map (kbd "DEL") #'vertico-directory-delete-word))
+	     (define-key vertico-map (kbd "DEL") #'vertico-directory-delete-word)
              :custom
              (vertico-resize t)  ;; Enable dynamic resizing
              (vertico-count 30)) ;; Number of candidates to show
