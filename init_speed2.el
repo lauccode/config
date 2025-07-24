@@ -29,6 +29,9 @@
 ;; (setq warning-suppress-types '((comp)))
 ;; (setq warning-suppress-types '((comp) (bytecomp) (nativecomp)))
 
+(global-set-key (kbd "C-c i")
+  (lambda () (interactive) (find-file user-init-file)))
+
 ;; set the tab width to 4 spaces for C++
 (defun my-c++-mode-hook ()
   (setq c-basic-offset 4)    ; Set the basic indentation to 4 spaces
