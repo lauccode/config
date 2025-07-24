@@ -282,6 +282,14 @@ Reuse the existing grep buffer window if open."
 ;; 6. **Project-Specific Configuration**: You can customize `clangd` using a `.dir-locals.el` file in your project directory:
 ;; ((c++-mode . ((eglot-workspace-configuration . (:clangd (:fallbackFlags ["-std=c++17"] :clangTidy (:checks ["*"] :clangdCheck :json-false))))))
 ;;  (c-mode . ((eglot-workspace-configuration . (:clangd (:fallbackFlags ["-std=c11"] :clangTidy (:checks ["*"] :clangdCheck :json-false))))))))
+;; start eglot on buffers after restart !!
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (dolist (buf (buffer-list))
+              (with-current-buffer buf
+                (when (and (derived-mode-p 'c++-mode)
+                           (not (eglot-current-server)))
+                  (eglot-ensure))))))
 
 
 ;; TBT, try to use project
