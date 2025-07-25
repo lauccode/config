@@ -307,6 +307,7 @@ Reuse the existing grep buffer window if open."
 ;; (add-hook 'c-ts-mode-hook #'treesit-font-lock-enable)
 ;; (add-hook 'c++-ts-mode-hook #'treesit-font-lock-enable)
 
+; to see why c try each restart the grammar and no color in file ???
 (use-package treesit-auto
   :straight t
   :custom
