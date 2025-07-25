@@ -123,6 +123,12 @@ Reuse the existing grep buffer window if open."
 ;; Shift + arrow to move windows
 (windmove-default-keybindings)
 
+;; switch focus to any new window:
+(defadvice display-buffer (after select-new-window activate)
+  "Automatically select newly created window."
+  (when (window-live-p (get-buffer-window (ad-get-arg 0)))
+    (select-window (get-buffer-window (ad-get-arg 0)))))
+
 (setq desktop-save t)
 (setq desktop-load-locked-desktop t)
 (setq native-comp-deferred-compilation nil)
