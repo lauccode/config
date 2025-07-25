@@ -120,6 +120,8 @@ Reuse the existing grep buffer window if open."
 (global-auto-revert-mode 1)
 (global-set-key (kbd "C-c h") 'ff-find-other-file)  ;; Open header for cpp
 (global-set-key (kbd "M-o") 'other-window)  ;; comment if use switch-window
+;; Shift + arrow to move windows
+(windmove-default-keybindings)
 
 (setq desktop-save t)
 (setq desktop-load-locked-desktop t)
