@@ -284,12 +284,13 @@ Reuse the existing grep buffer window if open."
 ;;  (c-mode . ((eglot-workspace-configuration . (:clangd (:fallbackFlags ["-std=c11"] :clangTidy (:checks ["*"] :clangdCheck :json-false))))))))
 ;; start eglot on buffers after restart !!
 (add-hook 'emacs-startup-hook
-          (lambda ()
-            (dolist (buf (buffer-list))
-              (with-current-buffer buf
-                (when (and (derived-mode-p 'c++-mode) (derived-mode-p 'c-mode)
-                           (not (eglot-current-server)))
-                  (eglot-ensure))))))
+  (lambda ()
+    (dolist (buf (buffer-list))
+      (with-current-buffer buf
+        (when (and (or (derived-mode-p 'c-mode)
+                       (derived-mode-p 'c++-mode))
+                   (not (eglot-current-server)))
+          (eglot-ensure))))))
 
 ;; ;; Run this interactively or add to your config
 ;; ;; (treesit-install-language-grammar 'c)
