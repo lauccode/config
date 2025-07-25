@@ -125,6 +125,18 @@ Reuse the existing grep buffer window if open."
 (setq desktop-load-locked-desktop t)
 (setq native-comp-deferred-compilation nil)
 
+;; Collection of Ridiculously Useful eXtensions
+(use-package crux
+  :straight t
+  :ensure t
+  :config
+      (global-set-key (kbd "C-a") 'crux-move-beginning-of-line)
+       (global-set-key (kbd "C-o") 'crux-smart-open-line)
+       ;; (global-set-key (kbd "C-x C-o") 'crux-other-window-or-switch-buffer)
+       ;; (global-set-key (kbd "C-c C-l") 'crux-duplicate-current-line-or-region)
+       (global-set-key (kbd "C-c C--") 'crux-kill-whole-line)
+       (global-set-key (kbd "C-c ;") 'crux-duplicate-and-comment-current-line-or-region))
+
 ;; for emacsc daemon use
 ;; emacs --fg-daemon
 ;; emacs --fg-daemon=two
