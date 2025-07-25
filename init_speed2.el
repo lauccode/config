@@ -512,7 +512,7 @@ Reuse the existing grep buffer window if open."
              (global-set-key (kbd "C-c m") 'switch-window-then-maximize)
 
              ;; (global-set-key (kbd "C-c h") 'split-window-below)
-             (global-set-key (kbd "C-c h") 'switch-window-then-split-below)
+             (global-set-key (kbd "C-c _") 'switch-window-then-split-below)
 
              ;; (global-set-key (kbd "C-c v") 'split-window-right)
              (global-set-key (kbd "C-c v") 'switch-window-then-split-right)
