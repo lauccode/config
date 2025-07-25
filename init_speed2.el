@@ -315,6 +315,18 @@ Reuse the existing grep buffer window if open."
   :config
   (treesit-auto-add-to-auto-mode-alist 'all)
   (global-treesit-auto-mode))
+;; Warning (treesit): Cannot activate tree-sitter, because language grammar for c is unavailable (version-mismatch): 15
+(setq treesit-language-source-alist
+      '((c         "https://github.com/tree-sitter/tree-sitter-c" "v0.20.3")
+        (cpp       "https://github.com/tree-sitter/tree-sitter-cpp" "v0.20.3")
+        (python    "https://github.com/tree-sitter/tree-sitter-python" "v0.20.4")
+        (rust      "https://github.com/tree-sitter/tree-sitter-rust" "v0.20.1")
+        (bash      "https://github.com/tree-sitter/tree-sitter-bash" "v0.19.0")
+        (lua       "https://github.com/Azganoth/tree-sitter-lua" "v0.0.14")))
+;; Then install each grammar
+;; (dolist (lang '(c cpp python rust bash lua))
+  ;; (treesit-install-language-grammar lang
+
 
 ;; TBT, try to use project
 (use-package project
