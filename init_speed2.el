@@ -16,6 +16,11 @@
 
 (straight-use-package 'use-package)
 
+;; with treesit-auto tree-sitter not work for c. Ask each restart to install grammar !
+;; And no color in c file !!!!
+;; Ok with cpp …
+
+
 ;; path in title bar
 (setq frame-title-format
       '(:eval (if buffer-file-name
