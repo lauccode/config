@@ -303,6 +303,14 @@ Reuse the existing grep buffer window if open."
                        (derived-mode-p 'c++-mode))
                    (not (eglot-current-server)))
           (eglot-ensure))))))
+(with-eval-after-load 'eglot
+  (define-key eglot-mode-map (kbd "M-m r") 'eglot-rename)
+  (define-key eglot-mode-map (kbd "M-m o") 'eglot-code-action-organize-imports)
+  (define-key eglot-mode-map (kbd "M-m h") 'eldoc)
+  (define-key eglot-mode-map (kbd "M-m =") 'eglot-format)
+  (define-key eglot-mode-map (kbd "M-m ?") 'xref-find-references)
+  (define-key eglot-mode-map (kbd "M-.")   'xref-find-definitions))
+
 
 ;; ;; Run this interactively or add to your config
 ;; ;; (treesit-install-language-grammar 'c)
