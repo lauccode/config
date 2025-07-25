@@ -549,7 +549,7 @@ Reuse the existing grep buffer window if open."
              :straight t
              :ensure t
              :config
-             (advice-add 'switch-window :after 'pulsar-pulse-line)
+             ;; (advice-add 'switch-window :after 'pulsar-pulse-line)
 
              (global-set-key (kbd "M-o") 'switch-window)
 
