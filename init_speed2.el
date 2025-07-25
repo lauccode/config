@@ -341,7 +341,7 @@ Reuse the existing grep buffer window if open."
         (lua       "https://github.com/Azganoth/tree-sitter-lua" "v0.0.14")))
 ;; Then install each grammar
 ;; (dolist (lang '(c cpp python rust bash lua))
-  ;; (treesit-install-language-grammar lang
+  ;; (treesit-install-language-grammar lang))
 
 
 ;; TBT, try to use project
