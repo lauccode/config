@@ -296,11 +296,16 @@ Reuse the existing grep buffer window if open."
                            (not (eglot-current-server)))
                   (eglot-ensure))))))
 
-
-;; TBT, try to use project
-(use-package project
-  :init
-  (setq project-vc-extra-root-markers '(".project")))
+;; ;; Run this interactively or add to your config
+;; ;; (treesit-install-language-grammar 'c)
+;; ;; (treesit-install-language-grammar 'cpp)
+;; ;; Use Tree-sitter modes for C and C++
+;; (setq major-mode-remap-alist
+;;       '((c-mode          . c-ts-mode)
+;;         (c++-mode        . c++-ts-mode)))
+;; ;; Enable Tree-sitter highlighting
+;; (add-hook 'c-ts-mode-hook #'treesit-font-lock-enable)
+;; (add-hook 'c++-ts-mode-hook #'treesit-font-lock-enable)
 
 (use-package treesit-auto
   :straight t
@@ -309,6 +314,12 @@ Reuse the existing grep buffer window if open."
   :config
   (treesit-auto-add-to-auto-mode-alist 'all)
   (global-treesit-auto-mode))
+
+;; TBT, try to use project
+(use-package project
+  :init
+  (setq project-vc-extra-root-markers '(".project")))
+
 
 ;; Magit
 (use-package magit
