@@ -287,7 +287,7 @@ Reuse the existing grep buffer window if open."
           (lambda ()
             (dolist (buf (buffer-list))
               (with-current-buffer buf
-                (when (and (derived-mode-p 'c++-mode)
+                (when (and (derived-mode-p 'c++-mode) (derived-mode-p 'c-mode)
                            (not (eglot-current-server)))
                   (eglot-ensure))))))
 
