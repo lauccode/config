@@ -569,6 +569,21 @@ Reuse the existing grep buffer window if open."
 ;; org-timer-set-timer
 ;; org-timer-pause-or-continue
 
+;; IMAGE with ORG
+;; Make sure your image link looks like this:
+;; [[file:/path/to/image.png]]
+;; Avoid adding a description inside the link (like `[[file:/path/to/image.png][desc]]`) unless you use a prefix when toggling.
+;; C-c C-x C-v
+;; This runs `org-toggle-inline-images`, which shows or hides images inline.
+;; If your link includes a description, use:
+;; C-u C-c C-x C-v
+;; Add this to your Emacs config to always show images when opening `.org` files:
+;; (setq org-startup-with-inline-images t)
+;; If you're generating images dynamically (e.g., via code blocks), add this hook:
+;; (add-hook 'org-babel-after-execute-hook 'org-redisplay-inline-images)
+;; You can control image size with:
+;; (setq org-image-actual-width 300) ; or nil to use actual size
+
 ; (use-package pulsar
 ;              :straight t
 ;              :ensure t
