@@ -365,8 +365,8 @@ Reuse the existing grep buffer window if open."
 	;;(cpp       "https://github.com/tree-sitter/tree-sitter-cpp" "v0.23.4")  ;; 0.23.4
         (python    "https://github.com/tree-sitter/tree-sitter-python" "v0.20.4")
         (rust      "https://github.com/tree-sitter/tree-sitter-rust" "v0.20.1")
-        (bash      "https://github.com/tree-sitter/tree-sitter-bash" "v0.19.0")  ;; 0.22.0
-        (lua       "https://github.com/Azganoth/tree-sitter-lua" "v2.1.3")))
+        (bash      "https://github.com/tree-sitter/tree-sitter-bash" "v0.19.0")))  ;; 0.22.0
+        ;;(lua       "https://github.com/Azganoth/tree-sitter-lua" "v2.1.3")))
 ;; Then install each grammar
 ;; (dolist (lang '(c cpp python rust bash lua))
   ;; (treesit-install-language-grammar lang))
