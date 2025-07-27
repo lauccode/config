@@ -122,6 +122,26 @@ Reuse the existing grep buffer window if open."
 (global-set-key (kbd "M-o") 'other-window)  ;; comment if use switch-window
 ;; Shift + arrow to move windows
 (windmove-default-keybindings)
+;; C-S BACKSPACE to kill all the line
+;; M-w copy the line without selection
+(defun my/copy-line-or-region ()
+  "Copy region if active, otherwise copy the current line."
+  (interactive)
+  (if (use-region-p)
+      (kill-ring-save (region-beginning) (region-end))
+    (kill-ring-save (line-beginning-position) (line-end-position))
+    (message "Line copied")))
+(global-set-key (kbd "M-w") #'my/copy-line-or-region)
+;; C-w cut the line without selection
+(defun my/cut-line-or-region ()
+  "Cut region if active, otherwise cut the entire current line."
+  (interactive)
+  (if (use-region-p)
+      (kill-region (region-beginning) (region-end))
+    (kill-region (line-beginning-position) (line-end-position))
+    (message "Line cut")))
+(global-set-key (kbd "C-w") #'my/cut-line-or-region)
+
 
 ;; switch focus to any new window:
 (defadvice display-buffer (after select-new-window activate)
