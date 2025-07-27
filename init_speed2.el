@@ -584,6 +584,30 @@ Reuse the existing grep buffer window if open."
 ;; You can control image size with:
 ;; (setq org-image-actual-width 300) ; or nil to use actual size
 
+;; https://github.com/plantuml/plantuml/releases
+;; To do plantuml
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((plantuml . t))) ; this line activates plantuml
+(setq org-plantuml-jar-path (expand-file-name "/home/coyote/.emacs.d/.local/etc/plantuml.jar"))
+;; Add this to your config to show images automatically:
+(setq org-startup-with-inline-images t)
+(add-hook 'org-babel-after-execute-hook 'org-redisplay-inline-images)
+;; 1. Place your cursor inside the block and press:
+;; C-c C-c
+;; This runs the block and generates `hello.png`.
+;; 2. If it doesn’t show automatically, press:
+;; C-c C-x C-v
+;; to toggle inline image display.
+;; 3. ### ✅ Example Block Recap
+;; ```org
+;; #+BEGIN_SRC plantuml :file hello.png
+;; @startuml
+;; Bob -> Alice : hello
+;; @enduml
+;; #+END_SRC
+;; ```
+
 ; (use-package pulsar
 ;              :straight t
 ;              :ensure t
