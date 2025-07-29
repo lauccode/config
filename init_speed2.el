@@ -37,6 +37,27 @@
   (setq c-basic-offset 4)    ; Set the basic indentation to 4 spaces
   (setq tab-width 4)         ; Set the tab width to 4 spaces
   (setq indent-tabs-mode nil)) ; Use spaces instead of tabs
+;; set the tab width to 4 spaces for C
+(defun my-c-mode-hook ()
+  (setq c-basic-offset 4)    ; Set the basic indentation to 4 spaces
+  (setq tab-width 4)         ; Set the tab width to 4 spaces
+  (setq indent-tabs-mode nil)) ; Use spaces instead of tabs
+;; set the tab width to 4 spaces for C++ for ts
+(defun my-c++-ts-mode-hook ()
+  (setq-local c-ts-mode-indent-offset 4)    ; Set the basic indentation to 4 spaces
+  (setq-local tab-width 4)         ; Set the tab width to 4 spaces
+  (setq-local indent-tabs-mode nil)) ; Use spaces instead of tabs
+;; set the tab width to 4 spaces for C for ts
+(defun my-c-ts-mode-hook ()
+  (setq-local c-ts-mode-indent-offset 4)    ; Set the basic indentation to 4 spaces
+  (setq-local tab-width 4)         ; Set the tab width to 4 spaces
+  (setq-local indent-tabs-mode nil)) ; Use spaces instead of tabs
+;; For classic CC mode
+(add-hook 'c++-mode-hook #'my-c++-mode-hook)
+(add-hook 'c-mode-hook #'my-c-mode-hook)
+;; For Tree-sitter C++ mode
+(add-hook 'c++-ts-mode-hook #'my-c++-ts-mode-hook)
+(add-hook 'c-ts-mode-hook #'my-c-ts-mode-hook)
 
 ;; C-x -<, C-x ->	navigate between buffers
 ;; C-x M		consult-mark (in a file)
