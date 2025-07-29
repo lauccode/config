@@ -334,11 +334,7 @@ Reuse the existing grep buffer window if open."
   ;; sudo apt install clangd
   ;; 3. **Configure Eglot for C++**: Add `clangd` to Eglot's configuration for C++ mode:
   :config
-  (add-to-list 'eglot-server-programs '(c++-mode . ("clangd"
-						    "--background-index"
-						    "--clang-tidy"
-						    "--completion-style=detailed"
-						    "--header-insertion=never")))
+  (add-to-list 'eglot-server-programs '(c++-mode . ("clangd")))
   (add-to-list 'eglot-server-programs '(c-mode . ("clangd")))
   ;; 4. **Start Eglot**: Open a C++ file and start Eglot with `M-x eglot RET`. This will initialize `clangd` for your project.
   ;; 5. **Automatic Startup**: If you want Eglot to start automatically when you open a C++ file, add it to the major-mode hook:
