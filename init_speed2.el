@@ -327,19 +327,23 @@ Reuse the existing grep buffer window if open."
              (savehist-mode 1)
              (setq savehist-additional-variables '(command-history)))
 
-    (use-package eglot
-                 :straight t
-                 :ensure t
-                 ;; 2. **Install `clangd`**: Install `clangd` if you haven't already. You can install it using a package manager like `brew`, `apt`, or `choco`:
-                 ;; sudo apt install clangd
-                 ;; 3. **Configure Eglot for C++**: Add `clangd` to Eglot's configuration for C++ mode:
-                 :config
-                 (add-to-list 'eglot-server-programs '(c++-mode . ("clangd")))
-                 (add-to-list 'eglot-server-programs '(c-mode . ("clangd")))
-                 ;; 4. **Start Eglot**: Open a C++ file and start Eglot with `M-x eglot RET`. This will initialize `clangd` for your project.
-                 ;; 5. **Automatic Startup**: If you want Eglot to start automatically when you open a C++ file, add it to the major-mode hook:
-                 (add-hook 'c++-mode-hook 'eglot-ensure)
-                 (add-hook 'c-mode-hook 'eglot-ensure))
+(use-package eglot
+  :straight t
+  :ensure t
+  ;; 2. **Install `clangd`**: Install `clangd` if you haven't already. You can install it using a package manager like `brew`, `apt`, or `choco`:
+  ;; sudo apt install clangd
+  ;; 3. **Configure Eglot for C++**: Add `clangd` to Eglot's configuration for C++ mode:
+  :config
+  (add-to-list 'eglot-server-programs '(c++-mode . ("clangd"
+						    "--background-index"
+						    "--clang-tidy"
+						    "--completion-style=detailed"
+						    "--header-insertion=never")))
+  (add-to-list 'eglot-server-programs '(c-mode . ("clangd")))
+  ;; 4. **Start Eglot**: Open a C++ file and start Eglot with `M-x eglot RET`. This will initialize `clangd` for your project.
+  ;; 5. **Automatic Startup**: If you want Eglot to start automatically when you open a C++ file, add it to the major-mode hook:
+  (add-hook 'c++-mode-hook 'eglot-ensure)
+  (add-hook 'c-mode-hook 'eglot-ensure))
 ;; 6. **Project-Specific Configuration**: You can customize `clangd` using a `.dir-locals.el` file in your project directory:
 ;; ((c++-mode . ((eglot-workspace-configuration . (:clangd (:fallbackFlags ["-std=c++17"] :clangTidy (:checks ["*"] :clangdCheck :json-false))))))
 ;;  (c-mode . ((eglot-workspace-configuration . (:clangd (:fallbackFlags ["-std=c11"] :clangTidy (:checks ["*"] :clangdCheck :json-false))))))))
@@ -360,6 +364,30 @@ Reuse the existing grep buffer window if open."
   (define-key eglot-mode-map (kbd "M-m ?") 'xref-find-references)
   (define-key eglot-mode-map (kbd "M-.")   'xref-find-definitions))
 
+;; Company Mode
+(use-package company
+  :straight t
+  :init
+  (global-company-mode)
+  :config
+  (setq company-idle-delay 0.2
+        company-minimum-prefix-length 1
+        company-show-numbers t
+        company-tooltip-align-annotations t)
+  :bind (:map company-active-map
+         ("<tab>" . company-complete-selection)
+         ("C-n" . company-select-next)
+         ("C-p" . company-select-previous)))
+
+;; Optionnel : snippets pour les complétions
+(use-package yasnippet
+  :straight t
+  :init (yas-global-mode 1))
+
+;; Optionnel : affichage visuel des complétions
+(use-package company-box
+  :straight t
+  :hook (company-mode . company-box-mode))
 
 ;; ;; Run this interactively or add to your config
 ;; ;; (treesit-install-language-grammar 'c)
