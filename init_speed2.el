@@ -437,6 +437,8 @@ Reuse the existing grep buffer window if open."
 ;; seems needed to have magit ok to find git
 (eval-after-load 'tramp
                  '(setq magit-remote-git-executable "/usr/bin/git"))
+;; magit-ediff-show-commit  : to see the diff of file as vscode
+;; magit-log-buffer-file    : to see all previous commit for file
 
 ;; view git change in margin
 (use-package git-gutter
