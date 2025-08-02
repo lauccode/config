@@ -52,12 +52,19 @@
   (setq-local c-ts-mode-indent-offset 4)    ; Set the basic indentation to 4 spaces
   (setq-local tab-width 4)         ; Set the tab width to 4 spaces
   (setq-local indent-tabs-mode nil)) ; Use spaces instead of tabs
+(defun my-lua-ts-mode-hook ()
+  (setq-local lua-ts-mode-indent-offset 4)    ; Set the basic indentation to 4 spaces
+  (setq-local tab-width 4)         ; Set the tab width to 4 spaces
+  (setq-local indent-tabs-mode nil)) ; Use spaces instead of tabs
+
 ;; For classic CC mode
 (add-hook 'c++-mode-hook #'my-c++-mode-hook)
 (add-hook 'c-mode-hook #'my-c-mode-hook)
 ;; For Tree-sitter C++ mode
 (add-hook 'c++-ts-mode-hook #'my-c++-ts-mode-hook)
 (add-hook 'c-ts-mode-hook #'my-c-ts-mode-hook)
+;; For Tree-sitter lua mode
+(add-hook 'lua-ts-mode-hook #'my-lua-ts-mode-hook)
 
 ;; C-x -<, C-x ->	navigate between buffers
 ;; C-x M		consult-mark (in a file)
