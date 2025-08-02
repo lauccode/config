@@ -343,10 +343,12 @@ Reuse the existing grep buffer window if open."
   :config
   (add-to-list 'eglot-server-programs '(c++-mode . ("clangd")))
   (add-to-list 'eglot-server-programs '(c-mode . ("clangd")))
+  (add-to-list 'eglot-server-programs '(lua-mode . ("lua-language-server")))
   ;; 4. **Start Eglot**: Open a C++ file and start Eglot with `M-x eglot RET`. This will initialize `clangd` for your project.
   ;; 5. **Automatic Startup**: If you want Eglot to start automatically when you open a C++ file, add it to the major-mode hook:
   (add-hook 'c++-mode-hook 'eglot-ensure)
   (add-hook 'c-mode-hook 'eglot-ensure))
+  ;; (add-hook 'lua-mode-hook 'eglot-ensure))
 ;; 6. **Project-Specific Configuration**: You can customize `clangd` using a `.dir-locals.el` file in your project directory:
 ;; ((c++-mode . ((eglot-workspace-configuration . (:clangd (:fallbackFlags ["-std=c++17"] :clangTidy (:checks ["*"] :clangdCheck :json-false))))))
 ;;  (c-mode . ((eglot-workspace-configuration . (:clangd (:fallbackFlags ["-std=c11"] :clangTidy (:checks ["*"] :clangdCheck :json-false))))))))
@@ -356,7 +358,8 @@ Reuse the existing grep buffer window if open."
     (dolist (buf (buffer-list))
       (with-current-buffer buf
         (when (and (or (derived-mode-p 'c-mode)
-                       (derived-mode-p 'c++-mode))
+                       (derived-mode-p 'c++-mode)
+                       (derived-mode-p 'lua-mode))
                    (not (eglot-current-server)))
           (eglot-ensure))))))
 (with-eval-after-load 'eglot
@@ -552,13 +555,13 @@ Reuse the existing grep buffer window if open."
              (which-key-enable-god-mode-support)
              (setq which-key-idle-delay 0.5))  ;; Adjust the delay as needed
 
-;; Install lua-mode
-; (use-package lua-mode
-;              :straight t
-;              :ensure t)
-;; Download love-minor-mode: Clone the love-minor-mode repository from GitHub.
-;; git clone https://github.com/ejmr/love-minor-mode.git ~/.emacs.d/love-minor-mode
-;; Load love-minor-mode
+;; ;; Install lua-mode
+;; (use-package lua-mode
+;;              :straight t
+;;              :ensure t)
+;; ;; Download love-minor-mode: Clone the love-minor-mode repository from GitHub.
+;; ;; git clone https://github.com/ejmr/love-minor-mode.git ~/.emacs.d/love-minor-mode
+;; ;; Load love-minor-mode
 ;; (add-to-list 'load-path "~/.emacs.d/love-minor-mode")
 ;; (require 'love-minor-mode)
 ;; ;; Enable love-minor-mode for lua-mode
@@ -717,14 +720,16 @@ Reuse the existing grep buffer window if open."
 ;; Additional settings
 ;; (setq lsp-enable-snippet nil)  ;; Disable snippets if they cause issues
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
-  '(package-selected-packages nil))
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(global-display-line-numbers-mode t)
+ '(package-selected-packages nil)
+ '(tool-bar-mode nil))
 (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
-  )
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:family "Fira Mono" :foundry "CTDB" :slant normal :weight regular :height 90 :width normal)))))
