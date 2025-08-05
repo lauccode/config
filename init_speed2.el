@@ -68,6 +68,8 @@
 
 ;; M-% to replace, below arrow to retrieve word under cursor in minibuffer !
 
+;; M-s M-. to isearch-forward-thing-at-point is an interactive byte-code-function in
+
 ;; C-x -<, C-x ->	navigate between buffers
 ;; C-x M		consult-mark (in a file)
 
