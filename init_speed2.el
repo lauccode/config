@@ -66,6 +66,8 @@
 ;; For Tree-sitter lua mode
 (add-hook 'lua-ts-mode-hook #'my-lua-ts-mode-hook)
 
+;; M-% to replace, below arrow to retrieve word under cursor in minibuffer !
+
 ;; C-x -<, C-x ->	navigate between buffers
 ;; C-x M		consult-mark (in a file)
 
