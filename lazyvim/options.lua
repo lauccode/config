@@ -81,6 +81,7 @@ vim.cmd("tnoremap <Esc> <C-\\><C-n>")
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevel = 99
+vim.opt.foldenable = false  -- Disable folding at startup
 -- vim.opt.foldlevel = 0
 
 -- "z" to have fold menu
