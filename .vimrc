@@ -58,8 +58,6 @@ nmap ga <Plug>(EasyAlign)
 " SHORTCUTS:
 " removed because used by mark.vim
 autocmd VimEnter * silent! nunmap <leader>r
-autocmd VimEnter * nnoremap <leader>r viwp
-nnoremap <leader>s :source $MYVIMRC<CR>
 
 autocmd VimEnter * silent! nunmap *
 autocmd VimEnter * nnoremap * :keepjumps normal! mi*`i<CR>
@@ -98,6 +96,8 @@ noremap <F7> :bn<CR>
 nnoremap <silent> <F9> :NERDTreeToggle<CR>
 nnoremap <leader>i viw
 nnoremap <leader>I viW
+autocmd VimEnter * nnoremap <leader>r viwp
+nnoremap <leader>s :source $MYVIMRC<CR>
 set lcs=tab:»_,trail:·,eol:$
 nnoremap <leader>h :set list!<CR>
 nnoremap <leader>o :LspDocumentSwitchSourceHeader<CR>
