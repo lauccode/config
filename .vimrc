@@ -46,6 +46,8 @@ autocmd VimEnter * call which_key#register('<Space>', 'g:which_key_map')
 " :colo delek
 :colo gruvbox
 " :colo industry
+" :colo murphy     --TBT
+" :colo peachpuff  --white
 
 " EASY ALIGN:
 " Start interactive EasyAlign in visual mode (e.g. vipga)
