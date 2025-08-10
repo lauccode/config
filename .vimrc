@@ -98,7 +98,6 @@ noremap <F7> :bn<CR>
 nnoremap <silent> <F9> :NERDTreeToggle<CR>
 nnoremap <leader>i viw
 nnoremap <leader>I viW
-nnoremap <leader>r viwp
 set lcs=tab:»_,trail:·,eol:$
 nnoremap <leader>h :set list!<CR>
 nnoremap <leader>o :LspDocumentSwitchSourceHeader<CR>
