@@ -669,6 +669,20 @@ Reuse the existing grep buffer window if open."
 ;; #+END_SRC
 ;; ```
 
+;; C-c C-o (org-open-at-point) Opens the link under the cursor. This works for URLs, files, headlines, and more.
+;; RET (Enter key) — if configured You can make pressing Enter open links by adding this to your config:
+(setq org-return-follows-link t)
+
+;; To **decrease image size** and make it persistent, add this to your Emacs config (`init.el` or `.emacs`):
+;; (setq org-image-actual-width 300)  ;; or any number of pixels you prefer
+;; This controls the **maximum width** of displayed images. You can also use a list of widths:
+;; (setq org-image-actual-width '(300))  ;; safer for Org's internal handling
+;; If you want images to scale automatically to fit your window, you can use:
+;; (setq org-image-actual-width nil)  ;; uses actual image size
+;; After changing the setting, you can refresh the display with:
+;; (org-display-inline-images)
+
+
 ; (use-package pulsar
 ;              :straight t
 ;              :ensure t
