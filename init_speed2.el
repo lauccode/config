@@ -220,6 +220,14 @@ Reuse the existing grep buffer window if open."
              :config
              (load-theme 'leuven-dark nil))
 
+(use-package material-theme
+             :straight t
+             :ensure t
+             :config
+	     ;; (load-theme 'material-light t)
+	     ;; (load-theme 'material t)
+	     )
+
 (use-package powerline
              :straight t
              :ensure t
