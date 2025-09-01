@@ -640,6 +640,7 @@ Reuse the existing grep buffer window if open."
 ;; org-timer-pause-or-continue
 
 ;; IMAGE with ORG
+;; try yank-media (yank-media-type) to yank a copy image from external
 ;; Make sure your image link looks like this:
 ;; [[file:/path/to/image.png]]
 ;; Avoid adding a description inside the link (like `[[file:/path/to/image.png][desc]]`) unless you use a prefix when toggling.
