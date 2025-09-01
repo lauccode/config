@@ -218,14 +218,15 @@ Reuse the existing grep buffer window if open."
              :straight t
              :ensure t
              :config
-             (load-theme 'leuven-dark nil))
+             ;; (load-theme 'leuven-dark nil)
+			 )
 
 (use-package material-theme
              :straight t
              :ensure t
              :config
 	     ;; (load-theme 'material-light t)
-	     ;; (load-theme 'material t)
+	     (load-theme 'material t)
 	     )
 
 (use-package powerline
