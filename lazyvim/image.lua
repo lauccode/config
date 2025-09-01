@@ -1,0 +1,24 @@
+-- ~/.config/nvim/lua/plugins/image.lua
+-- return {
+--   {
+--     "3rd/image.nvim",
+--     opts = {
+--       backend = "kitty", -- or "ueberzugpp" if you're not using Kitty
+--       integrations = {
+--         markdown = {
+--           enabled = true,
+--           clear_in_insert_mode = false,
+--           download_remote_images = true,
+--         },
+--       },
+--     },
+--   },
+--   {
+--     "HakonHarnes/img-clip.nvim",
+--     event = "VeryLazy",
+--     keys = {
+--       { "<leader>p", "<cmd>PasteImage<cr>", desc = "Paste image from clipboard" },
+--     },
+--     opts = {},
+--   },
+-- }
