@@ -1,5 +1,5 @@
 -- ~/.config/nvim/lua/plugins/image.lua
--- return {
+return {
 --   {
 --     "3rd/image.nvim",
 --     opts = {
@@ -21,4 +21,4 @@
 --     },
 --     opts = {},
 --   },
--- }
+}
