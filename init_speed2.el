@@ -654,6 +654,9 @@ Reuse the existing grep buffer window if open."
 ;; Or use C-c ' to open the Org source block (if inside one).
 ;; Or toggle visibility with org-toggle-link-display.
 
+;; [[file:images/example.png]]
+;; This assumes the image is in a subfolder images/ relative to the .org file.
+
 ;; try yank-media (yank-media-type) to yank a copy image from external
 ;; Make sure your image link looks like this:
 ;; [[file:/path/to/image.png]]
