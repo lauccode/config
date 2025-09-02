@@ -640,6 +640,14 @@ Reuse the existing grep buffer window if open."
 ;; org-timer-pause-or-continue
 
 ;; IMAGE with ORG
+
+;; (use-package org-download
+;;     :straight t
+;;   :ensure t
+;;   :config
+;;   (setq org-download-image-dir "images")
+;;   (add-hook 'dired-mode-hook 'org-download-enable))
+
 ;; try yank-media (yank-media-type) to yank a copy image from external
 ;; Make sure your image link looks like this:
 ;; [[file:/path/to/image.png]]
