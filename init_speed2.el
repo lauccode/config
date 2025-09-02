@@ -648,6 +648,12 @@ Reuse the existing grep buffer window if open."
 ;;   (setq org-download-image-dir "images")
 ;;   (add-hook 'dired-mode-hook 'org-download-enable))
 
+;; to view all image link:
+;; add a description:
+;; [[file:images/example.png][Click to view image]]
+;; Or use C-c ' to open the Org source block (if inside one).
+;; Or toggle visibility with org-toggle-link-display.
+
 ;; try yank-media (yank-media-type) to yank a copy image from external
 ;; Make sure your image link looks like this:
 ;; [[file:/path/to/image.png]]
