@@ -404,6 +404,7 @@ complete-command tmux-terminal-zoom shell
 #plug "ualexherbo2/connect.kak"
 
 # map global normal <F2> ':e ~/.config/kak/kakrc<ret>'
+# :edit-kakrc
 
 # map global user B ':enter-user-mode -lock buffers<ret>'   -docstring 'buffers (lock)…'
 # map global normal <F3> '|clang-format<ret>'
