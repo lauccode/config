@@ -118,7 +118,9 @@ vim.opt.foldenable = false  -- Disable folding at startup
 -- 'formatexpr' is set to vim.lsp.formatexpr() if both 'formatprg' and 'formatexpr' are empty. This allows to format lines via gq if the language server supports it.
 
 -- FOR NEOVIDE
-vim.o.guifont = "FiraCode Nerd Font Mono:h14" -- text below applies for VimScript
+vim.o.guifont = "FiraCode Nerd Font Mono:h24" -- text below applies for VimScript
+-- vim.o.guifont = "Source Code Pro:h14" -- text below applies for VimScript
+-- vim.o.guifont = "SourceCodeVF:h24" -- text below applies for VimScript
 -- Helper function for transparency formatting
 local alpha = function()
   return string.format("%x", math.floor(255 * vim.g.transparency))
