@@ -32,6 +32,10 @@
 (global-set-key (kbd "C-c i")
   (lambda () (interactive) (find-file user-init-file)))
 
+;; M-: (Eval Expression) in cpp file
+;; (treesit-available-p)
+;; (treesit-parser-list)
+
 ;; set the tab width to 4 spaces for C++
 (defun my-c++-mode-hook ()
   (setq c-basic-offset 4)    ; Set the basic indentation to 4 spaces
