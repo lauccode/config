@@ -117,6 +117,17 @@ vim.opt.foldenable = false  -- Disable folding at startup
 -- https://neovim.io/doc/user/lsp.html
 -- 'formatexpr' is set to vim.lsp.formatexpr() if both 'formatprg' and 'formatexpr' are empty. This allows to format lines via gq if the language server supports it.
 
+-- FOR NEOVIDE
+vim.o.guifont = "FiraCode Nerd Font Mono:h14" -- text below applies for VimScript
+-- Helper function for transparency formatting
+local alpha = function()
+  return string.format("%x", math.floor(255 * vim.g.transparency))
+end
+-- g:neovide_opacity should be 0 if you want to unify transparency of content and title bar.
+vim.g.neovide_opacity = 0.95
+vim.g.transparency = 0.9
+vim.g.neovide_background_color = "#0f1117" .. alpha()
+
 -- ▗▖ ▗▖▗▄▄▄▖▗▖  ▗▖▗▖  ▗▖ ▗▄▖ ▗▄▄▖  ▗▄▄▖
 -- ▐▌▗▞▘▐▌    ▝▚▞▘ ▐▛▚▞▜▌▐▌ ▐▌▐▌ ▐▌▐▌
 -- ▐▛▚▖ ▐▛▀▀▘  ▐▌  ▐▌  ▐▌▐▛▀▜▌▐▛▀▘  ▝▀▚▖
