@@ -78,6 +78,16 @@ vim.cmd("tnoremap <Esc> <C-\\><C-n>")
 
 -- vim.cmd("nnoremap <C-w>m <C-w>\\| <C-w>_") --maximize window
 
+-- define server for plantuml in markdown !! 
+vim.g.mkdp_preview_options = {
+  uml = {
+    server = "https://www.plantuml.com/plantuml",
+    imageFormat = "svg",
+    openMarker = "@startuml",
+    closeMarker = "@enduml",
+  },
+}
+
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevel = 99
