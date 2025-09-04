@@ -186,3 +186,6 @@ vim.keymap.set("n", "dd", [["_dd]], { desc = "Delete line without overwriting re
 vim.keymap.set("n", "x", [["_x]], { desc = "Delete char without overwriting register" })
 -- Normal mode: delete word without overwriting register
 vim.keymap.set("n", "dw", [["_dw]], { desc = "Delete word without overwriting register" })
+
+vim.keymap.set("n", "<leader>uM", function() require("snacks.dashboard").open() end, { desc = "Open Snacks Dashboard" })
+
