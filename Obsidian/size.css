@@ -1,0 +1,6 @@
+/* ~/vault/.obsidian/snippets/size.css */
+/* activate in Options, Appearance, CSS snippets  */
+/* Shrink editor font size */
+.markdown-source-view {
+  font-size: 12px !important;
+}
