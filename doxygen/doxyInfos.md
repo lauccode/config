@@ -47,7 +47,6 @@ It will create a `docs/html` folder (or whatever you set in `OUTPUT_DIRECTORY`) 
 
 ---
 
-Would you like help writing a minimal `Doxyfile` tailored to your project structure? I can generate one based on your folder layout and preferences.
 
 
 To visualize **function call graphs** in Doxygen—like seeing which functions are called inside `main()`—you’ll need to enable a few specific settings and have [Graphviz](https://graphviz.org/) installed. Here's how to do it:
@@ -116,5 +115,3 @@ If you're working with classes, also enable:
 CLASS_DIAGRAMS       = YES
 COLLABORATION_GRAPH  = YES
 ```
-
-Want help generating a minimal working example with `main()` and a few functions to test the graph? I can whip one up for you.
