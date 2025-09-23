@@ -48,3 +48,73 @@ It will create a `docs/html` folder (or whatever you set in `OUTPUT_DIRECTORY`) 
 ---
 
 Would you like help writing a minimal `Doxyfile` tailored to your project structure? I can generate one based on your folder layout and preferences.
+
+
+To visualize **function call graphs** in Doxygen—like seeing which functions are called inside `main()`—you’ll need to enable a few specific settings and have [Graphviz](https://graphviz.org/) installed. Here's how to do it:
+
+---
+
+### 🧠 Step-by-Step: Enable Function Call Graphs in Doxygen
+
+#### 1. **Install Graphviz**
+Doxygen uses Graphviz to generate diagrams. On most Linux distros:
+```bash
+sudo apt install graphviz
+```
+
+---
+
+#### 2. **Edit Your `Doxyfile` Config**
+
+Open your `Doxyfile` and set the following options:
+
+```ini
+CALL_GRAPH           = YES
+CALLER_GRAPH         = YES
+HAVE_DOT             = YES
+DOT_PATH             = /usr/bin/dot   # Adjust if dot is elsewhere
+DOT_IMAGE_FORMAT     = svg            # Or png, depending on your preference
+```
+
+Optional (for better visuals):
+```ini
+DOT_GRAPH_MAX_NODES  = 50             # Increase if needed
+DOT_MULTI_TARGETS    = YES
+```
+
+---
+
+#### 3. **Document Your `main()` Function**
+
+Make sure your `main()` function is properly documented with Doxygen-style comments:
+```cpp
+/**
+ * @brief Entry point of the program.
+ */
+int main() {
+    doSomething();
+    return 0;
+}
+```
+
+---
+
+#### 4. **Run Doxygen and View the Graph**
+
+After running:
+```bash
+doxygen Doxyfile
+```
+
+Navigate to `docs/html` and open `index.html`. Find your `main()` function page—there should be a **call graph** showing arrows to the functions it invokes.
+
+---
+
+### 🧩 Bonus: Visualize Class Relationships Too
+If you're working with classes, also enable:
+```ini
+CLASS_DIAGRAMS       = YES
+COLLABORATION_GRAPH  = YES
+```
+
+Want help generating a minimal working example with `main()` and a few functions to test the graph? I can whip one up for you.
