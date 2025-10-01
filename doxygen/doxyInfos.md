@@ -115,3 +115,9 @@ If you're working with classes, also enable:
 CLASS_DIAGRAMS       = YES
 COLLABORATION_GRAPH  = YES
 ```
+
+### plantuml
+Bin to generate plantuml
+```ini
+PLANTUML_JAR_PATH      = "/home/user/plantuml.jar"
+```
