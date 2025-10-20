@@ -883,9 +883,9 @@ Reuse the existing grep buffer window if open."
    '("z" . meow-pop-selection)
    '("'" . repeat)
    '("<escape>" . ignore)))
-;; (require 'meow)
-;; (meow-setup)
-;; (meow-global-mode 1)
+(require 'meow)
+(meow-setup)
+(meow-global-mode 1)
 
 (custom-set-faces
  '(meow-normal-cursor ((t (:background "violet"))))
