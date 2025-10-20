@@ -67,8 +67,8 @@
 ;; For Tree-sitter C++ mode (commented as package is used)
 ;; (add-hook 'c++-ts-mode-hook #'my-c++-ts-mode-hook)
 ;; (add-hook 'c-ts-mode-hook #'my-c-ts-mode-hook)
-;; For Tree-sitter lua mode
-(add-hook 'lua-ts-mode-hook #'my-lua-ts-mode-hook)
+;; For Tree-sitter lua mode (commented as package is used)
+;; (add-hook 'lua-ts-mode-hook #'my-lua-ts-mode-hook)
 
 ;; FOR PACKAGE TREE-SITTER
 (use-package tree-sitter
