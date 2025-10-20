@@ -73,6 +73,7 @@
 ;; FOR PACKAGE TREE-SITTER
 ;; Tree-sitter
 (use-package tree-sitter
+  :straight t
   :ensure t
   :hook ((prog-mode . tree-sitter-mode)
          (tree-sitter-after-on . tree-sitter-hl-mode))
@@ -85,6 +86,7 @@
                 (tree-sitter-hl-mode)))))
 
 (use-package tree-sitter-langs
+  :straight t
   :ensure t
   :after tree-sitter
   :config
