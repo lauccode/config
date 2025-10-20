@@ -76,6 +76,8 @@
   :ensure t
   :hook ((c-mode c++-mode python-mode) . tree-sitter-mode)
   :config
+  ;; Enable highlighting after Tree-sitter is activated
+  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
   (use-package tree-sitter-langs
     :straight t
     :ensure t
