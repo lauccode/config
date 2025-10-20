@@ -71,6 +71,10 @@
 ;; (add-hook 'lua-ts-mode-hook #'my-lua-ts-mode-hook)
 
 ;; FOR PACKAGE TREE-SITTER
+;; :tree-sitter-mode to check "tree-sitter mode enabled in current buffer"
+;; C-h m =>
+;; The major mode is C++// mode defined in c-ts-mode.el:
+;; Major mode for editing C++, powered by tree-sitter.
 (use-package tree-sitter
   :straight t
   :ensure t
@@ -78,6 +82,10 @@
   :config
   ;; Enable highlighting after Tree-sitter is activated
   (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
+  ;; Associate grammars with -ts modes
+  (add-to-list 'tree-sitter-major-mode-language-alist '(c++-ts-mode . cpp))
+  (add-to-list 'tree-sitter-major-mode-language-alist '(c-ts-mode . c))
+  (add-to-list 'tree-sitter-major-mode-language-alist '(python-ts-mode . python))
   (use-package tree-sitter-langs
     :straight t
     :ensure t
@@ -85,7 +93,6 @@
     (tree-sitter-require 'cpp)
     (tree-sitter-require 'c)
     (tree-sitter-require 'python)))
-
 
 ;; FOR NATIVE TREE-SITTER
 ;; ;; Run this interactively or add to your config
