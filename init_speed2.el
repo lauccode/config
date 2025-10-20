@@ -71,26 +71,19 @@
 (add-hook 'lua-ts-mode-hook #'my-lua-ts-mode-hook)
 
 ;; FOR PACKAGE TREE-SITTER
-;; Tree-sitter
 (use-package tree-sitter
   :straight t
   :ensure t
-  :hook ((prog-mode . tree-sitter-mode)
-         (tree-sitter-after-on . tree-sitter-hl-mode))
+  :hook ((c-mode c++-mode python-mode) . tree-sitter-mode)
   :config
-  (add-to-list 'tree-sitter-major-mode-language-alist '(c++-mode . cpp))
-  (add-hook 'find-file-hook
-            (lambda ()
-              (when (file-remote-p (buffer-file-name))
-                (tree-sitter-mode)
-                (tree-sitter-hl-mode)))))
+  (use-package tree-sitter-langs
+    :straight t
+    :ensure t
+    :config
+    (tree-sitter-require 'cpp)
+    (tree-sitter-require 'c)
+    (tree-sitter-require 'python)))
 
-(use-package tree-sitter-langs
-  :straight t
-  :ensure t
-  :after tree-sitter
-  :config
-  (tree-sitter-require 'cpp))
 
 ;; FOR NATIVE TREE-SITTER
 ;; ;; Run this interactively or add to your config
