@@ -64,11 +64,70 @@
 ;; For classic CC mode
 (add-hook 'c++-mode-hook #'my-c++-mode-hook)
 (add-hook 'c-mode-hook #'my-c-mode-hook)
-;; For Tree-sitter C++ mode
-(add-hook 'c++-ts-mode-hook #'my-c++-ts-mode-hook)
-(add-hook 'c-ts-mode-hook #'my-c-ts-mode-hook)
+;; For Tree-sitter C++ mode (commented as package is used)
+;; (add-hook 'c++-ts-mode-hook #'my-c++-ts-mode-hook)
+;; (add-hook 'c-ts-mode-hook #'my-c-ts-mode-hook)
 ;; For Tree-sitter lua mode
 (add-hook 'lua-ts-mode-hook #'my-lua-ts-mode-hook)
+
+;; FOR PACKAGE TREE-SITTER
+;; Tree-sitter
+(use-package tree-sitter
+  :ensure t
+  :hook ((prog-mode . tree-sitter-mode)
+         (tree-sitter-after-on . tree-sitter-hl-mode))
+  :config
+  (add-to-list 'tree-sitter-major-mode-language-alist '(c++-mode . cpp))
+  (add-hook 'find-file-hook
+            (lambda ()
+              (when (file-remote-p (buffer-file-name))
+                (tree-sitter-mode)
+                (tree-sitter-hl-mode)))))
+
+(use-package tree-sitter-langs
+  :ensure t
+  :after tree-sitter
+  :config
+  (tree-sitter-require 'cpp))
+
+;; FOR NATIVE TREE-SITTER
+;; ;; Run this interactively or add to your config
+;; ;; (treesit-install-language-grammar 'c)
+;; ;; (treesit-install-language-grammar 'cpp)
+;; ;; Use Tree-sitter modes for C and C++
+;; (setq major-mode-remap-alist
+;;       '((c-mode          . c-ts-mode)
+;;         (c++-mode        . c++-ts-mode)))
+;; ;; Enable Tree-sitter highlighting
+;; (add-hook 'c-ts-mode-hook #'treesit-font-lock-enable)
+;; (add-hook 'c++-ts-mode-hook #'treesit-font-lock-enable)
+
+;; COMMENTED
+;; ; to see why c try each restart the grammar and no color in file ???
+;; (use-package treesit-auto
+;;   :straight t
+;;   :custom
+;;   (treesit-auto-install 'prompt)
+;;   :config
+;;   (treesit-auto-add-to-auto-mode-alist 'all)
+;;   (global-treesit-auto-mode))
+;; ;; Warning (treesit): Cannot activate tree-sitter, because language grammar for c is unavailable (version-mismatch): 15
+;; (setq treesit-language-source-alist
+;;       '((c         "https://github.com/tree-sitter/tree-sitter-c" "v0.20.3")  ;; 0.23.4
+;; 	;;(cpp       "https://github.com/tree-sitter/tree-sitter-cpp" "v0.23.4")  ;; 0.23.4
+;;         (python    "https://github.com/tree-sitter/tree-sitter-python" "v0.20.4")
+;;         (rust      "https://github.com/tree-sitter/tree-sitter-rust" "v0.20.1")
+;;         (bash      "https://github.com/tree-sitter/tree-sitter-bash" "v0.19.0")))  ;; 0.22.0
+;;         ;;(lua       "https://github.com/Azganoth/tree-sitter-lua" "v2.1.3")))
+;; ;; Then install each grammar
+;; ;; (dolist (lang '(c cpp python rust bash lua))
+;;   ;; (treesit-install-language-grammar lang))
+;; ;; C-x C-e on(should have the same):
+;; ;; (treesit-language-abi-version)
+;; ;; (treesit-language-abi-version 'lua)
+;; ;; 13 (#o15, #xd, ?\C-m)
+;; ;; so version is 13
+
 
 ;; M-% to replace, below arrow to retrieve word under cursor in minibuffer !
 
@@ -412,41 +471,7 @@ Reuse the existing grep buffer window if open."
   :straight t
   :hook (company-mode . company-box-mode))
 
-;; ;; Run this interactively or add to your config
-;; ;; (treesit-install-language-grammar 'c)
-;; ;; (treesit-install-language-grammar 'cpp)
-;; ;; Use Tree-sitter modes for C and C++
-;; (setq major-mode-remap-alist
-;;       '((c-mode          . c-ts-mode)
-;;         (c++-mode        . c++-ts-mode)))
-;; ;; Enable Tree-sitter highlighting
-;; (add-hook 'c-ts-mode-hook #'treesit-font-lock-enable)
-;; (add-hook 'c++-ts-mode-hook #'treesit-font-lock-enable)
 
-; to see why c try each restart the grammar and no color in file ???
-(use-package treesit-auto
-  :straight t
-  :custom
-  (treesit-auto-install 'prompt)
-  :config
-  (treesit-auto-add-to-auto-mode-alist 'all)
-  (global-treesit-auto-mode))
-;; Warning (treesit): Cannot activate tree-sitter, because language grammar for c is unavailable (version-mismatch): 15
-(setq treesit-language-source-alist
-      '((c         "https://github.com/tree-sitter/tree-sitter-c" "v0.20.3")  ;; 0.23.4
-	;;(cpp       "https://github.com/tree-sitter/tree-sitter-cpp" "v0.23.4")  ;; 0.23.4
-        (python    "https://github.com/tree-sitter/tree-sitter-python" "v0.20.4")
-        (rust      "https://github.com/tree-sitter/tree-sitter-rust" "v0.20.1")
-        (bash      "https://github.com/tree-sitter/tree-sitter-bash" "v0.19.0")))  ;; 0.22.0
-        ;;(lua       "https://github.com/Azganoth/tree-sitter-lua" "v2.1.3")))
-;; Then install each grammar
-;; (dolist (lang '(c cpp python rust bash lua))
-  ;; (treesit-install-language-grammar lang))
-;; C-x C-e on(should have the same):
-;; (treesit-language-abi-version)
-;; (treesit-language-abi-version 'lua)
-;; 13 (#o15, #xd, ?\C-m)
-;; so version is 13
 
 
 ;; TBT, try to use project
