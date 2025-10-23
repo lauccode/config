@@ -173,9 +173,9 @@
 (global-set-key (kbd "C-c L") 'duplicate-line)
 
 ;; TBT, try to use project
-(use-package project
-  :init
-  (setq project-vc-extra-root-markers '(".project")))
+;; (use-package project
+;;   :init
+;;   (setq project-vc-extra-root-markers '(".project")))
 
 ;; French check for writing
 ;; sudo apt-get install aspell aspell-fr aspell-en
