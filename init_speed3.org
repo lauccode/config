@@ -560,9 +560,6 @@ M-x org-babel-tangle
     :hook (company-mode . company-box-mode))
 #+END_SRC
 
-
-
-
 ** Magit
 #+BEGIN_SRC emacs-lisp :tangle init.el
   (use-package magit
