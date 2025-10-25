@@ -242,6 +242,9 @@ M-x org-babel-tangle
   ;; (add-hook 'before-save-hook 'ispell-buffer)
   ;; Function to switch dictionary
 
+;; dired with long time stamp
+  (setq dired-listing-switches "-alh --time-style=long-iso")
+
 #+END_SRC
 
 ** FOR PACKAGE TREE-SITTER
