@@ -714,7 +714,7 @@ Reuse the existing grep buffer window if open."
   (global-set-key (kbd "M-o") 'switch-window)
 
   ;; (global-set-key (kbd "C-c m") 'delete-other-windows)
-  (global-set-key (kbd "C-c m") 'switch-window-then-maximize)
+  (global-set-key (kbd "C-c m") 'maximize-window)
 
   ;; (global-set-key (kbd "C-c h") 'split-window-below)
   (global-set-key (kbd "C-c _") 'switch-window-then-split-below)
