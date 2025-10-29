@@ -212,7 +212,9 @@
     :config
     (tree-sitter-require 'cpp)
     (tree-sitter-require 'c)
-    (tree-sitter-require 'python)))
+    (tree-sitter-require 'python))
+  ;; Enable highlighting after tree-sitter-mode
+  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
 
 ;; FOR NATIVE TREE-SITTER
 ;; ;; Run this interactively or add to your config
