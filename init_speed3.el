@@ -156,6 +156,9 @@
 (setq desktop-load-locked-desktop t)
 (setq native-comp-deferred-compilation nil)
 
+;; Redirect all backup files to ~/.emacs.d
+(setq backup-directory-alist '(("." . "~/.emacs.d")))
+
 (defun my-ninja-build ()
   "Run Ninja build in a specific directory."
   (interactive)
