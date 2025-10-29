@@ -253,18 +253,20 @@ M-x org-babel-tangle
 ** FOR PACKAGE TREE-SITTER
 #+BEGIN_SRC emacs-lisp :tangle init.el
 
-  (use-package tree-sitter
+(use-package tree-sitter
+  :straight t
+  :ensure t
+  :hook ((c-mode c++-mode python-mode) . tree-sitter-mode)
+  :config
+  (use-package tree-sitter-langs
     :straight t
     :ensure t
-    :hook ((c-mode c++-mode python-mode) . tree-sitter-mode)
     :config
-    (use-package tree-sitter-langs
-      :straight t
-      :ensure t
-      :config
-      (tree-sitter-require 'cpp)
-      (tree-sitter-require 'c)
-      (tree-sitter-require 'python)))
+    (tree-sitter-require 'cpp)
+    (tree-sitter-require 'c)
+    (tree-sitter-require 'python))
+  ;; Enable highlighting after tree-sitter-mode
+  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
 
   ;; FOR NATIVE TREE-SITTER
   ;; ;; Run this interactively or add to your config
