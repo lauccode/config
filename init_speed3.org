@@ -856,7 +856,7 @@ M-x org-babel-tangle
     (global-set-key (kbd "M-o") 'switch-window)
 
     ;; (global-set-key (kbd "C-c m") 'delete-other-windows)
-    (global-set-key (kbd "C-c m") 'maximize-window)
+    (global-set-key (kbd "C-c m") 'maximize-window)  ;; c-x,+ balance-windows to come back
 
     ;; (global-set-key (kbd "C-c h") 'split-window-below)
     (global-set-key (kbd "C-c _") 'switch-window-then-split-below)
