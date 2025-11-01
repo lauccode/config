@@ -753,6 +753,16 @@ Reuse the existing grep buffer window if open."
   ;; I want to select minibuffer with label "z".
   (setq switch-window-minibuffer-shortcut ?z))
 
+  ;; ace-winwow
+  ;; (use-package ace-window
+  ;;   :straight t
+  ;;   :ensure t
+  ;;   :config
+  ;;   ;; (advice-add 'switch-window :after 'pulsar-pulse-line)
+  ;;   (global-set-key (kbd "M-o") 'ace-window)
+  ;;   )
+
+
 (use-package meow
   :straight t
   :ensure t)
