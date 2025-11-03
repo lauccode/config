@@ -600,18 +600,18 @@ Reuse the existing grep buffer window if open."
 
 ;; C-g    To remove selection after multi-cursor creation
 ;; Install multiple-cursors
-(use-package multiple-cursors
-  :straight t
-  :ensure t
-  :bind (("C-S-c C-S-c" . mc/edit-lines)
-         ;; ("C-<" . mc/mark-next-like-this)
-         ;; ("C-M-<" . mc/skip-to-next-like-this)
-         ("C-c C-d" . mc/skip-to-next-like-this)
-         ;; ("C->" . mc/mark-previous-like-this)
-         ;;("C-c C-<" . mc/mark-all-like-this)
-         ("C-c C-a" . mc/mark-all-like-this)
-         ))
-(global-set-key (kbd "C-d") 'mc/mark-next-like-this)
+  ;; (use-package multiple-cursors
+  ;;   :straight t
+  ;;   :ensure t
+  ;;   :bind (("C-S-c C-S-c" . mc/edit-lines)
+  ;;          ;; ("C-<" . mc/mark-next-like-this)
+  ;;          ;; ("C-M-<" . mc/skip-to-next-like-this)
+  ;;          ("C-c C-d" . mc/skip-to-next-like-this)
+  ;;          ;; ("C->" . mc/mark-previous-like-this)
+  ;;          ;;("C-c C-<" . mc/mark-all-like-this)
+  ;;          ("C-c C-a" . mc/mark-all-like-this)
+  ;;          ))
+  ;; (global-set-key (kbd "C-d") 'mc/mark-next-like-this)
 
 ;; (require 'vterm)
 (use-package vterm
