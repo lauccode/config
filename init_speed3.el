@@ -346,6 +346,9 @@ Reuse the existing grep buffer window if open."
 ;;   color: black;
 ;;   font-family: sans-serif;
 ;;   padding: 2em;
+;;   max-width: none !important;
+;;   width: 90% !important;
+;;   margin: auto;
 ;; }
 
 
