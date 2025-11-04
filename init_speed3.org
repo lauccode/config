@@ -401,6 +401,21 @@ M-x org-babel-tangle
   (use-package markdown-mode
     :straight t
     :ensure t)
+
+    ;; install markdown plantuml graphviz pandoc
+   ;; https://github.com/plantuml/plantuml/releases
+   ;; PlantUML support
+   (use-package plantuml-mode
+     :straight t
+     :ensure t
+     :mode ("\\.puml\\'" . plantuml-mode)
+     :config
+     (setq plantuml-jar-path "/home/carpent7/.emacs.d/.local/etc/plantuml.jar")
+     (setq plantuml-default-exec-mode 'jar)) ;; or 'executable if using plantuml CLI
+   ;; C-c C-c in example.puml to check diagram creation
+   ;; C-c C-c in example.md to list markdown actions
+   ;; markdown command is needed for preview in browser
+
 #+END_SRC
 
 ** Highlight symbols in all buffers
