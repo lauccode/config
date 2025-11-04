@@ -325,9 +325,21 @@ Reuse the existing grep buffer window if open."
   (unless (file-directory-p (expand-file-name "undo-tree-history" user-emacs-directory))
     (make-directory (expand-file-name "undo-tree-history" user-emacs-directory) t)))
 
+;; markdown-mode basics
 (use-package markdown-mode
   :straight t
-  :ensure t)
+  :mode ("\\.md\\'" . markdown-mode)
+  :init
+  ;; la commande pandoc avec le filtre pandoc-plantuml
+  (setq markdown-command
+        "pandoc --filter pandoc-plantuml --standalone --quiet"))
+;; install markdown plantuml graphviz pandoc
+;; need to install pandoc and pandoc-plantuml-filter
+
+;; live preview in browser
+(use-package markdown-preview-mode
+  :straight t
+  :commands (markdown-preview-mode))
 
     ;; install markdown plantuml graphviz pandoc
    ;; https://github.com/plantuml/plantuml/releases
