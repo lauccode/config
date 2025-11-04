@@ -360,7 +360,7 @@ Reuse the existing grep buffer window if open."
      :ensure t
      :mode ("\\.puml\\'" . plantuml-mode)
      :config
-     (setq plantuml-jar-path "/home/carpent7/.emacs.d/.local/etc/plantuml.jar")
+     (setq plantuml-jar-path "/home/user/.emacs.d/.local/etc/plantuml.jar")
      (setq plantuml-default-exec-mode 'jar)) ;; or 'executable if using plantuml CLI
    ;; C-c C-c in example.puml to check diagram creation
    ;; C-c C-c in example.md to list markdown actions
