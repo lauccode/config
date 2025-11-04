@@ -329,6 +329,20 @@ Reuse the existing grep buffer window if open."
   :straight t
   :ensure t)
 
+    ;; install markdown plantuml graphviz pandoc
+   ;; https://github.com/plantuml/plantuml/releases
+   ;; PlantUML support
+   (use-package plantuml-mode
+     :straight t
+     :ensure t
+     :mode ("\\.puml\\'" . plantuml-mode)
+     :config
+     (setq plantuml-jar-path "/home/carpent7/.emacs.d/.local/etc/plantuml.jar")
+     (setq plantuml-default-exec-mode 'jar)) ;; or 'executable if using plantuml CLI
+   ;; C-c C-c in example.puml to check diagram creation
+   ;; C-c C-c in example.md to list markdown actions
+   ;; markdown command is needed for preview in browser
+
 ;; ;; To toggle the highlight of the symbol under the cursor in all buffers:
 (use-package highlight-thing
   :straight t
