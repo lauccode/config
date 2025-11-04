@@ -340,6 +340,14 @@ Reuse the existing grep buffer window if open."
 (use-package markdown-preview-mode
   :straight t
   :commands (markdown-preview-mode))
+(setq markdown-preview-stylesheets '("file:///home/user/custom.css"))
+;; body {
+;;   background-color: white;
+;;   color: black;
+;;   font-family: sans-serif;
+;;   padding: 2em;
+;; }
+
 
     ;; install markdown plantuml graphviz pandoc
    ;; https://github.com/plantuml/plantuml/releases
