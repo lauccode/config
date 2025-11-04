@@ -398,9 +398,22 @@ M-x org-babel-tangle
 
 ** markdown-mode
 #+BEGIN_SRC emacs-lisp :tangle init.el
-  (use-package markdown-mode
-    :straight t
-    :ensure t)
+
+;; markdown-mode basics
+(use-package markdown-mode
+  :straight t
+  :mode ("\\.md\\'" . markdown-mode)
+  :init
+  ;; la commande pandoc avec le filtre pandoc-plantuml
+  (setq markdown-command
+        "pandoc --filter pandoc-plantuml --standalone --quiet"))
+;; install markdown plantuml graphviz pandoc
+;; need to install pandoc and pandoc-plantuml-filter
+
+;; live preview in browser
+(use-package markdown-preview-mode
+  :straight t
+  :commands (markdown-preview-mode))
 
     ;; install markdown plantuml graphviz pandoc
    ;; https://github.com/plantuml/plantuml/releases
