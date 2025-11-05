@@ -415,33 +415,23 @@ M-x org-babel-tangle
   :straight t
   :commands (markdown-preview-mode)
   :config
-  (setq markdown-preview-stylesheets (list "http://thomasf.github.io/solarized-css/solarized-light.min.css" "
+  (setq markdown-preview-stylesheets (list "
 <style>
 body {
   background-color: white;
   color: black;
-  font-family: sans-serif;
-  ;; padding: 2em;
+  ;; font-family: sans-serif;
+  ;; margin: 0;
+  ;; padding: 0;
+  ;; text-align: left;
 }
 .markdown-body {
   max-width: none !important;
   width: 100vw !important; /* full viewport width */
-  ;; margin: 0 auto;
-  ;; padding: 2em;
-  ;; font-size: 1em;
-  ;; line-height: 1.6;
-  ;; box-sizing: border-box;
-}
-.container {
-  ;; max-width: none !important;
-  ;; width: 100vw !important;
-}
-pre, code {
-  ;; white-space: pre-wrap; /* or try pre-line or normal */
-  ;; word-wrap: break-word;
 }
 </style>
 ")))
+
 
 
     ;; install markdown plantuml graphviz pandoc
