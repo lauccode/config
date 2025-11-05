@@ -339,8 +339,10 @@ Reuse the existing grep buffer window if open."
 ;; live preview in browser
 (use-package markdown-preview-mode
   :straight t
-  :commands (markdown-preview-mode))
-(setq markdown-preview-stylesheets '("file:///home/user/custom.css"))
+  :commands (markdown-preview-mode)
+  :config
+(setq markdown-preview-stylesheets (list "http://thomasf.github.io/solarized-css/solarized-light.min.css")))
+
 ;; body {
 ;;   background-color: white;
 ;;   color: black;
