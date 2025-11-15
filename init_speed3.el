@@ -339,9 +339,9 @@ Reuse the existing grep buffer window if open."
 ;; install eaf
 ;; https://github.com/emacs-eaf/emacs-application-framework#install
 ;; eaf-open to preview md
-(add-to-list 'load-path "~/.emacs.d/site-lisp/emacs-application-framework/")
-(require 'eaf)
-(require 'eaf-markdown-previewer)
+;; (add-to-list 'load-path "~/.emacs.d/site-lisp/emacs-application-framework/")
+;; (require 'eaf)
+;; (require 'eaf-markdown-previewer)
 
 ;; live preview in browser
 (use-package markdown-preview-mode
