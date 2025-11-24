@@ -203,12 +203,10 @@
 
 (use-package tree-sitter
   :straight t
-  :ensure t
   :hook ((c-mode c++-mode python-mode) . tree-sitter-mode)
   :config
   (use-package tree-sitter-langs
     :straight t
-    :ensure t
     :config
     (tree-sitter-require 'cpp)
     (tree-sitter-require 'c)
@@ -282,7 +280,6 @@ Reuse the existing grep buffer window if open."
 ;; Collection of Ridiculously Useful eXtensions
 (use-package crux
   :straight t
-  :ensure t
   :config
   (global-set-key (kbd "C-a") 'crux-move-beginning-of-line)
   (global-set-key (kbd "C-o") 'crux-smart-open-line)
@@ -293,14 +290,12 @@ Reuse the existing grep buffer window if open."
 
 (use-package doom-themes
   :straight t
-  :ensure t
   :config
   ;; (load-theme 'leuven-dark nil)
   )
 
 (use-package material-theme
   :straight t
-  :ensure t
   :config
   ;; (load-theme 'material-light t)
   (load-theme 'material t)
@@ -308,13 +303,11 @@ Reuse the existing grep buffer window if open."
 
 (use-package powerline
   :straight t
-  :ensure t
   :config
   (powerline-default-theme))
 
 (use-package undo-tree
   :straight t
-  :ensure t
   :init
   (setq undo-tree-auto-save-history t)
   (setq undo-tree-history-directory-alist
@@ -371,7 +364,6 @@ Reuse the existing grep buffer window if open."
    ;; PlantUML support
    (use-package plantuml-mode
      :straight t
-     :ensure t
      :mode ("\\.puml\\'" . plantuml-mode)
      :config
      (setq plantuml-jar-path "/home/user/.emacs.d/.local/etc/plantuml.jar")
@@ -382,8 +374,7 @@ Reuse the existing grep buffer window if open."
 
 ;; ;; To toggle the highlight of the symbol under the cursor in all buffers:
 (use-package highlight-thing
-  :straight t
-  :ensure t)
+  :straight t)
 (require 'highlight-thing)
 ;; Define a list of colors
 (defvar highlight-symbol-colors '("yellow" "cyan" "magenta" "green" "blue" "orange" "red" "purple")
@@ -443,13 +434,11 @@ Reuse the existing grep buffer window if open."
 
 (use-package expand-region
   :straight t
-  :ensure t
   :config
   (global-set-key (kbd "C-=") 'er/expand-region))
 
 (use-package drag-stuff
   :straight t
-  :ensure t
   :config
   (drag-stuff-global-mode 1)
   (global-set-key (kbd "M-<up>") 'drag-stuff-up)
@@ -457,14 +446,12 @@ Reuse the existing grep buffer window if open."
 
 (use-package savehist
   :straight t
-  :ensure t
   :init
   (savehist-mode 1)
   (setq savehist-additional-variables '(command-history)))
 
 (use-package eglot
   :straight t
-  :ensure t
   ;; 2. **Install `clangd`**: Install `clangd` if you haven't already. You can install it using a package manager like `brew`, `apt`, or `choco`:
   ;; sudo apt install clangd
   ;; 3. **Configure Eglot for C++**: Add `clangd` to Eglot's configuration for C++ mode:
@@ -523,7 +510,6 @@ Reuse the existing grep buffer window if open."
 
 (use-package magit
   :straight t
-  :ensure t
   :bind (("C-x g" . magit-status)
          ("C-x M-g" . magit-dispatch)))
 ;; seems needed to have magit ok to find git
@@ -534,13 +520,11 @@ Reuse the existing grep buffer window if open."
 
 (use-package git-gutter
   :straight t
-  :ensure t
   :config
   (global-git-gutter-mode +1))
 
 (use-package vertico
   :straight t
-  :ensure t
   :init
   (vertico-mode)
   :config
@@ -552,12 +536,10 @@ Reuse the existing grep buffer window if open."
 ;; Optional enhancements
 (use-package marginalia
   :straight t
-  :ensure t
   :init
   (marginalia-mode))
 (use-package orderless
   :straight t
-  :ensure t
   :custom
   (completion-styles '(orderless basic))
   (completion-category-defaults nil)
@@ -565,7 +547,6 @@ Reuse the existing grep buffer window if open."
 
 (use-package consult
   :straight t
-  :ensure t
   :bind (("C-s" . consult-line)    ;; "M-n" to retrieve line under cursor when in mini-buffer 
          ("M-y" . consult-yank-pop)
          ("C-x b" . consult-buffer)
@@ -611,14 +592,12 @@ Reuse the existing grep buffer window if open."
 
 ; (use-package deadgrep
 ;              :straight t
-;              :ensure t
 ;              :init
 ;              :config
 ;              (global-set-key (kbd "<f5>") #'deadgrep))
 
 ; (use-package rg
 ;              :straight t
-;              :ensure t
 ;              :init
 ;              :config
 ;              (rg-enable-default-bindings)) ;; C-c S
@@ -629,7 +608,6 @@ Reuse the existing grep buffer window if open."
 ;; Install and configure which-key
 (use-package which-key
   :straight t
-  :ensure t
   :init
   :config
   (which-key-mode t)
@@ -638,8 +616,7 @@ Reuse the existing grep buffer window if open."
 
 ;; ;; Install lua-mode
 ;; (use-package lua-mode
-;;              :straight t
-;;              :ensure t)
+;;              :straight t)
 ;; ;; Download love-minor-mode: Clone the love-minor-mode repository from GitHub.
 ;; ;; git clone https://github.com/ejmr/love-minor-mode.git ~/.emacs.d/love-minor-mode
 ;; ;; Load love-minor-mode
@@ -653,7 +630,6 @@ Reuse the existing grep buffer window if open."
 ;; Install multiple-cursors
   ;; (use-package multiple-cursors
   ;;   :straight t
-  ;;   :ensure t
   ;;   :bind (("C-S-c C-S-c" . mc/edit-lines)
   ;;          ;; ("C-<" . mc/mark-next-like-this)
   ;;          ;; ("C-M-<" . mc/skip-to-next-like-this)
@@ -667,7 +643,6 @@ Reuse the existing grep buffer window if open."
 ;; (require 'vterm)
 (use-package vterm
   :straight t
-  :ensure t
   :bind ("C-c t" . my-vterm)
   :config
   (setq vterm-size 80)
@@ -686,7 +661,6 @@ Reuse the existing grep buffer window if open."
 
 ;; (use-package org-download
 ;;     :straight t
-;;   :ensure t
 ;;   :config
 ;;   (setq org-download-image-dir "images")
 ;;   (add-hook 'dired-mode-hook 'org-download-enable))
@@ -754,7 +728,6 @@ Reuse the existing grep buffer window if open."
 
 ; (use-package pulsar
 ;              :straight t
-;              :ensure t
 ;              :config
 ;              (pulsar-global-mode 1))
 ; (add-hook 'minibuffer-setup-hook #'pulsar-pulse-line)
@@ -763,7 +736,6 @@ Reuse the existing grep buffer window if open."
 ;; add easier switch windows
 (use-package switch-window
   :straight t
-  :ensure t
   :config
   ;; (advice-add 'switch-window :after 'pulsar-pulse-line)
 
@@ -807,7 +779,6 @@ Reuse the existing grep buffer window if open."
   ;; ace-winwow
   ;; (use-package ace-window
   ;;   :straight t
-  ;;   :ensure t
   ;;   :config
   ;;   ;; (advice-add 'switch-window :after 'pulsar-pulse-line)
   ;;   (global-set-key (kbd "M-o") 'ace-window)
@@ -815,8 +786,7 @@ Reuse the existing grep buffer window if open."
 
 
 (use-package meow
-  :straight t
-  :ensure t)
+  :straight t)
 (defun meow-setup ()
   (setq meow-cheatsheet-layout meow-cheatsheet-layout-qwerty)
   (meow-motion-overwrite-define-key
