@@ -255,12 +255,10 @@ M-x org-babel-tangle
 
 (use-package tree-sitter
   :straight t
-  :ensure t
   :hook ((c-mode c++-mode python-mode) . tree-sitter-mode)
   :config
   (use-package tree-sitter-langs
     :straight t
-    :ensure t
     :config
     (tree-sitter-require 'cpp)
     (tree-sitter-require 'c)
@@ -340,7 +338,6 @@ M-x org-babel-tangle
   ;; Collection of Ridiculously Useful eXtensions
   (use-package crux
     :straight t
-    :ensure t
     :config
     (global-set-key (kbd "C-a") 'crux-move-beginning-of-line)
     (global-set-key (kbd "C-o") 'crux-smart-open-line)
@@ -354,7 +351,6 @@ M-x org-babel-tangle
 #+BEGIN_SRC emacs-lisp :tangle init.el
   (use-package doom-themes
     :straight t
-    :ensure t
     :config
     ;; (load-theme 'leuven-dark nil)
     )
@@ -364,7 +360,6 @@ M-x org-babel-tangle
 #+BEGIN_SRC emacs-lisp :tangle init.el
   (use-package material-theme
     :straight t
-    :ensure t
     :config
     ;; (load-theme 'material-light t)
     (load-theme 'material t)
@@ -375,7 +370,6 @@ M-x org-babel-tangle
 #+BEGIN_SRC emacs-lisp :tangle init.el
   (use-package powerline
     :straight t
-    :ensure t
     :config
     (powerline-default-theme))
 #+END_SRC
@@ -384,7 +378,6 @@ M-x org-babel-tangle
 #+BEGIN_SRC emacs-lisp :tangle init.el
   (use-package undo-tree
     :straight t
-    :ensure t
     :init
     (setq undo-tree-auto-save-history t)
     (setq undo-tree-history-directory-alist
@@ -444,7 +437,6 @@ M-x org-babel-tangle
    ;; PlantUML support
    (use-package plantuml-mode
      :straight t
-     :ensure t
      :mode ("\\.puml\\'" . plantuml-mode)
      :config
      (setq plantuml-jar-path "/home/user/.emacs.d/.local/etc/plantuml.jar")
@@ -459,8 +451,7 @@ M-x org-babel-tangle
 #+BEGIN_SRC emacs-lisp :tangle init.el
   ;; ;; To toggle the highlight of the symbol under the cursor in all buffers:
   (use-package highlight-thing
-    :straight t
-    :ensure t)
+    :straight t)
   (require 'highlight-thing)
   ;; Define a list of colors
   (defvar highlight-symbol-colors '("yellow" "cyan" "magenta" "green" "blue" "orange" "red" "purple")
@@ -523,7 +514,6 @@ M-x org-babel-tangle
 #+BEGIN_SRC emacs-lisp :tangle init.el
   (use-package expand-region
     :straight t
-    :ensure t
     :config
     (global-set-key (kbd "C-=") 'er/expand-region))
 #+END_SRC
@@ -532,7 +522,6 @@ M-x org-babel-tangle
 #+BEGIN_SRC emacs-lisp :tangle init.el
   (use-package drag-stuff
     :straight t
-    :ensure t
     :config
     (drag-stuff-global-mode 1)
     (global-set-key (kbd "M-<up>") 'drag-stuff-up)
@@ -543,7 +532,6 @@ M-x org-babel-tangle
 #+BEGIN_SRC emacs-lisp :tangle init.el
   (use-package savehist
     :straight t
-    :ensure t
     :init
     (savehist-mode 1)
     (setq savehist-additional-variables '(command-history)))
@@ -553,7 +541,6 @@ M-x org-babel-tangle
 #+BEGIN_SRC emacs-lisp :tangle init.el
   (use-package eglot
     :straight t
-    :ensure t
     ;; 2. **Install `clangd`**: Install `clangd` if you haven't already. You can install it using a package manager like `brew`, `apt`, or `choco`:
     ;; sudo apt install clangd
     ;; 3. **Configure Eglot for C++**: Add `clangd` to Eglot's configuration for C++ mode:
@@ -624,7 +611,6 @@ M-x org-babel-tangle
 #+BEGIN_SRC emacs-lisp :tangle init.el
   (use-package magit
     :straight t
-    :ensure t
     :bind (("C-x g" . magit-status)
            ("C-x M-g" . magit-dispatch)))
   ;; seems needed to have magit ok to find git
@@ -638,7 +624,6 @@ M-x org-babel-tangle
 #+BEGIN_SRC emacs-lisp :tangle init.el
   (use-package git-gutter
     :straight t
-    :ensure t
     :config
     (global-git-gutter-mode +1))
 #+END_SRC
@@ -647,7 +632,6 @@ M-x org-babel-tangle
 #+BEGIN_SRC emacs-lisp :tangle init.el
   (use-package vertico
     :straight t
-    :ensure t
     :init
     (vertico-mode)
     :config
@@ -659,12 +643,10 @@ M-x org-babel-tangle
   ;; Optional enhancements
   (use-package marginalia
     :straight t
-    :ensure t
     :init
     (marginalia-mode))
   (use-package orderless
     :straight t
-    :ensure t
     :custom
     (completion-styles '(orderless basic))
     (completion-category-defaults nil)
@@ -675,7 +657,6 @@ M-x org-babel-tangle
 #+BEGIN_SRC emacs-lisp :tangle init.el
   (use-package consult
     :straight t
-    :ensure t
     :bind (("C-s" . consult-line)    ;; "M-n" to retrieve line under cursor when in mini-buffer 
            ("M-y" . consult-yank-pop)
            ("C-x b" . consult-buffer)
@@ -724,7 +705,6 @@ M-x org-babel-tangle
 #+BEGIN_SRC emacs-lisp :tangle init.el
   					; (use-package deadgrep
   					;              :straight t
-  					;              :ensure t
   					;              :init
   					;              :config
   					;              (global-set-key (kbd "<f5>") #'deadgrep))
@@ -735,7 +715,6 @@ M-x org-babel-tangle
 #+BEGIN_SRC emacs-lisp :tangle init.el
   					; (use-package rg
   					;              :straight t
-  					;              :ensure t
   					;              :init
   					;              :config
   					;              (rg-enable-default-bindings)) ;; C-c S
@@ -749,7 +728,6 @@ M-x org-babel-tangle
   ;; Install and configure which-key
   (use-package which-key
     :straight t
-    :ensure t
     :init
     :config
     (which-key-mode t)
@@ -761,8 +739,7 @@ M-x org-babel-tangle
 #+BEGIN_SRC emacs-lisp :tangle init.el
   ;; ;; Install lua-mode
   ;; (use-package lua-mode
-  ;;              :straight t
-  ;;              :ensure t)
+  ;;              :straight t)
   ;; ;; Download love-minor-mode: Clone the love-minor-mode repository from GitHub.
   ;; ;; git clone https://github.com/ejmr/love-minor-mode.git ~/.emacs.d/love-minor-mode
   ;; ;; Load love-minor-mode
@@ -779,7 +756,6 @@ M-x org-babel-tangle
   ;; Install multiple-cursors
   ;; (use-package multiple-cursors
   ;;   :straight t
-  ;;   :ensure t
   ;;   :bind (("C-S-c C-S-c" . mc/edit-lines)
   ;;          ;; ("C-<" . mc/mark-next-like-this)
   ;;          ;; ("C-M-<" . mc/skip-to-next-like-this)
@@ -796,7 +772,6 @@ M-x org-babel-tangle
   ;; (require 'vterm)
   (use-package vterm
     :straight t
-    :ensure t
     :bind ("C-c t" . my-vterm)
     :config
     (setq vterm-size 80)
@@ -818,7 +793,6 @@ M-x org-babel-tangle
 
   ;; (use-package org-download
   ;;     :straight t
-  ;;   :ensure t
   ;;   :config
   ;;   (setq org-download-image-dir "images")
   ;;   (add-hook 'dired-mode-hook 'org-download-enable))
@@ -889,7 +863,6 @@ M-x org-babel-tangle
 #+BEGIN_SRC emacs-lisp :tangle init.el
   					; (use-package pulsar
   					;              :straight t
-  					;              :ensure t
   					;              :config
   					;              (pulsar-global-mode 1))
   					; (add-hook 'minibuffer-setup-hook #'pulsar-pulse-line)
@@ -901,7 +874,6 @@ M-x org-babel-tangle
   ;; add easier switch windows
   (use-package switch-window
     :straight t
-    :ensure t
     :config
     ;; (advice-add 'switch-window :after 'pulsar-pulse-line)
 
@@ -945,7 +917,6 @@ M-x org-babel-tangle
   ;; ace-winwow
   ;; (use-package ace-window
   ;;   :straight t
-  ;;   :ensure t
   ;;   :config
   ;;   ;; (advice-add 'switch-window :after 'pulsar-pulse-line)
   ;;   (global-set-key (kbd "M-o") 'ace-window)
@@ -955,8 +926,7 @@ M-x org-babel-tangle
 ** meow
 #+BEGIN_SRC emacs-lisp :tangle init.el
   (use-package meow
-    :straight t
-    :ensure t)
+    :straight t)
   (defun meow-setup ()
     (setq meow-cheatsheet-layout meow-cheatsheet-layout-qwerty)
     (meow-motion-overwrite-define-key
