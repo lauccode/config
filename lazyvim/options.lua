@@ -140,6 +140,13 @@ vim.g.neovide_opacity = 0.95
 vim.g.transparency = 0.9
 vim.g.neovide_background_color = "#0f1117" .. alpha()
 
+-- remove underscore error with markdown
+vim.api.nvim_create_autocmd("FileType", {
+  callback = function(args)
+    pcall(vim.treesitter.start, args.buf)
+  end,
+})
+
 -- ▗▖ ▗▖▗▄▄▄▖▗▖  ▗▖▗▖  ▗▖ ▗▄▖ ▗▄▄▖  ▗▄▄▖
 -- ▐▌▗▞▘▐▌    ▝▚▞▘ ▐▛▚▞▜▌▐▌ ▐▌▐▌ ▐▌▐▌
 -- ▐▛▚▖ ▐▛▀▀▘  ▐▌  ▐▌  ▐▌▐▛▀▜▌▐▛▀▘  ▝▀▚▖
