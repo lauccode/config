@@ -1,0 +1,4 @@
+
+#!/usr/bin/env bash
+fzf --preview 'bat --color=always {}' --preview-window '~3' \
+    --bind 'enter:become($EDITOR {1})'
