@@ -206,3 +206,5 @@ vim.keymap.set("n", "dw", [["_dw]], { desc = "Delete word without overwriting re
 
 vim.keymap.set("n", "<leader>uM", function() require("snacks.dashboard").open() end, { desc = "Open Snacks Dashboard" })
 
+vim.keymap.set("n", "<leader>tt", function() require("obsidian").util.toggle_checkbox() end, { desc = "Toggle checkbox" })
+
