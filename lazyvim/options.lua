@@ -80,6 +80,8 @@ vim.cmd("tnoremap <Esc> <C-\\><C-n>")
 
 -- set spell in french and english for markdown
 vim.cmd(":setlocal spell spelllang=fr,en_gb")
+  -- :setlocal nospell    (to desactivate spell correction)
+  -- z, =    (to check spell error correction)
 
 -- define server for plantuml in markdown !! 
 vim.g.mkdp_preview_options = {
