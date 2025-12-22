@@ -2,6 +2,7 @@ return {
   -- :setlocal nospell    (to desactivate spell correction)
   -- :setlocal spell spelllang=fr,en_gb
   -- z, =    (to check spell error correction)
+  -- put .markdownlint.json at root of .md to remove warning
   "epwalsh/obsidian.nvim", -- or markdown-todo.nvim
   -- Load only for Markdown buffers (optional, keeps things light)
   ft = "markdown",
