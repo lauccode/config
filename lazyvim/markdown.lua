@@ -1,5 +1,6 @@
 return {  
   -- :setlocal nospell    (to desactivate spell correction)
+  -- :setlocal spell spelllang=fr,en_gb
   "epwalsh/obsidian.nvim", -- or markdown-todo.nvim
   -- Load only for Markdown buffers (optional, keeps things light)
   ft = "markdown",
