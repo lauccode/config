@@ -1,4 +1,5 @@
-return {
+return {  
+  -- :setlocal nospell    (to desactivate spell correction)
   "epwalsh/obsidian.nvim", -- or markdown-todo.nvim
   -- Load only for Markdown buffers (optional, keeps things light)
   ft = "markdown",
