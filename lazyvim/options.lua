@@ -78,6 +78,9 @@ vim.cmd("tnoremap <Esc> <C-\\><C-n>")
 
 -- vim.cmd("nnoremap <C-w>m <C-w>\\| <C-w>_") --maximize window
 
+-- set spell in french and english for markdown
+vim.cmd(":setlocal spell spelllang=fr,en_gb")
+
 -- define server for plantuml in markdown !! 
 vim.g.mkdp_preview_options = {
   uml = {
