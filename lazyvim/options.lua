@@ -153,7 +153,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- align table in markdown file (plugins/minialign.lua)
--- ga and give the character 
+-- visual selection, "ga", give character to align
 
 -- ▗▖ ▗▖▗▄▄▄▖▗▖  ▗▖▗▖  ▗▖ ▗▄▖ ▗▄▄▖  ▗▄▄▖
 -- ▐▌▗▞▘▐▌    ▝▚▞▘ ▐▛▚▞▜▌▐▌ ▐▌▐▌ ▐▌▐▌
