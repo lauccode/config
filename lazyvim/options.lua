@@ -24,7 +24,7 @@ vim.cmd("packadd cfilter") -- allow filter on quickfix list (:Cfilter cpp, colde
 vim.cmd("set lcs=tab:»_,trail:·,eol:$")
 vim.cmd("set norelativenumber") -- set rnu; set nrnu; set rnu!(toggle)
 vim.cmd("set inccommand=split") -- preview for substitute commande
-vim.cmd("set cwh=30") -- high for the preview of incommand
+vim.cmd("set cwh=30") -- high for the preview of incommandal
 vim.cmd("set makeprg=ninja")
 -- can use ":make" to build
 -- build example
@@ -151,6 +151,9 @@ vim.api.nvim_create_autocmd("FileType", {
     pcall(vim.treesitter.start, args.buf)
   end,
 })
+
+-- align table in markdown file (plugins/minialign.lua)
+-- ga and give the character 
 
 -- ▗▖ ▗▖▗▄▄▄▖▗▖  ▗▖▗▖  ▗▖ ▗▄▖ ▗▄▄▖  ▗▄▄▖
 -- ▐▌▗▞▘▐▌    ▝▚▞▘ ▐▛▚▞▜▌▐▌ ▐▌▐▌ ▐▌▐▌
