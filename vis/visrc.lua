@@ -23,7 +23,7 @@ local plugins = {
     -- Curseurs multiples
     { 'erf/vis-cursors' },
     -- Highlight avancé (alias hi)
-    { 'erf/vis-highlight', alias = 'hi' },
+    -- { 'erf/vis-highlight', alias = 'hi' },
     -- Thème Gruvbox (sera appliqué automatiquement)
     { 'samlwood/vis-gruvbox', theme = true, file = 'gruvbox' },
     -- LSP externe (alias lsp)
@@ -38,10 +38,10 @@ plug.init(plugins, true)
 -----------------------------------------------------------
 -- Configuration globale
 -----------------------------------------------------------
-vis.events.subscribe(vis.events.INIT, function()
-    -- Exemple : configurer le plugin highlight via alias
-    plug.plugins.hi.patterns['+\\n'] = { style = 'back:#444444' }
-end)
+-- vis.events.subscribe(vis.events.INIT, function()
+--     -- Exemple : configurer le plugin highlight via alias
+--     plug.plugins.hi.patterns['+\\n'] = { style = 'back:#444444' }
+-- end)
 
 -----------------------------------------------------------
 -- Configuration par fenêtre
