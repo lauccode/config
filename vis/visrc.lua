@@ -1,50 +1,52 @@
--- load standard vis module, providing parts of the Lua API
+-- Charger l’API standard de vis
 require('vis')
+-- visrc.lua in home
 
--- look default install in /usr/share/vis/
+-----------------------------------------------------------
+-- Installation automatique de vis-plug si absent
+-----------------------------------------------------------
+local plug = (function ()
+    if not pcall(require, 'plugins/vis-plug') then
+        os.execute(
+            'git clone --quiet https://github.com/erf/vis-plug ' ..
+            (os.getenv('XDG_CONFIG_HOME') or os.getenv('HOME') .. '/.config') ..
+            '/vis/plugins/vis-plug'
+        )
+    end
+    return require('plugins/vis-plug')
+end)()
 
--- in ~/.config/vis/
--- git clone https://github.com/erf/vis-plug.git
-local plug = require('plugins/vis-plug')
-
--- configure plugins in an array of tables with git urls and options 
+-----------------------------------------------------------
+-- Déclaration des plugins
+-----------------------------------------------------------
 local plugins = {
-
-	-- load a plugin given a repo (https://github.com/ can be omitted and expects a 'init.lua' file)
-	{ 'erf/vis-cursors' },
-
-	-- first parameter is a shorthand for 'url'
-	{ url = 'erf/vis-cursors' },
-
-	-- specify the lua file to require (or theme to set) and give a ref (commit, branch, tag) to checkout
-	-- { 'erf/vis-test', file = 'test', ref = 'some-branch' },
-
-	-- specify an alias to later use to access plugin variables (see example below)
-	{ 'erf/vis-highlight', alias = 'hi' },
-
-	-- configure themes by setting 'theme = true'. The theme 'file' will be set on INIT
-	{ 'samlwood/vis-gruvbox', theme = true, file = 'gruvbox' },
-
-	{ 'fischerling/vis-lspc' },
-        { 'fischerling/vis-lspc', alias = 'lsp' },
+    -- Curseurs multiples
+    { 'erf/vis-cursors' },
+    -- Highlight avancé (alias hi)
+    { 'erf/vis-highlight', alias = 'hi' },
+    -- Thème Gruvbox (sera appliqué automatiquement)
+    { 'samlwood/vis-gruvbox', theme = true, file = 'gruvbox' },
+    -- LSP externe (alias lsp)
+    { 'fischerling/vis-lspc', alias = 'lsp' },
 }
 
--- require and optionally install plugins on init
+-----------------------------------------------------------
+-- Initialisation + installation automatique
+-----------------------------------------------------------
 plug.init(plugins, true)
 
--- access plugins via alias
--- plug.plugins.hi.patterns[' +\n'] = { style = 'back:#444444' }
-
-
--- Mapping configuration example
+-----------------------------------------------------------
+-- Configuration globale
+-----------------------------------------------------------
 vis.events.subscribe(vis.events.INIT, function()
-
+    -- Exemple : configurer le plugin highlight via alias
+    plug.plugins.hi.patterns['+\\n'] = { style = 'back:#444444' }
 end)
 
-vis.events.subscribe(vis.events.WIN_OPEN, 
-function(win)
-	-- Your per window configuration options e.g.
-	-- vis:command('set number')
+-----------------------------------------------------------
+-- Configuration par fenêtre
+-----------------------------------------------------------
+vis.events.subscribe(vis.events.WIN_OPEN, function(win)
     vis:command('set number')
 end)
 
