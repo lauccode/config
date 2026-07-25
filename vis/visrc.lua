@@ -24,7 +24,7 @@ local plugins = {
     -- Curseurs multiples
     { 'erf/vis-cursors' },
     -- Highlight avancé (alias hi)
-    -- { 'erf/vis-highlight', alias = 'hi' },
+    -- { 'erf/vis-highlight', alias = 'hi' },  -- SEMBLE PAS MAINTENU, voir open issue ...
     -- Thème Gruvbox (sera appliqué automatiquement)
     { 'samlwood/vis-gruvbox', theme = true, file = 'gruvbox' },
     -- LSP externe (alias lsp)
