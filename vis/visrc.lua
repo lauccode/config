@@ -1,6 +1,7 @@
 -- Charger l’API standard de vis
 require('vis')
--- visrc.lua in home
+-- mettre ce fichier dans le HOME
+-- voir plugins dans ~/.cache/vis-plug/
 
 -----------------------------------------------------------
 -- Installation automatique de vis-plug si absent
