@@ -50,5 +50,5 @@ end)
 -- Configuration par fenêtre
 -----------------------------------------------------------
 vis.events.subscribe(vis.events.WIN_OPEN, function(win)
-    vis:command('set number')
+    vis:command('set nu')
 end)
