@@ -1,7 +1,7 @@
 -- Charger l’API standard de vis
 require('vis')
--- mettre ce fichier dans le HOME
--- voir plugins dans ~/.cache/vis-plug/
+
+-- visrc.lua in home
 
 -----------------------------------------------------------
 -- Installation automatique de vis-plug si absent
@@ -24,7 +24,7 @@ local plugins = {
     -- Curseurs multiples
     { 'erf/vis-cursors' },
     -- Highlight avancé (alias hi)
-    -- { 'erf/vis-highlight', alias = 'hi' },  -- SEMBLE PAS MAINTENU, voir open issue ...
+    -- { 'erf/vis-highlight', alias = 'hi' },
     -- Thème Gruvbox (sera appliqué automatiquement)
     { 'samlwood/vis-gruvbox', theme = true, file = 'gruvbox' },
     -- LSP externe (alias lsp)
@@ -48,7 +48,7 @@ plug.init(plugins, true)
 -- Configuration par fenêtre
 -----------------------------------------------------------
 vis.events.subscribe(vis.events.WIN_OPEN, function(win)
-    vis:command('set number')
+    vis:command('set nu')
 end)
 
 -- --vffzf
@@ -70,4 +70,3 @@ end)
 --     --preview 'bat --color=always {1} --highlight-line {2}' \
 --     --preview-window 'up,60%,border-bottom,+{2}+3/3,~3' \
 --     --bind 'enter:become($EDITOR +{2} {1})'
-
