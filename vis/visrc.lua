@@ -2,6 +2,7 @@
 require('vis')
 
 -- visrc.lua in home
+-- plugin dans ~/.cache/vis-plug/plugins/
 
 -----------------------------------------------------------
 -- Installation automatique de vis-plug si absent
@@ -50,6 +51,10 @@ plug.init(plugins, true)
 vis.events.subscribe(vis.events.WIN_OPEN, function(win)
     vis:command('set nu')
 end)
+
+-- TEST LSP
+-- https://github.com/memsharded/hello
+-- cmake . -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=1
 
 -- --vffzf
 -- #!/usr/bin/env bash
