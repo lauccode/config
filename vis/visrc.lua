@@ -3,6 +3,7 @@ require('vis')
 
 -- visrc.lua in home
 -- plugin dans ~/.cache/vis-plug/plugins/
+-- $HOME/.config/vis/ sous WSL Ubuntu
 
 -----------------------------------------------------------
 -- Installation automatique de vis-plug si absent
