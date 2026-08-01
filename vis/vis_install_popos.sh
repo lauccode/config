@@ -1,8 +1,8 @@
 # for last version
 sudo luarocks install lpeg
-sudo apt install liblua5.4-dev/noble
-sudo apt install lua-lpeg-dev/noble
-sudo apt install clangd/noble  # to test LSP
+sudo apt install liblua5.4-dev
+sudo apt install lua-lpeg-dev
+sudo apt install clangd  # to test LSP
 
 git clone https://github.com/martanne/vis.git
 cd vis
