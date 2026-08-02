@@ -9,3 +9,7 @@ cd vis
 make clean
 ./configure --enable-lua --enable-lpeg-static && make && sudo make install
 vis -v
+
+
+# Résolu ?
+# https://github.com/erf/vis-highlight/issues/5
