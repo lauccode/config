@@ -1,16 +1,12 @@
 # config for helix
 # ~/.config/helix/config.toml
-# In .bashrc :
-# export HELIX_RUNTIME=~/helix/runtime
-# For fish in ~/.config/fish/config.fish :
-# nano ~/.config/fish/config.fish
-# put themes in ~/.config/helix/themes/
 
 theme = "onedark"
 
 [editor]
 line-number = "absolute"
 mouse = true
+rainbow-brackets = true
 
 [editor.cursor-shape]
 # insert = "bar"
